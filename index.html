@@ -1,1844 +1,361 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>Thresh</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="一个有趣热爱技术的人">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Thresh - Blog</title><meta name="author" content="Thresh"><meta name="copyright" content="Thresh"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一个有趣热爱技术的人">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Thresh">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Thresh">
 <meta property="og:description" content="一个有趣热爱技术的人">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/avatar.png">
 <meta property="article:author" content="Thresh">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/avatar.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Thresh',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-06-14 11:16:14'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
   
-    <link rel="alternate" href="/atom.xml" title="Thresh" type="application/atom+xml">
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
   
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
   
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
-
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
-  
-<meta name="generator" content="Hexo 6.3.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Thresh</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Blog</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-React-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/06/14/React-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time class="dt-published" datetime="2023-06-14T02:58:18.000Z" itemprop="datePublished">2023-06-14</time>
-</a>
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/06/14/React-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">React | 青训营笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="React-青训营笔记"><a href="#React-青训营笔记" class="headerlink" title="React | 青训营笔记"></a>React | 青训营笔记</h1><h2 id="React-的历史与应用"><a href="#React-的历史与应用" class="headerlink" title="React 的历史与应用"></a>React 的历史与应用</h2><h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a><strong>应用</strong></h3><ul>
-<li>前端应用开发，如 Facebook，Instagram，Netflix 网页版。</li>
-<li>移动原生应用开发，如 Instagram，Discord，Oculus。</li>
-<li>结合 Electron，进行桌面应用开发。</li>
-</ul>
-<h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a><strong>历史</strong></h3><p>2010 年 Facebook 在其 php 生态中，引入了 xhp 框架，首次引入了组合式组件的思想，启发了后来的 React 的设计。<br><br>2011 年 Jordan Walke 创造了 FaxJS，也就是后来的 React 原型:<br></p>
-<ul>
-<li>既可以在客户端渲染也可以在服务端渲染</li>
-<li>响应式，当状态变更时，UI 会自动更新。</li>
-<li>性能好，快速渲染</li>
-<li>高度封装组件，函数式声明<br></li>
-</ul>
-<p>2013 年 React 正式开源，在 2013 JSConf 上 Jordan Walke 介绍了这款全新的框架：React<br><br>2014 年 - 今天 生态大爆发，各种围绕 React 的新工具&#x2F;新框架开始涌现<br></p>
-<h2 id="React-的设计思路-–-UI-编程痛点"><a href="#React-的设计思路-–-UI-编程痛点" class="headerlink" title="React 的设计思路 – UI 编程痛点"></a>React 的设计思路 – UI 编程痛点</h2><p>01.状态更新，UI 不会自动更新，需要手动地调用 DOM 进行更新。<br> 02.欠缺基本的代码层面的封装和隔离，代码层面没有组件<br><br>03.UI 之间的数据依赖关系，需要手动维护，如果依赖链路长，则会遇到 Callback Hell。<br></p>
-<h2 id="React-的设计思路-–-响应式与转换式"><a href="#React-的设计思路-–-响应式与转换式" class="headerlink" title="React 的设计思路 – 响应式与转换式"></a>React 的设计思路 – 响应式与转换式</h2><h3 id="转换式系统-≠-响应式系统"><a href="#转换式系统-≠-响应式系统" class="headerlink" title="转换式系统 ≠ 响应式系统"></a><strong>转换式系统 ≠ 响应式系统</strong></h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e074afe0544f4bb5b2fc677635e4beb7~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="什么是响应式系统？"><a href="#什么是响应式系统？" class="headerlink" title="什么是响应式系统？"></a>什么是响应式系统？</h3><p><strong>响应式系统的目标是灵敏度高,系统稳健一直有回复,松耦合和可扩展。</strong><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a3075618bfe049419dfc95b01a6f99e9~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>前端 UI</strong><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/967615ba09a643589e5d26a59a7bd567~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>React 框架的设计思路<br></strong> 01.状态更新，UI 自动更新。<br> 02.前端代码组件化，可复用，可封装。<br> 03.状态之间的互相依赖关系，只需声明即可。<br></p>
-<h2 id="React-的设计与实现-–-组件化"><a href="#React-的设计与实现-–-组件化" class="headerlink" title="React 的设计与实现 – 组件化"></a>React 的设计与实现 – 组件化</h2><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/707cd0ff508b439fb7fd71e5ede03948~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>总结</strong><br> 1.组件是 组件的组合&#x2F;原子组件<br> 2.组件内拥有状态，外部不可见<br> 3.父组件可将状态传入组件内部<br></p>
-<h2 id="React-的设计思路-–-状态归属问题"><a href="#React-的设计思路-–-状态归属问题" class="headerlink" title="React 的设计思路 – 状态归属问题"></a>React 的设计思路 – 状态归属问题</h2><h3 id="状态归属问题"><a href="#状态归属问题" class="headerlink" title="状态归属问题"></a>状态归属问题</h3><p><strong>当前价格</strong>  属于 Root 结点！因为要向下传递，这其实不合理，在下面的状态管理库里会讲到这个的解决方法。<br><br>状态应该归属于两个节点（或多个）向上寻找到的最近共同祖先。<br></p>
-<h2 id="React-的设计与实现-–-组件设计"><a href="#React-的设计与实现-–-组件设计" class="headerlink" title="React 的设计与实现 – 组件设计"></a>React 的设计与实现 – 组件设计</h2><ul>
-<li>组件声明了状态和 UI 的映射</li>
-<li>组件有 Props（外部）&#x2F;State（内部）两种属性</li>
-<li><ul>
-<li>Props 接受父组件传入的状态</li>
-</ul>
-</li>
-<li><ul>
-<li>State 是内部的属性。</li>
-</ul>
-</li>
-<li>可被其他组件组成<br></li>
-<li>学过小程序的同学应该知道，小程序中的属性的双向绑定实际上应该也有用到了这个思想。</li>
-</ul>
-<h3 id="思考？"><a href="#思考？" class="headerlink" title="思考？"></a>思考？</h3><p><strong>React 是单向数据流，还是双向数据流?<br></strong><br>React 是单向数据流，不是双向的；单向数据流指的是数据在某个节点被改动后，只会影响一个方向上的其他节点，而双向绑定指的是数据模型与视图之间绑定，会影响不同方向上的其他节点，React 中的表现就是数据主要通过 props 从父节点传递到子节点，因此是单向数据流的。<br><br><strong>如何解决状态不合理上升的问题?<br></strong><br>通过状态管理库，接下来也会讲到。<br><br><strong>组件的状态改变后，如何更新 DOM?<br></strong><br>每次调用 render() 时， <br><br>react 都会创建一个新的虚拟 DOM，其中根节点是调用其渲染函数的组件。当组件或其任何子组件的状态或道具发生变化时，将调用 render() 函数。render() 函数从根开始销毁所有旧的虚拟 DOM 节点，并创建一个全新的虚拟 DOM。</p>
-<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>挂载 -&gt; 状态更新 -&gt; 卸载</p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c6702a00deec41919fcef4f7351149dc~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/06/14/React-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsa0002h8juhbpp4qq4" data-title="React | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-JavaScript(二)-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/06/14/JavaScript(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time class="dt-published" datetime="2023-06-14T02:57:08.000Z" itemprop="datePublished">2023-06-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/06/14/JavaScript(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">JavaScript(二) | 青训营笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="JavaScript-青训营笔记"><a href="#JavaScript-青训营笔记" class="headerlink" title="JavaScript | 青训营笔记"></a>JavaScript | 青训营笔记</h1><p>2023-1-17<br><br><br>如何写 <strong>好</strong> JavaScript?<br><br>什么才是好的 JavaScript 代码？<br></p>
-<h1 id="写好-JS-的一些原则（一）"><a href="#写好-JS-的一些原则（一）" class="headerlink" title="写好 JS 的一些原则（一）"></a><strong>写好 JS 的一些原则（一）<br></strong></h1><p><strong>各司其职</strong>：让 HTML,CSS，JS 职能分离<br><br><strong>组件封装</strong>：好的 UI 组件具备正确性，扩展性，复用性<br><br><strong>过程抽象</strong>：应用函数式编程思想<br></p>
-<h2 id="各司其职："><a href="#各司其职：" class="headerlink" title="各司其职："></a><strong>各司其职：</strong></h2><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1b94dcf943964ae9b25e7c89607437b7~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="版本一："><a href="#版本一：" class="headerlink" title="版本一："></a><strong>版本一：</strong></h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/33e856425430400a84b925ffde4006f8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>直接用 JavaScript 操作了 CSS，那么提交代码，后期 PM 修改了需求，程序员修改会很困难，也会对后续交付给其他维护代码的程序员造成困扰。<br>让你来优化来怎么做？<br></p>
-<h3 id="版本二："><a href="#版本二：" class="headerlink" title="版本二："></a><strong>版本二：</strong></h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8ffd73c8dd234e5d84e67a6d8b3b730b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>这个版本性对于上个版本，我们操作了 classname，我们用 class 来定义了 HTML 元素的状态，直接操作了 CSS。有一个原则，各司其职，在网页中我们可以说 HTML 是结构，CSS 是表现，JavaScript 是行为。结构表现分离使我们前端工程师基本的原则。那么还有其他改进空间吗？<br></p>
-<h3 id="版本三："><a href="#版本三：" class="headerlink" title="版本三："></a><strong>版本三：</strong></h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7aa171ba784f41a2a7c7b5b4e0e38905~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>控制样式的代码可以用 CSS 来实现，版本三是纯 css 的样式结构，没有 JavaScript 的代码片段。里面用伪类选择器+兄弟选择器，用 checkbox 的状态来改变 content 的样式。<br><br><code>&lt;input id=&quot;modeCheckBox&quot; type=&quot;checkbox&quot;&gt;</code><br><br><code>&lt;label id=&quot;modeBtn&quot; for=&quot;modeCheckBox&quot;&gt;&lt;/label&gt;</code><br></p>
-<h3 id="结论："><a href="#结论：" class="headerlink" title="结论："></a><strong>结论：</strong><br></h3><p>·HTML&#x2F;CSS&#x2F;JS 各司其职<br><br>·应当避免不必要的由 JS 直接操作样式<br><br>·可以用 class 来表示状态<br><br>·纯展示类交互寻求零 JS 方案<br></p>
-<h2 id="组件封装："><a href="#组件封装：" class="headerlink" title="组件封装："></a>组件封装：</h2><h3 id="组件是什么？"><a href="#组件是什么？" class="headerlink" title="组件是什么？"></a><strong>组件是什么</strong>？</h3><p>组件是指 Web 页面上抽出来一个个包含<strong>模版</strong> (HTML)、<strong>功能</strong>(JS) 和<strong>样式</strong>(CSS) 的单元。好的组件具备<strong>封装性、正确性、扩展性、复用性</strong>。<br></p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/42478655b792441390756c3b54dce140~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="结构：HTML"><a href="#结构：HTML" class="headerlink" title="结构：HTML"></a><strong>结构：HTML</strong><br></h3><p>轮播图是一个典型的列表结构，我们可以用无序列表 ul 来实现。</p>
-<h3 id="表现：CSS"><a href="#表现：CSS" class="headerlink" title="表现：CSS"></a>表现：CSS<br></h3><p>·使用 CSS 绝对定位将图片重叠在同一位置<br><br>·轮播图切换的状态使用修饰符(modifier)<br><br>·轮播图切换的动画使用 CSS 中的 transition<br></p>
-<h3 id="行为：JavaScript"><a href="#行为：JavaScript" class="headerlink" title="行为：JavaScript"></a>行为：JavaScript<br></h3><p>API：<br></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Slider</span><br><span class="line">+getSelectedItem()</span><br><span class="line">+getSelectedItemIndex()</span><br><span class="line">+slideTo()</span><br><span class="line">+slideNext()</span><br><span class="line">+slidePrevious()</span><br></pre></td></tr></table></figure>
-
-<h3 id="思考：进一步改进怎么做？"><a href="#思考：进一步改进怎么做？" class="headerlink" title="思考：进一步改进怎么做？"></a>思考：进一步改进怎么做？</h3><h4 id="重构：插件化"><a href="#重构：插件化" class="headerlink" title="重构：插件化"></a><strong>重构：插件化</strong><br></h4><p><strong>解耦</strong>：<br><br>·将控制元素抽取成插件<br><br>·插件与组件之间通过<strong>依赖注入</strong>方式建立联系<br></p>
-<h4 id="重构：模板化"><a href="#重构：模板化" class="headerlink" title="重构：模板化"></a><strong>重构：模板化</strong><br></h4><p><strong>解耦：</strong><br><br>·将 HTML 模板化，更易于扩展<br></p>
-<h4 id="重构：组件框架"><a href="#重构：组件框架" class="headerlink" title="重构：组件框架"></a><strong>重构：组件框架</strong><br></h4><p><strong>抽象：<br></strong><br>将通用的组件模型抽象出来<br></p>
-<h3 id="总结：基本方法"><a href="#总结：基本方法" class="headerlink" title="总结：基本方法"></a><strong>总结：基本方法<br></strong></h3><p><strong>·结构设计</strong><br><br><strong>·展示效果</strong><br><br><strong>·行为设计</strong>：API（功能），Event（控制流）<br><br><strong>·组件设计的原则</strong>:封装性、正确性、扩展性、复用性实现<br><br><strong>·组件的步骤</strong>:结构设计展现效果、行为设计<br><br><strong>·三次重构</strong>：插件化，模板化，抽象化<br></p>
-<h2 id="过程抽象："><a href="#过程抽象：" class="headerlink" title="过程抽象："></a><strong>过程抽象：</strong></h2><p>·用来处理局部细节控制的一些方法<br><br>·函数式编程思想的基础应用<br><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f0bb8691a0484aa7b24b4333db0f8f8a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="操作次数限制："><a href="#操作次数限制：" class="headerlink" title="操作次数限制："></a><strong>操作次数限制：</strong><br></h3><p>·一些异步交互<br><br>·一次性的 HTTP 请求<br></p>
-<h3 id="高阶函数："><a href="#高阶函数：" class="headerlink" title="高阶函数："></a><strong>高阶函数：</strong><br></h3><p><strong>Once:</strong><br><br>为了能够让”只执行一次”的需求覆盖不同的事件处理，我们可以将这个需求剥离出来，这个过程我们成为过程抽象。</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2a1d0845ab7b4a50a4ab7d82e89f71df~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="HOF"><a href="#HOF" class="headerlink" title="HOF:"></a><strong>HOF:</strong><br></h3><p>·以函数作为参数<br><br>·以函数作为返回值<br><br>·常用于作为函数装饰器<br></p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/873fa0bda0134c99a6f5fd0b64c0668a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="常用的高阶函数："><a href="#常用的高阶函数：" class="headerlink" title="常用的高阶函数："></a>常用的高阶函数：<br></h3><p><strong>·Once</strong><br><br><strong>·Throttle</strong><br><br><strong>·Debounce</strong><br><br><strong>·Consumer&#x2F;2</strong><br><br><strong>·Iterative</strong><br></p>
-<h3 id="编程范式："><a href="#编程范式：" class="headerlink" title="编程范式："></a>编程范式：<br></h3><p><strong>命令式与声明式</strong><br><br>命令式：面向过程，面向对象<br><br>声明式：逻辑算法，函数式<br><br>JavaScript 既有命令式也有声明式的编程语言。<br><br><strong>命令式则是趋向于怎么做，声明式则是趋向于做什么。</strong><br></p>
-<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>过程抽象 &#x2F; HOF &#x2F; 装饰器<br><br>命令式 &#x2F; 声明式<br></p>
-<h2 id="写好-JS-的一些原则（二）"><a href="#写好-JS-的一些原则（二）" class="headerlink" title="写好 JS 的一些原则（二）"></a>写好 JS 的一些原则（二）</h2><p><strong>这一段真实的代码</strong><br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c95ef2893ac24af6a01aeeb2d12483b5~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>写代码的时候不能只看代码的格式，来判断代码的质量，也要看其使用场景。</p>
-<h3 id="写代码最应关注什么"><a href="#写代码最应关注什么" class="headerlink" title="写代码最应关注什么?"></a>写代码最应关注什么?<br></h3><p>风格 效率 约定 使用场景 设计<br></p>
-<h3 id="Left-pad"><a href="#Left-pad" class="headerlink" title="Left-pad"></a><strong>Left-pad<br></strong></h3><p>几年前，Node 发展很快，出现很多 node 的包和模块，其中就有 Left-pad，字符串补零，使字符串对齐。<br><br>事件本身的槽点：<br><br>·NPM 模块粒度<br><br>·代码风格<br><br>·代码质量&#x2F;效率<br></p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/892a8fe0739a44eb9d5229dc6a4bce7b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<p>重构一下：<br><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d2f31241708417c98937d76a3e789f8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>·代码更简洁<br><br>·效率更高<br></p>
-<h2 id="JavaScript-代码质量优化之路"><a href="#JavaScript-代码质量优化之路" class="headerlink" title="JavaScript 代码质量优化之路"></a>JavaScript 代码质量优化之路</h2><h3 id="1-交通灯：状态切换"><a href="#1-交通灯：状态切换" class="headerlink" title="1.交通灯：状态切换"></a>1.交通灯：状态切换<br></h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aff8e5a1cd3b4931976dbbf1ccd3f9f0~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="2-判断是否是四的幂"><a href="#2-判断是否是四的幂" class="headerlink" title="2.判断是否是四的幂"></a>2.判断是否是四的幂</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f45e8d70068042ec8498cf4c5db8d5bd~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="3-洗牌"><a href="#3-洗牌" class="headerlink" title="3.洗牌"></a>3.洗牌</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ebb031c597ca436e8be7ea57043b8699~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9c249842b7a345adafbad2d0bae3da74~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="4-分红包"><a href="#4-分红包" class="headerlink" title="4.分红包"></a>4.分红包</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4cebbf9706b640aa8b6c753e919ee0d4~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/06/14/JavaScript(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsb0003h8ju7yuk0658" data-title="JavaScript(二) | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-深入CSS(二)-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time class="dt-published" datetime="2023-06-14T02:55:07.000Z" itemprop="datePublished">2023-06-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">深入CSS(二) | 青训营笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="深入-CSS-青训营笔记"><a href="#深入-CSS-青训营笔记" class="headerlink" title="深入 CSS | 青训营笔记"></a>深入 CSS | 青训营笔记<br></h1><p>2023-1-18<br></p>
-<h2 id="CSS-选择器的特异度"><a href="#CSS-选择器的特异度" class="headerlink" title="CSS 选择器的特异度"></a>CSS 选择器的特异度</h2><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac658631249e4288804f9303694e69c4~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h2 id="CSS-选择器有哪些？哪些属性可以继承？"><a href="#CSS-选择器有哪些？哪些属性可以继承？" class="headerlink" title="CSS 选择器有哪些？哪些属性可以继承？"></a><strong>CSS 选择器有哪些？哪些属性可以继承？<br></strong></h2><h3 id="CSS-选择符："><a href="#CSS-选择符：" class="headerlink" title="CSS 选择符："></a><strong>CSS 选择符：</strong><br></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">/*id选择器*/</span><br><span class="line">    #myid</span><br><span class="line">/*类选择器*/</span><br><span class="line">    .myclassname</span><br><span class="line">/*标签选择器*/</span><br><span class="line">    div,h1,p</span><br><span class="line">/*相邻选择器*/</span><br><span class="line">    h1+p</span><br><span class="line">/*子选择器*/</span><br><span class="line">    ul&gt;li</span><br><span class="line">/*后代选择器*/</span><br><span class="line">    li a</span><br><span class="line">/*通配符选择器*/</span><br><span class="line">    *</span><br><span class="line">/*属性选择器*/</span><br><span class="line">    a[rel=&quot;external&quot;]</span><br><span class="line">/*伪类选择器*/</span><br><span class="line">    a:hover, li:nth-child</span><br></pre></td></tr></table></figure>
-
-<p><strong>继承</strong>：某些属性会自动继承其父元素的计算值，除非<strong>显式</strong>(<strong>inherit</strong>)制定一个值。<br><br><strong>可继承的属性</strong>：font-size, font-family, color<br><br><strong>不可继承的样式</strong>：border, padding, margin, width, height<br><br><strong>优先级（就近原则）</strong>：!important &gt; [id&gt;class&gt;tag]<br><br><strong>!important</strong> 比内联优先级高<br></p>
-<h3 id="初始值："><a href="#初始值：" class="headerlink" title="初始值："></a><strong>初始值：</strong><br></h3><p><strong>·CSS 中，每个属性都有一个初始值</strong><br><br>·background-color 的初始值位 transparent<br><br>·margin-left 的初始值为 0<br><br><strong>·可以使用 initial 关键字显式重置为初始值</strong><br><br>·background-color：initial<br></p>
-<h3 id="CSS-求值过程："><a href="#CSS-求值过程：" class="headerlink" title="CSS 求值过程："></a><strong>CSS 求值过程：</strong></h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4abdab1c5dfd4cc78b85ef6ed04b0320~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/78fa7997194b4c50841c4ae2e80d30fc~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><br></p>
-<h2 id="布局-Layout-是什么？"><a href="#布局-Layout-是什么？" class="headerlink" title="布局(Layout)是什么？"></a><strong>布局(Layout)是什么？</strong><br></h2><p>·确定内容的大小和位置的算法<br><br>·依据元素，容器，兄弟节点和内容等信息来计算</p>
-<h3 id="布局相关技术"><a href="#布局相关技术" class="headerlink" title="布局相关技术"></a>布局相关技术</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3457f506b0d64a87b556c381a53c7151~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e02ca30dd964908ad713baac7b4acd8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h4 id="width："><a href="#width：" class="headerlink" title="width："></a>width：</h4><p>指定 content box 宽度<br><br>取值为<strong>长度，百分数，auto</strong><br><br>auto 由浏览器根据其它属性确定<br><br>百分数相对于容器的 content box 宽度<br><br><strong>容器有指定的高度时，百分数才生效</strong><br></p>
-<h4 id="padding：（上左下右）"><a href="#padding：（上左下右）" class="headerlink" title="padding：（上左下右）"></a>padding：（上左下右）</h4><p>指定元素四个方向的内边距<br><br><strong>百分数相对于容器宽度</strong><br></p>
-<h4 id="border："><a href="#border：" class="headerlink" title="border："></a>border：</h4><p>指定容器边框样式，粗细和颜色<br><br><code>border：1px solid #ccc</code><br><br><code>border-top-width:1px;</code><br><br><code>border-width:1px 2px 3px 4px;</code><br><br><code>border-style:solid;</code><br><br><code>border-color:blue;</code><br><br><strong><code>box-sizing：border-box</code></strong><br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2c89f442adcb4d3da2ac682878d2bf1a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h4 id="margin"><a href="#margin" class="headerlink" title="margin:"></a>margin:</h4><p>指定元素四个方向的外边距<br><br>取值为<strong>长度，百分数，auto</strong><br><br>百分数相对于容器宽度<br><br>使用<code>mairgin：auto；</code>水平居中<br><br><strong>margin collapse</strong><br><br>margin 在垂直方向上取最大值<br></p>
-<h4 id="overflow："><a href="#overflow：" class="headerlink" title="overflow："></a>overflow：</h4><p>scroll 滚动条<br><br>hidden 隐藏<br><br>visible 默认值<br></p>
-<h3 id="块级"><a href="#块级" class="headerlink" title="块级"></a>块级<br></h3><p>Block Level Box<br><br>不和其他盒子并列摆放，适用所有的盒模型属性<br><br><strong>块级元素</strong>：生成块级盒子<br></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">body、article、div、main、section、h1-6、p、ul、li等</span><br><span class="line">display: block</span><br></pre></td></tr></table></figure>
-
-<h3 id="行级"><a href="#行级" class="headerlink" title="行级"></a>行级</h3><p>Inline Level Box<br><br>和其它行级盒子一起放在一行或拆开成多行<br><br>盒模型中的 width、height 不适用<br><br><strong>行级元素</strong>：生成行级盒子，内容分散在多个行盒中<br></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">span、em、strong、cite、code 等</span><br><span class="line">display: inline</span><br></pre></td></tr></table></figure>
-
-<h3 id="diaplay-属性"><a href="#diaplay-属性" class="headerlink" title="diaplay 属性"></a>diaplay 属性<br></h3><p>block： 块级盒子<br><br>inline：行级盒子<br><br>inline-block： 本身是行级，可以放在行盒中；可以设置宽高；作为一个整体不会被拆散成多行<br><br>none： 排版时完全被忽略<br></p>
-<h3 id="常规流-Normal-Flow"><a href="#常规流-Normal-Flow" class="headerlink" title="常规流 Normal Flow"></a>常规流 Normal Flow</h3><p>根元素、浮动和绝对定位的元素会脱离常规流<br><br>其它元素都在常规流之内 (in-flow)<br><br>常规流中的盒子，在某种<strong>排版上下文中</strong>参与布局<br></p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6ff7e55072fe4c56984766055e2c62e3~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="行级排版上下文"><a href="#行级排版上下文" class="headerlink" title="行级排版上下文"></a>行级排版上下文</h3><p>·Inline Formatting Context (IFC)<br><br>·<strong>只包含行级盒子</strong>的容器会创建一个 IFC<br><br>·IFC 内的排版规则<br><br>·盒子在一行内水平摆放<br><br>一行放不下时，换行显示<br><br>text-align 决定一行内盒子的水平<br><br>对齐 vertical-align 决定一个盒子在行内的垂直对齐<br><br>避开浮动(float)元素<br></p>
-<h3 id="块级排版上下文"><a href="#块级排版上下文" class="headerlink" title="块级排版上下文"></a>块级排版上下文</h3><p>·Block Formatting Context (BFC)<br><br>·某些容器会创建一个 BFC<br><br>根元素<br><br>浮动、绝对定位、inline-block<br><br>Flex 子项和 Grid 子项<br><br>overflow 值不是 visible 的块盒<br><br>display: flow-root;<br></p>
-<h3 id="BFC-内的排版规则"><a href="#BFC-内的排版规则" class="headerlink" title="BFC 内的排版规则"></a>BFC 内的排版规则</h3><p>盒子从上到下摆放<br><br>垂直 margin 合并<br><br>BFC 内盒子的 margin 不会与外面的合并。<br><br>BFC 不会和浮动元素重叠<br></p>
-<h3 id="Flex-Box-是什么"><a href="#Flex-Box-是什么" class="headerlink" title="Flex Box 是什么?"></a>Flex Box 是什么?</h3><p>一种新的排版上下文<br><br>它可以控制子级盒子的: 摆放的流向(右左上下)，摆放顺序，盒子宽度和高度，水平和垂直方向的对齐，是否允许折行。<br><br><strong>flex-direction：</strong><br><br><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c5c261ee189a4b48aca68e0f12842f53~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>主轴与侧轴：</strong><br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31c096f0e8894795b45f4a9deeea3d76~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>justify-content：</strong><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/768c7d2a452e43ac8659572e346c5905~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>align—items：</strong><br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/59f0965bb6484852ac40a7ffd502a858~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>align-self：</strong><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f7c8358348ad44939c8654d4bdc4f8b8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="Flexibility"><a href="#Flexibility" class="headerlink" title="Flexibility"></a>Flexibility</h3><p>可以设置子项的弹性:当容器有剩余空间时，会伸展;容器空间不够时，会收缩。<br><br>flex-grow 有剩余空间时的伸展能力<br><br>flex-shrink 容器空间不足时收缩的能力<br><br>flex-basis 没有伸展或收缩时的基础长度<br></p>
-<h3 id="Grid-布局"><a href="#Grid-布局" class="headerlink" title="Grid 布局"></a>Grid 布局</h3><p><code>display：grid</code><br><br>display: grid 使元素生成一个块级的 Grid 容器<br><br>使用 grid-template 相关属性将容器划分为网格<br><br>设置每一个子项占哪些行&#x2F;列<br><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/edcfe2f3bc8a4d1580e226780ccd0d4f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="float-浮动"><a href="#float-浮动" class="headerlink" title="float 浮动"></a>float 浮动</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0bb7e30c5a2e49aeaaa06a261d8f8220~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="position-属性"><a href="#position-属性" class="headerlink" title="position 属性"></a>position 属性</h3><p>static ：默认值，非定位元素<br><br>relative ：相对自身原本位置偏移，不脱离文档流<br><br>absolute ：绝对定位，相对非 static 祖先元素定位<br><br>fixed ：相对于视口绝对定位<br><br><strong>position：relative</strong><br><br>在常规流里面布局<br><br>相对于自己本应该在的位置进行偏移<br><br>使用 top、left、bottom、right 设置偏移长度<br><br>流内其它元素当它没有偏移一样布局<br><br><strong>position：absolute</strong><br><br>脱离常规流<br><br>相对于最近的非 static 祖先定位<br><br>不会对流内元素布局造成影响<br></p>
-<h2 id="学习-CSS-的几点建议"><a href="#学习-CSS-的几点建议" class="headerlink" title="学习 CSS 的几点建议"></a>学习 CSS 的几点建议</h2><p>充分利用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/">MDN </a>和 <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/css/index.asp">W3C CSS 规范</a><br><br>保持好奇心，善用浏览器的开发者工具<br><br>持续学习，CSS 新特性还在不断出现<br></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsm000ih8judexp39wk" data-title="深入CSS(二) | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-前端语言串讲-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/06/14/%E5%89%8D%E7%AB%AF%E8%AF%AD%E8%A8%80%E4%B8%B2%E8%AE%B2-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time class="dt-published" datetime="2023-06-14T02:54:26.000Z" itemprop="datePublished">2023-06-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/06/14/%E5%89%8D%E7%AB%AF%E8%AF%AD%E8%A8%80%E4%B8%B2%E8%AE%B2-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">前端语言串讲 | 青训营笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="前端语言串讲"><a href="#前端语言串讲" class="headerlink" title="前端语言串讲"></a>前端语言串讲</h1><h2 id="01-前端语言的基本能力"><a href="#01-前端语言的基本能力" class="headerlink" title="01.前端语言的基本能力"></a>01.前端语言的基本能力</h2><ul>
-<li>HTML</li>
-</ul>
-<p><strong>HTML（超文本标记语言）</strong> ： HTML 是 Web 页面的基础结构。它用于描述网页的内容和结构。HTML 使用一系列标记（称为标签）来定义页面元素，如标题、段落、列表、图片和链接等。浏览器解析 HTML 代码，并根据标签的语义来显示页面内容。HTML 为网页提供了基本的骨架，使浏览器能够呈现文本、图像和其他媒体。</p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce40f7578e3d4a0c93e2e7b8092b7695~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<ul>
-<li>CSS</li>
-</ul>
-<p><strong>CSS（级联样式表）</strong> ： CSS 用于描述 HTML 元素的外观和布局。CSS 允许我们定义如何显示 HTML 元素，例如字体、颜色、大小、间距等。通过使用 CSS，我们可以将样式与 HTML 结构分离，使得网站的设计和维护更加简便。CSS 还允许我们根据不同的设备和屏幕尺寸应用不同的样式(媒体查询)，以实现响应式设计。</p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/90b6a376f6134322bc5cf231f9907a25~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<ul>
-<li>JavaScript</li>
-</ul>
-<p><strong>JavaScript</strong>： JavaScript 是一种脚本语言，用于在浏览器中<strong>增加交互性和动态效果</strong>。它允许我们编写脚本来处理用户操作，例如点击按钮、输入表单、拖动元素等。通过使用 JavaScript，我们也可以操作 HTML 和 CSS，动态更改页面内容和样式，从而提供丰富的用户体验。JavaScript 也可以与服务器进行通信，以便在不刷新整个页面的情况下获取或提交数据（例如，通过 AJAX）。</p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b51c32a71e66437ebd58229121df072d~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c028732228c74cbdb9df192675516e9b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<table>
-<thead>
-<tr>
-<th>上图标记</th>
-<th>释义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>选择器（<strong>Selector</strong>）</td>
-<td>HTML 元素的名称位于规则集开始。它选择了一个或多个需要添加样式的元素（在这个例子中就是 <code>p</code> 元素）。要给不同元素添加样式只需要更改选择器就行了</td>
-</tr>
-<tr>
-<td>声明（<strong>Declaration</strong>）</td>
-<td>一个单独的规则，如 <code>color: red;</code> 用来指定添加样式元素的<strong>属性</strong></td>
-</tr>
-<tr>
-<td>属性（<strong>Properties</strong>）</td>
-<td>改变 HTML 元素样式的途径。（本例中 <code>color</code> 就是 <a href="https://link.juejin.cn/?target=https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/p" title="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/p">&#96;&#96;</a> 元素的属性。）CSS 中，由编写人员决定修改哪个属性以改变规则</td>
-</tr>
-<tr>
-<td>属性的值（Property value）</td>
-<td>在属性的右边，冒号后面即<strong>属性的值</strong>，它从指定属性的众多外观中选择一个值（我们除了 <code>red</code> 之外还有很多属性值可以用于 <code>color</code> ）</td>
-</tr>
-</tbody></table>
-<h3 id="W3C-和-W3School-的区别？"><a href="#W3C-和-W3School-的区别？" class="headerlink" title="W3C 和 W3School 的区别？"></a>W3C 和 W3School 的区别？</h3><ol>
-<li>W3C（万维网联盟）： W3C 是一个国际组织，成立于 1994 年，负责制定和维护 Web 标准。它的目标是确保 Web 发展的长期可持续性和可访问性。W3C 制定了许多 Web 技术的规范，如 HTML、CSS、XML、SVG 等。W3C 的官方网站是 <a href="https://link.juejin.cn/?target=https://www.w3.org/" title="https://www.w3.org/">www.w3.org/</a>。在 W3C 网站上，可以找到关于 Web 标准的详细信息和技术规范。</li>
-<li>W3Schools： W3Schools 并非 W3C 的官方网站，而是一个独立的在线教育平台。它成立于 1998 年，提供了大量关于 HTML、CSS、JavaScript 等 Web 技术的教程和实例。W3Schools 的目标是为 Web 开发者提供一个易于理解的学习资源。W3Cschools 的官方网站是 <a href="https://link.juejin.cn/?target=https://www.w3schools.com/" title="https://www.w3schools.com/">www.w3schools.com/</a>。在 W3Cshools 网站上，可以找到关于 Web 技术的教程、示例和实践练习。</li>
-</ol>
-<p>而他们最主要的区别(其实是完全不同的两家组织，一开始学习的我一直以为他们是同一家的)：</p>
-<ul>
-<li>W3C 是一个国际组织，负责制定和维护 Web 标准。</li>
-<li>W3Schools 是一个在线教育平台，提供关于 Web 技术的教程和实例。</li>
-</ul>
-<h3 id="JavaScript-的七种基本数据类型："><a href="#JavaScript-的七种基本数据类型：" class="headerlink" title="JavaScript 的七种基本数据类型："></a>JavaScript 的七种基本数据类型：</h3><p>这些类型分为两大类：原始类型（Primitive）和对象类型（Object）。</p>
-<ol>
-<li>Number（数字）： Number 类型用于表示整数和浮点数。在 JavaScript 中，所有数字都是双精度浮点数（64 位），遵循 IEEE 754 标准。这意味着 JavaScript 中并没有真正的整数类型。另外，Number 类型还包括特殊值如：Infinity（正无穷大）、-Infinity（负无穷大）和 NaN（非数值）。</li>
-<li>String（字符串）： String 类型表示一串字符。在 JavaScript 中，字符串是不可变的，这意味着一旦创建了一个字符串，就不能对其内容进行修改。字符串可以用单引号、双引号或反引号（模板字符串）括起来。</li>
-<li>Boolean（布尔值）： Boolean 类型只有两个值：true（真）和 false（假）。布尔值通常用于表示条件、逻辑操作或比较的结果。</li>
-<li>Null（空值）： Null 类型只有一个值：null。它表示一个空值或不存在的引用。通常用于表示变量没有被赋值，或表示一个空对象。</li>
-<li>Undefined（未定义）： Undefined 类型只有一个值：undefined。当一个变量声明了，但尚未赋值时，其默认值为 undefined。它表示变量的值尚未确定。</li>
-<li>Symbol（符号）： Symbol 类型是 ECMAScript 6（ES2015）引入的新类型。Symbol 类型的值是唯一且不可变的，主要用于创建对象的唯一属性名，以防止属性名冲突。</li>
-<li>Object（对象）： Object 类型用于表示复杂的数据结构，如对象、数组和函数。对象是键值对的集合，键是字符串，值可以是任何数据类型。数组是值的有序集合，而函数是可调用的代码块。</li>
-</ol>
-<p>在 JavaScript 中，原始类型（Number、String、Boolean、Null、Undefined 和 Symbol）是不可变的基本数据类型，而对象类型（Object）是可变的引用数据类型</p>
-<h3 id="Browser"><a href="#Browser" class="headerlink" title="Browser"></a>Browser</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7319979e56ce45d29f17060cc15d36c4~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f24dc589b9bb434b889d577872ebeb93~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h2 id="02-前端语言的协作配合"><a href="#02-前端语言的协作配合" class="headerlink" title="02.前端语言的协作配合"></a>02.前端语言的协作配合</h2><h3 id="Trending"><a href="#Trending" class="headerlink" title="Trending"></a>Trending</h3><p>以下是前端语言的协作配合方面的 Trending：</p>
-<ol>
-<li>前后端分离 前端语言（如 JavaScript、HTML、CSS）与后端语言（如 Python、Java）进行分离，通过 API 接口进行通信，提高开发效率和可维护性。</li>
-<li>前端框架 前端框架（如 React、Vue.js）能够提供更好的代码组织和维护能力，以及提高开发效率和代码质量的特性。</li>
-<li>前端构建工具 前端构建工具（如 Webpack、Gulp）能够提供自动化构建、模块打包、代码压缩等功能，简化开发流程，提高开发效率。</li>
-<li>移动端开发 移动端开发需要结合前端语言、移动端框架（如 React Native、Flutter）、移动端开发工具（如 Android Studio、Xcode）等进行协作，以达到优秀的用户体验。</li>
-<li>测试工具 前端测试工具（如 Jest、Mocha）能够保证代码质量和稳定性，提高开发效率和代码可维护性。</li>
-</ol>
-<h3 id="CSS-in-HTML"><a href="#CSS-in-HTML" class="headerlink" title="CSS in HTML"></a>CSS in HTML</h3><p>CSS (Cascading Style Sheets) 是一种用于描述 HTML 文档如何呈现的样式表语言。使用 CSS，你可以将样式信息从 HTML 内容中分离出来，从而使得 HTML 文件更加简洁、易于维护。</p>
-<p><strong>在 HTML 中引入 CSS 的方式有三种：</strong></p>
-<ol>
-<li>内部样式表：在 HTML 文件头部使用 <style> 标签定义样式信息。</li>
-<li>外部样式表：将样式信息写入一个单独的 CSS 文件中，然后在 HTML 文件头部使用 <code>&lt;link&gt; </code>标签引入。</li>
-<li>内联样式：直接在 HTML 元素上定义样式信息。</li>
-</ol>
-<p>** CSS 的基本语法如下：**</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">selector &#123;</span><br><span class="line">  property1: value1;</span><br><span class="line">  property2: value2;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>其中，selector 用于选中需要应用样式的 HTML 元素；property 和 value 分别表示样式属性和属性值。</p>
-<p>CSS 支持各种各样的选择器，例如标签选择器、类选择器、ID 选择器等。在编写 CSS 样式时，要注意避免使用过于具体的选择器，以免影响样式的复用性和维护性。</p>
-<h3 id="JavaScript-in-HTML"><a href="#JavaScript-in-HTML" class="headerlink" title="JavaScript in HTML"></a>JavaScript in HTML</h3><p>JavaScript (JS) 是一种高级编程语言，可用于在 Web 页面上创建交互式的动态效果和用户体验。在 HTML 中引入 JS 脚本的方式有三种：内嵌式、链接式和事件处理器。</p>
-<p>内嵌式方式是将 JS 代码直接嵌入 HTML 页面中的 <code>&lt;script&gt;</code> 标签中，代码在页面加载时一起加载和解析。链接式方式则是将 JS 代码放在外部的 JS 文件中，并在 HTML 页面中通过 <code>&lt;script&gt;</code> 标签的 <code>src</code> 属性引用该文件。事件处理器方式是将 JS 代码嵌入 HTML 元素的事件属性中，例如 <code>&lt;button onclick=&quot;myFunction()&quot;&gt;Click me&lt;/button&gt;</code>。</p>
-<p>JS 代码中最基本的语法单元是语句，语句可以包含表达式和运算符，还可以使用控制流语句来控制代码执行顺序。JS 中还包含了许多内置对象和方法，例如数组、字符串、日期、数学等，开发者可以通过调用这些对象和方法来实现复杂的功能。</p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5fb6409f1f654e2c8a13c41b32bd2abe~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="HTML-in-JavaScript"><a href="#HTML-in-JavaScript" class="headerlink" title="HTML in JavaScript"></a>HTML in JavaScript</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8c8296b691264719a623c3541927c2be~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="CSS-in-JavaScript"><a href="#CSS-in-JavaScript" class="headerlink" title="CSS in JavaScript"></a>CSS in JavaScript</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b749694ab91b401a9f6d9d7fcb0aed68~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h2 id="03-你不知道的-HTML-5"><a href="#03-你不知道的-HTML-5" class="headerlink" title="03.你不知道的 HTML(5)"></a>03.你不知道的 HTML(5)</h2><h3 id="HTML-DTD"><a href="#HTML-DTD" class="headerlink" title="HTML DTD"></a>HTML DTD</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/409aa51d22f24bd5b2e9fe94299f1712~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="HTML-全部标签分类"><a href="#HTML-全部标签分类" class="headerlink" title="HTML 全部标签分类"></a>HTML 全部标签分类</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7991bb306b2e47f390d8a716786457c0~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="HTML-head-标签"><a href="#HTML-head-标签" class="headerlink" title="HTML head 标签"></a>HTML head 标签</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/65b787955bc444e4ae688064cc7e2138~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="HTML-5-存储"><a href="#HTML-5-存储" class="headerlink" title="HTML 5 存储"></a>HTML 5 存储</h3><pre><code>HTML5 提供了多种本地存储方式，包括 `localStorage` 和 `sessionStorage`。两者都可以用来存储字符串类型的数据，但是有一些区别：
-</code></pre>
-<ul>
-<li><code>localStorage</code> 存储的数据不会过期，除非被手动删除或清除。</li>
-<li><code>sessionStorage</code> 存储的数据在用户关闭浏览器窗口或标签页之后就会被清除。</li>
-</ul>
-<p>两者都可以通过 JavaScript 的 API 进行操作。常用的方法包括：</p>
-<ul>
-<li><code>setItem(key, value)</code>：设置指定 <code>key</code> 的值为 <code>value</code>。</li>
-<li><code>getItem(key)</code>：获取指定 <code>key</code> 的值。</li>
-<li><code>removeItem(key)</code>：移除指定 <code>key</code> 的值。</li>
-<li><code>clear()</code>：清除所有存储的数据。</li>
-</ul>
-<p>使用本地存储可以方便地在浏览器中保存用户的数据，例如用户的设置、历史记录等。但是需要注意的是，存储的数据是明文保存在本地的，因此不能存储敏感数据，例如用户的密码等。</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/18a5e4f685f540f29fa8f5dbc62d4c91~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="indexedDB"><a href="#indexedDB" class="headerlink" title="indexedDB"></a>indexedDB</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/db4286d2f62c48b182a23aafb94ef380~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="HTML5-PWA-amp-AMP"><a href="#HTML5-PWA-amp-AMP" class="headerlink" title="HTML5 PWA &amp; AMP"></a>HTML5 PWA &amp; AMP</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aba6c52abffc46fdaf8479fb5d29853a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="HTML-5-Video-amp-Audio"><a href="#HTML-5-Video-amp-Audio" class="headerlink" title="HTML 5 Video &amp; Audio"></a>HTML 5 Video &amp; Audio</h3><ul>
-<li>Video<br><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/773e5b71a25f46128bf18e6c28b77ccc~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></li>
-<li>Audio</li>
-</ul>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/818d90bb20354381843afb90073deb99~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="HTML5-Web-Socket"><a href="#HTML5-Web-Socket" class="headerlink" title="HTML5 Web Socket"></a>HTML5 Web Socket</h3><blockquote>
-<p>Web Socket 是一种在 Web 应用程序中实现实时通信的协议。它提供了一种双向通信机制，允许客户端和服务器之间进行实时的数据传输。与传统的 HTTP 请求&#x2F;响应模式不同，Web Socket 采用了一种持久化的连接，可以在客户端和服务器之间保持通信通道，从而实现实时通信的功能。</p>
-<p>Web Socket 协议基于 TCP 协议实现，使用了类似 HTTP 协议的握手过程来建立连接。客户端和服务器之间的通信采用帧（Frame）的形式进行，每个帧包含一个标识、一些附加信息和一段数据。客户端和服务器可以通过发送不同类型的帧来实现不同的功能，比如文本消息、二进制数据、ping-pong 等。</p>
-<p>Web Socket 协议可以与任何支持该协议的服务器进行通信，包括自己开发的服务器和第三方提供的服务。它通常被用于实现实时聊天室、实时游戏、实时协作等应用场景。由于其实时性和高效性，越来越多的 Web 应用程序开始采用 Web Socket 技术来实现实时通信的功能</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// 创建 Web Socket 连接</span><br><span class="line">const socket = new WebSocket(&#x27;ws://localhost:8080&#x27;);</span><br><span class="line">​</span><br><span class="line">// 当连接打开时，发送一条消息到服务器</span><br><span class="line">socket.addEventListener(&#x27;open&#x27;, event =&gt; &#123;</span><br><span class="line">  socket.send(&#x27;Hello, Server!&#x27;);</span><br><span class="line">&#125;);</span><br><span class="line">​</span><br><span class="line">// 当收到服务器发送的消息时，输出到控制台中</span><br><span class="line">socket.addEventListener(&#x27;message&#x27;, event =&gt; &#123;</span><br><span class="line">  console.log(`Received message from server: $&#123;event.data&#125;`);</span><br><span class="line">&#125;);</span><br><span class="line">​</span><br><span class="line">// 当连接关闭时，输出一条消息到控制台中</span><br><span class="line">socket.addEventListener(&#x27;close&#x27;, event =&gt; &#123;</span><br><span class="line">  console.log(&#x27;Web Socket connection closed&#x27;);</span><br><span class="line">&#125;);</span><br><span class="line">​</span><br><span class="line">// 当连接发生错误时，输出错误消息到控制台中</span><br><span class="line">socket.addEventListener(&#x27;error&#x27;, event =&gt; &#123;</span><br><span class="line">  console.error(`Web Socket error: $&#123;event.message&#125;`);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ec9f5a409ba24e9ba8bbd7d17797b4b7~tplv-k3u1fbpfcp-zoom-1.image" alt="image.png"></p>
-<h3 id="HTML5-Shadow-DOM"><a href="#HTML5-Shadow-DOM" class="headerlink" title="HTML5 Shadow DOM"></a>HTML5 Shadow DOM</h3><blockquote>
-<p>Shadow DOM 是 Web Components 技术中的一部分，用于实现 Web 页面上的组件化开发。它允许开发者将 HTML、CSS 和 JavaScript 封装到一个独立的、可重用的组件中，以便在不同的页面和应用程序中进行复用。</p>
-<p>Shadow DOM 通过创建一个“影子树”来实现组件的封装和隔离。在一个 Shadow DOM 中，组件的 HTML 结构、CSS 样式和 JavaScript 行为都被包裹在一个独立的命名空间中，与外部页面的 HTML、CSS 和 JavaScript 不会互相干扰。这种隔离性使得组件可以在不同的页面和应用程序中进行复用，而不用担心样式和行为的冲突。</p>
-<p>使用 Shadow DOM 可以创建一些高度可定制化的组件，比如自定义的表单控件、交互式组件等。Shadow DOM 还提供了一些 API，可以让开发者更加方便地控制组件的行为和样式。比如，可以使用 JavaScript 修改组件内部的 DOM 结构、监听组件内部的事件、控制组件内部的样式等。</p>
-</blockquote>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/925bf886f3084b3f846b9becf31131c7~tplv-k3u1fbpfcp-zoom-1.image" alt="image.png"></p>
-<h3 id="HTML5-Web-Component"><a href="#HTML5-Web-Component" class="headerlink" title="HTML5 Web Component"></a>HTML5 Web Component</h3><blockquote>
-<p>HTML5 的 Web Component 是一种基于标准 Web 技术实现的组件化开发模型，它由三个技术规范组成：Custom Elements、Shadow DOM 和 HTML Templates。</p>
-<p>Custom Elements 允许开发者自定义 HTML 元素，可以通过 JavaScript API 来创建、注册和使用自定义元素。这样，开发者就可以将多个 HTML 元素封装为一个独立的组件，并在 Web 页面中进行复用。Custom Elements 还提供了一些生命周期方法和事件，可以让开发者控制自定义元素的创建和销毁过程。</p>
-<p>Shadow DOM 允许开发者创建一个独立的、封装的 DOM 树，用于包含和隔离组件内部的 HTML 结构、CSS 样式和 JavaScript 行为。这样，开发者就可以将组件内部的实现细节隐藏起来，避免与外部页面的 HTML、CSS 和 JavaScript 冲突。Shadow DOM 还提供了一些 API，可以让开发者更加方便地控制组件内部的样式和行为。</p>
-<p>HTML Templates 允许开发者将 HTML 片段封装为一个可重用的模板，并在 Web 页面中进行复用。HTML Templates 还支持使用 JavaScript API 来动态生成和填充模板内容，以适应不同的使用场景。</p>
-</blockquote>
-<h4 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 定义一个自定义元素 my-button，使用 Shadow DOM 封装组件内部的样式和行为 --&gt;</span><br><span class="line">&lt;template id=&quot;my-button-template&quot;&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    button &#123;</span><br><span class="line">      background-color: #007bff;</span><br><span class="line">      color: white;</span><br><span class="line">      border: none;</span><br><span class="line">      border-radius: 3px;</span><br><span class="line">      padding: 10px 20px;</span><br><span class="line">      font-size: 16px;</span><br><span class="line">      cursor: pointer;</span><br><span class="line">    &#125;</span><br><span class="line">    button:hover &#123;</span><br><span class="line">      background-color: #0069d9;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">  &lt;button&gt;Click me!&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">​</span><br><span class="line">&lt;!-- 在页面中使用自定义元素 my-button --&gt;</span><br><span class="line">&lt;my-button&gt;&lt;/my-button&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 定义一个 MyButton 类，继承自 HTMLButtonElement，用于创建自定义元素</span><br><span class="line">class MyButton extends HTMLButtonElement &#123;</span><br><span class="line">  constructor() &#123;</span><br><span class="line">    super();</span><br><span class="line">​</span><br><span class="line">    // 创建 Shadow DOM，并将模板内容插入其中</span><br><span class="line">    const shadow = this.attachShadow(&#123; mode: &#x27;open&#x27; &#125;);</span><br><span class="line">    const template = document.getElementById(&#x27;my-button-template&#x27;);</span><br><span class="line">    const clone = template.content.cloneNode(true);</span><br><span class="line">    shadow.appendChild(clone);</span><br><span class="line">​</span><br><span class="line">    // 绑定按钮的点击事件</span><br><span class="line">    const button = shadow.querySelector(&#x27;button&#x27;);</span><br><span class="line">    button.addEventListener(&#x27;click&#x27;, () =&gt; &#123;</span><br><span class="line">      console.log(&#x27;Button clicked!&#x27;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">​</span><br><span class="line">// 将 MyButton 注册为自定义元素</span><br><span class="line">customElements.define(&#x27;my-button&#x27;, MyButton, &#123; extends: &#x27;button&#x27; &#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="HTML5-SVG-amp-Canvas"><a href="#HTML5-SVG-amp-Canvas" class="headerlink" title="HTML5 SVG &amp; Canvas"></a>HTML5 SVG &amp; Canvas</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9b54760d6877456fb0c8ce750282d7af~tplv-k3u1fbpfcp-zoom-1.image" alt="image.png"></p>
-<h3 id="WebGL-amp-WebGPU"><a href="#WebGL-amp-WebGPU" class="headerlink" title="WebGL &amp; WebGPU"></a>WebGL &amp; WebGPU</h3><blockquote>
-<p>WebGL 是一种在浏览器中呈现 3D 和 2D 图形的 JavaScript API，它是基于 OpenGL ES 2.0 的标准，支持硬件加速，并可与 HTML、CSS 和 JavaScript 无缝集成。使用 WebGL，开发者可以在浏览器中创建高性能的 3D 游戏、可视化工具和数据展示应用等。</p>
-<p>WebGPU 是一个新的 Web 标准，旨在为 Web 平台提供低级别、跨平台的图形和计算 API，支持使用现代硬件的强大功能。WebGPU 由 Khronos Group 开发，它是 Metal、Vulkan 和 DirectX 12 的 Web 版本，支持多线程和多 GPU，并可以在 WebAssembly 上运行。WebGPU 的目标是为 Web 开发者提供更高效、更灵活的图形和计算功能，从而打造更加丰富和复杂的 Web 应用。</p>
-</blockquote>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6457fd89edf54ec4a3dec50e913dbf90~tplv-k3u1fbpfcp-zoom-1.image" alt="image.png"></p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4887608ac7af4cf6ac1718ba0a06d258~tplv-k3u1fbpfcp-zoom-1.image" alt="image.png"></p>
-<blockquote>
-<p>地址：Some Amazing Demo:<a href="https://link.juejin.cn/?target=https://davidwalsh.name/webgl-demo" title="https://davidwalsh.name/webgl-demo">davidwalsh.name&#x2F;webgl-demo</a></p>
-<p>PS：确实特别的震撼，可以通过这里的链接跳转过去看一看</p>
-</blockquote>
-<h3 id="HTML5-WebAssembly"><a href="#HTML5-WebAssembly" class="headerlink" title="HTML5 WebAssembly"></a>HTML5 WebAssembly</h3><blockquote>
-<p>WebAssembly(WASM)是一种新的编码方式，可以直接在浏览器中运行</p>
-<p>WebAssembly（简称为 wasm）是一种新型的虚拟机技术，是一种由 W3C、Mozilla 和其他浏览器厂商共同推出的新 Web 标准。WebAssembly 可以将高性能的 C、C++、Rust 等语言的代码编译成二进制格式，在浏览器中运行，从而提供了比 JavaScript 更高的性能和更好的可移植性。</p>
-<p>WebAssembly 具有许多优点，比如：</p>
-<ul>
-<li>高性能：WebAssembly 的代码可以直接在浏览器中运行，可以比 JavaScript 更高效地利用硬件资源。</li>
-<li>跨平台：WebAssembly 的二进制格式是跨平台的，可以在任何支持 WebAssembly 的平台上运行，包括浏览器、移动设备、IoT 设备等。</li>
-<li>安全性：WebAssembly 的代码运行在沙箱环境中，不会对浏览器和计算机造成安全风险。</li>
-<li>可扩展性：WebAssembly 可以与 JavaScript 无缝集成，并且可以与浏览器中的其他 Web 技术一起使用，比如 Canvas、WebGL 等。</li>
-</ul>
-<p>HTML5 支持 WebAssembly 技术，并且可以通过 JavaScript 脚本来调用 WebAssembly 的函数，实现更高效、更复杂的 Web 应用程序。WebAssembly 技术在 Web 游戏、图像和音频处理、虚拟现实和人工智能等方面具有广泛的应用前景。</p>
-</blockquote>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/63ac2feafbeb4d6ea9be63a629861c96~tplv-k3u1fbpfcp-zoom-1.image" alt="image.png"></p>
-<p>………..</p>
-<h2 id="04-拓展分享"><a href="#04-拓展分享" class="headerlink" title="04.拓展分享"></a>04.拓展分享</h2><h3 id="Web-的风靡"><a href="#Web-的风靡" class="headerlink" title="Web 的风靡"></a>Web 的风靡</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c764fb2c4a2d4c6ab26aef73af4029f2~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="大前端"><a href="#大前端" class="headerlink" title="大前端"></a>大前端</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c665e3bf9a645dba317a4b5b082f7b9~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="MVC-amp-MVVM-amp-MVP"><a href="#MVC-amp-MVVM-amp-MVP" class="headerlink" title="MVC &amp; MVVM &amp; MVP"></a>MVC &amp; MVVM &amp; MVP</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8fac6ed6a2174260a1d9117d9721a3a6~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/06/14/%E5%89%8D%E7%AB%AF%E8%AF%AD%E8%A8%80%E4%B8%B2%E8%AE%B2-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsf000ch8jucvo42haa" data-title="前端语言串讲 | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-客户端容器-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/06/14/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time class="dt-published" datetime="2023-06-14T02:54:01.000Z" itemprop="datePublished">2023-06-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/06/14/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">客户端容器 | 青训营笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="客户端容器（Web-浏览器以及跨端解决方案）"><a href="#客户端容器（Web-浏览器以及跨端解决方案）" class="headerlink" title="客户端容器（Web 浏览器以及跨端解决方案）"></a>客户端容器（Web 浏览器以及跨端解决方案）</h1><h2 id="01-浏览器架构"><a href="#01-浏览器架构" class="headerlink" title="01.浏览器架构"></a>01.浏览器架构</h2><h3 id="浏览器架构演进"><a href="#浏览器架构演进" class="headerlink" title="浏览器架构演进"></a>浏览器架构演进</h3><ul>
-<li><strong>单进程架构</strong></li>
-<li><strong>多进程架构</strong></li>
-<li><strong>面向服务架构</strong></li>
-</ul>
-<h3 id="浏览器架构对比"><a href="#浏览器架构对比" class="headerlink" title="浏览器架构对比"></a>浏览器架构对比</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f2570f92063745a68834783a844ed9b0~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="浏览器架构-—-任务管理器"><a href="#浏览器架构-—-任务管理器" class="headerlink" title="浏览器架构 — 任务管理器"></a>浏览器架构 — 任务管理器</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aff1a6199d21435982750fdf1c7f2a95~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="浏览器架构-—-多进程分工"><a href="#浏览器架构-—-多进程分工" class="headerlink" title="浏览器架构 — 多进程分工"></a>浏览器架构 — 多进程分工</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84659139ef2e481282b02d280eea30b4~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h2 id="02-渲染进程"><a href="#02-渲染进程" class="headerlink" title="02.渲染进程"></a>02.渲染进程</h2><h3 id="常见浏览器内核"><a href="#常见浏览器内核" class="headerlink" title="常见浏览器内核"></a>常见浏览器内核</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ea60d753c35544108b8dca9c536adf3c~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="渲染进程-—-多进程架构"><a href="#渲染进程-—-多进程架构" class="headerlink" title="渲染进程 — 多进程架构"></a>渲染进程 — 多进程架构</h3><ul>
-<li>内部是多线程实现，主要负责页面渲染，脚本执行，事件处理，网络请求等。。。。</li>
-</ul>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/da10649adcc44b72ab2f0e4d5cca2a44~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="JS-引擎-vs-渲染引擎"><a href="#JS-引擎-vs-渲染引擎" class="headerlink" title="JS 引擎 vs 渲染引擎"></a>JS 引擎 vs 渲染引擎</h3><ul>
-<li>1.解析执行 JS</li>
-<li>2.XML 解析生成渲染树，显示在屏幕</li>
-<li>3.桥接方式通信</li>
-</ul>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/08ed9c519e7a4d078f69b2b6c7ffd494~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="渲染进程-—-多线程工作流程"><a href="#渲染进程-—-多线程工作流程" class="headerlink" title="渲染进程 — 多线程工作流程"></a>渲染进程 — 多线程工作流程</h3><ul>
-<li>1.网络线程负责加载网页资源</li>
-<li>2.JS 引擎解析 JS 脚本并且执行</li>
-<li>3.JS 解析引擎空闲时，渲染线程立即工作</li>
-<li>4.用户交互、定时器操作等产生回调函数放入任务队列中</li>
-<li>5.事件线程进行事件循环，将队列里的任务取出交给 JS 引擎执行</li>
-</ul>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43a25e3b5e3d4fbfa3344b23c359e578~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h2 id="03-Chrome-运行原理"><a href="#03-Chrome-运行原理" class="headerlink" title="03.Chrome 运行原理"></a>03.Chrome 运行原理</h2><h3 id="Chrome-运行原理-—-如何展示网页"><a href="#Chrome-运行原理-—-如何展示网页" class="headerlink" title="Chrome 运行原理 — 如何展示网页"></a>Chrome 运行原理 — 如何展示网页</h3><ul>
-<li>浏览器地址输入 URL 后发生了什么？</li>
-</ul>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ed3335a94e9a4847af43021150348585~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="Chrome-运行原理-—-输入处理"><a href="#Chrome-运行原理-—-输入处理" class="headerlink" title="Chrome 运行原理 — 输入处理"></a>Chrome 运行原理 — 输入处理</h3><ul>
-<li>1.用户 Url 框输入内容的后，UI 线程会判断输入的是一个 URL 地址呢，还是一个 query 查询条件</li>
-<li>2.如果是 URL，直接请求站点资源</li>
-<li>3.如果是 query，将输入发送给搜索引擎</li>
-</ul>
-<h3 id="Chrome-运行原理-—-开始导航"><a href="#Chrome-运行原理-—-开始导航" class="headerlink" title="Chrome 运行原理 — 开始导航"></a>Chrome 运行原理 — 开始导航</h3><ul>
-<li>1.当用户按下回车，UI 线程通知网络线程发起一个网络请求，来获取站点内容</li>
-<li>2.请求过程中，tab 处于 loading 状态</li>
-</ul>
-<h3 id="Chrome-运行原理-—-读取响应"><a href="#Chrome-运行原理-—-读取响应" class="headerlink" title="Chrome 运行原理 — 读取响应"></a>Chrome 运行原理 — 读取响应</h3><ul>
-<li>1.网络线程接收到 HTTP 响应后，先检查响应头的媒体类型(MIME Type</li>
-<li>2.如果响应主体是一个 HTML 文件，浏览器将内容交给渲染进程处理</li>
-<li>3.如果拿到的是其他类型文件，比如 Zip、exe 等，则交给下载管理器处理</li>
-</ul>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4a6650e4aac240b690a4dfe306381842~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="Chrome-运行原理-—-寻找渲染进程"><a href="#Chrome-运行原理-—-寻找渲染进程" class="headerlink" title="Chrome 运行原理 — 寻找渲染进程"></a>Chrome 运行原理 — 寻找渲染进程</h3><ul>
-<li>1.网络线程做完所有检查后，会告知主进程数据已准备完毕，主进程确认后为这个站点寻找一个渲染进程</li>
-<li>2.主进程通过 IPC 消息告知渲染进程去处理本次导航</li>
-<li>3.渲染进程开始接收数据并告知主进程自己已开始处理，导航结束，进入文档加载阶段</li>
-</ul>
-<h3 id="渲染进程-—-资源加载"><a href="#渲染进程-—-资源加载" class="headerlink" title="渲染进程 — 资源加载"></a>渲染进程 — 资源加载</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3964563bfcbc46b0bda54874b9dcaa19~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<ul>
-<li>1.收到主进程的消息后，开始加载 HTML 文档</li>
-<li>2.除此之外，还需要加载子资源，比如一 2.些图片，CSS 样式文件以及 JavaScript 脚本</li>
-</ul>
-<h3 id="渲染进程-—-构建渲染树"><a href="#渲染进程-—-构建渲染树" class="headerlink" title="渲染进程 — 构建渲染树"></a>渲染进程 — 构建渲染树</h3><ul>
-<li>1.构建 DOM 树，将 HTML 文本转化成浏览器能够理解的结构</li>
-<li>2.构建 CSSOM 树，浏览器同样不认识 CSS，需要将 CSS 代码转化为可理解的 CSSOM</li>
-<li>3.构建渲染树，渲染树是 DOM 树和 CSSOM 树的结合</li>
-</ul>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8dcceaf6c3a4419589544fce5e6428e4~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="渲染进程-—-页面布局"><a href="#渲染进程-—-页面布局" class="headerlink" title="渲染进程 — 页面布局"></a>渲染进程 — 页面布局</h3><ul>
-<li>1.根据渲染树计算每个节点的位置和大小</li>
-<li>2.在浏览器页面区域绘制元素边框</li>
-<li>3.遍历渲染树，将元素以盒模型的形式写入文档流</li>
-</ul>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c39a73ff24d5439fb32e586d49a2e38b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="渲染进程-—-页面绘制"><a href="#渲染进程-—-页面绘制" class="headerlink" title="渲染进程 — 页面绘制"></a>渲染进程 — 页面绘制</h3><ul>
-<li>1.构建图层: 为特定的节点生成专用图层</li>
-<li>2.绘制图层:一个图层分成很多绘制指令，然后将这些指令按顺序组成一个绘制列表，交给合成线程</li>
-<li>3.合成线程接收指令生成图块</li>
-<li>4.栅格线程将图块进行栅格化</li>
-<li>5.展示在屏幕上</li>
-</ul>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ef7dd8cd898944e69e6377fee96eb598~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="前端性能-performance"><a href="#前端性能-performance" class="headerlink" title="前端性能 performance"></a>前端性能 performance</h3><h3 id="首屏优化"><a href="#首屏优化" class="headerlink" title="首屏优化"></a>首屏优化</h3><ul>
-<li><ol>
-<li>压缩、分包、删除无用代码</li>
-</ol>
-</li>
-<li>2.静态资源分离</li>
-<li>3.JS 脚本非阻塞加载</li>
-<li>4.缓存策略</li>
-<li>5.SSR</li>
-<li>6.预置 loading、骨架屏</li>
-</ul>
-<h3 id="渲染优化"><a href="#渲染优化" class="headerlink" title="渲染优化"></a>渲染优化</h3><ul>
-<li>1.GPU 加速</li>
-<li>2.减少回流，重绘</li>
-<li>3.离屏渲染</li>
-<li>4.懒加载</li>
-</ul>
-<h3 id="JS-优化"><a href="#JS-优化" class="headerlink" title="JS 优化"></a>JS 优化</h3><ul>
-<li>1.防止内存泄漏</li>
-<li>2.循环尽早 break</li>
-<li>3.合理使用闭包</li>
-<li>4.减少 Dom 访问</li>
-<li>5.防抖、节流</li>
-<li>6.Web Workers</li>
-</ul>
-<h2 id="04-跨端容器"><a href="#04-跨端容器" class="headerlink" title="04.跨端容器"></a>04.跨端容器</h2><h3 id="为什么需要跨端"><a href="#为什么需要跨端" class="headerlink" title="为什么需要跨端"></a>为什么需要跨端</h3><ul>
-<li>1.开发成本、效率</li>
-<li>2.一致性体验</li>
-<li>3.前端开发生态</li>
-</ul>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf0826f6ec9749088d876365c780e64f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="跨端方案"><a href="#跨端方案" class="headerlink" title="跨端方案"></a>跨端方案</h3><ul>
-<li>webview</li>
-<li>小程序</li>
-<li>RN 、 Weex</li>
-<li>Lynx</li>
-<li>Flutter</li>
-</ul>
-<h3 id="跨端容器-—-WebView"><a href="#跨端容器-—-WebView" class="headerlink" title="跨端容器 — WebView"></a>跨端容器 — WebView</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b974e484ed1245f3b3c0c44a02bd00bc~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="跨端容器-—-常用-WebView-分类"><a href="#跨端容器-—-常用-WebView-分类" class="headerlink" title="跨端容器 — 常用 WebView 分类"></a>跨端容器 — 常用 WebView 分类</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/669e9e8ef15a43e790eca1d422ce0771~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="跨端容器-—-使用-WebView-优势"><a href="#跨端容器-—-使用-WebView-优势" class="headerlink" title="跨端容器 — 使用 WebView 优势"></a>跨端容器 — 使用 WebView 优势</h3><ul>
-<li>1.一次开发，处处使用，学习成本低</li>
-<li>2.随时发布，即时更新，不用下载安装包</li>
-<li>3.移动设备性能不断提升，性能有保障</li>
-<li>4.通过 JSBridge 和原生系统交互，实现复杂功能</li>
-</ul>
-<h3 id="跨端容器-—-WebView-使用原生能力"><a href="#跨端容器-—-WebView-使用原生能力" class="headerlink" title="跨端容器 — WebView 使用原生能力"></a>跨端容器 — WebView 使用原生能力</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/80946c84cdae4c26961a52330c01d15b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/36d39a6a73c24c28973449f35d035f26~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="跨端容器-—-WebView-lt-gt-Native-通信"><a href="#跨端容器-—-WebView-lt-gt-Native-通信" class="headerlink" title="跨端容器 — WebView &lt; - &gt; Native 通信"></a>跨端容器 — WebView &lt; - &gt; Native 通信</h3><ul>
-<li>1.JS 环境中提供通信的 JSBridge</li>
-<li><ol start="2">
-<li>Native 端提供 SDK 响应 JSBridge 发出的调用</li>
-</ol>
-</li>
-<li>3.前端和客户端分别实现对应功能模块</li>
-</ul>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ddbc6e26ae264e89a4c40b5adad4bc05~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="跨端容器-—-实现一个简易-JSBridge"><a href="#跨端容器-—-实现一个简易-JSBridge" class="headerlink" title="跨端容器 — 实现一个简易 JSBridge"></a>跨端容器 — 实现一个简易 JSBridge</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/50d6ea0689354e32a69d3ea9ae176155~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="跨端容器-—-小程序"><a href="#跨端容器-—-小程序" class="headerlink" title="跨端容器 — 小程序"></a>跨端容器 — 小程序</h3><ul>
-<li>1.微信、支付宝、百度小程序、小米直达号</li>
-<li>2.渲染层-webview</li>
-<li>3.双线程，多 webview 架构</li>
-<li>4.数据通信，Native 转发</li>
-</ul>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/adf7376aa6294b60a25ff4bbc2733e09~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="跨端容器-—-React-Native-x2F-WeeX"><a href="#跨端容器-—-React-Native-x2F-WeeX" class="headerlink" title="跨端容器 — React Native&#x2F;WeeX"></a>跨端容器 — React Native&#x2F;WeeX</h3><ul>
-<li>1.原生组件渲染</li>
-<li><ol start="2">
-<li>React&#x2F;Vue 框架</li>
-</ol>
-</li>
-<li>3.virtual dom</li>
-<li>4.JSBridge</li>
-</ul>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c46b136d201f472aaadb11649d54394a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="跨端容器-—-Lynx"><a href="#跨端容器-—-Lynx" class="headerlink" title="跨端容器 — Lynx"></a>跨端容器 — Lynx</h3><ul>
-<li><ol>
-<li>Vue</li>
-</ol>
-</li>
-<li>2.JS Core &#x2F; V8</li>
-<li>3.JSBinding</li>
-<li>4.Native UI &#x2F; Skia</li>
-</ul>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d282db8d9ee451680a8a3cc42abe53e~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="跨端容器-—-Flutter"><a href="#跨端容器-—-Flutter" class="headerlink" title="跨端容器 — Flutter"></a>跨端容器 — Flutter</h3><ul>
-<li><ol>
-<li>wideget</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>dart vm</li>
-</ol>
-</li>
-<li>3.skia 图形库</li>
-</ul>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/38c33b7a4e0a4f16aa717da365c12afb~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="跨端容器-—-通用原理"><a href="#跨端容器-—-通用原理" class="headerlink" title="跨端容器 — 通用原理"></a>跨端容器 — 通用原理</h3><ul>
-<li><ol>
-<li>UI 组件</li>
-</ol>
-</li>
-<li>2.染引擎</li>
-<li>3.逻辑控制引擎</li>
-<li>4.通信桥梁</li>
-<li>5.底层 API 抹平表现差异</li>
-</ul>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c042ec5bab4a49c6b71d716eb8c36e45~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="跨端方案对比"><a href="#跨端方案对比" class="headerlink" title="跨端方案对比"></a>跨端方案对比</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c49860648aa44220b0f0faf5ce2375d4~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="课程总结"><a href="#课程总结" class="headerlink" title="课程总结"></a>课程总结</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/34bfaeac23ec45378b5a4784b7071bb4~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/06/14/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsj000eh8jub10q87o9" data-title="客户端容器 | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Shell-脚本和编程-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/06/14/Shell-%E8%84%9A%E6%9C%AC%E5%92%8C%E7%BC%96%E7%A8%8B-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time class="dt-published" datetime="2023-06-14T02:53:31.000Z" itemprop="datePublished">2023-06-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/06/14/Shell-%E8%84%9A%E6%9C%AC%E5%92%8C%E7%BC%96%E7%A8%8B-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">Shell 脚本和编程 | 青训营笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="Shell-脚本和编程-青训营笔记"><a href="#Shell-脚本和编程-青训营笔记" class="headerlink" title="Shell 脚本和编程 | 青训营笔记"></a>Shell 脚本和编程 | 青训营笔记</h1><h2 id="学习-Shell-的价值："><a href="#学习-Shell-的价值：" class="headerlink" title="学习 Shell 的价值："></a>学习 Shell 的价值：</h2><ul>
-<li>Linux 服务器的基本操作和管理</li>
-<li>前端 Node.js 服务的进程管理、问题排查、资源监控等运维操作</li>
-<li>使用 shell 编写 TCE、SCM、Docker 脚本，完成服务编译和部署</li>
-</ul>
-<h2 id="01-Shell-基础概念"><a href="#01-Shell-基础概念" class="headerlink" title="01.Shell 基础概念"></a>01.Shell 基础概念</h2><p>Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。</p>
-<p>Shell 是指一种应用程序，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核的服务。</p>
-<p>Ken Thompson 的 sh 是第一种 Unix Shell，Windows Explorer 是一个典型的图形界面 Shell。</p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8e29260a894a432a830fc8827788e72d~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="发展"><a href="#发展" class="headerlink" title="发展"></a>发展</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/63cfb366cf8e49c68ad74c87cdb3d7e9~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>除了替代 v6 shell，sh 还有几个优点，把控制流程，循环，变量引入了脚本，提供了一种更具功能性的语言<br><br>主流 Linux 系统使用的 shell，许多都以它为锚点。<br><br>bash 是 sh 的超集，可以直接执行大部分 sh 脚本。<br><br>Bash 在兼容 Boumne shel 脚本编程的同时，集成了 Kom shel C shel 的能，包括命今历史，命今行，目录堆钱 pushd 和 popd) ，一些实用环境安量，命今自动补全等.<br></p>
-<h3 id="构成"><a href="#构成" class="headerlink" title="构成"></a>构成</h3><p>shell 不仅提供了与内核和设备交与的方法，还成了一些今天软件开发中通用的设计模式比管道和过)，具备控制流程，循环，变量，命令查找的机制 <br><br>既是命令解释器，也是一门编程语言，作为命今解释器，它提供给用户接口,使用丰富的 GNU 工具集，第三方的或者内置的，比 cd、pwd,exec, tet， netstat 等等<br><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d32cb2fa04a24cf6bb63dce42f7d4968~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h2 id="02-语法和命令"><a href="#02-语法和命令" class="headerlink" title="02.语法和命令"></a>02.语法和命令</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad0fd3e79fae4d51b86a974fbd9aa723~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>父子 Shell</strong></p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/818654384e654fdda49a49ca3dce9d60~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="自定义变量"><a href="#自定义变量" class="headerlink" title="自定义变量"></a>自定义变量</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1a3fd852fc5143c79cf876c0f39d3d47~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="系统环境变量"><a href="#系统环境变量" class="headerlink" title="系统环境变量"></a>系统环境变量</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8be8b16225bd4a99b846ba48366c60db~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="配置文件加载"><a href="#配置文件加载" class="headerlink" title="配置文件加载"></a>配置文件加载</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a13cf166674e496b88e47c99e3464195~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<ul>
-<li>通过系统用户登录默认运行的 Shell</li>
-<li>非登录交互式运行 Shell</li>
-<li>执行脚本运行非交互 Shell</li>
-</ul>
-<p>如果取得 bash 需要完整的登录流程，我们称之为 login shell ，比如 ssh 远程登录一台主机，不需要登录 bash 我们称之为 non-login bash，比如在原来的 bash 中执行 bash 开启子进程，执行一些外部命令，如果修改了配置文件，不会立即生效，需要我们重启终端或者执行 source 命令。</p>
-<h3 id="运算符和引用"><a href="#运算符和引用" class="headerlink" title="运算符和引用"></a>运算符和引用</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f8c1c51e5a3a4e1a896d337a05886e08~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h4 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h4><table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>+</td>
-<td>加法</td>
-<td><code>expr 1 + 2</code> 结果为 3</td>
-</tr>
-<tr>
-<td>-</td>
-<td>减法</td>
-<td><code>expr 3 - 1</code> 结果为 2</td>
-</tr>
-<tr>
-<td>*</td>
-<td>乘法</td>
-<td><code>expr 2 * 3</code> 结果为 6</td>
-</tr>
-<tr>
-<td>&#x2F;</td>
-<td>除法</td>
-<td><code>expr 10 / 2</code> 结果为 5</td>
-</tr>
-<tr>
-<td>%</td>
-<td>取余数</td>
-<td><code>expr 11 % 2</code> 结果为 1</td>
-</tr>
-<tr>
-<td>&#x3D;</td>
-<td>赋值</td>
-<td><code>a=10</code> 将 10 赋值给变量 a</td>
-</tr>
-<tr>
-<td>&#x3D;&#x3D;</td>
-<td>判断相等</td>
-<td><code>if [ $a == 10 ]</code> 判断变量 a 是否等于 10，等于返回 true，不等于返回 false</td>
-</tr>
-</tbody></table>
-<h4 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h4><table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-eq</td>
-<td>相等</td>
-<td><code>if [ $a -eq $b ]</code> 判断变量 a 是否等于变量 b，等于返回 true，不等于返回 false</td>
-</tr>
-<tr>
-<td>-ne</td>
-<td>不相等</td>
-<td><code>if [ $a -ne $b ]</code> 判断变量 a 是否不等于变量 b，是返回 true，否则返回 false</td>
-</tr>
-<tr>
-<td>-gt</td>
-<td>大于</td>
-<td><code>if [ $a -gt $b ]</code> 判断变量 a 是否大于变量 b，是返回 true，否则返回 false</td>
-</tr>
-<tr>
-<td>-lt</td>
-<td>小于</td>
-<td><code>if [ $a -lt $b ]</code> 判断变量 a 是否小于变量 b，是返回 true，否则返回 false</td>
-</tr>
-<tr>
-<td>-ge</td>
-<td>大于等于</td>
-<td><code>if [ $a -ge $b ]</code> 判断变量 a 是否大于等于变量 b，是返回 true，否则返回 false</td>
-</tr>
-<tr>
-<td>-le</td>
-<td>小于等于</td>
-<td><code>if [ $a -le $b ]</code> 判断变量 a 是否小于等于变量 b，是返回 true，否则返回 false</td>
-</tr>
-</tbody></table>
-<h4 id="布尔运算符"><a href="#布尔运算符" class="headerlink" title="布尔运算符"></a>布尔运算符</h4><p>| 运算符 | 描述         | 示例                                                                                                         |<br>| —— | ———— | ———————————————————————————————————— | ———- | —————– | — | ————————————————————————————— |<br>| !      | 非运算       | <code>if ! [ $a == $b ]</code> 判断变量 a 是否不等于变量 b，是返回 true，否则返回 false                                 |<br>| -o     | 或运算       | <code>if [ $a -lt 10 -o $b -gt 20 ]</code> 判断变量 a 是否小于 10 或变量 b 是否大于 20，是返回 true，否则返回 false     |<br>| -a     | 与运算       | <code>if [ $a -lt 10 -a $b -gt 20 ]</code> 判断变量 a 是否小于 10 且变量 b 是否大于 20，是返回 true，否则返回 false     |<br>| &amp;&amp;     | 逻辑与运算   | <code>if [ $a -lt 10 ] &amp;&amp; [ $b -gt 20 ]</code> 判断变量 a 是否小于 10 且变量 b 是否大于 20，是返回 true，否则返回 false |<br>|        |              |                                                                                                              | 逻辑或运算 | <code>if [ $a -lt 10 ] |     | [ $b -gt 20 ]</code> 判断变量 a 是否小于 10 或变量 b 是否大于 20，是返回 true，否则返回 false |<br>| -z     | 字符串为空   | <code>if [ -z $a ]</code> 判断字符串变量 a 是否为空，是返回 true，否则返回 false                                        |<br>| -n     | 字符串不为空 | <code>if [ -n $a ]</code> 判断字符串变量 a 是否不为空，是返回 true，否则返回 false                                      |</p>
-<h3 id="引用命令"><a href="#引用命令" class="headerlink" title="引用命令"></a>引用命令</h3><h4 id="反引号引用"><a href="#反引号引用" class="headerlink" title="反引号引用"></a>反引号引用</h4><p>反引号引用可以将一个命令的执行结果赋值给一个变量。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 获取当前日期并赋值给变量 date</span><br><span class="line">date=`date +%Y-%m-%d`</span><br><span class="line">echo $date</span><br></pre></td></tr></table></figure>
-
-<h4 id="引用"><a href="#引用" class="headerlink" title="$() 引用"></a>$() 引用</h4><p>$() 引用也可以将一个命令的执行结果赋值给一个变量。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 获取当前日期并赋值给变量 date</span><br><span class="line">date=$(date +%Y-%m-%d)</span><br><span class="line">echo $date</span><br></pre></td></tr></table></figure>
-
-<h4 id="单引号引用"><a href="#单引号引用" class="headerlink" title="单引号引用"></a>单引号引用</h4><p>单引号引用可以防止引号内的特殊字符被解析。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">echo &#x27;Hello $USER!&#x27;</span><br></pre></td></tr></table></figure>
-
-<p>输出：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Hello $USER!</span><br></pre></td></tr></table></figure>
-
-<h4 id="双引号引用"><a href="#双引号引用" class="headerlink" title="双引号引用"></a>双引号引用</h4><p>双引号引用可以保留引号内的变量和转义字符。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">echo &quot;Hello $USER!&quot;</span><br></pre></td></tr></table></figure>
-
-<p>输出：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Hello root!</span><br></pre></td></tr></table></figure>
-
-<h3 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h3><p>管道与管道符| ，作用是将前一个命令的结果传递给后面的命令<br><br><strong>语法</strong>： cmd1 | cmd2<br><br><strong>要求</strong>：管道右侧的命令必须能接受标准输入才行，比如 grep 命令，ls、mv 等不能直接使用，可以使用 xargs 预处理<br><br><strong>注意</strong>：管道命令仅仅处理 stdout ，对于 stderr 会予以忽略，可以使用 set-o pipefail 设置 shell 遇到管道错误退出<br></p>
-<h3 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f1b062c396014e4cbe88965b4e8832a6~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h4 id="输出重定向"><a href="#输出重定向" class="headerlink" title="输出重定向"></a>输出重定向</h4><h5 id="gt-命令"><a href="#gt-命令" class="headerlink" title="&gt;命令"></a><code>&gt;</code>命令</h5><p>使用<code>&gt;</code>命令可以将命令的输出重定向到一个文件中，如果文件不存在则创建该文件，如果文件已存在则覆盖该文件。语法如下：</p>
-<pre><code>command &gt; file
-</code></pre>
-<p>其中<code>command</code>表示一个命令，<code>file</code>表示输出重定向的目标文件。</p>
-<p>示例：</p>
-<pre><code>echo &quot;hello world&quot; &gt; output.txt
-</code></pre>
-<h5 id="gt-gt-命令"><a href="#gt-gt-命令" class="headerlink" title="&gt;&gt;命令"></a><code>&gt;&gt;</code>命令</h5><p>使用<code>&gt;&gt;</code>命令可以将命令的输出追加到一个文件中，如果文件不存在则创建该文件，如果文件已存在则在文件末尾追加内容。语法如下：</p>
-<pre><code>command &gt;&gt; file
-</code></pre>
-<p>其中<code>command</code>表示一个命令，<code>file</code>表示输出重定向的目标文件。</p>
-<p>示例：</p>
-<pre><code>echo &quot;hello&quot; &gt;&gt; output.txt
-echo &quot;world&quot; &gt;&gt; output.txt
-</code></pre>
-<h4 id="输入重定向"><a href="#输入重定向" class="headerlink" title="输入重定向"></a>输入重定向</h4><h5 id="lt-命令"><a href="#lt-命令" class="headerlink" title="&lt;命令"></a><code>&lt;</code>命令</h5><p>使用<code>&lt;</code>命令可以将文件中的内容作为命令的输入。语法如下：</p>
-<pre><code>command &lt; file
-</code></pre>
-<p>其中<code>command</code>表示一个命令，<code>file</code>表示输入重定向的源文件。</p>
-<p>示例：</p>
-<pre><code>bashCopy code
-sort &lt; input.txt
-</code></pre>
-<h5 id="lt-lt-命令"><a href="#lt-lt-命令" class="headerlink" title="&lt;&lt;命令"></a><code>&lt;&lt;</code>命令</h5><p>使用<code>&lt;&lt;</code>命令可以将多行文本作为命令的输入。语法如下：</p>
-<pre><code>command &lt;&lt; delimiter
-text
-delimiter
-</code></pre>
-<p>其中<code>command</code>表示一个命令，<code>delimiter</code>表示一个定界符，<code>text</code>表示多行文本。</p>
-<p>示例：</p>
-<pre><code>cat &lt;&lt; EOF
-This is the first line.
-This is the second line.
-EOF
-</code></pre>
-<h3 id="判断命令"><a href="#判断命令" class="headerlink" title="判断命令"></a>判断命令</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cc928987cb054c45b379100be1e18a37~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h4 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h4><p><code>if</code>语句可以根据某个条件来执行不同的命令。语法如下：</p>
-<pre><code>if [ condition ]
-then
-    command1
-else
-    command2
-fi
-</code></pre>
-<p>其中<code>condition</code>表示一个条件表达式，如果满足条件则执行<code>command1</code>，否则执行<code>command2</code>。</p>
-<p>示例：</p>
-<pre><code>if [ $1 -gt 10 ]
-then
-    echo &quot;$1 is greater than 10&quot;
-else
-    echo &quot;$1 is less than or equal to 10&quot;
-fi
-</code></pre>
-<h4 id="test-命令"><a href="#test-命令" class="headerlink" title="test 命令"></a>test 命令</h4><p><code>test</code>命令可以用来测试某个条件是否成立。语法如下：</p>
-<pre><code>bashCopy code
-test condition
-</code></pre>
-<p>其中<code>condition</code>表示一个条件表达式，如果条件成立则返回 0，否则返回非 0 值。</p>
-<p>示例：</p>
-<pre><code>if test -f &quot;/etc/passwd&quot;
-then
-    echo &quot;The file /etc/passwd exists.&quot;
-else
-    echo &quot;The file /etc/passwd does not exist.&quot;
-fi
-</code></pre>
-<h4 id="文件测试命令"><a href="#文件测试命令" class="headerlink" title="文件测试命令"></a>文件测试命令</h4><p>以下命令用于测试文件的属性：</p>
-<ul>
-<li><code>-e</code>：测试文件是否存在</li>
-<li><code>-f</code>：测试文件是否为普通文件</li>
-<li><code>-d</code>：测试文件是否为目录</li>
-<li><code>-r</code>：测试文件是否可读</li>
-<li><code>-w</code>：测试文件是否可写</li>
-<li><code>-x</code>：测试文件是否可执行</li>
-</ul>
-<p>示例：</p>
-<pre><code>if [ -d &quot;/usr/bin&quot; ]
-then
-    echo &quot;/usr/bin is a directory&quot;
-else
-    echo &quot;/usr/bin is not a directory&quot;
-fi
-</code></pre>
-<h4 id="字符串测试命令"><a href="#字符串测试命令" class="headerlink" title="字符串测试命令"></a>字符串测试命令</h4><p>以下命令用于测试字符串的属性：</p>
-<ul>
-<li><code>-z</code>：测试字符串是否为空</li>
-<li><code>-n</code>：测试字符串是否非空</li>
-<li><code>=</code>：测试字符串是否相等</li>
-<li><code>!=</code>：测试字符串是否不相等</li>
-</ul>
-<p>示例：</p>
-<pre><code>str1=&quot;hello&quot;
-str2=&quot;world&quot;
-if [ &quot;$str1&quot; = &quot;$str2&quot; ]
-then
-    echo &quot;The two strings are equal&quot;
-else
-    echo &quot;The two strings are not equal&quot;
-fi
-</code></pre>
-<h3 id="分支语句"><a href="#分支语句" class="headerlink" title="分支语句"></a>分支语句</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/121cae9bfde041c8b0ec68d36d922b0b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b1c2197b86c249fdaa2e44c81506851e~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f7f6c60f0a9e48fa96cfb1681b2b67f9~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e3f6e5b727f64599b2f1ff9cfcef06da~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>在 Shell 中，函数必须在使用之前先定义。Shell 脚本会自上而下依次执行，这意味着函数定义应该放在调用函数之前。函数可以通过以下方式获取参数：</p>
-<ul>
-<li><code>$1</code>，表示第一个参数</li>
-<li><code>$2</code>，表示第二个参数</li>
-<li>…</li>
-</ul>
-<p>函数执行完毕后，可以使用<code>return</code>语句表示函数执行状态，但并不代表函数执行结果。如果需要返回函数结果，一般使用<code>echo</code>或<code>printf</code>命令来输出结果。</p>
-<p>在函数外部，可以通过<code>$0</code>来获取函数名称，而通过<code>$?</code>可以获取函数执行状态。如果函数没有使用<code>return</code>语句返回结果，则函数状态等同于上一条命令的执行状态，可以通过<code>$?</code>来获取。</p>
-<h3 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/402891e948fc4b1a9cef1f600c96690b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<p>Shell 模块化可以将一个大型的 Shell 脚本拆分为多个模块，每个模块可以独立开发、测试和维护。模块化的好处包括：</p>
-<ul>
-<li>代码复用性：多个脚本可以共用同一个模块，避免代码重复。</li>
-<li>可维护性：模块之间的关系清晰，容易维护和修改。</li>
-<li>可测试性：每个模块可以独立测试，避免对整个脚本的测试和调试。</li>
-</ul>
-<h4 id="模块定义"><a href="#模块定义" class="headerlink" title="模块定义"></a>模块定义</h4><p>一个 Shell 模块可以是一个单独的文件，也可以是一组相关的函数。为了方便管理，我们通常将所有的模块都放在一个独立的目录中，并使用一个文件来定义每个模块。</p>
-<p>下面是一个示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line"># 定义模块名和依赖模块</span><br><span class="line">MODULE_NAME=&quot;example&quot;</span><br><span class="line">MODULE_DEPENDENCIES=(&quot;common&quot; &quot;logger&quot;)</span><br><span class="line"></span><br><span class="line"># 导入依赖模块</span><br><span class="line">for module in $&#123;MODULE_DEPENDENCIES[@]&#125;; do</span><br><span class="line">    source &quot;$&#123;module&#125;.sh&quot;</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"># 定义模块函数</span><br><span class="line">function hello() &#123;</span><br><span class="line">    echo &quot;Hello, world!&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在上面的示例中，我们首先定义了模块的名称 <code>example</code>，以及依赖模块 <code>common</code> 和 <code>logger</code>。然后，我们使用一个循环导入所有的依赖模块。</p>
-<p>最后，我们定义了一个名为 <code>hello</code> 的函数。</p>
-<h4 id="模块导入"><a href="#模块导入" class="headerlink" title="模块导入"></a>模块导入</h4><p>要在另一个脚本中使用一个模块，我们可以使用 <code>source</code> 命令来导入该模块。例如，假设我们要在一个名为 <code>main.sh</code> 的脚本中使用 <code>example</code> 模块：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line"># 导入 example 模块</span><br><span class="line">source &quot;example.sh&quot;</span><br><span class="line"></span><br><span class="line"># 调用 example 模块的 hello 函数</span><br><span class="line">hello</span><br></pre></td></tr></table></figure>
-
-<p>在上面的示例中，我们使用 <code>source</code> 命令导入了 <code>example.sh</code> 模块，并调用了 <code>hello</code> 函数。</p>
-<h4 id="模块化目录结构"><a href="#模块化目录结构" class="headerlink" title="模块化目录结构"></a>模块化目录结构</h4><p>通常情况下，我们将所有的模块都放在一个独立的目录中，如下所示：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">myproject/</span><br><span class="line">├── modules/</span><br><span class="line">│   ├── common.sh</span><br><span class="line">│   ├── example.sh</span><br><span class="line">│   └── logger.sh</span><br><span class="line">└── main.sh</span><br></pre></td></tr></table></figure>
-
-<p>在上面的目录结构中，<code>modules</code> 目录包含了所有的模块文件，而 <code>main.sh</code> 则是主脚本。</p>
-<p>使用模块化的目录结构可以方便地管理多个模块，使代码更加清晰和易于维护。</p>
-<h2 id="03-执行过程和原理"><a href="#03-执行过程和原理" class="headerlink" title="03.执行过程和原理"></a>03.执行过程和原理</h2><ol>
-<li>解析命令行参数：Shell 解析命令行参数，并根据参数的不同执行不同的命令。</li>
-<li>读取配置文件：Shell 会读取用户的配置文件，例如 <code>~/.bashrc</code> 和 <code>~/.bash_profile</code>，并执行其中的命令。</li>
-<li>执行命令：Shell 会根据用户输入的命令执行相应的操作，包括内置命令和外部命令。</li>
-<li>处理输入输出：Shell 会处理命令的输入和输出，包括输入重定向、输出重定向和管道。</li>
-<li>执行子 Shell：Shell 可以执行子 Shell，子 Shell 会继承父 Shell 的环境变量和文件描述符。</li>
-<li>退出 Shell：当用户输入 <code>exit</code> 命令或者脚本执行完毕时，Shell 会退出。<br>在上面的执行过程中，Shell 解析命令行参数、读取配置文件和执行命令等步骤是 Shell 的核心功能。这些功能是通过 Shell 的语法解析器实现的，语法解析器会将用户输入的命令解析成 Shell 内部数据结构，然后将其交给 Shell 的执行引擎执行。</li>
-</ol>
-<h3 id="Shell-的-6-种展开方式"><a href="#Shell-的-6-种展开方式" class="headerlink" title="Shell 的 6 种展开方式"></a>Shell 的 6 种展开方式</h3><p>Shell 支持 6 种展开方式，它们分别是：</p>
-<ol>
-<li>参数展开：使用 <code>$</code> 符号引用变量时，Shell 会将 <code>$</code> 后面的字符展开为变量的值。例如：<code>$var</code> 会被展开为变量 <code>var</code> 的值。</li>
-<li>命令替换：使用反引号 <code>`</code> 或 <code>$()</code> 包围一个命令，Shell 会将命令的输出替换为这个命令的执行结果。例如：<code>`date`</code> 会被替换为当前日期和时间。</li>
-<li>算术展开：使用 <code>$((expression))</code> 或 <code>$[expression]</code> 来进行算术展开。例如：<code>echo $((2+3))</code> 会输出 <code>5</code>。</li>
-<li>文件名展开：使用通配符 <code>*</code>、<code>?</code>、<code>[]</code> 来匹配文件名进行展开。例如：<code>ls *.txt</code> 会列出当前目录下所有以 <code>.txt</code> 结尾的文件。</li>
-<li>大括号展开：使用 <code>&#123;&#125;</code> 将一组字符串括起来，Shell 会展开成这组字符串的所有组合。例如：<code>echo &#123;a,b,c&#125;&#123;1,2&#125;</code> 会输出 <code>a1 a2 b1 b2 c1 c2</code>。</li>
-<li>波浪线展开：使用 <code>~</code> 表示当前用户的主目录，或者使用 <code>~username</code> 表示指定用户的主目录。例如：<code>cd ~</code> 会切换到当前用户的主目录。</li>
-</ol>
-<h2 id="04-调试和前端集成"><a href="#04-调试和前端集成" class="headerlink" title="04.调试和前端集成"></a>04.调试和前端集成</h2><h3 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f0dafb03a72644aeb1842a136811a95d~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="VSCode-配置"><a href="#VSCode-配置" class="headerlink" title="VSCode 配置"></a>VSCode 配置</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d5549d452cc4453681dcde8ceb59424a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="前端集成"><a href="#前端集成" class="headerlink" title="前端集成"></a>前端集成</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/24e15985920c482880cc01f7113059c8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="课程总结"><a href="#课程总结" class="headerlink" title="课程总结"></a>课程总结</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2cbd720a4d314572a55612d1aa35d8c5~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="Shell-总结"><a href="#Shell-总结" class="headerlink" title="Shell 总结"></a>Shell 总结</h3><p>Shell 是一种基于文本的命令行解释器，它的思想和语法和传统的编程语言不太一样。Shell 的语法非常简单，它强调一条语句只干一件事情，所以 Shell 中的万物皆命令，几乎每一个操作都可以用一个命令来完成。在 Shell 中，每一条命令都是独立的，它们可以逐行、逐个连接符、逐个空格地解析出最小化的命令进行执行，然后再解析下一句命令。</p>
-<p>要写出高效的 Shell 脚本，需要熟悉 Shell 的配置加载、执行方式、执行过程、命令解析过程、必要的语法和常用命令。了解了这些内容之后，就可以方便地写出自己的自动化脚本，从而提高工作效率和编程能力。</p>
-<p>综上所述，Shell 是一种非常灵活、简单、高效的命令行解释器，它具有广泛的应用领域，包括系统管理、软件开发、数据处理等等。掌握 Shell 的思想和语法对于日常工作和编程开发都非常重要。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/06/14/Shell-%E8%84%9A%E6%9C%AC%E5%92%8C%E7%BC%96%E7%A8%8B-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsc0006h8ju4ojb3ny3" data-title="Shell 脚本和编程 | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Linux-基础-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/06/14/Linux-%E5%9F%BA%E7%A1%80-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time class="dt-published" datetime="2023-06-14T02:53:03.000Z" itemprop="datePublished">2023-06-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/06/14/Linux-%E5%9F%BA%E7%A1%80-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">Linux 基础 | 青训营笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="Linux-基础"><a href="#Linux-基础" class="headerlink" title="Linux 基础"></a>Linux 基础</h1><h2 id="学习-Linux-的价值"><a href="#学习-Linux-的价值" class="headerlink" title="学习 Linux 的价值"></a>学习 Linux 的价值</h2><ul>
-<li>Linux 是现代化应用程序交付的首选平台，无论是部署在裸机，虚拟化还是容器化环境</li>
-<li>公司内部服务(TCE , FaaS , SCM)统一使用 Debian Linux 系统</li>
-<li>熟悉 Linux 基础指令,熟练运维前端常用服务(Nginx , Node.js)</li>
-<li>加深对操作系统概念和实现的理解，夯实基础知识</li>
-</ul>
-<h2 id="01-计算机硬件"><a href="#01-计算机硬件" class="headerlink" title="01.计算机硬件"></a>01.计算机硬件</h2><ul>
-<li>控制器</li>
-<li>运算器</li>
-<li>存储器单元</li>
-<li>输入单元</li>
-<li>输出单元</li>
-</ul>
-<h2 id="02-计算机操作系统"><a href="#02-计算机操作系统" class="headerlink" title="02.计算机操作系统"></a>02.计算机操作系统</h2><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1142ea74fa554e63a55647a2e3189c2e~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="问题思考：程序启动必须有操作系统来执行，那操作系统本身也是一个程序，那是如何在开机时被执行的呢"><a href="#问题思考：程序启动必须有操作系统来执行，那操作系统本身也是一个程序，那是如何在开机时被执行的呢" class="headerlink" title="问题思考：程序启动必须有操作系统来执行，那操作系统本身也是一个程序，那是如何在开机时被执行的呢?"></a>问题思考：程序启动必须有操作系统来执行，那操作系统本身也是一个程序，那是如何在开机时被执行的呢?</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa522faa3c0b465bbbc84c511fda0e9c~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>操作系统的启动流程分为传统模式，也就是基于 BIOS 的启动流程，另一种是当前的主流模式，就是基于 UEFI 的启动流程。</p>
-<h2 id="操作系统的启动流程分为传统模式，也就是基于-bios-的启动流程，另一种是当前的主流模式，就是基于-UEFI-的启动流程"><a href="#操作系统的启动流程分为传统模式，也就是基于-bios-的启动流程，另一种是当前的主流模式，就是基于-UEFI-的启动流程" class="headerlink" title="操作系统的启动流程分为传统模式，也就是基于 bios 的启动流程，另一种是当前的主流模式，就是基于 UEFI 的启动流程."></a>操作系统的启动流程分为传统模式，也就是基于 bios 的启动流程，另一种是当前的主流模式，就是基于 UEFI 的启动流程.</h2><h2 id="Linux-系统概览"><a href="#Linux-系统概览" class="headerlink" title="Linux 系统概览"></a>Linux 系统概览</h2><h3 id="Linux-发展简史"><a href="#Linux-发展简史" class="headerlink" title="Linux 发展简史"></a>Linux 发展简史</h3><p>1.1969 年，Unix 诞生于贝尔实验室<br><br>2.1984 年，贝尔实验室将 Unix 商业化<br><br>3.1984 年，Tanenbaum 开发 Minix 操作系统用于教学并开放源码<br><br>4.1984 年，Richard M.Stallman 发起自由软件(FSF) 与 GNU 项目，起草 GPL (通用公共许可)协议<br><br>5.1991 年，Linus Torvalds 受 Minix 影响实现初版的 Linux 内核<br><br>6.1992 年，Linux 内核以 GPL 协议发行 V1.0<br></p>
-<h3 id="Linux-版本"><a href="#Linux-版本" class="headerlink" title="Linux 版本"></a>Linux 版本</h3><ul>
-<li>内核版本</li>
-<li>发行版本</li>
-</ul>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a1083a36438f478b8c25f5ffbf8cdf47~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d27e2f1bbc0648108f8c63340a6b54b0~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="查看-Linux-系统内核版本"><a href="#查看-Linux-系统内核版本" class="headerlink" title="查看 Linux 系统内核版本"></a>查看 Linux 系统内核版本</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b2a6ee9e90574920bbb99b4c33ba426c~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/392c9b422c4f415f882b7d89c08a71a8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="Linux-系统应用领域"><a href="#Linux-系统应用领域" class="headerlink" title="Linux 系统应用领域"></a>Linux 系统应用领域</h3><ul>
-<li>IT 服务器 (操作系统、虚拟化和云计算)</li>
-<li>嵌入式和智能设备</li>
-<li>个人办公桌面</li>
-<li>学术研究与软件研发</li>
-</ul>
-<h2 id="Linux-系统结构"><a href="#Linux-系统结构" class="headerlink" title="Linux 系统结构"></a>Linux 系统结构</h2><h3 id="Linux-基本组成"><a href="#Linux-基本组成" class="headerlink" title="Linux 基本组成"></a>Linux 基本组成</h3><p>Linux 系统一般有 4 个主要部分</p>
-<ul>
-<li>内核</li>
-<li>shell</li>
-<li>文件系统</li>
-<li>应用程序</li>
-</ul>
-<h3 id="Linux-体系结构"><a href="#Linux-体系结构" class="headerlink" title="Linux 体系结构"></a>Linux 体系结构</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/900029ff0c41451185e29e9a0550f8b4~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<ul>
-<li>内核是硬件与软件之间的中间层</li>
-<li>内核是一个资源管理程序</li>
-<li>内核提供一组面向系统的命令</li>
-</ul>
-<h3 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h3><ul>
-<li>进程是正在执行的一个程序或命令</li>
-<li>进程有自己的地址空间，占用一定的系统资源</li>
-<li>一个 CPU 核同一时间只能运行一个进程</li>
-<li>进程由它的进程 ID (PID) 和它父进程的进程 ID (PPID) 唯一识别</li>
-</ul>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8f767b5cd2b544a397052d47f24d165b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="查看进程信息"><a href="#查看进程信息" class="headerlink" title="查看进程信息"></a>查看进程信息</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4329068742364315b8353ffc055c2cac~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="问题思考：系统中运行的程序远远大于-CPU-的核数，那-Linux-系统是如何实现同时运行这么程序的"><a href="#问题思考：系统中运行的程序远远大于-CPU-的核数，那-Linux-系统是如何实现同时运行这么程序的" class="headerlink" title="问题思考：系统中运行的程序远远大于 CPU 的核数，那 Linux 系统是如何实现同时运行这么程序的?"></a>问题思考：系统中运行的程序远远大于 CPU 的核数，那 Linux 系统是如何实现同时运行这么程序的?</h3><p>Linux 系统通过使用进程、线程和调度器等技术来实现同时运行多个程序的功能。</p>
-<p>首先，Linux 系统将每个程序看作一个进程，每个进程都有自己的代码和数据空间。每个进程都是独立的，互相之间不会干扰。通过使用调度器来协调每个进程的运行，使它们看起来是同时运行的。</p>
-<p>其次，每个进程可以创建多个线程，每个线程执行不同的任务，但它们共享进程的代码和数据空间，这样可以减少系统资源的浪费。每个线程都可以执行不同的任务，并且可以同时运行在多个 CPU 核心上，提高了系统的并发处理能力。</p>
-<p>最后，调度器会根据进程的优先级、线程的优先级、CPU 的负载等因素来决定哪个进程或线程可以运行，以保证系统资源的最大利用率。</p>
-<p>总的来说，Linux 系统通过使用进程、线程和调度器等技术来实现同时运行多个程序的功能，并提高了系统的并发处理能力。</p>
-<h3 id="进程调度"><a href="#进程调度" class="headerlink" title="进程调度"></a>进程调度</h3><p>进程调度是指操作系统按某种策略或规则选择进程占用 CPU 进行运行的过程。</p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/97c05f883f0143f584e684dcbb006240~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2434e0b51dbc41c59ac9662c20b197a3~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="进程调度原则"><a href="#进程调度原则" class="headerlink" title="进程调度原则"></a>进程调度原则</h3><ul>
-<li>一个 CPU 核同一时间只能运行一个进程</li>
-<li>每个进程有近乎相等的执行时间</li>
-<li>对于逻辑 CPU 而言进程调度使用轮询的方式执行，当轮询完成则回到第一个进程反复</li>
-<li>进程执行消耗时间和进程量成正比</li>
-</ul>
-<h3 id="进程的系统调用"><a href="#进程的系统调用" class="headerlink" title="进程的系统调用"></a>进程的系统调用</h3><ul>
-<li>内核空间： 系统内核运行的空间</li>
-<li>用户空间：应用程序运行的空间</li>
-</ul>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4f504f6ef41540ee92036472ddf951d2~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h3><p>文件系统负责管理持久化数据的子系统，负责把用户的文件存到磁盘硬件中。</p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b192a3f49c2144388bb3e7ae7d1e9ceb~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/16cdf081d3f94d1690b1ee3524bdf034~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="问题思考：Linux-有这么多不同的文件系统，如何实现对用户提供统一调用接口的"><a href="#问题思考：Linux-有这么多不同的文件系统，如何实现对用户提供统一调用接口的" class="headerlink" title="问题思考：Linux 有这么多不同的文件系统，如何实现对用户提供统一调用接口的?"></a>问题思考：Linux 有这么多不同的文件系统，如何实现对用户提供统一调用接口的?</h3><p>Linux 操作系统提供了 VFS（Virtual File System，虚拟文件系统）层，它是位于 Linux 内核和具体文件系统之间的抽象层。它提供了一组通用的文件系统操作接口，使得应用程序可以无需关心具体文件系统的实现细节，通过 VFS 层调用统一的文件系统操作接口，实现对所有支持的文件系统的访问和管理。</p>
-<p>VFS 层为每个文件系统定义了一组操作接口，包括打开文件、关闭文件、读文件、写文件、创建文件、删除文件等。当应用程序调用这些接口时，VFS 层将会根据具体的文件系统类型调用对应的实现接口，将请求传递给相应的文件系统实现模块。这种模块化的设计极大地提高了文件系统的可扩展性和可维护性。</p>
-<p>在 Linux 中，支持的文件系统种类非常多，包括常用的 ext4、NTFS、FAT 等，也包括特殊用途的文件系统，比如 procfs、sysfs 等。每种文件系统的实现方式都有所不同，但通过 VFS 层提供的统一接口，它们可以无缝地与应用程序交互，从而实现了对用户提供统一调用接口的目标。</p>
-<h3 id="虚拟文件系统-VFS"><a href="#虚拟文件系统-VFS" class="headerlink" title="虚拟文件系统(VFS)"></a>虚拟文件系统(VFS)</h3><ul>
-<li>对应用层提供一个标砖的文件操作接口</li>
-<li>对文件系统提供一个标准的文件接入接口</li>
-</ul>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7f2817ed0196439880dc65184795faf0~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="查看文件系统类型"><a href="#查看文件系统类型" class="headerlink" title="查看文件系统类型"></a>查看文件系统类型</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d4c940ee9e944236ab4d4c931a61ff5d~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="文件基本操作"><a href="#文件基本操作" class="headerlink" title="文件基本操作"></a>文件基本操作</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c677f71f6f624ea9ad6488721a77c3d7~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="文件读取流程"><a href="#文件读取流程" class="headerlink" title="文件读取流程"></a>文件读取流程</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9c1d9be8ded14ece917ff96c6d2cc4f7~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="用户权限"><a href="#用户权限" class="headerlink" title="用户权限"></a>用户权限</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/323ccffc5dd6461db4bf95f64ec82320~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7be49266e3ac47ed8db218b246f0288d~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="用户权限操作"><a href="#用户权限操作" class="headerlink" title="用户权限操作"></a>用户权限操作</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f4fb590e5e4845e7acc0d58573962415~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h2 id="05-Linux-软件包管理"><a href="#05-Linux-软件包管理" class="headerlink" title="05.Linux 软件包管理"></a>05.Linux 软件包管理</h2><h3 id="软件包"><a href="#软件包" class="headerlink" title="软件包"></a>软件包</h3><ul>
-<li>软件包</li>
-</ul>
-<p>通常指的是一个应用程序，它可以是一个 GUI 应用程序、命令行工具或(其他软件程序需要的) 软件库</p>
-<ul>
-<li><p>软件包管理</p>
-<p>底层工具: 主要用来处理安装和删除软件包文件等任务，DPKG，RPM<br><br>上层工具: 主要用于数据的搜索任务和依赖解析任务，APT，YUM，DNF</p>
-</li>
-</ul>
-<h3 id="软件包管理工具"><a href="#软件包管理工具" class="headerlink" title="软件包管理工具"></a>软件包管理工具</h3><ul>
-<li>RPM (Red Hat Package Manager) ，为 Red hat 操作系统的包管理系统</li>
-<li>DPKG (Debian package) ，为 Debian 操作系统的包管理系统</li>
-</ul>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43ca6c5564be4e77b905f37a3993cafd~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="Debian-APT-常用命令"><a href="#Debian-APT-常用命令" class="headerlink" title="Debian APT 常用命令"></a>Debian APT 常用命令</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac3cb4c1e0744e03bd0b02284250115f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="Debian-配置软件源"><a href="#Debian-配置软件源" class="headerlink" title="Debian 配置软件源"></a>Debian 配置软件源</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e8ccca70bb114877ac3b6abb8f28eb9c~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="Nginx-安装"><a href="#Nginx-安装" class="headerlink" title="Nginx 安装"></a>Nginx 安装</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8c598e09e89f4ad2984d714ca66edbfe~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="Nginx-配置修改"><a href="#Nginx-配置修改" class="headerlink" title="Nginx 配置修改"></a>Nginx 配置修改</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2ded6388d3ac442282ed268ac0bf017d~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/06/14/Linux-%E5%9F%BA%E7%A1%80-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hms80001h8ju1a7s2wai" data-title="Linux 基础 | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-计算机网络概论-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%AE%BA-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time class="dt-published" datetime="2023-06-14T02:52:31.000Z" itemprop="datePublished">2023-06-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%AE%BA-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">计算机网络概论 | 青训营笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="01-前言-amp-课程介绍"><a href="#01-前言-amp-课程介绍" class="headerlink" title="01.前言 &amp; 课程介绍"></a>01.前言 &amp; 课程介绍</h2><h3 id="课程目标和收益"><a href="#课程目标和收益" class="headerlink" title="课程目标和收益"></a>课程目标和收益</h3><p>建立对计算机网络的整体认知，对计算机网络中的各种概念 (网络分层、网络协议、网络应用等) 有初步的理解。进而可以在后续的实际工作中能高效解决网络问题。</p>
-<h3 id="课程介绍"><a href="#课程介绍" class="headerlink" title="课程介绍"></a>课程介绍</h3><ul>
-<li>通过一个示例建立对计算机网络的整体认识</li>
-<li>建立对网络协议分层的认知</li>
-<li>分析 HTTP 1、2、3 的关系</li>
-<li>介绍 CDN 运行的基本原理</li>
-<li>了解网络安全的最基本原则</li>
-</ul>
-<h3 id="分析方法"><a href="#分析方法" class="headerlink" title="分析方法"></a>分析方法</h3><ul>
-<li><strong>自底向上</strong><br><br>从简单开始，逐渐变复杂<br><br>将模块逐步拼凑成一个系统<br></li>
-<li><strong>自顶向下</strong><br><br>从复杂开始，逐渐变简单<br><br>从复杂的系统问题入手，拆分为模块问题<br></li>
-</ul>
-<h2 id="02-蟹堡王帝国"><a href="#02-蟹堡王帝国" class="headerlink" title="02.蟹堡王帝国"></a>02.蟹堡王帝国</h2><h3 id="小目标"><a href="#小目标" class="headerlink" title="小目标"></a>小目标</h3><p>蟹老板想挣一个“小目标”</p>
-<h3 id="三步走战略"><a href="#三步走战略" class="headerlink" title="三步走战略"></a>三步走战略</h3><p>1.在比奇堡开通外卖 <br> 2.在北京和上海开分店 <br> 3.在全国开分店并开通外卖 <br></p>
-<h3 id="蟹堡王外卖"><a href="#蟹堡王外卖" class="headerlink" title="蟹堡王外卖"></a>蟹堡王外卖</h3><p>章鱼哥:蟹堡王，请问要吃什么<br><br>龙虾拉里:“为什么我打不通?<br><br><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/94cd1c9a692349b5bdfcf4835c463211~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="北京和上海分店"><a href="#北京和上海分店" class="headerlink" title="北京和上海分店"></a>北京和上海分店</h3><p>分店</p>
-<ul>
-<li>北京方恒蟹堡王</li>
-<li>上海科技绿洲蟹堡王<br><br></li>
-</ul>
-<p>通信线路</p>
-<ul>
-<li>赚了多少钱</li>
-<li>确定原料数量</li>
-<li>是否需要新分店</li>
-<li>促销信息</li>
-</ul>
-<h3 id="新的分店"><a href="#新的分店" class="headerlink" title="新的分店"></a>新的分店</h3><ul>
-<li>中航蟹堡王</li>
-<li>紫金蟹堡王</li>
-<li>大钟寺蟹堡王</li>
-<li>通信线路怎么办?</li>
-</ul>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ul>
-<li>比奇堡外卖</li>
-<li>北京和上海分店</li>
-<li>全国分店和通信网络</li>
-</ul>
-<h2 id="03-计算机网络基础"><a href="#03-计算机网络基础" class="headerlink" title="03.计算机网络基础"></a>03.计算机网络基础</h2><h3 id="网络组成部分"><a href="#网络组成部分" class="headerlink" title="网络组成部分"></a>网络组成部分</h3><ul>
-<li>主机：客户端和服务端</li>
-<li>路由器</li>
-<li>网络协议</li>
-</ul>
-<h3 id="网络结构：网络的网络"><a href="#网络结构：网络的网络" class="headerlink" title="网络结构：网络的网络"></a>网络结构：网络的网络</h3><ul>
-<li>比奇堡和小区网络: 本地网络</li>
-<li>北京和上海分店+比奇堡: 三个本地网络节点的网络</li>
-<li>全国通信网络: 本地网络的网络</li>
-<li>区域网络、城域网和广域网</li>
-</ul>
-<h3 id="电路交换-amp-分组交换"><a href="#电路交换-amp-分组交换" class="headerlink" title="电路交换 &amp; 分组交换"></a>电路交换 &amp; 分组交换</h3><h3 id="网络分层"><a href="#网络分层" class="headerlink" title="网络分层"></a>网络分层</h3><ul>
-<li>快递员不关心包裹内容</li>
-<li>卡车司机不关心车厢里拉的是什么</li>
-<li>高速公路不关心开的什么车</li>
-</ul>
-<h3 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h3><p>协议的存在依赖于连接。<br><br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c4e60a6affc9422fba7c114abe69844d~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>协议定义了在两个或多个通信实体之间交换的报文格式和顺序，以及报文发送和&#x2F;或接受一条报文或其他事件所采取的动作</p>
-<h3 id="标头和载荷"><a href="#标头和载荷" class="headerlink" title="标头和载荷"></a>标头和载荷</h3><p>收件人、寄件人关注</p>
-<ul>
-<li>收件地址、寄件地址</li>
-<li>收件人、寄件人的姓名和电话</li>
-<li>包裹内容</li>
-</ul>
-<p>快递公司关注</p>
-<ul>
-<li>收件人、寄件人关注的东西</li>
-<li>该由哪个集散点发出，哪个集散点收</li>
-<li>哪个网点派送</li>
-</ul>
-<h3 id="HTTP-协议示例"><a href="#HTTP-协议示例" class="headerlink" title="HTTP 协议示例"></a>HTTP 协议示例</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1801d2c7cf6e412ab6e934742cc1fc72~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h4 id="链路层-本地帧头部"><a href="#链路层-本地帧头部" class="headerlink" title="链路层 - 本地帧头部"></a>链路层 - 本地帧头部</h4><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fcfa7bb1ae9b43d88bdb4ed8a0e60f1b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h4 id="链路层-IP-协议头部"><a href="#链路层-IP-协议头部" class="headerlink" title="链路层 - IP 协议头部"></a>链路层 - IP 协议头部</h4><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/122b229329264ae49276e2761ee187a4~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h4 id="运输层-TCP-协议头部"><a href="#运输层-TCP-协议头部" class="headerlink" title="运输层- TCP 协议头部"></a>运输层- TCP 协议头部</h4><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f94bbac87a04021832fddec0ca19083~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h4 id="应用层-HTTP-协议头部"><a href="#应用层-HTTP-协议头部" class="headerlink" title="应用层- HTTP 协议头部"></a>应用层- HTTP 协议头部</h4><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa8f77cd7e444cd8a355246bae44d60a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="TCP-协议格式"><a href="#TCP-协议格式" class="headerlink" title="TCP 协议格式"></a>TCP 协议格式</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7bed87fa502e4c02984a082c7e90c95d~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h3><ul>
-<li>网络组成部分: 由主机、路由器、交换机等组成</li>
-<li>网络结构: 网络的网络</li>
-<li>信息交换方式: 电路交换和分组交换</li>
-<li>网络分层: 分清职责，物理层、链路层、网络层、运输层和应用层</li>
-<li>网络协议: 标头和载荷</li>
-</ul>
-<h2 id="04-Web-中的网络"><a href="#04-Web-中的网络" class="headerlink" title="04.Web 中的网络"></a>04.Web 中的网络</h2><h3 id="HTTP-协议"><a href="#HTTP-协议" class="headerlink" title="HTTP 协议"></a>HTTP 协议</h3><p>HTTP 协议是一种用于在计算机网络上传输超媒体文档的协议，主要用于 Web 应用程序、移动应用程序、API 等领域。它是一个简单、灵活、可扩展和可靠的协议，但存在一些缺点，需要注意并采取相应的措施。</p>
-<h3 id="HTTP-连接模型"><a href="#HTTP-连接模型" class="headerlink" title="HTTP 连接模型"></a>HTTP 连接模型</h3><p>HTTP 连接模型指的是客户端与服务器之间进行 HTTP 通信时，建立、使用和关闭连接的方式和规则。</p>
-<h4 id="队头堵塞（Head-of-line-blocking）"><a href="#队头堵塞（Head-of-line-blocking）" class="headerlink" title="队头堵塞（Head-of-line blocking）"></a>队头堵塞（Head-of-line blocking）</h4><p>队头堵塞（Head-of-line blocking）是指在某些协议或系统中，如果一个请求或数据包阻塞了，那么在这个请求或数据包之后的所有请求或数据包都将被阻塞，即使它们可以独立处理并且不依赖于之前的请求或数据包。</p>
-<h3 id="HTTP1-1：无法多路复用"><a href="#HTTP1-1：无法多路复用" class="headerlink" title="HTTP1.1：无法多路复用"></a>HTTP1.1：无法多路复用</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb3e02e2640a44d08f401c6134518182~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="HTTP2：帧"><a href="#HTTP2：帧" class="headerlink" title="HTTP2：帧"></a>HTTP2：帧</h3><p>HTTP&#x2F;2 中，数据的传输被分割成多个帧，每个帧都有唯一的标识符。每种帧都有不同的用途和格式。</p>
-<p>每个帧包含帧头和帧体，帧头包含帧类型、帧长度、标识符等信息，帧体是实际传输的数据。</p>
-<p>HTTP&#x2F;2 中的帧是按照顺序发送的，并且每个帧都可以独立进行流控和错误控制，避免了 HTTP&#x2F;1.x 中的队头堵塞问题，提高了传输效率和性能。</p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/48894bb736fa40d4ad911bc406dd8170~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h4 id="HTTP2：帧带来的额外好处"><a href="#HTTP2：帧带来的额外好处" class="headerlink" title="HTTP2：帧带来的额外好处"></a>HTTP2：帧带来的额外好处</h4><ul>
-<li>调整响应传输的优先级</li>
-<li>头部压缩</li>
-<li>Server Push</li>
-</ul>
-<h4 id="队头阻塞，但是在-TCP-上"><a href="#队头阻塞，但是在-TCP-上" class="headerlink" title="队头阻塞，但是在 TCP 上"></a>队头阻塞，但是在 TCP 上</h4><p>HTTP&#x2F;1.x 协议每个请求需要单独建立一个 TCP 连接，响应数据传输期间会阻塞后续请求，导致性能瓶颈。HTTP&#x2F;2 协议采用多路复用机制，在同一个 TCP 连接上可以同时进行多个请求和响应，解决了 HTTP&#x2F;1.x 中的队头阻塞问题，提高了性能。</p>
-<h4 id="HTTP2：3RTT-启动"><a href="#HTTP2：3RTT-启动" class="headerlink" title="HTTP2：3RTT 启动"></a>HTTP2：3RTT 启动</h4><p>HTTP&#x2F;2 协议采用了“3 次握手+1 次确认”的方式来启动一个连接，也就是所谓的“3RTT 启动”，并且采用了“预连接”技术来降低连接建立的延迟，提高了 HTTP&#x2F;2 的性能。<br><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/58bd9d8087894d41882014c7f27398a0~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="HTTP3：QUIC"><a href="#HTTP3：QUIC" class="headerlink" title="HTTP3：QUIC"></a>HTTP3：QUIC</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7c52dd72e6e840a1b52fdbb1b2904938~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="CDN"><a href="#CDN" class="headerlink" title="CDN:"></a>CDN:</h3><p>CDN（Content Delivery Network）是一种分布式的网络架构，可以将网站的静态资源（如图片、视频、脚本等）缓存到离用户更近的节点服务器上，从而提高网站访问速度和用户体验。<br>CDN 技术的基本原理是利用分布式的缓存节点，将网站内容存储在离用户更近的服务器上，从而减少数据传输的延迟和提高响应速度。但是，CDN 也存在一定的物理极限，比如节点服务器的数量和分布、带宽、网络拓扑结构等因素都会对 CDN 的性能产生影响。</p>
-<p>因此，CDN 虽然可以在一定程度上优化网站性能和用户体验，但是它也受限于物理因素和成本等问题。除此之外，CDN 还存在一些缺陷，比如节点服务器缓存的内容可能过期、存在一定的安全风险等问题，需要进行适当的管理和维护。</p>
-<h4 id="CDN-DNS-劫持"><a href="#CDN-DNS-劫持" class="headerlink" title="CDN: DNS 劫持"></a>CDN: DNS 劫持</h4><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/06a01a98790c4140a608a289f1281bdf~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7c1f9c86b1414af898a2bc79c7d4c7ea~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="服务端代码"><a href="#服务端代码" class="headerlink" title="服务端代码"></a>服务端代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const WebSocket = require(&#x27;ws&#x27;);</span><br><span class="line"></span><br><span class="line">const wss = new WebSocket.Server(&#123; port: 8080 &#125;);</span><br><span class="line"></span><br><span class="line">wss.on(&#x27;connection&#x27;, function connection(ws) &#123;</span><br><span class="line">  console.log(&#x27;Client connected&#x27;);</span><br><span class="line"></span><br><span class="line">  ws.on(&#x27;message&#x27;, function incoming(message) &#123;</span><br><span class="line">    console.log(&#x27;received: %s&#x27;, message);</span><br><span class="line">    ws.send(&#x27;Server says: &#x27; + message);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  ws.on(&#x27;close&#x27;, function close() &#123;</span><br><span class="line">    console.log(&#x27;Client disconnected&#x27;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>这个示例代码使用了 Node.js 中的<code>ws</code>模块来创建 WebSocket 服务器，并监听 8080 端口。当有新的客户端连接时，服务器会输出一条日志并将 WebSocket 连接对象存储在<code>ws</code>变量中。</p>
-<p>当客户端发送消息时，服务器会输出接收到的消息，并通过<code>ws.send()</code>方法向客户端发送一条回复消息。当连接关闭时，服务器会输出一条日志。</p>
-<h3 id="客户端代码"><a href="#客户端代码" class="headerlink" title="客户端代码"></a>客户端代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const socket = new WebSocket(&#x27;ws://localhost:8080&#x27;);</span><br><span class="line"></span><br><span class="line">socket.addEventListener(&#x27;open&#x27;, function (event) &#123;</span><br><span class="line">  console.log(&#x27;Connected to WebSocket server&#x27;);</span><br><span class="line"></span><br><span class="line">  // 发送一条消息给服务器</span><br><span class="line">  socket.send(&#x27;Hello, server!&#x27;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">socket.addEventListener(&#x27;message&#x27;, function (event) &#123;</span><br><span class="line">  console.log(&#x27;Received message: &#x27; + event.data);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">socket.addEventListener(&#x27;close&#x27;, function (event) &#123;</span><br><span class="line">  console.log(&#x27;Disconnected from WebSocket server&#x27;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>这个示例代码使用了 JavaScript 中的<code>WebSocket</code>对象来创建 WebSocket 连接，并连接到本地的 WebSocket 服务器（假设服务器运行在 localhost:8080 上）。当连接成功建立后，客户端会输出一条日志，并通过<code>socket.send()</code>方法向服务器发送一条消息。</p>
-<p>当客户端接收到服务器发送的消息时，会输出一条日志。当连接关闭时，客户端也会输出一条日志。</p>
-<p>需要注意的是，由于 WebSocket 协议使用的是跨域通信，因此在实际应用中可能需要进行一些安全措施，如使用 SSL 证书来加密通信、设置 HTTP 头信息等。</p>
-<h3 id="小结-2"><a href="#小结-2" class="headerlink" title="小结"></a>小结</h3><ul>
-<li>HTTP 1 23 的演进历史</li>
-<li>CDN 解决了 HTTP 协议之外的问题</li>
-<li>WebSocket 从 HTTP 协议升级而来</li>
-</ul>
-<h2 id="05-网络安全"><a href="#05-网络安全" class="headerlink" title="05.网络安全"></a>05.网络安全</h2><h3 id="网络安全-三要素"><a href="#网络安全-三要素" class="headerlink" title="网络安全:三要素"></a>网络安全:三要素</h3><ul>
-<li>机密性: 攻击者无法获知通信内容</li>
-<li>完整性: 攻击者对内容进行篡改时能被发现</li>
-<li>身份验证: 攻击者无法伪装成通信双方的任意一方与另一方通信</li>
-</ul>
-<h3 id="网络安全-对称加密和非对称加密"><a href="#网络安全-对称加密和非对称加密" class="headerlink" title="网络安全:对称加密和非对称加密"></a>网络安全:对称加密和非对称加密</h3><ul>
-<li>对称加密: 加密、解密用同样的密钥</li>
-<li>非对称加密: 加密、解密使用不同的密钥 (公钥和私钥)而且<strong>公钥加密只能用私钥解密、私钥加密只能用公钥解密</strong></li>
-</ul>
-<h3 id="网络安全-密码散列函数-哈希函数"><a href="#网络安全-密码散列函数-哈希函数" class="headerlink" title="网络安全: 密码散列函数(哈希函数)"></a>网络安全: 密码散列函数(哈希函数)</h3><ul>
-<li>输入: 任意长度的内容</li>
-<li>输出: 固定长度的哈希值</li>
-<li>性质: <strong>找到两个不同的输入使之经过密码散列函数后有相同的哈希值</strong><br>在计算上是不可能的</li>
-</ul>
-<h3 id="网络安全-机密性"><a href="#网络安全-机密性" class="headerlink" title="网络安全: 机密性"></a>网络安全: 机密性</h3><ul>
-<li>加密需要加密算法和密钥等信息 (统称为秘密信息)</li>
-<li>网络是明文的，不安全</li>
-</ul>
-<h3 id="网络安全-完整性和身份验证"><a href="#网络安全-完整性和身份验证" class="headerlink" title="网络安全:完整性和身份验证"></a>网络安全:完整性和身份验证</h3><p>完整性和身份验证相互关联。</p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/493690a5affd42b8a60aa9885a0f007b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="网络安全-如何实现机密性，完整性，身份验证"><a href="#网络安全-如何实现机密性，完整性，身份验证" class="headerlink" title="网络安全: 如何实现机密性，完整性，身份验证"></a>网络安全: 如何实现机密性，完整性，身份验证</h3><ul>
-<li>机密性（Confidentiality）：确保数据传输过程中不被未经授权的人所读取或截获。实现机密性的技术包括加密和隧道技术等。</li>
-<li>完整性（Integrity）：确保数据传输过程中不被未经授权的人所篡改或修改。实现完整性的技术包括消息认证码（MAC）、数字签名和哈希函数等。</li>
-<li>身份验证（Authentication）：确认通信双方的身份以及确保数据传输过程中不被冒充或伪造。实现身份验证的技术包括口令认证、证书认证、双因素认证和生物识别技术等。</li>
-</ul>
-<h3 id="网络安全：HTTPS"><a href="#网络安全：HTTPS" class="headerlink" title="网络安全：HTTPS"></a>网络安全：HTTPS</h3><p>把 HTTP 的明文换成密文，再验证身份，即 HTTPS</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1fb10244862c48a896aac948a6c1c041~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="小结-3"><a href="#小结-3" class="headerlink" title="小结"></a>小结</h3><ul>
-<li>网络安全三要素:机密性、完整性和身份验证</li>
-<li>在没有提前交换秘密信息的前提下，无法在不安全的信道交换秘密信息。</li>
-<li>PKI 保证了普通用户不需要“面对面”和根证书机构交换根证书</li>
-<li>HTTPS 使用 PKI 完成了除客户端身份验证以外的特性，客户端身份验证靠 HTTP 协议实现</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%AE%BA-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsn000jh8ju3j1o7dgn" data-title="计算机网络概论 | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-数据可视化基础-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/06/14/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9F%BA%E7%A1%80-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time class="dt-published" datetime="2023-06-14T02:51:54.000Z" itemprop="datePublished">2023-06-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/06/14/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9F%BA%E7%A1%80-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">数据可视化基础 | 青训营笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="数据可视化基础-青训营笔记"><a href="#数据可视化基础-青训营笔记" class="headerlink" title="数据可视化基础 | 青训营笔记"></a>数据可视化基础 | 青训营笔记</h1><h2 id="01-什么是数据可视化"><a href="#01-什么是数据可视化" class="headerlink" title="01.什么是数据可视化"></a>01.什么是数据可视化</h2><p>Anything that converts data into a visual representation(like charts, graphs, maps, sometimes even just tables)<BR><br>译文:任何将数据转换为可视化表示的东西（如图表、图形、地图，有时甚至只是表格）</p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cd02e84e16484b09ac25c62be94c2c1c~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="数据可视化分类"><a href="#数据可视化分类" class="headerlink" title="数据可视化分类"></a>数据可视化分类</h3><ul>
-<li>科学可视化</li>
-<li>信息可视化</li>
-<li>可视分析</li>
-</ul>
-<h3 id="为什么要可视化"><a href="#为什么要可视化" class="headerlink" title="为什么要可视化"></a>为什么要可视化</h3><ul>
-<li>01.记录信息</li>
-<li>02.分析推理</li>
-<li>03.证实假设</li>
-<li>04.交流思想</li>
-</ul>
-<h3 id="安斯库姆四重奏"><a href="#安斯库姆四重奏" class="headerlink" title="安斯库姆四重奏"></a>安斯库姆四重奏</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d36d3ef56f1f4c02b2de483f7d14756e~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/776e0926858545a9bddff9ab0ae2e0bb~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h2 id="02-可视化设计原则和方法"><a href="#02-可视化设计原则和方法" class="headerlink" title="02.可视化设计原则和方法"></a>02.可视化设计原则和方法</h2><h3 id="糟糕的可视化呈现"><a href="#糟糕的可视化呈现" class="headerlink" title="糟糕的可视化呈现"></a>糟糕的可视化呈现</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc06527a03914ec7bd475b81eaab4fcf~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="错误的可视化呈现"><a href="#错误的可视化呈现" class="headerlink" title="错误的可视化呈现"></a>错误的可视化呈现</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b48e6032031446c9f6d0f687ace2ecb~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="可视化设计原则"><a href="#可视化设计原则" class="headerlink" title="可视化设计原则"></a>可视化设计原则</h3><p><strong>能够正确地表达数据中的信息而不产生偏差与歧义</strong></p>
-<h3 id="常见的错误可视化"><a href="#常见的错误可视化" class="headerlink" title="常见的错误可视化"></a>常见的错误可视化</h3><ul>
-<li>01.透视失真</li>
-<li>02.图形设计 &amp; 数据尺度</li>
-<li>03.数据上下文</li>
-</ul>
-<h3 id="透视失真"><a href="#透视失真" class="headerlink" title="透视失真"></a>透视失真</h3><ul>
-<li>如果数字是由视觉元素表示的，那么它们应该与视觉元素的感知程度成正比。</li>
-<li>使用清晰、详细和彻底的标签，以避免图形失真和含糊不清</li>
-</ul>
-<h3 id="图形设计-amp-数据尺度"><a href="#图形设计-amp-数据尺度" class="headerlink" title="图形设计 &amp; 数据尺度"></a>图形设计 &amp; 数据尺度</h3><ul>
-<li>图形的每一部分都会产生对其的视觉预期 (visual expectation)</li>
-<li>这些预期往往决定了眼睛实际看到的东西</li>
-<li>错误的数据洞察，产生于在图形的某个地方发生的不正确的视觉预期推断</li>
-<li>典型的例子:轴刻度，我们期望它从始至终能够保持连贯且一致。</li>
-</ul>
-<h3 id="数据上下文"><a href="#数据上下文" class="headerlink" title="数据上下文"></a>数据上下文</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad54c787ae5845f587b53c01313452fb~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="谎言因子"><a href="#谎言因子" class="headerlink" title="谎言因子"></a>谎言因子</h3><ul>
-<li><strong>控制图形中的谎言因子 (Lie Factor， LF)</strong></li>
-<li>谎言因子: 衡量可视化中所表达的数据量与数据之间的夸张程度的度量方法</li>
-</ul>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bfe4936b87c24fab9c07b1be21d3c7ce~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<ul>
-<li>当 LF &#x3D; 1 时，我们认为图表没有对数据实时进行扭曲，是一个可信的可视化设计</li>
-<li>在实际当中，应当确保各部分图形元素的 LF 在[0.95,1.05] 范围内，否则，所产生的图表认为已经丧失了基本可信度。</li>
-</ul>
-<h3 id="可视化原则"><a href="#可视化原则" class="headerlink" title="可视化原则"></a>可视化原则</h3><p>一个出色的可视化设计可在最短的时间内，使用最少的空间、用最少的笔墨为观众提供最多的信息内涵。</p>
-<ul>
-<li>准确地展示数据</li>
-<li>节省笔墨</li>
-<li>节省空间</li>
-<li>消除不必要的 “无价值” 图形</li>
-<li>在最短时间内传达最多的信息</li>
-</ul>
-<h3 id="Data-ink-Ratio"><a href="#Data-ink-Ratio" class="headerlink" title="Data-ink Ratio"></a>Data-ink Ratio</h3><ul>
-<li>最大化数据墨水占比 (Data-Ink Ratio</li>
-<li>可视化图形由墨水和空白区域构成</li>
-<li>数据墨水:可视化图形当中不可擦除的核心部分被称之为“数据墨水”</li>
-<li>擦除数据墨水将减少图形所传达的信息量</li>
-<li>数据墨水占比:可视化图形中用于展示核心数据的“墨水”在整体可视化所使用的墨水中的比例</li>
-</ul>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/78928bf27cde4a0f81975ce232f8d537~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="Data-ink-ratio-案例"><a href="#Data-ink-ratio-案例" class="headerlink" title="Data-ink ratio 案例"></a>Data-ink ratio 案例</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dfad3e639ddf43afbd359be75662d36b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="提高-Data-ink-ratio"><a href="#提高-Data-ink-ratio" class="headerlink" title="提高 Data-ink ratio"></a>提高 Data-ink ratio</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/63e1f7dfd9bd433d9093392a78b165e9~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="可视化设计方法"><a href="#可视化设计方法" class="headerlink" title="可视化设计方法"></a>可视化设计方法</h3><ul>
-<li><strong>最重要的是展现数据</strong></li>
-<li>**合理范围内,最大化数据墨水占比 **</li>
-<li>擦出非数据墨水</li>
-<li>擦出冗杂的数据墨水</li>
-</ul>
-<h3 id="可视化设计原则-1"><a href="#可视化设计原则-1" class="headerlink" title="可视化设计原则"></a>可视化设计原则</h3><ul>
-<li>准确地展示数据</li>
-<li>节省笔墨</li>
-<li>节省空间</li>
-<li>消除不必要的 “无价值” 图形</li>
-<li>在最短时间内传达最多的信息</li>
-</ul>
-<h2 id="03-视觉感知"><a href="#03-视觉感知" class="headerlink" title="03.视觉感知"></a>03.视觉感知</h2><p>可视化致力于外部认知，也就是说，怎样利用大脑以外的资源来增强大脑本身的认知能力。</p>
-<h3 id="什么是视觉感知"><a href="#什么是视觉感知" class="headerlink" title="什么是视觉感知"></a>什么是视觉感知</h3><p><strong>感知</strong>是指客观事物通过人的感觉器官在人脑中形成的直接反映。<br><br><strong>感觉器官</strong>:眼、耳、鼻、神经末梢<br><br><strong>视觉感知</strong>就是客观事物通过人的视觉在人脑中形成的直接反映<br></p>
-<h3 id="认知过程"><a href="#认知过程" class="headerlink" title="认知过程"></a>认知过程</h3><p>认知心理学将 <strong>认知过程</strong> 看成由信息的获取、分析、归纳、解码、储存、概念形成、提取和使用等一系列阶段组成的按一定程序进行的信息加工系统。<br>科学领域中，认知是包含注意力、记忆、产生和理解语言、解决问题以及进行决策的 <strong>心理过程</strong> 的组合.</p>
-<h3 id="相对判断和视觉假象"><a href="#相对判断和视觉假象" class="headerlink" title="相对判断和视觉假象"></a>相对判断和视觉假象</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3fd3765bde62470cad972003dcb65d2e~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><ul>
-<li>人类视觉系统观察的是变化，而不是绝对值，并且容易被边界吸引。</li>
-<li>在可视化设计中，设计者需要充分考虑到人类感知系统的这些现象，以使得设计的可视化结果不会存在阻碍或误导用户的可视化元素</li>
-</ul>
-<h3 id="视觉突出"><a href="#视觉突出" class="headerlink" title="视觉突出"></a>视觉突出</h3><p>研表究明，汉字的序顺并不定一能影阅响读</p>
-<h3 id="视觉感知"><a href="#视觉感知" class="headerlink" title="视觉感知"></a>视觉感知</h3><p><strong>引导注意力，高效传达信息</strong></p>
-<ul>
-<li>研究表明，人类对于颜色、形状、运动，这些视觉属性，是在不同通道上并行处理的，并且人类能在 200ms 以内快速别，这些属性被称作具有“预感知”特性。<a target="_blank" rel="noopener" href="https://www.csc2.ncsu.edu/faculty/healey/PP/">https://www.csc2.ncsu.edu/faculty/healey/PP/</a></li>
-<li>在一个通道中表达的信息，不会干扰 (很多)在另一个通道上表达的信息，应当使用不同的视觉通道来描画数据不同方面的特征。 (例如一个标记的颜色，并不会影响)</li>
-<li><strong>格式塔理论 (Gestalt Laws)</strong> 较为系统的对人类如何发现图形元素之间的相关性进行了全面总结，被广泛的应用在了视觉设计当中。</li>
-</ul>
-<h3 id="格式塔学派"><a href="#格式塔学派" class="headerlink" title="格式塔学派"></a>格式塔学派</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4bfa90a3afb24234a6c5515e9c1c0172~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<ul>
-<li>格式塔学派的理论核心是<strong>整体决定部分的性质，部分依从于整体</strong>。结构比元素重要，视觉形象首先作为统一的整体被认知。感知的事物大于眼睛见到的事物。</li>
-<li><strong>格式塔理论 (Gestalt Laws)</strong> 较为系统的对人类如何发现图形元素之间的相关性进行了全面总结被广泛的应用在了视觉设计当中</li>
-</ul>
-<h3 id="格式塔理论"><a href="#格式塔理论" class="headerlink" title="格式塔理论"></a>格式塔理论</h3><p><strong>就近原则(Proximity)</strong></p>
-<ul>
-<li>当视觉元素在空间距离上相距较近时，人们通常倾向于将他们归为一组。</li>
-<li>将数据元素放在靠近的位置可以突出它们之间的关联性。</li>
-</ul>
-<p><strong>相似原则 (Similarity)</strong></p>
-<ul>
-<li>形状、大小、颜色、强度等属性方面比较相似时，这些物体就容易被看作一<br>个整体。</li>
-</ul>
-<p><strong>连续性原则 (Continuation)</strong></p>
-<ul>
-<li>人们在观察事物的时候会很自然地沿着物体的边界，将不连续的物体视为连续的整体。</li>
-</ul>
-<p><strong>闭合原则 (Closure)</strong></p>
-<ul>
-<li>有些图形可能本身是不完整或者不闭合的，但主体有一种使其闭合的倾向，人们就会很容易地感知整个物体而忽略未闭合的特征。</li>
-</ul>
-<p><strong>共势原则 (Common movement)</strong></p>
-<ul>
-<li>如果一个对象中的一部分都向共同的方向去运动，那这些共同移动的部分就易被感知为一个整体。</li>
-</ul>
-<p><strong>对称性原则 (Symmetry)</strong></p>
-<ul>
-<li>对称的元素被视为同一组的一部分</li>
-</ul>
-<p><strong>图形与背景关系原则(Figure-ground)</strong></p>
-<ul>
-<li>大脑通常认为构图中最小的物体是图形，而更大的物体则是背景跟凹面元素相比，凸面元素与图形相关联更多些</li>
-</ul>
-<h2 id="04-视觉编码"><a href="#04-视觉编码" class="headerlink" title="04.视觉编码"></a>04.视觉编码</h2><h3 id="Jacques-Bertin"><a href="#Jacques-Bertin" class="headerlink" title="Jacques Bertin"></a>Jacques Bertin</h3><p>法国制图学家[1918-2010]’Semiology ofGraphics’ [1967]提出视觉编码的理论原则</p>
-<h3 id="视觉编码"><a href="#视觉编码" class="headerlink" title="视觉编码"></a>视觉编码</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31b7bf2e009644b0a13d6480283cb7ac~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="可视化符号"><a href="#可视化符号" class="headerlink" title="可视化符号"></a>可视化符号</h3><p><strong>可视化符号 (Mark)</strong><br>用于在可视化当中表现数据元素或元素之间的关联</p>
-<ul>
-<li>当表示元素时 Mark 包括: 点、线、面</li>
-<li>当表示关系时 Mark 包括: 闭包、连线</li>
-</ul>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6dc63a4f7e4d46dc9927e06f51953a39~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/29807db69cca46fc9c308920afae46f3~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="视觉通道"><a href="#视觉通道" class="headerlink" title="视觉通道"></a>视觉通道</h3><p><strong>视觉通道(Channel)</strong> 基于数据属性，控制可视化的符号展现样式，例如点根据其所代表的数据属性的不同可有不同的形状与颜色。<br><br>视觉通道有两种类型:</p>
-<ul>
-<li>数量通道(Magnitude Channel):用于显示数据的<strong>数值属性</strong> (定量&#x2F;定序)包括: 位置、长度、角度、面积、深度、色温、饱和度、曲率、体积</li>
-<li>标识通道(Identity Channel)用于显示数据的<strong>分类属性</strong> (是什么&#x2F;在哪里)包括: 空间区域、色向、动向、形状</li>
-</ul>
-<h3 id="视觉编码的优先级"><a href="#视觉编码的优先级" class="headerlink" title="视觉编码的优先级"></a>视觉编码的优先级</h3><p>不同的视觉编码在表达信息的作用和能力上有不同的特性</p>
-<ul>
-<li>当利用数量通道编码表示数值属性时位置通道是最为精确的，其次是长度角度、面积、深度、色温、饱和度、曲率最后是体积</li>
-<li>当利用标识通道表示分类属性时:划分空间区域最为有效，其后依次是 色向动向、形状。</li>
-</ul>
-<h2 id="05-基础统计图表"><a href="#05-基础统计图表" class="headerlink" title="05.基础统计图表"></a>05.基础统计图表</h2><h3 id="基础图表-–-柱状图-Bar"><a href="#基础图表-–-柱状图-Bar" class="headerlink" title="基础图表 – 柱状图 (Bar)"></a>基础图表 – 柱状图 (Bar)</h3><ul>
-<li>将柱子的高度(或宽度)映射到数值大小</li>
-<li>最基础的柱形图，需要一个分类变量和个数值变量</li>
-<li>柱状图必须以 0 作为基准线，可以表示正值或负值</li>
-<li>在柱状图中，柱子可以分组展示</li>
-<li>柱状图是比较分类的数据的最佳选择</li>
-</ul>
-<h3 id="基础图表-–-饼图-Pie"><a href="#基础图表-–-饼图-Pie" class="headerlink" title="基础图表 – 饼图 (Pie)"></a>基础图表 – 饼图 (Pie)</h3><ul>
-<li>每个扇形的弧长 (以及圆心角和面积)大小表示该种类占总体的比例</li>
-<li>饼图最显著的功能在于表现“占比”</li>
-<li>饼图一般需要一个分类数据字段、一个连续数据字段</li>
-<li>分类字段的数据，在图表使用的语境下，应当构成一个整体(例如一班、二班、三班，构成了整个高一年级)，而不能是独立、无关的。</li>
-<li>由于饼图用面积取代了长度，从而加大了对各个数据进行比较的难度，当需要对数据进行比较，分清孰大孰小，尤其是当数据接近时，柱状图更加合适</li>
-</ul>
-<h3 id="基础图表-–-散点图-Scatter"><a href="#基础图表-–-散点图-Scatter" class="headerlink" title="基础图表 – 散点图 (Scatter)"></a>基础图表 – 散点图 (Scatter)</h3><ul>
-<li>一般通过点在空间上的位置信息来编码数据</li>
-<li>点可以根据需要绘制成不同的颜色</li>
-<li>点既可以是一个圆形，也可以用其他不同形状来替代形状也是一个重要的视觉通道，用于编码不同数据信息</li>
-<li>可以通过更复杂的组合图形(glyphs)来编码多维度数据。</li>
-<li>散点图适用于分析变量之间是否存在某种关系或相关性</li>
-<li>散点图适用于分析变量之间相关性的强弱，我们可以通过查看图上数据点的密度来确定相关性的强弱</li>
-</ul>
-<h3 id="基础图表-–-折线图"><a href="#基础图表-–-折线图" class="headerlink" title="基础图表 – 折线图"></a>基础图表 – 折线图</h3><ul>
-<li>大多数情况下，折线图适用于 x 轴为连续数据的场景但:</li>
-<li>也可以在 x 轴为离散数据时使用</li>
-<li>甚至可以用于分类数据时使用，如果分类数据的顺序是有意义的<br>个</li>
-<li>以上两种情况在插值计算时要格外注意</li>
-</ul>
-<h3 id="选择合适的图表"><a href="#选择合适的图表" class="headerlink" title="选择合适的图表"></a>选择合适的图表</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/88bcb59ae03848ac86be46abf1fb78b8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h2 id="05-面向前端的可视化工具介绍"><a href="#05-面向前端的可视化工具介绍" class="headerlink" title="05.面向前端的可视化工具介绍"></a>05.面向前端的可视化工具介绍</h2><h3 id="D3"><a href="#D3" class="headerlink" title="D3"></a>D3</h3><p>D3,js 是用于数据可视化的开源的 JavaScript 函数库，被认为是最好的 JavaScript 可视化框架之一。</p>
-<h3 id="Vega"><a href="#Vega" class="headerlink" title="Vega"></a>Vega</h3><p>Vega 是一种可视化语法。通过其声明式语言，可以用 JSON 格式描述可视化的视觉外观和交互行为，并使用 Canvas 或 SVG 生成视图</p>
-<h3 id="G2"><a href="#G2" class="headerlink" title="G2"></a>G2</h3><p>一套面向常规统计图表，以数据动的高交互<strong>可视化图形语法</strong>，具有高度的易用性和扩展性。使用 G2，你可以无需关注图表各种繁琐的实现细节，一条语句即可使用 Canvas 或 SVG 构建出各种各样的可交互的统计图表。</p>
-<h3 id="ECharts"><a href="#ECharts" class="headerlink" title="ECharts"></a>ECharts</h3><p>ECharts，一个使用 JavaScript 实现的开源可视化库可以流畅的运行在 PC 和移动设备上，兼容当前绝大部分浏览器 (IE9&#x2F;10&#x2F;11，Chrome，Firefox，Safari 等)，底层依赖矢量图形库 ZRender，提供直观，交互丰富，可高度个性化定制的数据可视化图表</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/06/14/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9F%BA%E7%A1%80-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsl000fh8judd484846" data-title="数据可视化基础 | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Vite知识体系-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/06/14/Vite%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time class="dt-published" datetime="2023-06-14T02:51:27.000Z" itemprop="datePublished">2023-06-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/06/14/Vite%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">Vite知识体系 | 青训营笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="Vite-知识体系-青训营笔记"><a href="#Vite-知识体系-青训营笔记" class="headerlink" title="Vite 知识体系 | 青训营笔记"></a>Vite 知识体系 | 青训营笔记</h1><h2 id="01-为什么需要构建工具"><a href="#01-为什么需要构建工具" class="headerlink" title="01.为什么需要构建工具 ?"></a>01.为什么需要构建工具 ?</h2><h3 id="前端工程的痛点"><a href="#前端工程的痛点" class="headerlink" title="前端工程的痛点"></a>前端工程的痛点</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0f7eba3482704027abefe21eab93e5de~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<ul>
-<li>模块化</li>
-<li>资源编译</li>
-<li>产物质量</li>
-<li>开发效率</li>
-</ul>
-<h3 id="前端构建工具的意义"><a href="#前端构建工具的意义" class="headerlink" title="前端构建工具的意义"></a>前端构建工具的意义</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/db65627c8cc04db499be11e89d52a18a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h2 id="02-Vite-是什么-Why-Vite"><a href="#02-Vite-是什么-Why-Vite" class="headerlink" title="02.Vite 是什么? Why Vite?"></a>02.Vite 是什么? Why Vite?</h2><h3 id="Vite-概览"><a href="#Vite-概览" class="headerlink" title="Vite 概览"></a>Vite 概览</h3><p><strong>定位</strong>:新一代前端构建工具<br><br><strong>两大组成部分:</strong></p>
-<ul>
-<li>1.No-bundle 开发服务,源文件无需打包</li>
-<li>2.生产环境基于 Rollup 的 Bundler</li>
-</ul>
-<p><strong>核心特征</strong></p>
-<ul>
-<li>1.高性能,dev 启动速度和热更新速度非常快</li>
-<li>2.简单易用,开发者体验好</li>
-</ul>
-<h3 id="业界案例"><a href="#业界案例" class="headerlink" title="业界案例"></a>业界案例</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f3b75fc9605407ba008fb1489bc52c5~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="当下问题"><a href="#当下问题" class="headerlink" title="当下问题"></a>当下问题</h3><ul>
-<li>缓慢的启动 -&gt; 项目编译等待成本高</li>
-<li>缓慢的热更新 -&gt; 修改代码后不能实时更新</li>
-</ul>
-<p><strong>瓶颈在哪里?</strong></p>
-<ul>
-<li>bundle 带来的性能开销</li>
-<li>JavaScript 语言的性能瓶颈</li>
-</ul>
-<h3 id="两大行业趋势"><a href="#两大行业趋势" class="headerlink" title="两大行业趋势"></a>两大行业趋势</h3><ul>
-<li>全球浏览器对原生 ESM 的普遍支持(目前占比<br>92%以上)</li>
-<li>基于原生语言(Go、Rust)编写前端编译工具链</li>
-<li>如 Go 语言编写的 Esbuild、 Rust 编写的 SWC</li>
-</ul>
-<h3 id="浏览器原生-ESM-支持"><a href="#浏览器原生-ESM-支持" class="headerlink" title="浏览器原生 ESM 支持"></a>浏览器原生 ESM 支持</h3><p><strong>两大要素</strong></p>
-<ul>
-<li>1.script 标签增加 type&#x3D;”module”属性</li>
-<li>2.使用 ESM 模块导入导出语法</li>
-</ul>
-<h3 id="基于原生-ESM-的开发服务优势"><a href="#基于原生-ESM-的开发服务优势" class="headerlink" title="基于原生 ESM 的开发服务优势"></a>基于原生 ESM 的开发服务优势</h3><ul>
-<li>无需打包项目源代码</li>
-<li>天然的按需加载存</li>
-<li>可以利用文件级的浏览器缓存</li>
-</ul>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/687697fe28d9483fbcea7f5fc425893c~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="基于-Esbuild-的编译性能优化"><a href="#基于-Esbuild-的编译性能优化" class="headerlink" title="基于 Esbuild 的编译性能优化"></a>基于 Esbuild 的编译性能优化</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c66e8d1ee3c04d3e98a4c1bf16f254e1~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>Esbuild —- 基于 Golang 开发的前端工具,具备如下能力</strong></p>
-<ul>
-<li>打包器 Bundler</li>
-<li>编译器 Transformer</li>
-<li>压缩器 Minifier</li>
-</ul>
-<p><strong>性能极高,在 Vite 中被深度使用</strong></p>
-<h3 id="内置的-Web-构建能力"><a href="#内置的-Web-构建能力" class="headerlink" title="内置的 Web 构建能力"></a>内置的 Web 构建能力</h3><p>webpack.config.ts –&gt; vite.config.ts</p>
-<h2 id="03-Vite-上手使用"><a href="#03-Vite-上手使用" class="headerlink" title="03.Vite 上手使用"></a>03.Vite 上手使用</h2><h3 id="项目初始化"><a href="#项目初始化" class="headerlink" title="项目初始化"></a>项目初始化</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a9d2d2ce082943abbe467631c6c250af~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/47da30d4a0f24f318636c62a748e673f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="使用-Sass-x2F-Scss-amp-CSS-Modules"><a href="#使用-Sass-x2F-Scss-amp-CSS-Modules" class="headerlink" title="使用 Sass&#x2F;Scss &amp; CSS Modules"></a>使用 Sass&#x2F;Scss &amp; CSS Modules</h3><p><strong>目录结构</strong><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a361f847f7654db0b8b0dcad3ad26e5d~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>引入 Header 组件</strong><br><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a8fe1223ce234d6a8e8bf7cad9953686~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="使用静态资源"><a href="#使用静态资源" class="headerlink" title="使用静态资源"></a>使用静态资源</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf9e9a33c45e4a8b9afcc9c7a78e9200~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="使用-HMR"><a href="#使用-HMR" class="headerlink" title="使用 HMR"></a>使用 HMR</h3><p>无需额外配置，自动开启</p>
-<h3 id="生产环境-Tree-Shaking"><a href="#生产环境-Tree-Shaking" class="headerlink" title="生产环境 Tree Shaking"></a>生产环境 Tree Shaking</h3><p><strong>优化原理</strong></p>
-<ul>
-<li>1.基于 ESM 的 import&#x2F;export 语句依赖关系，与运行时状态无关</li>
-<li>2.在构建阶段将未使用到的代码进行删除</li>
-</ul>
-<h2 id="04-Vite-整体架构"><a href="#04-Vite-整体架构" class="headerlink" title="04.Vite 整体架构"></a>04.Vite 整体架构</h2><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/900a660e9bbb412cab6fec800380611d~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="关键技术-–-依赖预打包"><a href="#关键技术-–-依赖预打包" class="headerlink" title="关键技术 – 依赖预打包"></a>关键技术 – 依赖预打包</h3><p><strong>为什么要进行预打包?</strong></p>
-<ul>
-<li>1.避免 node_modules 过多的文件请求</li>
-<li>2.将 CommonJS 格式转换为 ESM 格式</li>
-</ul>
-<p><strong>实现原理</strong></p>
-<ul>
-<li>1.服务启动前扫描代码中用到的依赖</li>
-<li>2.用 Esbuild 对依赖代码进行预打包</li>
-<li>3.改写 import 语句，指定依赖为预构建产物路径</li>
-</ul>
-<h3 id="关键技术-–-单文件编译"><a href="#关键技术-–-单文件编译" class="headerlink" title="关键技术 – 单文件编译"></a>关键技术 – 单文件编译</h3><p>用 Esbuild 编译 TS&#x2F;JSX<br><br><strong>优势:</strong><br></p>
-<ul>
-<li>编译速度提升 10-100X<br></li>
-</ul>
-<p><strong>局限性:</strong></p>
-<ul>
-<li>不支持类型检查</li>
-<li>不支持语法降级到 ES5</li>
-</ul>
-<h3 id="关键技术-–-代码压缩"><a href="#关键技术-–-代码压缩" class="headerlink" title="关键技术 – 代码压缩"></a>关键技术 – 代码压缩</h3><p>Esbuild 作为默认压缩工具，替换传统的 Terser、Uglify.js 等压缩工具</p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7988a0919b8d4590b4e03f0822450f83~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="关键技术-–-插件技术"><a href="#关键技术-–-插件技术" class="headerlink" title="关键技术 – 插件技术"></a>关键技术 – 插件技术</h3><p>开发阶段 –&gt; 模拟 Rollup 插件机制<br>生产环境 –&gt; 直接使用 Rollup</p>
-<h2 id="05-Vite-进阶路线"><a href="#05-Vite-进阶路线" class="headerlink" title="05.Vite 进阶路线"></a>05.Vite 进阶路线</h2><h3 id="深入双引擎"><a href="#深入双引擎" class="headerlink" title="深入双引擎"></a>深入双引擎</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d12d978e7eb4b51aadca01a0274efc8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>推荐学习路线:</p>
-<ul>
-<li>先了解基本使用,动手尝试各项常用配置</li>
-<li>然后学习其插件开发</li>
-</ul>
-<h3 id="Vite-插件开发"><a href="#Vite-插件开发" class="headerlink" title="Vite 插件开发"></a>Vite 插件开发</h3><p><strong>为什么需要插件机制?</strong></p>
-<ul>
-<li>抽离核心逻辑</li>
-<li>易于拓展<br>先看文档，过一遍插件钩子的功能<br>然后多学习其它插件的实现，掌握套路</li>
-</ul>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19286669e3784fe9928975e3289bcb36~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>通过上述的 Hook，我们可以在不同的构建阶段插入自定义的逻辑</p>
-<h3 id="插件示例"><a href="#插件示例" class="headerlink" title="插件示例"></a>插件示例</h3><p>1.开发 Vite 插件<br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e10fc131f80646ffb106f7a93b67de8a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br> 2.配置文件引入插件<br><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1280e4cfe1ef4b1ab7745ed6e2cb925a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="代码分割-拆包"><a href="#代码分割-拆包" class="headerlink" title="代码分割(拆包)"></a>代码分割(拆包)</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc7985dd33cc4f55bdb73456a36fe46b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="JS-编译工具-Babel"><a href="#JS-编译工具-Babel" class="headerlink" title="JS 编译工具(Babel)"></a>JS 编译工具(Babel)</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6e1151af7dd24fba8c48ef3d5b25dd2b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="语法安全降级"><a href="#语法安全降级" class="headerlink" title="语法安全降级"></a>语法安全降级</h3><p>以 Promise 语法为例，IE11 没有支持</p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/656b8b27bbcf4d4d92b8b622eabb6b3e~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5398c45a378a46239cb060ba053c5590~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="服务端渲染-SSR"><a href="#服务端渲染-SSR" class="headerlink" title="服务端渲染(SSR)"></a>服务端渲染(SSR)</h3><p>一种常见的渲染模式，用于提升首屏性能和 SEO 优化<br><br><strong>构建阶段</strong><br><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e046836c214a4f9b90816f1b2f89d564~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>代码执行阶段</strong><br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fac793cc9faa45e4bfad46a738a2b420~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="深入了解底层标准"><a href="#深入了解底层标准" class="headerlink" title="深入了解底层标准"></a>深入了解底层标准</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/059f5a192d564c308b3db008875ec6bb~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="Vite-社区生态"><a href="#Vite-社区生态" class="headerlink" title="Vite 社区生态"></a>Vite 社区生态</h3><p>Github 40k+ star(可参考 webpack 61.3 K rollup 21.8 k),并且目前还在持续维护<br><br><strong>官方提供插件</strong>:<br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/24fdbce0814e406c89b8b18cbb38bff6~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>众多框架内置</strong></p>
-<ul>
-<li>Nuxt</li>
-<li>SvelteKit</li>
-<li>Astro</li>
-<li>Vitepress</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/06/14/Vite%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsd0008h8jucu95dflc" data-title="Vite知识体系 | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
-  </nav>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2023/06/14/React-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">React | 青训营笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2023/06/14/JavaScript(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">JavaScript(二) | 青训营笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">深入CSS(二) | 青训营笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2023/06/14/%E5%89%8D%E7%AB%AF%E8%AF%AD%E8%A8%80%E4%B8%B2%E8%AE%B2-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">前端语言串讲 | 青训营笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2023/06/14/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">客户端容器 | 青训营笔记</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2023 Thresh<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Thresh"><span class="site-name">Thresh</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Thresh</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2023/06/14/React-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" title="React | 青训营笔记">React | 青训营笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-14T02:58:18.000Z" title="发表于 2023-06-14 10:58:18">2023-06-14</time></span></div><div class="content">React | 青训营笔记React 的历史与应用应用
+前端应用开发，如 Facebook，Instagram，Netflix 网页版。
+移动原生应用开发，如 Instagram，Discord，Oculus。
+结合 Electron，进行桌面应用开发。
+
+历史2010 年 Facebook 在其 php 生态中，引入了 xhp 框架，首次引入了组合式组件的思想，启发了后来的 React 的设计。2011 年 Jordan Walke 创造了 FaxJS，也就是后来的 React 原型:
+
+既可以在客户端渲染也可以在服务端渲染
+响应式，当状态变更时，UI 会自动更新。
+性能好，快速渲染
+高度封装组件，函数式声明
+
+2013 年 React 正式开源，在 2013 JSConf 上 Jordan Walke 介绍了这款全新的框架：React2014 年 - 今天 生态大爆发，各种围绕 React 的新工具&#x2F;新框架开始涌现
+React 的设计思路 – UI 编程痛点01.状态更新，UI 不会自动更新，需要手动地调用 DOM 进行更新。 02.欠缺基本的代码层面的封装和隔离，代码层 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2023/06/14/JavaScript(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" title="JavaScript(二) | 青训营笔记">JavaScript(二) | 青训营笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-14T02:57:08.000Z" title="发表于 2023-06-14 10:57:08">2023-06-14</time></span></div><div class="content">JavaScript | 青训营笔记2023-1-17如何写 好 JavaScript?什么才是好的 JavaScript 代码？
+写好 JS 的一些原则（一）各司其职：让 HTML,CSS，JS 职能分离组件封装：好的 UI 组件具备正确性，扩展性，复用性过程抽象：应用函数式编程思想
+各司其职：
+版本一：直接用 JavaScript 操作了 CSS，那么提交代码，后期 PM 修改了需求，程序员修改会很困难，也会对后续交付给其他维护代码的程序员造成困扰。让你来优化来怎么做？
+版本二：这个版本性对于上个版本，我们操作了 classname，我们用 class 来定义了 HTML 元素的状态，直接操作了 CSS。有一个原则，各司其职，在网页中我们可以说 HTML 是结构，CSS 是表现，JavaScript 是行为。结构表现分离使我们前端工程师基本的原则。那么还有其他改进空间吗？
+版本三：控制样式的代码可以用 CSS 来实现，版本三是纯 css 的样式结构，没有 JavaScript 的代码片段。里面用伪类选择器+兄弟选择器，用 checkbox 的状态来改变 content 的样式。&l ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" title="深入CSS(二) | 青训营笔记">深入CSS(二) | 青训营笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-14T02:55:07.000Z" title="发表于 2023-06-14 10:55:07">2023-06-14</time></span></div><div class="content">深入 CSS | 青训营笔记2023-1-18
+CSS 选择器的特异度
+CSS 选择器有哪些？哪些属性可以继承？CSS 选择符：123456789101112131415161718/*id选择器*/    #myid/*类选择器*/    .myclassname/*标签选择器*/    div,h1,p/*相邻选择器*/    h1+p/*子选择器*/    ul&gt;li/*后代选择器*/    li a/*通配符选择器*/    */*属性选择器*/    a[rel=&quot;external&quot;]/*伪类选择器*/    a:hover, li:nth-child
+
+继承：某些属性会自动继承其父元素的计算值，除非显式(inherit)制定一个值。可继承的属性：font-size, font-family, color不可继承的样式：border, padding, margin, width, height优先级（就近原则）：!important &gt; [id&gt;class&gt;tag]!important 比内联优先级高
+初始值：·CSS 中，每个属 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2023/06/14/%E5%89%8D%E7%AB%AF%E8%AF%AD%E8%A8%80%E4%B8%B2%E8%AE%B2-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" title="前端语言串讲 | 青训营笔记">前端语言串讲 | 青训营笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-14T02:54:26.000Z" title="发表于 2023-06-14 10:54:26">2023-06-14</time></span></div><div class="content">前端语言串讲01.前端语言的基本能力
+HTML
+
+HTML（超文本标记语言） ： HTML 是 Web 页面的基础结构。它用于描述网页的内容和结构。HTML 使用一系列标记（称为标签）来定义页面元素，如标题、段落、列表、图片和链接等。浏览器解析 HTML 代码，并根据标签的语义来显示页面内容。HTML 为网页提供了基本的骨架，使浏览器能够呈现文本、图像和其他媒体。
+
+
+CSS
+
+CSS（级联样式表） ： CSS 用于描述 HTML 元素的外观和布局。CSS 允许我们定义如何显示 HTML 元素，例如字体、颜色、大小、间距等。通过使用 CSS，我们可以将样式与 HTML 结构分离，使得网站的设计和维护更加简便。CSS 还允许我们根据不同的设备和屏幕尺寸应用不同的样式(媒体查询)，以实现响应式设计。
+
+
+JavaScript
+
+JavaScript： JavaScript 是一种脚本语言，用于在浏览器中增加交互性和动态效果。它允许我们编写脚本来处理用户操作，例如点击按钮、输入表单、拖动元素等。通过使用 JavaScript，我们也可以操作 HTML 和 CSS，动态更改页面内容和样式，从而 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2023/06/14/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" title="客户端容器 | 青训营笔记">客户端容器 | 青训营笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-14T02:54:01.000Z" title="发表于 2023-06-14 10:54:01">2023-06-14</time></span></div><div class="content">客户端容器（Web 浏览器以及跨端解决方案）01.浏览器架构浏览器架构演进
+单进程架构
+多进程架构
+面向服务架构
+
+浏览器架构对比
+浏览器架构 — 任务管理器
+浏览器架构 — 多进程分工
+02.渲染进程常见浏览器内核
+渲染进程 — 多进程架构
+内部是多线程实现，主要负责页面渲染，脚本执行，事件处理，网络请求等。。。。
+
+
+JS 引擎 vs 渲染引擎
+1.解析执行 JS
+2.XML 解析生成渲染树，显示在屏幕
+3.桥接方式通信
+
+
+渲染进程 — 多线程工作流程
+1.网络线程负责加载网页资源
+2.JS 引擎解析 JS 脚本并且执行
+3.JS 解析引擎空闲时，渲染线程立即工作
+4.用户交互、定时器操作等产生回调函数放入任务队列中
+5.事件线程进行事件循环，将队列里的任务取出交给 JS 引擎执行
+
+
+03.Chrome 运行原理Chrome 运行原理 — 如何展示网页
+浏览器地址输入 URL 后发生了什么？
+
+
+Chrome 运行原理 — 输入处理
+1.用户 Url 框输入内容的后，UI 线程会判断输入的是一个 URL 地址呢，还是一个 query 查询条件
+2.如果是 URL，直接请求站点资 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2023/06/14/Shell-%E8%84%9A%E6%9C%AC%E5%92%8C%E7%BC%96%E7%A8%8B-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" title="Shell 脚本和编程 | 青训营笔记">Shell 脚本和编程 | 青训营笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-14T02:53:31.000Z" title="发表于 2023-06-14 10:53:31">2023-06-14</time></span></div><div class="content">Shell 脚本和编程 | 青训营笔记学习 Shell 的价值：
+Linux 服务器的基本操作和管理
+前端 Node.js 服务的进程管理、问题排查、资源监控等运维操作
+使用 shell 编写 TCE、SCM、Docker 脚本，完成服务编译和部署
+
+01.Shell 基础概念Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。
+Shell 是指一种应用程序，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核的服务。
+Ken Thompson 的 sh 是第一种 Unix Shell，Windows Explorer 是一个典型的图形界面 Shell。
+
+发展除了替代 v6 shell，sh 还有几个优点，把控制流程，循环，变量引入了脚本，提供了一种更具功能性的语言主流 Linux 系统使用的 shell，许多都以它为锚点。bash 是 sh 的超集，可以直接执行大部分 sh 脚本。Bash 在兼容 Boumne shel 脚本编程的同时，集成了 Kom shel C shel 的能，包括命今历史，命 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2023/06/14/Linux-%E5%9F%BA%E7%A1%80-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" title="Linux 基础 | 青训营笔记">Linux 基础 | 青训营笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-14T02:53:03.000Z" title="发表于 2023-06-14 10:53:03">2023-06-14</time></span></div><div class="content">Linux 基础学习 Linux 的价值
+Linux 是现代化应用程序交付的首选平台，无论是部署在裸机，虚拟化还是容器化环境
+公司内部服务(TCE , FaaS , SCM)统一使用 Debian Linux 系统
+熟悉 Linux 基础指令,熟练运维前端常用服务(Nginx , Node.js)
+加深对操作系统概念和实现的理解，夯实基础知识
+
+01.计算机硬件
+控制器
+运算器
+存储器单元
+输入单元
+输出单元
+
+02.计算机操作系统
+问题思考：程序启动必须有操作系统来执行，那操作系统本身也是一个程序，那是如何在开机时被执行的呢?操作系统的启动流程分为传统模式，也就是基于 BIOS 的启动流程，另一种是当前的主流模式，就是基于 UEFI 的启动流程。
+操作系统的启动流程分为传统模式，也就是基于 bios 的启动流程，另一种是当前的主流模式，就是基于 UEFI 的启动流程.Linux 系统概览Linux 发展简史1.1969 年，Unix 诞生于贝尔实验室2.1984 年，贝尔实验室将 Unix 商业化3.1984 年，Tanenbaum 开发 Minix 操作系统用于教学并开放源码4.1 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2023/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%AE%BA-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" title="计算机网络概论 | 青训营笔记">计算机网络概论 | 青训营笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-14T02:52:31.000Z" title="发表于 2023-06-14 10:52:31">2023-06-14</time></span></div><div class="content">01.前言 &amp; 课程介绍课程目标和收益建立对计算机网络的整体认知，对计算机网络中的各种概念 (网络分层、网络协议、网络应用等) 有初步的理解。进而可以在后续的实际工作中能高效解决网络问题。
+课程介绍
+通过一个示例建立对计算机网络的整体认识
+建立对网络协议分层的认知
+分析 HTTP 1、2、3 的关系
+介绍 CDN 运行的基本原理
+了解网络安全的最基本原则
+
+分析方法
+自底向上从简单开始，逐渐变复杂将模块逐步拼凑成一个系统
+自顶向下从复杂开始，逐渐变简单从复杂的系统问题入手，拆分为模块问题
+
+02.蟹堡王帝国小目标蟹老板想挣一个“小目标”
+三步走战略1.在比奇堡开通外卖  2.在北京和上海开分店  3.在全国开分店并开通外卖 
+蟹堡王外卖章鱼哥:蟹堡王，请问要吃什么龙虾拉里:“为什么我打不通?
+北京和上海分店分店
+
+北京方恒蟹堡王
+上海科技绿洲蟹堡王
+
+通信线路
+
+赚了多少钱
+确定原料数量
+是否需要新分店
+促销信息
+
+新的分店
+中航蟹堡王
+紫金蟹堡王
+大钟寺蟹堡王
+通信线路怎么办?
+
+小结
+比奇堡外卖
+北京和上海分店
+全国分店和通信网络
+
+03.计算机网络基础网络组成部分
+主机： ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2023/06/14/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9F%BA%E7%A1%80-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" title="数据可视化基础 | 青训营笔记">数据可视化基础 | 青训营笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-14T02:51:54.000Z" title="发表于 2023-06-14 10:51:54">2023-06-14</time></span></div><div class="content">数据可视化基础 | 青训营笔记01.什么是数据可视化Anything that converts data into a visual representation(like charts, graphs, maps, sometimes even just tables)译文:任何将数据转换为可视化表示的东西（如图表、图形、地图，有时甚至只是表格）
+
+数据可视化分类
+科学可视化
+信息可视化
+可视分析
+
+为什么要可视化
+01.记录信息
+02.分析推理
+03.证实假设
+04.交流思想
+
+安斯库姆四重奏
+
+02.可视化设计原则和方法糟糕的可视化呈现
+错误的可视化呈现
+可视化设计原则能够正确地表达数据中的信息而不产生偏差与歧义
+常见的错误可视化
+01.透视失真
+02.图形设计 &amp; 数据尺度
+03.数据上下文
+
+透视失真
+如果数字是由视觉元素表示的，那么它们应该与视觉元素的感知程度成正比。
+使用清晰、详细和彻底的标签，以避免图形失真和含糊不清
+
+图形设计 &amp; 数据尺度
+图形的每一部分都会产生对其的视觉预期 (visual expectation)
+这些预期往往决定了眼睛实际看到 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2023/06/14/Vite%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" title="Vite知识体系 | 青训营笔记">Vite知识体系 | 青训营笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-14T02:51:27.000Z" title="发表于 2023-06-14 10:51:27">2023-06-14</time></span></div><div class="content">Vite 知识体系 | 青训营笔记01.为什么需要构建工具 ?前端工程的痛点
+
+模块化
+资源编译
+产物质量
+开发效率
+
+前端构建工具的意义
+02.Vite 是什么? Why Vite?Vite 概览定位:新一代前端构建工具两大组成部分:
+
+1.No-bundle 开发服务,源文件无需打包
+2.生产环境基于 Rollup 的 Bundler
+
+核心特征
+
+1.高性能,dev 启动速度和热更新速度非常快
+2.简单易用,开发者体验好
+
+业界案例
+当下问题
+缓慢的启动 -&gt; 项目编译等待成本高
+缓慢的热更新 -&gt; 修改代码后不能实时更新
+
+瓶颈在哪里?
+
+bundle 带来的性能开销
+JavaScript 语言的性能瓶颈
+
+两大行业趋势
+全球浏览器对原生 ESM 的普遍支持(目前占比92%以上)
+基于原生语言(Go、Rust)编写前端编译工具链
+如 Go 语言编写的 Esbuild、 Rust 编写的 SWC
+
+浏览器原生 ESM 支持两大要素
+
+1.script 标签增加 type&#x3D;”module”属性
+2.使用 ESM 模块导入导出语法
+
+基于原生 ESM 的开发服务 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="page-number" href="/page/3/#content-inner">3</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Thresh</div><div class="author-info__description">一个有趣热爱技术的人</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><div class="content"><a class="title" href="/2023/06/14/React-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" title="React | 青训营笔记">React | 青训营笔记</a><time datetime="2023-06-14T02:58:18.000Z" title="发表于 2023-06-14 10:58:18">2023-06-14</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2023/06/14/JavaScript(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" title="JavaScript(二) | 青训营笔记">JavaScript(二) | 青训营笔记</a><time datetime="2023-06-14T02:57:08.000Z" title="发表于 2023-06-14 10:57:08">2023-06-14</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" title="深入CSS(二) | 青训营笔记">深入CSS(二) | 青训营笔记</a><time datetime="2023-06-14T02:55:07.000Z" title="发表于 2023-06-14 10:55:07">2023-06-14</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2023/06/14/%E5%89%8D%E7%AB%AF%E8%AF%AD%E8%A8%80%E4%B8%B2%E8%AE%B2-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" title="前端语言串讲 | 青训营笔记">前端语言串讲 | 青训营笔记</a><time datetime="2023-06-14T02:54:26.000Z" title="发表于 2023-06-14 10:54:26">2023-06-14</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2023/06/14/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" title="客户端容器 | 青训营笔记">客户端容器 | 青训营笔记</a><time datetime="2023-06-14T02:54:01.000Z" title="发表于 2023-06-14 10:54:01">2023-06-14</time></div></div></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">22</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">23</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-06-14T03:16:14.693Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Thresh</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
