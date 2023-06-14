@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>前端语言串讲 | 青训营笔记 | Thresh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="前端语言串讲01.前端语言的基本能力 HTML  HTML（超文本标记语言） ： HTML 是 Web 页面的基础结构。它用于描述网页的内容和结构。HTML 使用一系列标记（称为标签）来定义页面元素，如标题、段落、列表、图片和链接等。浏览器解析 HTML 代码，并根据标签的语义来显示页面内容。HTML 为网页提供了基本的骨架，使浏览器能够呈现文本、图像和其他媒体。   CSS  CSS（级联样式表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端语言串讲 | 青训营笔记">
+<meta property="og:url" content="http://example.com/2023/06/14/%E5%89%8D%E7%AB%AF%E8%AF%AD%E8%A8%80%E4%B8%B2%E8%AE%B2-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Thresh">
+<meta property="og:description" content="前端语言串讲01.前端语言的基本能力 HTML  HTML（超文本标记语言） ： HTML 是 Web 页面的基础结构。它用于描述网页的内容和结构。HTML 使用一系列标记（称为标签）来定义页面元素，如标题、段落、列表、图片和链接等。浏览器解析 HTML 代码，并根据标签的语义来显示页面内容。HTML 为网页提供了基本的骨架，使浏览器能够呈现文本、图像和其他媒体。   CSS  CSS（级联样式表">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce40f7578e3d4a0c93e2e7b8092b7695~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/90b6a376f6134322bc5cf231f9907a25~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b51c32a71e66437ebd58229121df072d~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c028732228c74cbdb9df192675516e9b~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7319979e56ce45d29f17060cc15d36c4~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f24dc589b9bb434b889d577872ebeb93~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5fb6409f1f654e2c8a13c41b32bd2abe~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8c8296b691264719a623c3541927c2be~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b749694ab91b401a9f6d9d7fcb0aed68~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/409aa51d22f24bd5b2e9fe94299f1712~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7991bb306b2e47f390d8a716786457c0~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/65b787955bc444e4ae688064cc7e2138~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/18a5e4f685f540f29fa8f5dbc62d4c91~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/db4286d2f62c48b182a23aafb94ef380~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aba6c52abffc46fdaf8479fb5d29853a~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/773e5b71a25f46128bf18e6c28b77ccc~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/818d90bb20354381843afb90073deb99~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ec9f5a409ba24e9ba8bbd7d17797b4b7~tplv-k3u1fbpfcp-zoom-1.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/925bf886f3084b3f846b9becf31131c7~tplv-k3u1fbpfcp-zoom-1.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9b54760d6877456fb0c8ce750282d7af~tplv-k3u1fbpfcp-zoom-1.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6457fd89edf54ec4a3dec50e913dbf90~tplv-k3u1fbpfcp-zoom-1.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4887608ac7af4cf6ac1718ba0a06d258~tplv-k3u1fbpfcp-zoom-1.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/63ac2feafbeb4d6ea9be63a629861c96~tplv-k3u1fbpfcp-zoom-1.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c764fb2c4a2d4c6ab26aef73af4029f2~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c665e3bf9a645dba317a4b5b082f7b9~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8fac6ed6a2174260a1d9117d9721a3a6~tplv-k3u1fbpfcp-watermark.image">
+<meta property="article:published_time" content="2023-06-14T02:54:26.000Z">
+<meta property="article:modified_time" content="2023-06-14T02:54:42.445Z">
+<meta property="article:author" content="Thresh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce40f7578e3d4a0c93e2e7b8092b7695~tplv-k3u1fbpfcp-watermark.image">
+  
+    <link rel="alternate" href="/atom.xml" title="Thresh" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Thresh</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-前端语言串讲-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/14/%E5%89%8D%E7%AB%AF%E8%AF%AD%E8%A8%80%E4%B8%B2%E8%AE%B2-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-06-14T02:54:26.000Z" itemprop="datePublished">2023-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      前端语言串讲 | 青训营笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="前端语言串讲"><a href="#前端语言串讲" class="headerlink" title="前端语言串讲"></a>前端语言串讲</h1><h2 id="01-前端语言的基本能力"><a href="#01-前端语言的基本能力" class="headerlink" title="01.前端语言的基本能力"></a>01.前端语言的基本能力</h2><ul>
+<li>HTML</li>
+</ul>
+<p><strong>HTML（超文本标记语言）</strong> ： HTML 是 Web 页面的基础结构。它用于描述网页的内容和结构。HTML 使用一系列标记（称为标签）来定义页面元素，如标题、段落、列表、图片和链接等。浏览器解析 HTML 代码，并根据标签的语义来显示页面内容。HTML 为网页提供了基本的骨架，使浏览器能够呈现文本、图像和其他媒体。</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce40f7578e3d4a0c93e2e7b8092b7695~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<ul>
+<li>CSS</li>
+</ul>
+<p><strong>CSS（级联样式表）</strong> ： CSS 用于描述 HTML 元素的外观和布局。CSS 允许我们定义如何显示 HTML 元素，例如字体、颜色、大小、间距等。通过使用 CSS，我们可以将样式与 HTML 结构分离，使得网站的设计和维护更加简便。CSS 还允许我们根据不同的设备和屏幕尺寸应用不同的样式(媒体查询)，以实现响应式设计。</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/90b6a376f6134322bc5cf231f9907a25~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<ul>
+<li>JavaScript</li>
+</ul>
+<p><strong>JavaScript</strong>： JavaScript 是一种脚本语言，用于在浏览器中<strong>增加交互性和动态效果</strong>。它允许我们编写脚本来处理用户操作，例如点击按钮、输入表单、拖动元素等。通过使用 JavaScript，我们也可以操作 HTML 和 CSS，动态更改页面内容和样式，从而提供丰富的用户体验。JavaScript 也可以与服务器进行通信，以便在不刷新整个页面的情况下获取或提交数据（例如，通过 AJAX）。</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b51c32a71e66437ebd58229121df072d~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c028732228c74cbdb9df192675516e9b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<table>
+<thead>
+<tr>
+<th>上图标记</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>选择器（<strong>Selector</strong>）</td>
+<td>HTML 元素的名称位于规则集开始。它选择了一个或多个需要添加样式的元素（在这个例子中就是 <code>p</code> 元素）。要给不同元素添加样式只需要更改选择器就行了</td>
+</tr>
+<tr>
+<td>声明（<strong>Declaration</strong>）</td>
+<td>一个单独的规则，如 <code>color: red;</code> 用来指定添加样式元素的<strong>属性</strong></td>
+</tr>
+<tr>
+<td>属性（<strong>Properties</strong>）</td>
+<td>改变 HTML 元素样式的途径。（本例中 <code>color</code> 就是 <a href="https://link.juejin.cn/?target=https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/p" title="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/p">&#96;&#96;</a> 元素的属性。）CSS 中，由编写人员决定修改哪个属性以改变规则</td>
+</tr>
+<tr>
+<td>属性的值（Property value）</td>
+<td>在属性的右边，冒号后面即<strong>属性的值</strong>，它从指定属性的众多外观中选择一个值（我们除了 <code>red</code> 之外还有很多属性值可以用于 <code>color</code> ）</td>
+</tr>
+</tbody></table>
+<h3 id="W3C-和-W3School-的区别？"><a href="#W3C-和-W3School-的区别？" class="headerlink" title="W3C 和 W3School 的区别？"></a>W3C 和 W3School 的区别？</h3><ol>
+<li>W3C（万维网联盟）： W3C 是一个国际组织，成立于 1994 年，负责制定和维护 Web 标准。它的目标是确保 Web 发展的长期可持续性和可访问性。W3C 制定了许多 Web 技术的规范，如 HTML、CSS、XML、SVG 等。W3C 的官方网站是 <a href="https://link.juejin.cn/?target=https://www.w3.org/" title="https://www.w3.org/">www.w3.org/</a>。在 W3C 网站上，可以找到关于 Web 标准的详细信息和技术规范。</li>
+<li>W3Schools： W3Schools 并非 W3C 的官方网站，而是一个独立的在线教育平台。它成立于 1998 年，提供了大量关于 HTML、CSS、JavaScript 等 Web 技术的教程和实例。W3Schools 的目标是为 Web 开发者提供一个易于理解的学习资源。W3Cschools 的官方网站是 <a href="https://link.juejin.cn/?target=https://www.w3schools.com/" title="https://www.w3schools.com/">www.w3schools.com/</a>。在 W3Cshools 网站上，可以找到关于 Web 技术的教程、示例和实践练习。</li>
+</ol>
+<p>而他们最主要的区别(其实是完全不同的两家组织，一开始学习的我一直以为他们是同一家的)：</p>
+<ul>
+<li>W3C 是一个国际组织，负责制定和维护 Web 标准。</li>
+<li>W3Schools 是一个在线教育平台，提供关于 Web 技术的教程和实例。</li>
+</ul>
+<h3 id="JavaScript-的七种基本数据类型："><a href="#JavaScript-的七种基本数据类型：" class="headerlink" title="JavaScript 的七种基本数据类型："></a>JavaScript 的七种基本数据类型：</h3><p>这些类型分为两大类：原始类型（Primitive）和对象类型（Object）。</p>
+<ol>
+<li>Number（数字）： Number 类型用于表示整数和浮点数。在 JavaScript 中，所有数字都是双精度浮点数（64 位），遵循 IEEE 754 标准。这意味着 JavaScript 中并没有真正的整数类型。另外，Number 类型还包括特殊值如：Infinity（正无穷大）、-Infinity（负无穷大）和 NaN（非数值）。</li>
+<li>String（字符串）： String 类型表示一串字符。在 JavaScript 中，字符串是不可变的，这意味着一旦创建了一个字符串，就不能对其内容进行修改。字符串可以用单引号、双引号或反引号（模板字符串）括起来。</li>
+<li>Boolean（布尔值）： Boolean 类型只有两个值：true（真）和 false（假）。布尔值通常用于表示条件、逻辑操作或比较的结果。</li>
+<li>Null（空值）： Null 类型只有一个值：null。它表示一个空值或不存在的引用。通常用于表示变量没有被赋值，或表示一个空对象。</li>
+<li>Undefined（未定义）： Undefined 类型只有一个值：undefined。当一个变量声明了，但尚未赋值时，其默认值为 undefined。它表示变量的值尚未确定。</li>
+<li>Symbol（符号）： Symbol 类型是 ECMAScript 6（ES2015）引入的新类型。Symbol 类型的值是唯一且不可变的，主要用于创建对象的唯一属性名，以防止属性名冲突。</li>
+<li>Object（对象）： Object 类型用于表示复杂的数据结构，如对象、数组和函数。对象是键值对的集合，键是字符串，值可以是任何数据类型。数组是值的有序集合，而函数是可调用的代码块。</li>
+</ol>
+<p>在 JavaScript 中，原始类型（Number、String、Boolean、Null、Undefined 和 Symbol）是不可变的基本数据类型，而对象类型（Object）是可变的引用数据类型</p>
+<h3 id="Browser"><a href="#Browser" class="headerlink" title="Browser"></a>Browser</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7319979e56ce45d29f17060cc15d36c4~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f24dc589b9bb434b889d577872ebeb93~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h2 id="02-前端语言的协作配合"><a href="#02-前端语言的协作配合" class="headerlink" title="02.前端语言的协作配合"></a>02.前端语言的协作配合</h2><h3 id="Trending"><a href="#Trending" class="headerlink" title="Trending"></a>Trending</h3><p>以下是前端语言的协作配合方面的 Trending：</p>
+<ol>
+<li>前后端分离 前端语言（如 JavaScript、HTML、CSS）与后端语言（如 Python、Java）进行分离，通过 API 接口进行通信，提高开发效率和可维护性。</li>
+<li>前端框架 前端框架（如 React、Vue.js）能够提供更好的代码组织和维护能力，以及提高开发效率和代码质量的特性。</li>
+<li>前端构建工具 前端构建工具（如 Webpack、Gulp）能够提供自动化构建、模块打包、代码压缩等功能，简化开发流程，提高开发效率。</li>
+<li>移动端开发 移动端开发需要结合前端语言、移动端框架（如 React Native、Flutter）、移动端开发工具（如 Android Studio、Xcode）等进行协作，以达到优秀的用户体验。</li>
+<li>测试工具 前端测试工具（如 Jest、Mocha）能够保证代码质量和稳定性，提高开发效率和代码可维护性。</li>
+</ol>
+<h3 id="CSS-in-HTML"><a href="#CSS-in-HTML" class="headerlink" title="CSS in HTML"></a>CSS in HTML</h3><p>CSS (Cascading Style Sheets) 是一种用于描述 HTML 文档如何呈现的样式表语言。使用 CSS，你可以将样式信息从 HTML 内容中分离出来，从而使得 HTML 文件更加简洁、易于维护。</p>
+<p><strong>在 HTML 中引入 CSS 的方式有三种：</strong></p>
+<ol>
+<li>内部样式表：在 HTML 文件头部使用 <style> 标签定义样式信息。</li>
+<li>外部样式表：将样式信息写入一个单独的 CSS 文件中，然后在 HTML 文件头部使用 <code>&lt;link&gt; </code>标签引入。</li>
+<li>内联样式：直接在 HTML 元素上定义样式信息。</li>
+</ol>
+<p>** CSS 的基本语法如下：**</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">selector &#123;</span><br><span class="line">  property1: value1;</span><br><span class="line">  property2: value2;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>其中，selector 用于选中需要应用样式的 HTML 元素；property 和 value 分别表示样式属性和属性值。</p>
+<p>CSS 支持各种各样的选择器，例如标签选择器、类选择器、ID 选择器等。在编写 CSS 样式时，要注意避免使用过于具体的选择器，以免影响样式的复用性和维护性。</p>
+<h3 id="JavaScript-in-HTML"><a href="#JavaScript-in-HTML" class="headerlink" title="JavaScript in HTML"></a>JavaScript in HTML</h3><p>JavaScript (JS) 是一种高级编程语言，可用于在 Web 页面上创建交互式的动态效果和用户体验。在 HTML 中引入 JS 脚本的方式有三种：内嵌式、链接式和事件处理器。</p>
+<p>内嵌式方式是将 JS 代码直接嵌入 HTML 页面中的 <code>&lt;script&gt;</code> 标签中，代码在页面加载时一起加载和解析。链接式方式则是将 JS 代码放在外部的 JS 文件中，并在 HTML 页面中通过 <code>&lt;script&gt;</code> 标签的 <code>src</code> 属性引用该文件。事件处理器方式是将 JS 代码嵌入 HTML 元素的事件属性中，例如 <code>&lt;button onclick=&quot;myFunction()&quot;&gt;Click me&lt;/button&gt;</code>。</p>
+<p>JS 代码中最基本的语法单元是语句，语句可以包含表达式和运算符，还可以使用控制流语句来控制代码执行顺序。JS 中还包含了许多内置对象和方法，例如数组、字符串、日期、数学等，开发者可以通过调用这些对象和方法来实现复杂的功能。</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5fb6409f1f654e2c8a13c41b32bd2abe~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="HTML-in-JavaScript"><a href="#HTML-in-JavaScript" class="headerlink" title="HTML in JavaScript"></a>HTML in JavaScript</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8c8296b691264719a623c3541927c2be~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="CSS-in-JavaScript"><a href="#CSS-in-JavaScript" class="headerlink" title="CSS in JavaScript"></a>CSS in JavaScript</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b749694ab91b401a9f6d9d7fcb0aed68~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h2 id="03-你不知道的-HTML-5"><a href="#03-你不知道的-HTML-5" class="headerlink" title="03.你不知道的 HTML(5)"></a>03.你不知道的 HTML(5)</h2><h3 id="HTML-DTD"><a href="#HTML-DTD" class="headerlink" title="HTML DTD"></a>HTML DTD</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/409aa51d22f24bd5b2e9fe94299f1712~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="HTML-全部标签分类"><a href="#HTML-全部标签分类" class="headerlink" title="HTML 全部标签分类"></a>HTML 全部标签分类</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7991bb306b2e47f390d8a716786457c0~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="HTML-head-标签"><a href="#HTML-head-标签" class="headerlink" title="HTML head 标签"></a>HTML head 标签</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/65b787955bc444e4ae688064cc7e2138~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="HTML-5-存储"><a href="#HTML-5-存储" class="headerlink" title="HTML 5 存储"></a>HTML 5 存储</h3><pre><code>HTML5 提供了多种本地存储方式，包括 `localStorage` 和 `sessionStorage`。两者都可以用来存储字符串类型的数据，但是有一些区别：
+</code></pre>
+<ul>
+<li><code>localStorage</code> 存储的数据不会过期，除非被手动删除或清除。</li>
+<li><code>sessionStorage</code> 存储的数据在用户关闭浏览器窗口或标签页之后就会被清除。</li>
+</ul>
+<p>两者都可以通过 JavaScript 的 API 进行操作。常用的方法包括：</p>
+<ul>
+<li><code>setItem(key, value)</code>：设置指定 <code>key</code> 的值为 <code>value</code>。</li>
+<li><code>getItem(key)</code>：获取指定 <code>key</code> 的值。</li>
+<li><code>removeItem(key)</code>：移除指定 <code>key</code> 的值。</li>
+<li><code>clear()</code>：清除所有存储的数据。</li>
+</ul>
+<p>使用本地存储可以方便地在浏览器中保存用户的数据，例如用户的设置、历史记录等。但是需要注意的是，存储的数据是明文保存在本地的，因此不能存储敏感数据，例如用户的密码等。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/18a5e4f685f540f29fa8f5dbc62d4c91~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="indexedDB"><a href="#indexedDB" class="headerlink" title="indexedDB"></a>indexedDB</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/db4286d2f62c48b182a23aafb94ef380~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="HTML5-PWA-amp-AMP"><a href="#HTML5-PWA-amp-AMP" class="headerlink" title="HTML5 PWA &amp; AMP"></a>HTML5 PWA &amp; AMP</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aba6c52abffc46fdaf8479fb5d29853a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="HTML-5-Video-amp-Audio"><a href="#HTML-5-Video-amp-Audio" class="headerlink" title="HTML 5 Video &amp; Audio"></a>HTML 5 Video &amp; Audio</h3><ul>
+<li>Video<br><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/773e5b71a25f46128bf18e6c28b77ccc~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></li>
+<li>Audio</li>
+</ul>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/818d90bb20354381843afb90073deb99~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="HTML5-Web-Socket"><a href="#HTML5-Web-Socket" class="headerlink" title="HTML5 Web Socket"></a>HTML5 Web Socket</h3><blockquote>
+<p>Web Socket 是一种在 Web 应用程序中实现实时通信的协议。它提供了一种双向通信机制，允许客户端和服务器之间进行实时的数据传输。与传统的 HTTP 请求&#x2F;响应模式不同，Web Socket 采用了一种持久化的连接，可以在客户端和服务器之间保持通信通道，从而实现实时通信的功能。</p>
+<p>Web Socket 协议基于 TCP 协议实现，使用了类似 HTTP 协议的握手过程来建立连接。客户端和服务器之间的通信采用帧（Frame）的形式进行，每个帧包含一个标识、一些附加信息和一段数据。客户端和服务器可以通过发送不同类型的帧来实现不同的功能，比如文本消息、二进制数据、ping-pong 等。</p>
+<p>Web Socket 协议可以与任何支持该协议的服务器进行通信，包括自己开发的服务器和第三方提供的服务。它通常被用于实现实时聊天室、实时游戏、实时协作等应用场景。由于其实时性和高效性，越来越多的 Web 应用程序开始采用 Web Socket 技术来实现实时通信的功能</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// 创建 Web Socket 连接</span><br><span class="line">const socket = new WebSocket(&#x27;ws://localhost:8080&#x27;);</span><br><span class="line">​</span><br><span class="line">// 当连接打开时，发送一条消息到服务器</span><br><span class="line">socket.addEventListener(&#x27;open&#x27;, event =&gt; &#123;</span><br><span class="line">  socket.send(&#x27;Hello, Server!&#x27;);</span><br><span class="line">&#125;);</span><br><span class="line">​</span><br><span class="line">// 当收到服务器发送的消息时，输出到控制台中</span><br><span class="line">socket.addEventListener(&#x27;message&#x27;, event =&gt; &#123;</span><br><span class="line">  console.log(`Received message from server: $&#123;event.data&#125;`);</span><br><span class="line">&#125;);</span><br><span class="line">​</span><br><span class="line">// 当连接关闭时，输出一条消息到控制台中</span><br><span class="line">socket.addEventListener(&#x27;close&#x27;, event =&gt; &#123;</span><br><span class="line">  console.log(&#x27;Web Socket connection closed&#x27;);</span><br><span class="line">&#125;);</span><br><span class="line">​</span><br><span class="line">// 当连接发生错误时，输出错误消息到控制台中</span><br><span class="line">socket.addEventListener(&#x27;error&#x27;, event =&gt; &#123;</span><br><span class="line">  console.error(`Web Socket error: $&#123;event.message&#125;`);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ec9f5a409ba24e9ba8bbd7d17797b4b7~tplv-k3u1fbpfcp-zoom-1.image" alt="image.png"></p>
+<h3 id="HTML5-Shadow-DOM"><a href="#HTML5-Shadow-DOM" class="headerlink" title="HTML5 Shadow DOM"></a>HTML5 Shadow DOM</h3><blockquote>
+<p>Shadow DOM 是 Web Components 技术中的一部分，用于实现 Web 页面上的组件化开发。它允许开发者将 HTML、CSS 和 JavaScript 封装到一个独立的、可重用的组件中，以便在不同的页面和应用程序中进行复用。</p>
+<p>Shadow DOM 通过创建一个“影子树”来实现组件的封装和隔离。在一个 Shadow DOM 中，组件的 HTML 结构、CSS 样式和 JavaScript 行为都被包裹在一个独立的命名空间中，与外部页面的 HTML、CSS 和 JavaScript 不会互相干扰。这种隔离性使得组件可以在不同的页面和应用程序中进行复用，而不用担心样式和行为的冲突。</p>
+<p>使用 Shadow DOM 可以创建一些高度可定制化的组件，比如自定义的表单控件、交互式组件等。Shadow DOM 还提供了一些 API，可以让开发者更加方便地控制组件的行为和样式。比如，可以使用 JavaScript 修改组件内部的 DOM 结构、监听组件内部的事件、控制组件内部的样式等。</p>
+</blockquote>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/925bf886f3084b3f846b9becf31131c7~tplv-k3u1fbpfcp-zoom-1.image" alt="image.png"></p>
+<h3 id="HTML5-Web-Component"><a href="#HTML5-Web-Component" class="headerlink" title="HTML5 Web Component"></a>HTML5 Web Component</h3><blockquote>
+<p>HTML5 的 Web Component 是一种基于标准 Web 技术实现的组件化开发模型，它由三个技术规范组成：Custom Elements、Shadow DOM 和 HTML Templates。</p>
+<p>Custom Elements 允许开发者自定义 HTML 元素，可以通过 JavaScript API 来创建、注册和使用自定义元素。这样，开发者就可以将多个 HTML 元素封装为一个独立的组件，并在 Web 页面中进行复用。Custom Elements 还提供了一些生命周期方法和事件，可以让开发者控制自定义元素的创建和销毁过程。</p>
+<p>Shadow DOM 允许开发者创建一个独立的、封装的 DOM 树，用于包含和隔离组件内部的 HTML 结构、CSS 样式和 JavaScript 行为。这样，开发者就可以将组件内部的实现细节隐藏起来，避免与外部页面的 HTML、CSS 和 JavaScript 冲突。Shadow DOM 还提供了一些 API，可以让开发者更加方便地控制组件内部的样式和行为。</p>
+<p>HTML Templates 允许开发者将 HTML 片段封装为一个可重用的模板，并在 Web 页面中进行复用。HTML Templates 还支持使用 JavaScript API 来动态生成和填充模板内容，以适应不同的使用场景。</p>
+</blockquote>
+<h4 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 定义一个自定义元素 my-button，使用 Shadow DOM 封装组件内部的样式和行为 --&gt;</span><br><span class="line">&lt;template id=&quot;my-button-template&quot;&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    button &#123;</span><br><span class="line">      background-color: #007bff;</span><br><span class="line">      color: white;</span><br><span class="line">      border: none;</span><br><span class="line">      border-radius: 3px;</span><br><span class="line">      padding: 10px 20px;</span><br><span class="line">      font-size: 16px;</span><br><span class="line">      cursor: pointer;</span><br><span class="line">    &#125;</span><br><span class="line">    button:hover &#123;</span><br><span class="line">      background-color: #0069d9;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">  &lt;button&gt;Click me!&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">​</span><br><span class="line">&lt;!-- 在页面中使用自定义元素 my-button --&gt;</span><br><span class="line">&lt;my-button&gt;&lt;/my-button&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 定义一个 MyButton 类，继承自 HTMLButtonElement，用于创建自定义元素</span><br><span class="line">class MyButton extends HTMLButtonElement &#123;</span><br><span class="line">  constructor() &#123;</span><br><span class="line">    super();</span><br><span class="line">​</span><br><span class="line">    // 创建 Shadow DOM，并将模板内容插入其中</span><br><span class="line">    const shadow = this.attachShadow(&#123; mode: &#x27;open&#x27; &#125;);</span><br><span class="line">    const template = document.getElementById(&#x27;my-button-template&#x27;);</span><br><span class="line">    const clone = template.content.cloneNode(true);</span><br><span class="line">    shadow.appendChild(clone);</span><br><span class="line">​</span><br><span class="line">    // 绑定按钮的点击事件</span><br><span class="line">    const button = shadow.querySelector(&#x27;button&#x27;);</span><br><span class="line">    button.addEventListener(&#x27;click&#x27;, () =&gt; &#123;</span><br><span class="line">      console.log(&#x27;Button clicked!&#x27;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">​</span><br><span class="line">// 将 MyButton 注册为自定义元素</span><br><span class="line">customElements.define(&#x27;my-button&#x27;, MyButton, &#123; extends: &#x27;button&#x27; &#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="HTML5-SVG-amp-Canvas"><a href="#HTML5-SVG-amp-Canvas" class="headerlink" title="HTML5 SVG &amp; Canvas"></a>HTML5 SVG &amp; Canvas</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9b54760d6877456fb0c8ce750282d7af~tplv-k3u1fbpfcp-zoom-1.image" alt="image.png"></p>
+<h3 id="WebGL-amp-WebGPU"><a href="#WebGL-amp-WebGPU" class="headerlink" title="WebGL &amp; WebGPU"></a>WebGL &amp; WebGPU</h3><blockquote>
+<p>WebGL 是一种在浏览器中呈现 3D 和 2D 图形的 JavaScript API，它是基于 OpenGL ES 2.0 的标准，支持硬件加速，并可与 HTML、CSS 和 JavaScript 无缝集成。使用 WebGL，开发者可以在浏览器中创建高性能的 3D 游戏、可视化工具和数据展示应用等。</p>
+<p>WebGPU 是一个新的 Web 标准，旨在为 Web 平台提供低级别、跨平台的图形和计算 API，支持使用现代硬件的强大功能。WebGPU 由 Khronos Group 开发，它是 Metal、Vulkan 和 DirectX 12 的 Web 版本，支持多线程和多 GPU，并可以在 WebAssembly 上运行。WebGPU 的目标是为 Web 开发者提供更高效、更灵活的图形和计算功能，从而打造更加丰富和复杂的 Web 应用。</p>
+</blockquote>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6457fd89edf54ec4a3dec50e913dbf90~tplv-k3u1fbpfcp-zoom-1.image" alt="image.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4887608ac7af4cf6ac1718ba0a06d258~tplv-k3u1fbpfcp-zoom-1.image" alt="image.png"></p>
+<blockquote>
+<p>地址：Some Amazing Demo:<a href="https://link.juejin.cn/?target=https://davidwalsh.name/webgl-demo" title="https://davidwalsh.name/webgl-demo">davidwalsh.name&#x2F;webgl-demo</a></p>
+<p>PS：确实特别的震撼，可以通过这里的链接跳转过去看一看</p>
+</blockquote>
+<h3 id="HTML5-WebAssembly"><a href="#HTML5-WebAssembly" class="headerlink" title="HTML5 WebAssembly"></a>HTML5 WebAssembly</h3><blockquote>
+<p>WebAssembly(WASM)是一种新的编码方式，可以直接在浏览器中运行</p>
+<p>WebAssembly（简称为 wasm）是一种新型的虚拟机技术，是一种由 W3C、Mozilla 和其他浏览器厂商共同推出的新 Web 标准。WebAssembly 可以将高性能的 C、C++、Rust 等语言的代码编译成二进制格式，在浏览器中运行，从而提供了比 JavaScript 更高的性能和更好的可移植性。</p>
+<p>WebAssembly 具有许多优点，比如：</p>
+<ul>
+<li>高性能：WebAssembly 的代码可以直接在浏览器中运行，可以比 JavaScript 更高效地利用硬件资源。</li>
+<li>跨平台：WebAssembly 的二进制格式是跨平台的，可以在任何支持 WebAssembly 的平台上运行，包括浏览器、移动设备、IoT 设备等。</li>
+<li>安全性：WebAssembly 的代码运行在沙箱环境中，不会对浏览器和计算机造成安全风险。</li>
+<li>可扩展性：WebAssembly 可以与 JavaScript 无缝集成，并且可以与浏览器中的其他 Web 技术一起使用，比如 Canvas、WebGL 等。</li>
+</ul>
+<p>HTML5 支持 WebAssembly 技术，并且可以通过 JavaScript 脚本来调用 WebAssembly 的函数，实现更高效、更复杂的 Web 应用程序。WebAssembly 技术在 Web 游戏、图像和音频处理、虚拟现实和人工智能等方面具有广泛的应用前景。</p>
+</blockquote>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/63ac2feafbeb4d6ea9be63a629861c96~tplv-k3u1fbpfcp-zoom-1.image" alt="image.png"></p>
+<p>………..</p>
+<h2 id="04-拓展分享"><a href="#04-拓展分享" class="headerlink" title="04.拓展分享"></a>04.拓展分享</h2><h3 id="Web-的风靡"><a href="#Web-的风靡" class="headerlink" title="Web 的风靡"></a>Web 的风靡</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c764fb2c4a2d4c6ab26aef73af4029f2~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="大前端"><a href="#大前端" class="headerlink" title="大前端"></a>大前端</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c665e3bf9a645dba317a4b5b082f7b9~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="MVC-amp-MVVM-amp-MVP"><a href="#MVC-amp-MVVM-amp-MVP" class="headerlink" title="MVC &amp; MVVM &amp; MVP"></a>MVC &amp; MVVM &amp; MVP</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8fac6ed6a2174260a1d9117d9721a3a6~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/14/%E5%89%8D%E7%AB%AF%E8%AF%AD%E8%A8%80%E4%B8%B2%E8%AE%B2-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsf000ch8jucvo42haa" data-title="前端语言串讲 | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          深入CSS(二) | 青训营笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/06/14/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">客户端容器 | 青训营笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/06/14/React-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">React | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/JavaScript(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">JavaScript(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">深入CSS(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%89%8D%E7%AB%AF%E8%AF%AD%E8%A8%80%E4%B8%B2%E8%AE%B2-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">前端语言串讲 | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">客户端容器 | 青训营笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Thresh<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Vite知识体系 | 青训营笔记 | Thresh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Vite 知识体系 | 青训营笔记01.为什么需要构建工具 ?前端工程的痛点  模块化 资源编译 产物质量 开发效率  前端构建工具的意义 02.Vite 是什么? Why Vite?Vite 概览定位:新一代前端构建工具两大组成部分:  1.No-bundle 开发服务,源文件无需打包 2.生产环境基于 Rollup 的 Bundler  核心特征  1.高性能,dev 启动速度和热更新速度非常">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vite知识体系 | 青训营笔记">
+<meta property="og:url" content="http://example.com/2023/06/14/Vite%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Thresh">
+<meta property="og:description" content="Vite 知识体系 | 青训营笔记01.为什么需要构建工具 ?前端工程的痛点  模块化 资源编译 产物质量 开发效率  前端构建工具的意义 02.Vite 是什么? Why Vite?Vite 概览定位:新一代前端构建工具两大组成部分:  1.No-bundle 开发服务,源文件无需打包 2.生产环境基于 Rollup 的 Bundler  核心特征  1.高性能,dev 启动速度和热更新速度非常">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0f7eba3482704027abefe21eab93e5de~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/db65627c8cc04db499be11e89d52a18a~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f3b75fc9605407ba008fb1489bc52c5~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/687697fe28d9483fbcea7f5fc425893c~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c66e8d1ee3c04d3e98a4c1bf16f254e1~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a9d2d2ce082943abbe467631c6c250af~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/47da30d4a0f24f318636c62a748e673f~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a361f847f7654db0b8b0dcad3ad26e5d~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a8fe1223ce234d6a8e8bf7cad9953686~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf9e9a33c45e4a8b9afcc9c7a78e9200~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/900a660e9bbb412cab6fec800380611d~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7988a0919b8d4590b4e03f0822450f83~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d12d978e7eb4b51aadca01a0274efc8~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19286669e3784fe9928975e3289bcb36~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e10fc131f80646ffb106f7a93b67de8a~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1280e4cfe1ef4b1ab7745ed6e2cb925a~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc7985dd33cc4f55bdb73456a36fe46b~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6e1151af7dd24fba8c48ef3d5b25dd2b~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/656b8b27bbcf4d4d92b8b622eabb6b3e~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5398c45a378a46239cb060ba053c5590~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e046836c214a4f9b90816f1b2f89d564~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fac793cc9faa45e4bfad46a738a2b420~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/059f5a192d564c308b3db008875ec6bb~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/24fdbce0814e406c89b8b18cbb38bff6~tplv-k3u1fbpfcp-watermark.image">
+<meta property="article:published_time" content="2023-06-14T02:51:27.000Z">
+<meta property="article:modified_time" content="2023-06-14T02:51:40.236Z">
+<meta property="article:author" content="Thresh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0f7eba3482704027abefe21eab93e5de~tplv-k3u1fbpfcp-watermark.image">
+  
+    <link rel="alternate" href="/atom.xml" title="Thresh" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Thresh</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Vite知识体系-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/14/Vite%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-06-14T02:51:27.000Z" itemprop="datePublished">2023-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Vite知识体系 | 青训营笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Vite-知识体系-青训营笔记"><a href="#Vite-知识体系-青训营笔记" class="headerlink" title="Vite 知识体系 | 青训营笔记"></a>Vite 知识体系 | 青训营笔记</h1><h2 id="01-为什么需要构建工具"><a href="#01-为什么需要构建工具" class="headerlink" title="01.为什么需要构建工具 ?"></a>01.为什么需要构建工具 ?</h2><h3 id="前端工程的痛点"><a href="#前端工程的痛点" class="headerlink" title="前端工程的痛点"></a>前端工程的痛点</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0f7eba3482704027abefe21eab93e5de~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<ul>
+<li>模块化</li>
+<li>资源编译</li>
+<li>产物质量</li>
+<li>开发效率</li>
+</ul>
+<h3 id="前端构建工具的意义"><a href="#前端构建工具的意义" class="headerlink" title="前端构建工具的意义"></a>前端构建工具的意义</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/db65627c8cc04db499be11e89d52a18a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h2 id="02-Vite-是什么-Why-Vite"><a href="#02-Vite-是什么-Why-Vite" class="headerlink" title="02.Vite 是什么? Why Vite?"></a>02.Vite 是什么? Why Vite?</h2><h3 id="Vite-概览"><a href="#Vite-概览" class="headerlink" title="Vite 概览"></a>Vite 概览</h3><p><strong>定位</strong>:新一代前端构建工具<br><br><strong>两大组成部分:</strong></p>
+<ul>
+<li>1.No-bundle 开发服务,源文件无需打包</li>
+<li>2.生产环境基于 Rollup 的 Bundler</li>
+</ul>
+<p><strong>核心特征</strong></p>
+<ul>
+<li>1.高性能,dev 启动速度和热更新速度非常快</li>
+<li>2.简单易用,开发者体验好</li>
+</ul>
+<h3 id="业界案例"><a href="#业界案例" class="headerlink" title="业界案例"></a>业界案例</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f3b75fc9605407ba008fb1489bc52c5~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="当下问题"><a href="#当下问题" class="headerlink" title="当下问题"></a>当下问题</h3><ul>
+<li>缓慢的启动 -&gt; 项目编译等待成本高</li>
+<li>缓慢的热更新 -&gt; 修改代码后不能实时更新</li>
+</ul>
+<p><strong>瓶颈在哪里?</strong></p>
+<ul>
+<li>bundle 带来的性能开销</li>
+<li>JavaScript 语言的性能瓶颈</li>
+</ul>
+<h3 id="两大行业趋势"><a href="#两大行业趋势" class="headerlink" title="两大行业趋势"></a>两大行业趋势</h3><ul>
+<li>全球浏览器对原生 ESM 的普遍支持(目前占比<br>92%以上)</li>
+<li>基于原生语言(Go、Rust)编写前端编译工具链</li>
+<li>如 Go 语言编写的 Esbuild、 Rust 编写的 SWC</li>
+</ul>
+<h3 id="浏览器原生-ESM-支持"><a href="#浏览器原生-ESM-支持" class="headerlink" title="浏览器原生 ESM 支持"></a>浏览器原生 ESM 支持</h3><p><strong>两大要素</strong></p>
+<ul>
+<li>1.script 标签增加 type&#x3D;”module”属性</li>
+<li>2.使用 ESM 模块导入导出语法</li>
+</ul>
+<h3 id="基于原生-ESM-的开发服务优势"><a href="#基于原生-ESM-的开发服务优势" class="headerlink" title="基于原生 ESM 的开发服务优势"></a>基于原生 ESM 的开发服务优势</h3><ul>
+<li>无需打包项目源代码</li>
+<li>天然的按需加载存</li>
+<li>可以利用文件级的浏览器缓存</li>
+</ul>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/687697fe28d9483fbcea7f5fc425893c~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="基于-Esbuild-的编译性能优化"><a href="#基于-Esbuild-的编译性能优化" class="headerlink" title="基于 Esbuild 的编译性能优化"></a>基于 Esbuild 的编译性能优化</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c66e8d1ee3c04d3e98a4c1bf16f254e1~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>Esbuild —- 基于 Golang 开发的前端工具,具备如下能力</strong></p>
+<ul>
+<li>打包器 Bundler</li>
+<li>编译器 Transformer</li>
+<li>压缩器 Minifier</li>
+</ul>
+<p><strong>性能极高,在 Vite 中被深度使用</strong></p>
+<h3 id="内置的-Web-构建能力"><a href="#内置的-Web-构建能力" class="headerlink" title="内置的 Web 构建能力"></a>内置的 Web 构建能力</h3><p>webpack.config.ts –&gt; vite.config.ts</p>
+<h2 id="03-Vite-上手使用"><a href="#03-Vite-上手使用" class="headerlink" title="03.Vite 上手使用"></a>03.Vite 上手使用</h2><h3 id="项目初始化"><a href="#项目初始化" class="headerlink" title="项目初始化"></a>项目初始化</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a9d2d2ce082943abbe467631c6c250af~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/47da30d4a0f24f318636c62a748e673f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="使用-Sass-x2F-Scss-amp-CSS-Modules"><a href="#使用-Sass-x2F-Scss-amp-CSS-Modules" class="headerlink" title="使用 Sass&#x2F;Scss &amp; CSS Modules"></a>使用 Sass&#x2F;Scss &amp; CSS Modules</h3><p><strong>目录结构</strong><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a361f847f7654db0b8b0dcad3ad26e5d~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>引入 Header 组件</strong><br><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a8fe1223ce234d6a8e8bf7cad9953686~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="使用静态资源"><a href="#使用静态资源" class="headerlink" title="使用静态资源"></a>使用静态资源</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf9e9a33c45e4a8b9afcc9c7a78e9200~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="使用-HMR"><a href="#使用-HMR" class="headerlink" title="使用 HMR"></a>使用 HMR</h3><p>无需额外配置，自动开启</p>
+<h3 id="生产环境-Tree-Shaking"><a href="#生产环境-Tree-Shaking" class="headerlink" title="生产环境 Tree Shaking"></a>生产环境 Tree Shaking</h3><p><strong>优化原理</strong></p>
+<ul>
+<li>1.基于 ESM 的 import&#x2F;export 语句依赖关系，与运行时状态无关</li>
+<li>2.在构建阶段将未使用到的代码进行删除</li>
+</ul>
+<h2 id="04-Vite-整体架构"><a href="#04-Vite-整体架构" class="headerlink" title="04.Vite 整体架构"></a>04.Vite 整体架构</h2><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/900a660e9bbb412cab6fec800380611d~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="关键技术-–-依赖预打包"><a href="#关键技术-–-依赖预打包" class="headerlink" title="关键技术 – 依赖预打包"></a>关键技术 – 依赖预打包</h3><p><strong>为什么要进行预打包?</strong></p>
+<ul>
+<li>1.避免 node_modules 过多的文件请求</li>
+<li>2.将 CommonJS 格式转换为 ESM 格式</li>
+</ul>
+<p><strong>实现原理</strong></p>
+<ul>
+<li>1.服务启动前扫描代码中用到的依赖</li>
+<li>2.用 Esbuild 对依赖代码进行预打包</li>
+<li>3.改写 import 语句，指定依赖为预构建产物路径</li>
+</ul>
+<h3 id="关键技术-–-单文件编译"><a href="#关键技术-–-单文件编译" class="headerlink" title="关键技术 – 单文件编译"></a>关键技术 – 单文件编译</h3><p>用 Esbuild 编译 TS&#x2F;JSX<br><br><strong>优势:</strong><br></p>
+<ul>
+<li>编译速度提升 10-100X<br></li>
+</ul>
+<p><strong>局限性:</strong></p>
+<ul>
+<li>不支持类型检查</li>
+<li>不支持语法降级到 ES5</li>
+</ul>
+<h3 id="关键技术-–-代码压缩"><a href="#关键技术-–-代码压缩" class="headerlink" title="关键技术 – 代码压缩"></a>关键技术 – 代码压缩</h3><p>Esbuild 作为默认压缩工具，替换传统的 Terser、Uglify.js 等压缩工具</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7988a0919b8d4590b4e03f0822450f83~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="关键技术-–-插件技术"><a href="#关键技术-–-插件技术" class="headerlink" title="关键技术 – 插件技术"></a>关键技术 – 插件技术</h3><p>开发阶段 –&gt; 模拟 Rollup 插件机制<br>生产环境 –&gt; 直接使用 Rollup</p>
+<h2 id="05-Vite-进阶路线"><a href="#05-Vite-进阶路线" class="headerlink" title="05.Vite 进阶路线"></a>05.Vite 进阶路线</h2><h3 id="深入双引擎"><a href="#深入双引擎" class="headerlink" title="深入双引擎"></a>深入双引擎</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d12d978e7eb4b51aadca01a0274efc8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>推荐学习路线:</p>
+<ul>
+<li>先了解基本使用,动手尝试各项常用配置</li>
+<li>然后学习其插件开发</li>
+</ul>
+<h3 id="Vite-插件开发"><a href="#Vite-插件开发" class="headerlink" title="Vite 插件开发"></a>Vite 插件开发</h3><p><strong>为什么需要插件机制?</strong></p>
+<ul>
+<li>抽离核心逻辑</li>
+<li>易于拓展<br>先看文档，过一遍插件钩子的功能<br>然后多学习其它插件的实现，掌握套路</li>
+</ul>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19286669e3784fe9928975e3289bcb36~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>通过上述的 Hook，我们可以在不同的构建阶段插入自定义的逻辑</p>
+<h3 id="插件示例"><a href="#插件示例" class="headerlink" title="插件示例"></a>插件示例</h3><p>1.开发 Vite 插件<br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e10fc131f80646ffb106f7a93b67de8a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br> 2.配置文件引入插件<br><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1280e4cfe1ef4b1ab7745ed6e2cb925a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="代码分割-拆包"><a href="#代码分割-拆包" class="headerlink" title="代码分割(拆包)"></a>代码分割(拆包)</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc7985dd33cc4f55bdb73456a36fe46b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="JS-编译工具-Babel"><a href="#JS-编译工具-Babel" class="headerlink" title="JS 编译工具(Babel)"></a>JS 编译工具(Babel)</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6e1151af7dd24fba8c48ef3d5b25dd2b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="语法安全降级"><a href="#语法安全降级" class="headerlink" title="语法安全降级"></a>语法安全降级</h3><p>以 Promise 语法为例，IE11 没有支持</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/656b8b27bbcf4d4d92b8b622eabb6b3e~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5398c45a378a46239cb060ba053c5590~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="服务端渲染-SSR"><a href="#服务端渲染-SSR" class="headerlink" title="服务端渲染(SSR)"></a>服务端渲染(SSR)</h3><p>一种常见的渲染模式，用于提升首屏性能和 SEO 优化<br><br><strong>构建阶段</strong><br><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e046836c214a4f9b90816f1b2f89d564~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>代码执行阶段</strong><br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fac793cc9faa45e4bfad46a738a2b420~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="深入了解底层标准"><a href="#深入了解底层标准" class="headerlink" title="深入了解底层标准"></a>深入了解底层标准</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/059f5a192d564c308b3db008875ec6bb~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Vite-社区生态"><a href="#Vite-社区生态" class="headerlink" title="Vite 社区生态"></a>Vite 社区生态</h3><p>Github 40k+ star(可参考 webpack 61.3 K rollup 21.8 k),并且目前还在持续维护<br><br><strong>官方提供插件</strong>:<br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/24fdbce0814e406c89b8b18cbb38bff6~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>众多框架内置</strong></p>
+<ul>
+<li>Nuxt</li>
+<li>SvelteKit</li>
+<li>Astro</li>
+<li>Vitepress</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/14/Vite%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsd0008h8jucu95dflc" data-title="Vite知识体系 | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/06/14/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9F%BA%E7%A1%80-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          数据可视化基础 | 青训营笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/06/14/%E6%9E%84%E5%BB%BA-Webpack-%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">构建 Webpack 知识体系 | 青训营笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/06/14/React-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">React | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/JavaScript(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">JavaScript(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">深入CSS(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%89%8D%E7%AB%AF%E8%AF%AD%E8%A8%80%E4%B8%B2%E8%AE%B2-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">前端语言串讲 | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">客户端容器 | 青训营笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Thresh<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

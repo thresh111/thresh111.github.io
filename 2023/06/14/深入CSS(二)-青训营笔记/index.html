@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>深入CSS(二) | 青训营笔记 | Thresh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="深入 CSS | 青训营笔记2023-1-18 CSS 选择器的特异度 CSS 选择器有哪些？哪些属性可以继承？CSS 选择符：123456789101112131415161718&#x2F;*id选择器*&#x2F;    #myid&#x2F;*类选择器*&#x2F;    .myclassname&#x2F;*标签选择器*&#x2F;    div,h1,p&#x2F;*相邻选择器*&#x2F;    h1+p&#x2F;*子选择器*&#x2F;    ul&gt;li&#x2F;*后代选择器*&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入CSS(二) | 青训营笔记">
+<meta property="og:url" content="http://example.com/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Thresh">
+<meta property="og:description" content="深入 CSS | 青训营笔记2023-1-18 CSS 选择器的特异度 CSS 选择器有哪些？哪些属性可以继承？CSS 选择符：123456789101112131415161718&#x2F;*id选择器*&#x2F;    #myid&#x2F;*类选择器*&#x2F;    .myclassname&#x2F;*标签选择器*&#x2F;    div,h1,p&#x2F;*相邻选择器*&#x2F;    h1+p&#x2F;*子选择器*&#x2F;    ul&gt;li&#x2F;*后代选择器*&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac658631249e4288804f9303694e69c4~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4abdab1c5dfd4cc78b85ef6ed04b0320~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/78fa7997194b4c50841c4ae2e80d30fc~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3457f506b0d64a87b556c381a53c7151~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e02ca30dd964908ad713baac7b4acd8~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2c89f442adcb4d3da2ac682878d2bf1a~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6ff7e55072fe4c56984766055e2c62e3~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c5c261ee189a4b48aca68e0f12842f53~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31c096f0e8894795b45f4a9deeea3d76~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/768c7d2a452e43ac8659572e346c5905~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/59f0965bb6484852ac40a7ffd502a858~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f7c8358348ad44939c8654d4bdc4f8b8~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/edcfe2f3bc8a4d1580e226780ccd0d4f~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0bb7e30c5a2e49aeaaa06a261d8f8220~tplv-k3u1fbpfcp-watermark.image">
+<meta property="article:published_time" content="2023-06-14T02:55:07.000Z">
+<meta property="article:modified_time" content="2023-06-14T02:56:01.164Z">
+<meta property="article:author" content="Thresh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac658631249e4288804f9303694e69c4~tplv-k3u1fbpfcp-watermark.image">
+  
+    <link rel="alternate" href="/atom.xml" title="Thresh" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Thresh</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-深入CSS(二)-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-06-14T02:55:07.000Z" itemprop="datePublished">2023-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      深入CSS(二) | 青训营笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="深入-CSS-青训营笔记"><a href="#深入-CSS-青训营笔记" class="headerlink" title="深入 CSS | 青训营笔记"></a>深入 CSS | 青训营笔记<br></h1><p>2023-1-18<br></p>
+<h2 id="CSS-选择器的特异度"><a href="#CSS-选择器的特异度" class="headerlink" title="CSS 选择器的特异度"></a>CSS 选择器的特异度</h2><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac658631249e4288804f9303694e69c4~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h2 id="CSS-选择器有哪些？哪些属性可以继承？"><a href="#CSS-选择器有哪些？哪些属性可以继承？" class="headerlink" title="CSS 选择器有哪些？哪些属性可以继承？"></a><strong>CSS 选择器有哪些？哪些属性可以继承？<br></strong></h2><h3 id="CSS-选择符："><a href="#CSS-选择符：" class="headerlink" title="CSS 选择符："></a><strong>CSS 选择符：</strong><br></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">/*id选择器*/</span><br><span class="line">    #myid</span><br><span class="line">/*类选择器*/</span><br><span class="line">    .myclassname</span><br><span class="line">/*标签选择器*/</span><br><span class="line">    div,h1,p</span><br><span class="line">/*相邻选择器*/</span><br><span class="line">    h1+p</span><br><span class="line">/*子选择器*/</span><br><span class="line">    ul&gt;li</span><br><span class="line">/*后代选择器*/</span><br><span class="line">    li a</span><br><span class="line">/*通配符选择器*/</span><br><span class="line">    *</span><br><span class="line">/*属性选择器*/</span><br><span class="line">    a[rel=&quot;external&quot;]</span><br><span class="line">/*伪类选择器*/</span><br><span class="line">    a:hover, li:nth-child</span><br></pre></td></tr></table></figure>
+
+<p><strong>继承</strong>：某些属性会自动继承其父元素的计算值，除非<strong>显式</strong>(<strong>inherit</strong>)制定一个值。<br><br><strong>可继承的属性</strong>：font-size, font-family, color<br><br><strong>不可继承的样式</strong>：border, padding, margin, width, height<br><br><strong>优先级（就近原则）</strong>：!important &gt; [id&gt;class&gt;tag]<br><br><strong>!important</strong> 比内联优先级高<br></p>
+<h3 id="初始值："><a href="#初始值：" class="headerlink" title="初始值："></a><strong>初始值：</strong><br></h3><p><strong>·CSS 中，每个属性都有一个初始值</strong><br><br>·background-color 的初始值位 transparent<br><br>·margin-left 的初始值为 0<br><br><strong>·可以使用 initial 关键字显式重置为初始值</strong><br><br>·background-color：initial<br></p>
+<h3 id="CSS-求值过程："><a href="#CSS-求值过程：" class="headerlink" title="CSS 求值过程："></a><strong>CSS 求值过程：</strong></h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4abdab1c5dfd4cc78b85ef6ed04b0320~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/78fa7997194b4c50841c4ae2e80d30fc~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><br></p>
+<h2 id="布局-Layout-是什么？"><a href="#布局-Layout-是什么？" class="headerlink" title="布局(Layout)是什么？"></a><strong>布局(Layout)是什么？</strong><br></h2><p>·确定内容的大小和位置的算法<br><br>·依据元素，容器，兄弟节点和内容等信息来计算</p>
+<h3 id="布局相关技术"><a href="#布局相关技术" class="headerlink" title="布局相关技术"></a>布局相关技术</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3457f506b0d64a87b556c381a53c7151~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e02ca30dd964908ad713baac7b4acd8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="width："><a href="#width：" class="headerlink" title="width："></a>width：</h4><p>指定 content box 宽度<br><br>取值为<strong>长度，百分数，auto</strong><br><br>auto 由浏览器根据其它属性确定<br><br>百分数相对于容器的 content box 宽度<br><br><strong>容器有指定的高度时，百分数才生效</strong><br></p>
+<h4 id="padding：（上左下右）"><a href="#padding：（上左下右）" class="headerlink" title="padding：（上左下右）"></a>padding：（上左下右）</h4><p>指定元素四个方向的内边距<br><br><strong>百分数相对于容器宽度</strong><br></p>
+<h4 id="border："><a href="#border：" class="headerlink" title="border："></a>border：</h4><p>指定容器边框样式，粗细和颜色<br><br><code>border：1px solid #ccc</code><br><br><code>border-top-width:1px;</code><br><br><code>border-width:1px 2px 3px 4px;</code><br><br><code>border-style:solid;</code><br><br><code>border-color:blue;</code><br><br><strong><code>box-sizing：border-box</code></strong><br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2c89f442adcb4d3da2ac682878d2bf1a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="margin"><a href="#margin" class="headerlink" title="margin:"></a>margin:</h4><p>指定元素四个方向的外边距<br><br>取值为<strong>长度，百分数，auto</strong><br><br>百分数相对于容器宽度<br><br>使用<code>mairgin：auto；</code>水平居中<br><br><strong>margin collapse</strong><br><br>margin 在垂直方向上取最大值<br></p>
+<h4 id="overflow："><a href="#overflow：" class="headerlink" title="overflow："></a>overflow：</h4><p>scroll 滚动条<br><br>hidden 隐藏<br><br>visible 默认值<br></p>
+<h3 id="块级"><a href="#块级" class="headerlink" title="块级"></a>块级<br></h3><p>Block Level Box<br><br>不和其他盒子并列摆放，适用所有的盒模型属性<br><br><strong>块级元素</strong>：生成块级盒子<br></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">body、article、div、main、section、h1-6、p、ul、li等</span><br><span class="line">display: block</span><br></pre></td></tr></table></figure>
+
+<h3 id="行级"><a href="#行级" class="headerlink" title="行级"></a>行级</h3><p>Inline Level Box<br><br>和其它行级盒子一起放在一行或拆开成多行<br><br>盒模型中的 width、height 不适用<br><br><strong>行级元素</strong>：生成行级盒子，内容分散在多个行盒中<br></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">span、em、strong、cite、code 等</span><br><span class="line">display: inline</span><br></pre></td></tr></table></figure>
+
+<h3 id="diaplay-属性"><a href="#diaplay-属性" class="headerlink" title="diaplay 属性"></a>diaplay 属性<br></h3><p>block： 块级盒子<br><br>inline：行级盒子<br><br>inline-block： 本身是行级，可以放在行盒中；可以设置宽高；作为一个整体不会被拆散成多行<br><br>none： 排版时完全被忽略<br></p>
+<h3 id="常规流-Normal-Flow"><a href="#常规流-Normal-Flow" class="headerlink" title="常规流 Normal Flow"></a>常规流 Normal Flow</h3><p>根元素、浮动和绝对定位的元素会脱离常规流<br><br>其它元素都在常规流之内 (in-flow)<br><br>常规流中的盒子，在某种<strong>排版上下文中</strong>参与布局<br></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6ff7e55072fe4c56984766055e2c62e3~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="行级排版上下文"><a href="#行级排版上下文" class="headerlink" title="行级排版上下文"></a>行级排版上下文</h3><p>·Inline Formatting Context (IFC)<br><br>·<strong>只包含行级盒子</strong>的容器会创建一个 IFC<br><br>·IFC 内的排版规则<br><br>·盒子在一行内水平摆放<br><br>一行放不下时，换行显示<br><br>text-align 决定一行内盒子的水平<br><br>对齐 vertical-align 决定一个盒子在行内的垂直对齐<br><br>避开浮动(float)元素<br></p>
+<h3 id="块级排版上下文"><a href="#块级排版上下文" class="headerlink" title="块级排版上下文"></a>块级排版上下文</h3><p>·Block Formatting Context (BFC)<br><br>·某些容器会创建一个 BFC<br><br>根元素<br><br>浮动、绝对定位、inline-block<br><br>Flex 子项和 Grid 子项<br><br>overflow 值不是 visible 的块盒<br><br>display: flow-root;<br></p>
+<h3 id="BFC-内的排版规则"><a href="#BFC-内的排版规则" class="headerlink" title="BFC 内的排版规则"></a>BFC 内的排版规则</h3><p>盒子从上到下摆放<br><br>垂直 margin 合并<br><br>BFC 内盒子的 margin 不会与外面的合并。<br><br>BFC 不会和浮动元素重叠<br></p>
+<h3 id="Flex-Box-是什么"><a href="#Flex-Box-是什么" class="headerlink" title="Flex Box 是什么?"></a>Flex Box 是什么?</h3><p>一种新的排版上下文<br><br>它可以控制子级盒子的: 摆放的流向(右左上下)，摆放顺序，盒子宽度和高度，水平和垂直方向的对齐，是否允许折行。<br><br><strong>flex-direction：</strong><br><br><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c5c261ee189a4b48aca68e0f12842f53~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>主轴与侧轴：</strong><br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31c096f0e8894795b45f4a9deeea3d76~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>justify-content：</strong><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/768c7d2a452e43ac8659572e346c5905~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>align—items：</strong><br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/59f0965bb6484852ac40a7ffd502a858~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>align-self：</strong><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f7c8358348ad44939c8654d4bdc4f8b8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Flexibility"><a href="#Flexibility" class="headerlink" title="Flexibility"></a>Flexibility</h3><p>可以设置子项的弹性:当容器有剩余空间时，会伸展;容器空间不够时，会收缩。<br><br>flex-grow 有剩余空间时的伸展能力<br><br>flex-shrink 容器空间不足时收缩的能力<br><br>flex-basis 没有伸展或收缩时的基础长度<br></p>
+<h3 id="Grid-布局"><a href="#Grid-布局" class="headerlink" title="Grid 布局"></a>Grid 布局</h3><p><code>display：grid</code><br><br>display: grid 使元素生成一个块级的 Grid 容器<br><br>使用 grid-template 相关属性将容器划分为网格<br><br>设置每一个子项占哪些行&#x2F;列<br><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/edcfe2f3bc8a4d1580e226780ccd0d4f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="float-浮动"><a href="#float-浮动" class="headerlink" title="float 浮动"></a>float 浮动</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0bb7e30c5a2e49aeaaa06a261d8f8220~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="position-属性"><a href="#position-属性" class="headerlink" title="position 属性"></a>position 属性</h3><p>static ：默认值，非定位元素<br><br>relative ：相对自身原本位置偏移，不脱离文档流<br><br>absolute ：绝对定位，相对非 static 祖先元素定位<br><br>fixed ：相对于视口绝对定位<br><br><strong>position：relative</strong><br><br>在常规流里面布局<br><br>相对于自己本应该在的位置进行偏移<br><br>使用 top、left、bottom、right 设置偏移长度<br><br>流内其它元素当它没有偏移一样布局<br><br><strong>position：absolute</strong><br><br>脱离常规流<br><br>相对于最近的非 static 祖先定位<br><br>不会对流内元素布局造成影响<br></p>
+<h2 id="学习-CSS-的几点建议"><a href="#学习-CSS-的几点建议" class="headerlink" title="学习 CSS 的几点建议"></a>学习 CSS 的几点建议</h2><p>充分利用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/">MDN </a>和 <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/css/index.asp">W3C CSS 规范</a><br><br>保持好奇心，善用浏览器的开发者工具<br><br>持续学习，CSS 新特性还在不断出现<br></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsm000ih8judexp39wk" data-title="深入CSS(二) | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/06/14/JavaScript(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          JavaScript(二) | 青训营笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/06/14/%E5%89%8D%E7%AB%AF%E8%AF%AD%E8%A8%80%E4%B8%B2%E8%AE%B2-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">前端语言串讲 | 青训营笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/06/14/React-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">React | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/JavaScript(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">JavaScript(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">深入CSS(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%89%8D%E7%AB%AF%E8%AF%AD%E8%A8%80%E4%B8%B2%E8%AE%B2-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">前端语言串讲 | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">客户端容器 | 青训营笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Thresh<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>计算机网络概论 | 青训营笔记 | Thresh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="01.前言 &amp; 课程介绍课程目标和收益建立对计算机网络的整体认知，对计算机网络中的各种概念 (网络分层、网络协议、网络应用等) 有初步的理解。进而可以在后续的实际工作中能高效解决网络问题。 课程介绍 通过一个示例建立对计算机网络的整体认识 建立对网络协议分层的认知 分析 HTTP 1、2、3 的关系 介绍 CDN 运行的基本原理 了解网络安全的最基本原则  分析方法 自底向上从简单开始，逐">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络概论 | 青训营笔记">
+<meta property="og:url" content="http://example.com/2023/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%AE%BA-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Thresh">
+<meta property="og:description" content="01.前言 &amp; 课程介绍课程目标和收益建立对计算机网络的整体认知，对计算机网络中的各种概念 (网络分层、网络协议、网络应用等) 有初步的理解。进而可以在后续的实际工作中能高效解决网络问题。 课程介绍 通过一个示例建立对计算机网络的整体认识 建立对网络协议分层的认知 分析 HTTP 1、2、3 的关系 介绍 CDN 运行的基本原理 了解网络安全的最基本原则  分析方法 自底向上从简单开始，逐">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/94cd1c9a692349b5bdfcf4835c463211~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c4e60a6affc9422fba7c114abe69844d~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1801d2c7cf6e412ab6e934742cc1fc72~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fcfa7bb1ae9b43d88bdb4ed8a0e60f1b~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/122b229329264ae49276e2761ee187a4~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f94bbac87a04021832fddec0ca19083~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa8f77cd7e444cd8a355246bae44d60a~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7bed87fa502e4c02984a082c7e90c95d~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb3e02e2640a44d08f401c6134518182~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/48894bb736fa40d4ad911bc406dd8170~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/58bd9d8087894d41882014c7f27398a0~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7c52dd72e6e840a1b52fdbb1b2904938~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/06a01a98790c4140a608a289f1281bdf~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7c1f9c86b1414af898a2bc79c7d4c7ea~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/493690a5affd42b8a60aa9885a0f007b~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1fb10244862c48a896aac948a6c1c041~tplv-k3u1fbpfcp-watermark.image">
+<meta property="article:published_time" content="2023-06-14T02:52:31.000Z">
+<meta property="article:modified_time" content="2023-06-14T02:52:45.566Z">
+<meta property="article:author" content="Thresh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/94cd1c9a692349b5bdfcf4835c463211~tplv-k3u1fbpfcp-watermark.image">
+  
+    <link rel="alternate" href="/atom.xml" title="Thresh" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Thresh</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-计算机网络概论-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%AE%BA-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-06-14T02:52:31.000Z" itemprop="datePublished">2023-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      计算机网络概论 | 青训营笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="01-前言-amp-课程介绍"><a href="#01-前言-amp-课程介绍" class="headerlink" title="01.前言 &amp; 课程介绍"></a>01.前言 &amp; 课程介绍</h2><h3 id="课程目标和收益"><a href="#课程目标和收益" class="headerlink" title="课程目标和收益"></a>课程目标和收益</h3><p>建立对计算机网络的整体认知，对计算机网络中的各种概念 (网络分层、网络协议、网络应用等) 有初步的理解。进而可以在后续的实际工作中能高效解决网络问题。</p>
+<h3 id="课程介绍"><a href="#课程介绍" class="headerlink" title="课程介绍"></a>课程介绍</h3><ul>
+<li>通过一个示例建立对计算机网络的整体认识</li>
+<li>建立对网络协议分层的认知</li>
+<li>分析 HTTP 1、2、3 的关系</li>
+<li>介绍 CDN 运行的基本原理</li>
+<li>了解网络安全的最基本原则</li>
+</ul>
+<h3 id="分析方法"><a href="#分析方法" class="headerlink" title="分析方法"></a>分析方法</h3><ul>
+<li><strong>自底向上</strong><br><br>从简单开始，逐渐变复杂<br><br>将模块逐步拼凑成一个系统<br></li>
+<li><strong>自顶向下</strong><br><br>从复杂开始，逐渐变简单<br><br>从复杂的系统问题入手，拆分为模块问题<br></li>
+</ul>
+<h2 id="02-蟹堡王帝国"><a href="#02-蟹堡王帝国" class="headerlink" title="02.蟹堡王帝国"></a>02.蟹堡王帝国</h2><h3 id="小目标"><a href="#小目标" class="headerlink" title="小目标"></a>小目标</h3><p>蟹老板想挣一个“小目标”</p>
+<h3 id="三步走战略"><a href="#三步走战略" class="headerlink" title="三步走战略"></a>三步走战略</h3><p>1.在比奇堡开通外卖 <br> 2.在北京和上海开分店 <br> 3.在全国开分店并开通外卖 <br></p>
+<h3 id="蟹堡王外卖"><a href="#蟹堡王外卖" class="headerlink" title="蟹堡王外卖"></a>蟹堡王外卖</h3><p>章鱼哥:蟹堡王，请问要吃什么<br><br>龙虾拉里:“为什么我打不通?<br><br><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/94cd1c9a692349b5bdfcf4835c463211~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="北京和上海分店"><a href="#北京和上海分店" class="headerlink" title="北京和上海分店"></a>北京和上海分店</h3><p>分店</p>
+<ul>
+<li>北京方恒蟹堡王</li>
+<li>上海科技绿洲蟹堡王<br><br></li>
+</ul>
+<p>通信线路</p>
+<ul>
+<li>赚了多少钱</li>
+<li>确定原料数量</li>
+<li>是否需要新分店</li>
+<li>促销信息</li>
+</ul>
+<h3 id="新的分店"><a href="#新的分店" class="headerlink" title="新的分店"></a>新的分店</h3><ul>
+<li>中航蟹堡王</li>
+<li>紫金蟹堡王</li>
+<li>大钟寺蟹堡王</li>
+<li>通信线路怎么办?</li>
+</ul>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ul>
+<li>比奇堡外卖</li>
+<li>北京和上海分店</li>
+<li>全国分店和通信网络</li>
+</ul>
+<h2 id="03-计算机网络基础"><a href="#03-计算机网络基础" class="headerlink" title="03.计算机网络基础"></a>03.计算机网络基础</h2><h3 id="网络组成部分"><a href="#网络组成部分" class="headerlink" title="网络组成部分"></a>网络组成部分</h3><ul>
+<li>主机：客户端和服务端</li>
+<li>路由器</li>
+<li>网络协议</li>
+</ul>
+<h3 id="网络结构：网络的网络"><a href="#网络结构：网络的网络" class="headerlink" title="网络结构：网络的网络"></a>网络结构：网络的网络</h3><ul>
+<li>比奇堡和小区网络: 本地网络</li>
+<li>北京和上海分店+比奇堡: 三个本地网络节点的网络</li>
+<li>全国通信网络: 本地网络的网络</li>
+<li>区域网络、城域网和广域网</li>
+</ul>
+<h3 id="电路交换-amp-分组交换"><a href="#电路交换-amp-分组交换" class="headerlink" title="电路交换 &amp; 分组交换"></a>电路交换 &amp; 分组交换</h3><h3 id="网络分层"><a href="#网络分层" class="headerlink" title="网络分层"></a>网络分层</h3><ul>
+<li>快递员不关心包裹内容</li>
+<li>卡车司机不关心车厢里拉的是什么</li>
+<li>高速公路不关心开的什么车</li>
+</ul>
+<h3 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h3><p>协议的存在依赖于连接。<br><br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c4e60a6affc9422fba7c114abe69844d~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>协议定义了在两个或多个通信实体之间交换的报文格式和顺序，以及报文发送和&#x2F;或接受一条报文或其他事件所采取的动作</p>
+<h3 id="标头和载荷"><a href="#标头和载荷" class="headerlink" title="标头和载荷"></a>标头和载荷</h3><p>收件人、寄件人关注</p>
+<ul>
+<li>收件地址、寄件地址</li>
+<li>收件人、寄件人的姓名和电话</li>
+<li>包裹内容</li>
+</ul>
+<p>快递公司关注</p>
+<ul>
+<li>收件人、寄件人关注的东西</li>
+<li>该由哪个集散点发出，哪个集散点收</li>
+<li>哪个网点派送</li>
+</ul>
+<h3 id="HTTP-协议示例"><a href="#HTTP-协议示例" class="headerlink" title="HTTP 协议示例"></a>HTTP 协议示例</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1801d2c7cf6e412ab6e934742cc1fc72~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="链路层-本地帧头部"><a href="#链路层-本地帧头部" class="headerlink" title="链路层 - 本地帧头部"></a>链路层 - 本地帧头部</h4><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fcfa7bb1ae9b43d88bdb4ed8a0e60f1b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="链路层-IP-协议头部"><a href="#链路层-IP-协议头部" class="headerlink" title="链路层 - IP 协议头部"></a>链路层 - IP 协议头部</h4><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/122b229329264ae49276e2761ee187a4~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="运输层-TCP-协议头部"><a href="#运输层-TCP-协议头部" class="headerlink" title="运输层- TCP 协议头部"></a>运输层- TCP 协议头部</h4><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f94bbac87a04021832fddec0ca19083~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="应用层-HTTP-协议头部"><a href="#应用层-HTTP-协议头部" class="headerlink" title="应用层- HTTP 协议头部"></a>应用层- HTTP 协议头部</h4><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa8f77cd7e444cd8a355246bae44d60a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="TCP-协议格式"><a href="#TCP-协议格式" class="headerlink" title="TCP 协议格式"></a>TCP 协议格式</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7bed87fa502e4c02984a082c7e90c95d~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h3><ul>
+<li>网络组成部分: 由主机、路由器、交换机等组成</li>
+<li>网络结构: 网络的网络</li>
+<li>信息交换方式: 电路交换和分组交换</li>
+<li>网络分层: 分清职责，物理层、链路层、网络层、运输层和应用层</li>
+<li>网络协议: 标头和载荷</li>
+</ul>
+<h2 id="04-Web-中的网络"><a href="#04-Web-中的网络" class="headerlink" title="04.Web 中的网络"></a>04.Web 中的网络</h2><h3 id="HTTP-协议"><a href="#HTTP-协议" class="headerlink" title="HTTP 协议"></a>HTTP 协议</h3><p>HTTP 协议是一种用于在计算机网络上传输超媒体文档的协议，主要用于 Web 应用程序、移动应用程序、API 等领域。它是一个简单、灵活、可扩展和可靠的协议，但存在一些缺点，需要注意并采取相应的措施。</p>
+<h3 id="HTTP-连接模型"><a href="#HTTP-连接模型" class="headerlink" title="HTTP 连接模型"></a>HTTP 连接模型</h3><p>HTTP 连接模型指的是客户端与服务器之间进行 HTTP 通信时，建立、使用和关闭连接的方式和规则。</p>
+<h4 id="队头堵塞（Head-of-line-blocking）"><a href="#队头堵塞（Head-of-line-blocking）" class="headerlink" title="队头堵塞（Head-of-line blocking）"></a>队头堵塞（Head-of-line blocking）</h4><p>队头堵塞（Head-of-line blocking）是指在某些协议或系统中，如果一个请求或数据包阻塞了，那么在这个请求或数据包之后的所有请求或数据包都将被阻塞，即使它们可以独立处理并且不依赖于之前的请求或数据包。</p>
+<h3 id="HTTP1-1：无法多路复用"><a href="#HTTP1-1：无法多路复用" class="headerlink" title="HTTP1.1：无法多路复用"></a>HTTP1.1：无法多路复用</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb3e02e2640a44d08f401c6134518182~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="HTTP2：帧"><a href="#HTTP2：帧" class="headerlink" title="HTTP2：帧"></a>HTTP2：帧</h3><p>HTTP&#x2F;2 中，数据的传输被分割成多个帧，每个帧都有唯一的标识符。每种帧都有不同的用途和格式。</p>
+<p>每个帧包含帧头和帧体，帧头包含帧类型、帧长度、标识符等信息，帧体是实际传输的数据。</p>
+<p>HTTP&#x2F;2 中的帧是按照顺序发送的，并且每个帧都可以独立进行流控和错误控制，避免了 HTTP&#x2F;1.x 中的队头堵塞问题，提高了传输效率和性能。</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/48894bb736fa40d4ad911bc406dd8170~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="HTTP2：帧带来的额外好处"><a href="#HTTP2：帧带来的额外好处" class="headerlink" title="HTTP2：帧带来的额外好处"></a>HTTP2：帧带来的额外好处</h4><ul>
+<li>调整响应传输的优先级</li>
+<li>头部压缩</li>
+<li>Server Push</li>
+</ul>
+<h4 id="队头阻塞，但是在-TCP-上"><a href="#队头阻塞，但是在-TCP-上" class="headerlink" title="队头阻塞，但是在 TCP 上"></a>队头阻塞，但是在 TCP 上</h4><p>HTTP&#x2F;1.x 协议每个请求需要单独建立一个 TCP 连接，响应数据传输期间会阻塞后续请求，导致性能瓶颈。HTTP&#x2F;2 协议采用多路复用机制，在同一个 TCP 连接上可以同时进行多个请求和响应，解决了 HTTP&#x2F;1.x 中的队头阻塞问题，提高了性能。</p>
+<h4 id="HTTP2：3RTT-启动"><a href="#HTTP2：3RTT-启动" class="headerlink" title="HTTP2：3RTT 启动"></a>HTTP2：3RTT 启动</h4><p>HTTP&#x2F;2 协议采用了“3 次握手+1 次确认”的方式来启动一个连接，也就是所谓的“3RTT 启动”，并且采用了“预连接”技术来降低连接建立的延迟，提高了 HTTP&#x2F;2 的性能。<br><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/58bd9d8087894d41882014c7f27398a0~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="HTTP3：QUIC"><a href="#HTTP3：QUIC" class="headerlink" title="HTTP3：QUIC"></a>HTTP3：QUIC</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7c52dd72e6e840a1b52fdbb1b2904938~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="CDN"><a href="#CDN" class="headerlink" title="CDN:"></a>CDN:</h3><p>CDN（Content Delivery Network）是一种分布式的网络架构，可以将网站的静态资源（如图片、视频、脚本等）缓存到离用户更近的节点服务器上，从而提高网站访问速度和用户体验。<br>CDN 技术的基本原理是利用分布式的缓存节点，将网站内容存储在离用户更近的服务器上，从而减少数据传输的延迟和提高响应速度。但是，CDN 也存在一定的物理极限，比如节点服务器的数量和分布、带宽、网络拓扑结构等因素都会对 CDN 的性能产生影响。</p>
+<p>因此，CDN 虽然可以在一定程度上优化网站性能和用户体验，但是它也受限于物理因素和成本等问题。除此之外，CDN 还存在一些缺陷，比如节点服务器缓存的内容可能过期、存在一定的安全风险等问题，需要进行适当的管理和维护。</p>
+<h4 id="CDN-DNS-劫持"><a href="#CDN-DNS-劫持" class="headerlink" title="CDN: DNS 劫持"></a>CDN: DNS 劫持</h4><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/06a01a98790c4140a608a289f1281bdf~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7c1f9c86b1414af898a2bc79c7d4c7ea~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="服务端代码"><a href="#服务端代码" class="headerlink" title="服务端代码"></a>服务端代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const WebSocket = require(&#x27;ws&#x27;);</span><br><span class="line"></span><br><span class="line">const wss = new WebSocket.Server(&#123; port: 8080 &#125;);</span><br><span class="line"></span><br><span class="line">wss.on(&#x27;connection&#x27;, function connection(ws) &#123;</span><br><span class="line">  console.log(&#x27;Client connected&#x27;);</span><br><span class="line"></span><br><span class="line">  ws.on(&#x27;message&#x27;, function incoming(message) &#123;</span><br><span class="line">    console.log(&#x27;received: %s&#x27;, message);</span><br><span class="line">    ws.send(&#x27;Server says: &#x27; + message);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  ws.on(&#x27;close&#x27;, function close() &#123;</span><br><span class="line">    console.log(&#x27;Client disconnected&#x27;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这个示例代码使用了 Node.js 中的<code>ws</code>模块来创建 WebSocket 服务器，并监听 8080 端口。当有新的客户端连接时，服务器会输出一条日志并将 WebSocket 连接对象存储在<code>ws</code>变量中。</p>
+<p>当客户端发送消息时，服务器会输出接收到的消息，并通过<code>ws.send()</code>方法向客户端发送一条回复消息。当连接关闭时，服务器会输出一条日志。</p>
+<h3 id="客户端代码"><a href="#客户端代码" class="headerlink" title="客户端代码"></a>客户端代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const socket = new WebSocket(&#x27;ws://localhost:8080&#x27;);</span><br><span class="line"></span><br><span class="line">socket.addEventListener(&#x27;open&#x27;, function (event) &#123;</span><br><span class="line">  console.log(&#x27;Connected to WebSocket server&#x27;);</span><br><span class="line"></span><br><span class="line">  // 发送一条消息给服务器</span><br><span class="line">  socket.send(&#x27;Hello, server!&#x27;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">socket.addEventListener(&#x27;message&#x27;, function (event) &#123;</span><br><span class="line">  console.log(&#x27;Received message: &#x27; + event.data);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">socket.addEventListener(&#x27;close&#x27;, function (event) &#123;</span><br><span class="line">  console.log(&#x27;Disconnected from WebSocket server&#x27;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>这个示例代码使用了 JavaScript 中的<code>WebSocket</code>对象来创建 WebSocket 连接，并连接到本地的 WebSocket 服务器（假设服务器运行在 localhost:8080 上）。当连接成功建立后，客户端会输出一条日志，并通过<code>socket.send()</code>方法向服务器发送一条消息。</p>
+<p>当客户端接收到服务器发送的消息时，会输出一条日志。当连接关闭时，客户端也会输出一条日志。</p>
+<p>需要注意的是，由于 WebSocket 协议使用的是跨域通信，因此在实际应用中可能需要进行一些安全措施，如使用 SSL 证书来加密通信、设置 HTTP 头信息等。</p>
+<h3 id="小结-2"><a href="#小结-2" class="headerlink" title="小结"></a>小结</h3><ul>
+<li>HTTP 1 23 的演进历史</li>
+<li>CDN 解决了 HTTP 协议之外的问题</li>
+<li>WebSocket 从 HTTP 协议升级而来</li>
+</ul>
+<h2 id="05-网络安全"><a href="#05-网络安全" class="headerlink" title="05.网络安全"></a>05.网络安全</h2><h3 id="网络安全-三要素"><a href="#网络安全-三要素" class="headerlink" title="网络安全:三要素"></a>网络安全:三要素</h3><ul>
+<li>机密性: 攻击者无法获知通信内容</li>
+<li>完整性: 攻击者对内容进行篡改时能被发现</li>
+<li>身份验证: 攻击者无法伪装成通信双方的任意一方与另一方通信</li>
+</ul>
+<h3 id="网络安全-对称加密和非对称加密"><a href="#网络安全-对称加密和非对称加密" class="headerlink" title="网络安全:对称加密和非对称加密"></a>网络安全:对称加密和非对称加密</h3><ul>
+<li>对称加密: 加密、解密用同样的密钥</li>
+<li>非对称加密: 加密、解密使用不同的密钥 (公钥和私钥)而且<strong>公钥加密只能用私钥解密、私钥加密只能用公钥解密</strong></li>
+</ul>
+<h3 id="网络安全-密码散列函数-哈希函数"><a href="#网络安全-密码散列函数-哈希函数" class="headerlink" title="网络安全: 密码散列函数(哈希函数)"></a>网络安全: 密码散列函数(哈希函数)</h3><ul>
+<li>输入: 任意长度的内容</li>
+<li>输出: 固定长度的哈希值</li>
+<li>性质: <strong>找到两个不同的输入使之经过密码散列函数后有相同的哈希值</strong><br>在计算上是不可能的</li>
+</ul>
+<h3 id="网络安全-机密性"><a href="#网络安全-机密性" class="headerlink" title="网络安全: 机密性"></a>网络安全: 机密性</h3><ul>
+<li>加密需要加密算法和密钥等信息 (统称为秘密信息)</li>
+<li>网络是明文的，不安全</li>
+</ul>
+<h3 id="网络安全-完整性和身份验证"><a href="#网络安全-完整性和身份验证" class="headerlink" title="网络安全:完整性和身份验证"></a>网络安全:完整性和身份验证</h3><p>完整性和身份验证相互关联。</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/493690a5affd42b8a60aa9885a0f007b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="网络安全-如何实现机密性，完整性，身份验证"><a href="#网络安全-如何实现机密性，完整性，身份验证" class="headerlink" title="网络安全: 如何实现机密性，完整性，身份验证"></a>网络安全: 如何实现机密性，完整性，身份验证</h3><ul>
+<li>机密性（Confidentiality）：确保数据传输过程中不被未经授权的人所读取或截获。实现机密性的技术包括加密和隧道技术等。</li>
+<li>完整性（Integrity）：确保数据传输过程中不被未经授权的人所篡改或修改。实现完整性的技术包括消息认证码（MAC）、数字签名和哈希函数等。</li>
+<li>身份验证（Authentication）：确认通信双方的身份以及确保数据传输过程中不被冒充或伪造。实现身份验证的技术包括口令认证、证书认证、双因素认证和生物识别技术等。</li>
+</ul>
+<h3 id="网络安全：HTTPS"><a href="#网络安全：HTTPS" class="headerlink" title="网络安全：HTTPS"></a>网络安全：HTTPS</h3><p>把 HTTP 的明文换成密文，再验证身份，即 HTTPS</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1fb10244862c48a896aac948a6c1c041~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="小结-3"><a href="#小结-3" class="headerlink" title="小结"></a>小结</h3><ul>
+<li>网络安全三要素:机密性、完整性和身份验证</li>
+<li>在没有提前交换秘密信息的前提下，无法在不安全的信道交换秘密信息。</li>
+<li>PKI 保证了普通用户不需要“面对面”和根证书机构交换根证书</li>
+<li>HTTPS 使用 PKI 完成了除客户端身份验证以外的特性，客户端身份验证靠 HTTP 协议实现</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%AE%BA-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsn000jh8ju3j1o7dgn" data-title="计算机网络概论 | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/06/14/Linux-%E5%9F%BA%E7%A1%80-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          Linux 基础 | 青训营笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/06/14/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9F%BA%E7%A1%80-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">数据可视化基础 | 青训营笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/06/14/React-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">React | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/JavaScript(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">JavaScript(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">深入CSS(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%89%8D%E7%AB%AF%E8%AF%AD%E8%A8%80%E4%B8%B2%E8%AE%B2-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">前端语言串讲 | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">客户端容器 | 青训营笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Thresh<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

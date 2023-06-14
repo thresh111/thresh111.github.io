@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Thresh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一个有趣热爱技术的人">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Thresh">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="Thresh">
+<meta property="og:description" content="一个有趣热爱技术的人">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Thresh">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Thresh" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Thresh</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-构建-Webpack-知识体系-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/14/%E6%9E%84%E5%BB%BA-Webpack-%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-06-14T02:50:59.000Z" itemprop="datePublished">2023-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/06/14/%E6%9E%84%E5%BB%BA-Webpack-%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">构建 Webpack 知识体系 | 青训营笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="构建-Webpack-知识体系-青训营笔记"><a href="#构建-Webpack-知识体系-青训营笔记" class="headerlink" title="构建 Webpack 知识体系 | 青训营笔记"></a>构建 Webpack 知识体系 | 青训营笔记</h1><h2 id="为什么要学习-Webpack"><a href="#为什么要学习-Webpack" class="headerlink" title="为什么要学习 Webpack ?"></a>为什么要学习 Webpack ?</h2><ul>
+<li>理解前端“工程化”概念、工具、目标</li>
+<li>一个团队总要有那么几个人熟悉 Webpack，某种程度上可以成为个人的核心竞争力</li>
+<li>高阶前端必经之路</li>
+</ul>
+<h2 id="01-什么是-Webpack"><a href="#01-什么是-Webpack" class="headerlink" title="01.什么是 Webpack"></a>01.什么是 Webpack</h2><p>前端项目有什么构成 – 资源</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5842a59cc3cd4a08807e8c989d867d7e~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>出现了很多 工程化 工具</p>
+<ul>
+<li>webpack</li>
+<li>Vite</li>
+<li>rollup.js</li>
+<li>browserify</li>
+<li>….</li>
+</ul>
+<p><strong>本质上是一种前端资源编译,打包工具</strong></p>
+<ul>
+<li>多份资源文件打包成一个 Bundle</li>
+<li>支持 Babel、 Eslint、TS、CoffeScript、 Less、 Sass</li>
+<li>支持模块化处理 css、图片 等资源文件</li>
+<li>支持 HMR + 开发服务器</li>
+<li>支持持续监听、持续构建支</li>
+<li>持代码分离</li>
+<li>支持 Tree-shaking 支持 Sourcemap</li>
+<li>….</li>
+</ul>
+<h2 id="02-使用-Webpack"><a href="#02-使用-Webpack" class="headerlink" title="02.使用 Webpack"></a>02.使用 Webpack</h2><h3 id="使用-Webpack-–-示例"><a href="#使用-Webpack-–-示例" class="headerlink" title="使用 Webpack – 示例"></a>使用 Webpack – 示例</h3><p>1.安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 npm i -D webpack webpack-cli</span><br></pre></td></tr></table></figure>
+
+<p>2.编辑配置文件</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/181245381c9d4dbcaf5411e71349535b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"> 3.执行编译命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 npx webpack</span><br></pre></td></tr></table></figure>
+
+<h3 id="核心流程-–-极度简化版"><a href="#核心流程-–-极度简化版" class="headerlink" title="核心流程 – 极度简化版"></a>核心流程 – 极度简化版</h3><ul>
+<li>入口处理</li>
+<li>依赖解析</li>
+<li>资源解析</li>
+<li>资源合并打包</li>
+</ul>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8e62fcb6db104055becf4b78a60da002~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="模块化-一致性"><a href="#模块化-一致性" class="headerlink" title="模块化 + 一致性"></a>模块化 + 一致性</h3><ul>
+<li>多个文件资源合并成一个，减少 http 请求数</li>
+<li>支持模块化开发</li>
+<li>支持高级 JS 特性</li>
+<li>支持 Typescript、CoffeeScript 方言</li>
+<li>统一图片、CSS、字体 等其它资源的处理模型</li>
+<li>Etc..</li>
+</ul>
+<h2 id="那么怎么使用-Webpack"><a href="#那么怎么使用-Webpack" class="headerlink" title="那么怎么使用 Webpack ?"></a>那么怎么使用 Webpack ?</h2><h3 id="使用-Webpack"><a href="#使用-Webpack" class="headerlink" title="使用 Webpack"></a>使用 Webpack</h3><p><strong>关于 Webpack 的使用方法，基本都围绕配置展开</strong>，而这些配置大致可划分为两类:</p>
+<ul>
+<li><p>流程类: 作用于流程中某个 or 若干个环节直接影响打包效果的配置项的</p>
+</li>
+<li><p>工具类: 主流程之外，提供更多工程化能力的配置项</p>
+<p>1.声明入口 <strong>entry</strong><BR> 2.声明产物出口 <strong>output</strong><BR> 3.运行 <strong>npx webpack</strong><BR></p>
+</li>
+</ul>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/44a79dea22774d89a1803de310094aad~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="使用-Webpack-–-配置总览"><a href="#使用-Webpack-–-配置总览" class="headerlink" title="使用 Webpack – 配置总览"></a>使用 Webpack – 配置总览</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2e98c3a192c04803b6138b0edce2a7c8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="使用-Webpack-–-处理-CSS"><a href="#使用-Webpack-–-处理-CSS" class="headerlink" title="使用 Webpack – 处理 CSS"></a>使用 Webpack – 处理 CSS</h3><p>1.安装 Loader 2.添加 module 处理 CSS 文件</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d36f022819cd454993fec5676f409718~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="使用-Webpack-–-接入-Babel"><a href="#使用-Webpack-–-接入-Babel" class="headerlink" title="使用 Webpack – 接入 Babel"></a>使用 Webpack – 接入 Babel</h3><ul>
+<li>安装依赖</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 npm i@babel/core @babel/preset-env babel-loader</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>声明产物出口 <strong>output</strong></li>
+<li>运行 <strong>npx webpack</strong></li>
+</ul>
+<h3 id="使用-Webpack-–-生成-HTML"><a href="#使用-Webpack-–-生成-HTML" class="headerlink" title="使用 Webpack – 生成 HTML"></a>使用 Webpack – 生成 HTML</h3><ul>
+<li>安装依赖</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 npm i -D html-webpack-plugin</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>声明产物出口 <strong>output</strong></li>
+<li>运行 <strong>npx webpack</strong></li>
+</ul>
+<h3 id="使用-Webpack-–-工具线"><a href="#使用-Webpack-–-工具线" class="headerlink" title="使用 Webpack – 工具线"></a>使用 Webpack – 工具线</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/55d897e773e24efd9e885d2e78514e61~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="使用-Webpack-–-HMR"><a href="#使用-Webpack-–-HMR" class="headerlink" title="使用 Webpack – HMR"></a>使用 Webpack – HMR</h3><p>Hot Module Replacement – 模块热替换</p>
+<ul>
+<li>1.开启 HMR</li>
+</ul>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/493afc49a9984ce98af5754b4834c69a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<ul>
+<li>2.启动 webpack</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 npx webpack server</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-Webpack-–-Tree-Shaking"><a href="#使用-Webpack-–-Tree-Shaking" class="headerlink" title="使用 Webpack – Tree-Shaking"></a>使用 Webpack – Tree-Shaking</h3><p>Tree-Shaking -树摇，用于删除 Dead Code</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac1c46a8b62e4c178d8e86b694b59543~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>PS:对工具类库如 Lodash 有奇效</p>
+<h2 id="03-进阶篇-理解-Loader"><a href="#03-进阶篇-理解-Loader" class="headerlink" title="03.进阶篇: 理解 Loader"></a>03.进阶篇: 理解 Loader</h2><h3 id="问题-Webpack-只认识-JS"><a href="#问题-Webpack-只认识-JS" class="headerlink" title="问题: Webpack 只认识 JS"></a>问题: Webpack 只认识 JS</h3><ul>
+<li>为了处理非标准 JS 资源，设计出资源翻译模块 Loader</li>
+<li>用于将资源翻译为标准 JS</li>
+</ul>
+<h2 id="使用-Loader"><a href="#使用-Loader" class="headerlink" title="使用 Loader"></a>使用 Loader</h2><ul>
+<li>1.安装 Loader</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 npm add -D css-loader style-loader less-loader</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>2.添加 module 处理 css 文件</li>
+</ul>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5ff60a9e2669444a94d271d51d0caeef~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="认识-Loader-链式调用"><a href="#认识-Loader-链式调用" class="headerlink" title="认识 Loader : 链式调用"></a>认识 Loader : 链式调用</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/765697433bc343ffb9ec4cc42c97bf18~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<ul>
+<li>less-loader: 实现 less &#x3D;&gt; css 的转换</li>
+<li>css-loader: 将 CSS 包装成类似 module.exports &#x3D;”${css}”的内容，包装后的内容符合 JavaScript 语法</li>
+<li>style-loader: 将 css 模块包进 require 语句，并在运行时调用 injectStyle 等函数将内容注入到页面的 style 标签</li>
+</ul>
+<h3 id="认识-Loader-其他特性"><a href="#认识-Loader-其他特性" class="headerlink" title="认识 Loader : 其他特性"></a>认识 Loader : 其他特性</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6728fb91754741d8a63acb2175f832e6~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<ul>
+<li>链式执行</li>
+<li>支持异步执行</li>
+<li>分 normal、pitch 两种模式</li>
+</ul>
+<h3 id="常见-Loader"><a href="#常见-Loader" class="headerlink" title="常见 Loader"></a>常见 Loader</h3><p>站在使用角度，建议掌握这些常见 Loader 的功能、配置方法:</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/88ced9148a0f424cb9d0534f06c1383f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h2 id="04-进阶篇-理解插件"><a href="#04-进阶篇-理解插件" class="headerlink" title="04.进阶篇: 理解插件"></a>04.进阶篇: 理解插件</h2><p>很多知名工具，如:</p>
+<ul>
+<li>VS Code、Web Storm、Chrome、Firefox</li>
+<li>Babel、Webpack、Rollup、Eslint</li>
+<li>Vue、Redux、Quill、Axios 等等，</li>
+</ul>
+<p>都设计了所谓“插件”架构，为什么?</p>
+<h3 id="插件是什么-为什么这么设计"><a href="#插件是什么-为什么这么设计" class="headerlink" title="插件是什么?为什么这么设计?"></a>插件是什么?为什么这么设计?</h3><p>这是一个特别复杂的过程，那么</p>
+<ul>
+<li>新人需要了解整个流程细节，上手成本高</li>
+<li>功能迭代成本高，牵一发动全身</li>
+<li>功能僵化，作为开源项目而言缺乏成长性</li>
+<li>Blabla</li>
+</ul>
+<p>心智成本高 &#x3D;&gt; 可维护性低 &#x3D;&gt; 生命力弱<br><br>插件架构精髓:对扩展开放，对修改封闭<br><br><strong>甚至，Webpack 本身的很多功能也是基于插件实现的</strong></p>
+<h3 id="理解插件"><a href="#理解插件" class="headerlink" title="理解插件"></a>理解插件</h3><p>首先:插件围绕”钩子”展开</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6220dcbb55264d3387f8a94ae7e56d4f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>钩子的核心信息</strong><br> 1.时机: 编译过程的特定节点，Webpack 会以钩子形式通知插件此刻正在发生什么事情<br>2.上下文: 通过 tapable 提供的回调机制，以参数方式传递上下文信息<br> 3.交互: 在上下文参数对象中附带了很多存在 side effect 的交互接口，插件可以通过这些接口改变<br></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a41fcc55d00d421ebdf99fa89cfcca1b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<ul>
+<li>时机</li>
+<li>参数</li>
+<li>交互</li>
+</ul>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>我们前面学了:</p>
+<ul>
+<li>Webpack 的作用</li>
+<li>理解 Webpack 配置结构，学习关键配置项</li>
+<li>Loader 的作用与常用 Loader</li>
+<li>插件基本形态与作用</li>
+</ul>
+<h2 id="05-学习方法"><a href="#05-学习方法" class="headerlink" title="05.学习方法"></a>05.学习方法</h2><ul>
+<li>01.入门应用</li>
+<li>02.进阶</li>
+<li>03.大师级</li>
+</ul>
+<p><strong>01.入门</strong></p>
+<ul>
+<li>理解打包流程</li>
+<li>熟练掌握常用配置项、Loader、插件的使用方法，能够灵活搭建集成 Vue、 React、 Babel, Eslint、 Less、Sass、图片处理等工具的 Webpack 环境</li>
+<li>掌握常见脚手架工具的用法，例如: Vue-cli、create-cact-app、@angular&#x2F;cli</li>
+</ul>
+<p>理解打包流程熟练掌握常用配置项、Loader、插件的使用方法，能<br>够灵活搭建集成<br>Vue、 React、 Babel, Eslint、 Less、Sass、图片处理等工具的 Webpack 环境学振常见脚手架工具的用法，例如: Vue-cli、create-cact-app、@angular&#x2F;cli</p>
+<p><strong>02.进阶</strong></p>
+<ul>
+<li>理解 Loader , Plugin 机制，能够自行开发 Webpack 组件</li>
+<li>理解常见性能优化手段，并能用于解决实际问题</li>
+<li>理解前端工程化概念与生态现状</li>
+</ul>
+<p><strong>03.大师级</strong></p>
+<ul>
+<li>阅读源码，理解 Webpack 编译、打包原理，甚至能够参与共建</li>
+</ul>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb4affdc3f65418495cbb7d4098da8a7~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/14/%E6%9E%84%E5%BB%BA-Webpack-%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsm000gh8ju98usdbhg" data-title="构建 Webpack 知识体系 | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-WEB开发的安全之旅-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/14/WEB%E5%BC%80%E5%8F%91%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-06-14T02:48:27.000Z" itemprop="datePublished">2023-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/06/14/WEB%E5%BC%80%E5%8F%91%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">WEB开发的安全之旅 | 青训营笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Web-安全一窥"><a href="#Web-安全一窥" class="headerlink" title="Web 安全一窥"></a>Web 安全一窥</h2><p>两个角度看 web 安全问题</p>
+<ul>
+<li>假如你是一个 hacker 一一攻击</li>
+<li>假如你是一个开发者一一防御</li>
+</ul>
+<h2 id="攻击篇"><a href="#攻击篇" class="headerlink" title="攻击篇"></a>攻击篇</h2><h3 id="Cross-Site-Scripting-XSS"><a href="#Cross-Site-Scripting-XSS" class="headerlink" title="Cross-Site Scripting(XSS)"></a>Cross-Site Scripting(XSS)</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ed0efaa4942045779273229fb9929d4d~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>没有将用户提交内容进行过滤&#x2F;转义，直接转化成 DOM</p>
+<h3 id="XSS-的一些特点"><a href="#XSS-的一些特点" class="headerlink" title="XSS 的一些特点"></a>XSS 的一些特点</h3><ul>
+<li>通常难以从 UI 上感知(暗地执行脚本)</li>
+<li>窃取用户信息 (cookie&#x2F;token)</li>
+<li>绘制 UI(例如弹窗)，诱骗用户点击&#x2F;填写表单</li>
+</ul>
+<h3 id="XSS-demo"><a href="#XSS-demo" class="headerlink" title="XSS demo"></a>XSS demo</h3><p>病毒可以直接提交恶意脚本<br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a9310b7ea2194c869269e8a54f27a494~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ff611130de73436c824b9d5c5b1881e7~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Stored-XSS"><a href="#Stored-XSS" class="headerlink" title="Stored XSS"></a>Stored XSS</h3><ul>
+<li>恶意脚本被存在数据库中</li>
+<li>访问页面 -&gt;读数据&#x3D;&#x3D;被攻击</li>
+<li>危害最大，对全部用户可见</li>
+</ul>
+<h3 id="Reflected-XSS"><a href="#Reflected-XSS" class="headerlink" title="Reflected XSS"></a>Reflected XSS</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d5f96566560a48cfb9b7df0acf485979~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="Reflected-XSS-Demo"><a href="#Reflected-XSS-Demo" class="headerlink" title="Reflected XSS Demo"></a>Reflected XSS Demo</h4><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ca1c429180f5435b9950e2bb96f6a965~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="DOM-based-XSS"><a href="#DOM-based-XSS" class="headerlink" title="DOM - based XSS"></a>DOM - based XSS</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a4930db26f24d07977d07426b8099a2~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="DOM-based-XSS-Demo"><a href="#DOM-based-XSS-Demo" class="headerlink" title="DOM - based XSS Demo"></a>DOM - based XSS Demo</h4><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e1fda58a45084df8a870e7e88a61dfb5~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Reflected-VS-DOM-based"><a href="#Reflected-VS-DOM-based" class="headerlink" title="Reflected VS DOM - based"></a>Reflected VS DOM - based</h3><p>完成注入脚本的地方</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/adfd0253fb43428f8c785d655b956ea3~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Mutation-based-XSS"><a href="#Mutation-based-XSS" class="headerlink" title="Mutation-based XSS"></a>Mutation-based XSS</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b5fe407b35d44e3491f986fb1ec1eac1~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2a51353a1094481ea9bd208099476d1c~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Cross-site-request-forgery-CSRF"><a href="#Cross-site-request-forgery-CSRF" class="headerlink" title="Cross-site request forgery(CSRF)"></a>Cross-site request forgery(CSRF)</h3><ul>
+<li>在用户不知情的前提下</li>
+<li>利用用户权限 (cookie)</li>
+<li>构造指定 HTTP 请求，窃取或修改用户敏感信息</li>
+</ul>
+<h4 id="CSRF-demo"><a href="#CSRF-demo" class="headerlink" title="CSRF demo"></a>CSRF demo</h4><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b80c5a465c614156a2cb0b423474d1f6~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="CSRF-–-GET"><a href="#CSRF-–-GET" class="headerlink" title="CSRF – GET"></a>CSRF – GET</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;https://bank.com/transfer?to=hacker&amp;amount=100&quot;&gt;点我抽奖&lt;/a&gt;</span><br><span class="line">&lt;! --确实中奖了 --&gt;</span><br><span class="line">&lt;img style=&quot;display:none;&quot; src=&quot;https://bank.com/transfer?to=hacker&amp;amount=100&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="CSRF-–-beyond-GET"><a href="#CSRF-–-beyond-GET" class="headerlink" title="CSRF – beyond GET"></a>CSRF – beyond GET</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;https&quot;//bank/transfer_tons_of_money&quot; method=&quot;POST&quot;&gt;</span><br><span class="line">    &lt;input name=&quot;amount&quot; value=&quot;1000000000&quot; type=&quot;hidden&quot;/&gt;</span><br><span class="line">    &lt;input name=&quot;to&quot; value=&quot;hacker&quot; type=&quot;hidden&quot;/&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="SQL-Injection"><a href="#SQL-Injection" class="headerlink" title="SQL Injection"></a>SQL Injection</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b91dcbe515b241c68be9aa2622116a1c~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="Injection-demo1"><a href="#Injection-demo1" class="headerlink" title="Injection demo1"></a>Injection demo1</h4><ul>
+<li>1.读取请求字段</li>
+<li>2.直接以字符串的形式拼接 SQL 语句</li>
+</ul>
+<h4 id="Injection-不止于-SQL"><a href="#Injection-不止于-SQL" class="headerlink" title="Injection 不止于 SQL"></a>Injection 不止于 SQL</h4><ul>
+<li>CLI</li>
+<li>OS command</li>
+<li>Server - Side Request Forgery(SSRF),服务端伪造请求</li>
+<li>严格而言,SSRF 不是 Injection ,但是原理类似</li>
+</ul>
+<h3 id="SSRF-demo"><a href="#SSRF-demo" class="headerlink" title="SSRF demo"></a>SSRF demo</h3><ul>
+<li>请求[用户自定义] 的 callback URL</li>
+<li>web server 通常有内网访问权限</li>
+</ul>
+<h3 id="Denial-of-Service-DoS"><a href="#Denial-of-Service-DoS" class="headerlink" title="Denial of Service(DoS)"></a>Denial of Service(DoS)</h3><p>通过某种方式 (构造特定请求)导致服务器资源被显著消耗来不及响应更多请求，导致请求挤压，进而雪崩效应。</p>
+<h3 id="插播-正则表达式-–-贪婪模式"><a href="#插播-正则表达式-–-贪婪模式" class="headerlink" title="插播:正则表达式 – 贪婪模式"></a>插播:正则表达式 – 贪婪模式</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/125d97447f0f4fbfa4488ad5b418eb53~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="ReDoS-基于正则表达式的-DoS"><a href="#ReDoS-基于正则表达式的-DoS" class="headerlink" title="ReDoS: 基于正则表达式的 DoS"></a>ReDoS: 基于正则表达式的 DoS</h4><p>贪婪:n 次不行? n - 1 次再试试? —回溯</p>
+<h3 id="Logical-DoS"><a href="#Logical-DoS" class="headerlink" title="Logical DoS"></a>Logical DoS</h3><ul>
+<li>耗时的同步操作</li>
+<li>数据库写入</li>
+<li>SQL join</li>
+<li>文件备份</li>
+<li>循环执行逻辑</li>
+</ul>
+<h4 id="Logical-DoS-Demo"><a href="#Logical-DoS-Demo" class="headerlink" title="Logical DoS Demo"></a>Logical DoS Demo</h4><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/da78e1aa2ad5452181862cbd3285c65c~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Distributed-DoS-DDoS"><a href="#Distributed-DoS-DDoS" class="headerlink" title="Distributed DoS(DDoS)"></a>Distributed DoS(DDoS)</h3><p>短时间内，来自大量僵尸设备的请求流量，服务器不能及时完成全部请求，导致请求堆积，进而雪崩效应，无法响应新请求。</p>
+<h4 id="DDoS"><a href="#DDoS" class="headerlink" title="DDoS"></a>DDoS</h4><ul>
+<li>直接访问 IP</li>
+<li>任意 API</li>
+<li>消耗大量带宽(耗尽)</li>
+</ul>
+<h4 id="DDoS-demo"><a href="#DDoS-demo" class="headerlink" title="DDoS demo"></a>DDoS demo</h4><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d4c2447d4e1f469ca4ff13e4c066d536~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><h3 id="中间人攻击"><a href="#中间人攻击" class="headerlink" title="中间人攻击"></a>中间人攻击</h3><ul>
+<li>明文传输</li>
+<li>信息篡改不可知</li>
+<li>对方身份未验证</li>
+</ul>
+<h2 id="防御篇"><a href="#防御篇" class="headerlink" title="防御篇"></a>防御篇</h2><h3 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h3><ul>
+<li>永远不信任用户的提交内容</li>
+<li>不要将用户提交内容直接转换成 DOM</li>
+</ul>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a027e523c1414d078b0ebdd5033395f9~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="XSS-–-现成工具"><a href="#XSS-–-现成工具" class="headerlink" title="XSS – 现成工具"></a>XSS – 现成工具</h4><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2cb648c21944451bbc4abf23311b33c8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="XSS-–-耗子尾汁"><a href="#XSS-–-耗子尾汁" class="headerlink" title="XSS – 耗子尾汁"></a>XSS – 耗子尾汁</h4><p><strong>用户需求:</strong> 不讲武德，必须动态生成 DON</p>
+<h3 id="插播-Same-origin-Policy"><a href="#插播-Same-origin-Policy" class="headerlink" title="插播: Same-origin Policy"></a>插播: Same-origin Policy</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2afa405dc3624cf6a793169d98d10515~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Content-Security-Policy-CSP"><a href="#Content-Security-Policy-CSP" class="headerlink" title="Content Security Policy(CSP)"></a>Content Security Policy(CSP)</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c00bdadd9813450a9934ca292d91733f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="CSRF-的防御"><a href="#CSRF-的防御" class="headerlink" title="CSRF 的防御"></a>CSRF 的防御</h3><ul>
+<li>if 伪造请求 &#x3D;&#x3D;&#x3D; 异常来源</li>
+<li>限制伪造请求限制请求来源 -&gt; then</li>
+<li>Origin</li>
+<li>同源请求中，GET + HEAD 不发送</li>
+<li>Referer</li>
+</ul>
+<h4 id="CSRF-–-token"><a href="#CSRF-–-token" class="headerlink" title="CSRF – token"></a>CSRF – token</h4><p><strong>现有页面后有请求</strong></p>
+<ul>
+<li>if(请求来自合法页面)</li>
+<li>then(服务器接收页面请求)</li>
+<li>then(服务器可以标识)</li>
+</ul>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6eb3efba5a1848f4a4b4573a035ba2dd~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="CSRF-–-iframe-攻击"><a href="#CSRF-–-iframe-攻击" class="headerlink" title="CSRF – iframe 攻击"></a>CSRF – iframe 攻击</h4><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fc9eee91a6d44c008450ef1fe9c36829~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="CSRF-anti-pattern"><a href="#CSRF-anti-pattern" class="headerlink" title="CSRF anti-pattern"></a>CSRF anti-pattern</h4><p>GET! &#x3D;&#x3D; GET+ POST</p>
+<h3 id="避免用户信息被携带-SameSite-Cookie"><a href="#避免用户信息被携带-SameSite-Cookie" class="headerlink" title="避免用户信息被携带: SameSite Cookie"></a>避免用户信息被携带: SameSite Cookie</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b0ce98d482c4e34a7873d4fab850d75~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/743ffa80b06d4cf0a8edfa23c91a19d1~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<ul>
+<li>依赖 Cookie 的第三方服务怎么办?</li>
+<li>内嵌一个 X 站播放器，识别不了用户登录态，发不了弹幕</li>
+</ul>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e1f158664f274c2783affebf9be97a6f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="SameSite-Vs-CORS"><a href="#SameSite-Vs-CORS" class="headerlink" title="SameSite Vs CORS"></a>SameSite Vs CORS</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8416c03bbaeb4be8af1a76f9e32527d6~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="防御-CSRF-的正确姿势"><a href="#防御-CSRF-的正确姿势" class="headerlink" title="防御 CSRF 的正确姿势"></a>防御 CSRF 的正确姿势</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fdee3bbe1f2946c28e8f9c859fe092c8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Injection"><a href="#Injection" class="headerlink" title="Injection"></a>Injection</h3><ul>
+<li>找到项目中查询 SQL 的地方</li>
+<li>使用 prepared statement</li>
+</ul>
+<h3 id="Injection-beyond-SQL"><a href="#Injection-beyond-SQL" class="headerlink" title="Injection beyond SQL"></a>Injection beyond SQL</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/78b436abbf7d41fd92842fa2f0f3cb32~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Regex-DoS"><a href="#Regex-DoS" class="headerlink" title="Regex DoS"></a>Regex DoS</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2e2cd4dd64494999bd75f9b48a6a2e8f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Logical-DoS-1"><a href="#Logical-DoS-1" class="headerlink" title="Logical DoS"></a>Logical DoS</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6f7b3ccbff9e4cd8b13a44fb4f490d9c~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="DDoS-1"><a href="#DDoS-1" class="headerlink" title="DDoS"></a>DDoS</h3><ul>
+<li>流量治理</li>
+<li>负载均衡-</li>
+<li>API 网关</li>
+<li>CDN</li>
+<li>快速自动扩容</li>
+<li>非核心服务降级</li>
+</ul>
+<h3 id="传输层一一防御中间人"><a href="#传输层一一防御中间人" class="headerlink" title="传输层一一防御中间人"></a>传输层一一防御中间人</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ea79c5ba0e934b9e9e27c9ac39c4b149~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="HTTPS-的一些特性"><a href="#HTTPS-的一些特性" class="headerlink" title="HTTPS 的一些特性"></a>HTTPS 的一些特性</h3><ul>
+<li>可靠性:加密</li>
+<li>完整性: MAC 验证</li>
+<li>不可依赖性:数字签名</li>
+</ul>
+<h3 id="HTTP-Strict-Transport-Security-HSTS"><a href="#HTTP-Strict-Transport-Security-HSTS" class="headerlink" title="HTTP Strict-Transport-Security(HSTS)"></a>HTTP Strict-Transport-Security(HSTS)</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/82e568a03d4e4312be58c1ec2d0f481d~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Subresource-Integrity-SRI"><a href="#Subresource-Integrity-SRI" class="headerlink" title="Subresource Integrity(SRI)"></a>Subresource Integrity(SRI)</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6bda7a25b1034e979a2db1bfa1dee2fc~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h2 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h2><ul>
+<li>安全无小事</li>
+<li>使用的依赖 (npm package，甚至是 NodeJS) 可能成为最薄弱的一环</li>
+<li>保持学习心态</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/14/WEB%E5%BC%80%E5%8F%91%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsd0007h8ju0l8h6xkg" data-title="WEB开发的安全之旅 | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-前端必须知道的开发调试知识-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/14/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-06-14T02:47:56.000Z" itemprop="datePublished">2023-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/06/14/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">前端必须知道的开发调试知识 | 青训营笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="01-Bug-与-Debug"><a href="#01-Bug-与-Debug" class="headerlink" title="01.Bug 与 Debug"></a>01.Bug 与 Debug</h2><h3 id="Bug-的产生"><a href="#Bug-的产生" class="headerlink" title="Bug 的产生"></a>Bug 的产生</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5430d2d9ff92458aaf3162651f16b0a7~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="前端-Debug-的特点"><a href="#前端-Debug-的特点" class="headerlink" title="前端 Debug 的特点"></a>前端 Debug 的特点</h3><h4 id="01-多平台"><a href="#01-多平台" class="headerlink" title="01.多平台"></a>01.多平台</h4><p>浏览器，Hybrid，NodeJs，小程序，桌面应用等。</p>
+<h4 id="02-多环境"><a href="#02-多环境" class="headerlink" title="02.多环境"></a>02.多环境</h4><p>本地开发环境，线上环境</p>
+<h4 id="03-多工具"><a href="#03-多工具" class="headerlink" title="03.多工具"></a>03.多工具</h4><p>Chrome devTools，Charles，Spy-Debugger，Whistle，vConsole…</p>
+<h4 id="04-多技巧"><a href="#04-多技巧" class="headerlink" title="04.多技巧"></a>04.多技巧</h4><p>Console，BreakPoint，sourceMap，代理等…</p>
+<h2 id="02-Chrome-DevTools"><a href="#02-Chrome-DevTools" class="headerlink" title="02.Chrome DevTools"></a>02.Chrome DevTools</h2><h3 id="动态修改元素和样式"><a href="#动态修改元素和样式" class="headerlink" title="动态修改元素和样式"></a>动态修改元素和样式</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89cd77acab124cf499e82f5cdf345cc0~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Console"><a href="#Console" class="headerlink" title="Console"></a>Console</h3><ul>
+<li>console.log</li>
+<li>console.warn</li>
+<li>console.error</li>
+<li>console.debug</li>
+<li>console.info</li>
+<li>console.table 具象化的展示 JSON 和 数组数据</li>
+<li>console.dir 通过类似文件树的方式展示对象属性</li>
+<li>占位符 给日志添加样式，可以突出重要的信息</li>
+<li><strong>%s</strong>：字符串占位符；**%o<strong>：对象占位符；</strong>%c<strong>：样式占位符；</strong>%d**：数字占位符</li>
+</ul>
+<h3 id="Sorce-Tab"><a href="#Sorce-Tab" class="headerlink" title="Sorce Tab"></a>Sorce Tab</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/25698a78e7194d98af75269a8b33cbb0~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Break-Point-与-Watch"><a href="#Break-Point-与-Watch" class="headerlink" title="Break Point 与 Watch"></a>Break Point 与 Watch</h3><ul>
+<li>使用关键字 <strong>debugger</strong> 或代码预览区域的行号可以设置断点</li>
+<li>执行到断点处时代码暂停执行</li>
+<li>展开 <strong>BreakPoint</strong> 列表可以查看断点列表，勾选&#x2F;取消可以激活&#x2F;禁用对应断点</li>
+<li>暂停状态下，鼠标 <strong>hover</strong> 变量可以查看变量的值</li>
+<li>在调试器 Watch 右侧点击 + 可以添加对变量的监控，查看该变量的值</li>
+</ul>
+<h3 id="Scope-与-Call-Stack"><a href="#Scope-与-Call-Stack" class="headerlink" title="Scope 与 Call Stack"></a>Scope 与 Call Stack</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0f7abf58a7e244b9ba3ef927decded53~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="压缩后的代码如何调试？"><a href="#压缩后的代码如何调试？" class="headerlink" title="压缩后的代码如何调试？"></a>压缩后的代码如何调试？</h3><p>前端代码天生具有“开源”属性，出于安全考虑，上线之前 JavaScript 代码通常会被压缩，压缩后的代码只有一行，变量使用 a’、”b’ 等替换，整体变得不可阅读。那么压缩后的代码如何调试呢?</p>
+<h4 id="Source-Map"><a href="#Source-Map" class="headerlink" title="Source Map"></a>Source Map</h4><p>mappings 字段存储了源文件和 Source Map 的映射</p>
+<ul>
+<li>英文，表示源码及压缩代码的位置关联。</li>
+<li>逗号，分隔一行代码中的内容。</li>
+<li>分号，代表换行。</li>
+</ul>
+<h3 id="NetWork"><a href="#NetWork" class="headerlink" title="NetWork"></a>NetWork</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31004e8763bf443bb5a1476d57cf0232~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h3><p>Application 面板展示与本地存储相关的信息</p>
+<ul>
+<li>Local Storage</li>
+<li>Session Storage</li>
+<li>IndexedDB</li>
+<li>Web SQL</li>
+<li>Cookie</li>
+</ul>
+<h3 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/59eec3460c91441aaffee6bcec73c65b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="Performance-运用-实例"><a href="#Performance-运用-实例" class="headerlink" title="Performance 运用 实例"></a>Performance 运用 实例</h4><p>1.页面卡顿<br> 2.查看 FPS 指标<br> 3.寻找性能瓶颈<br> 4.优化代码</p>
+<h3 id="Lighthouse"><a href="#Lighthouse" class="headerlink" title="Lighthouse"></a>Lighthouse</h3><p>核心 Web 指标<br>LCP(Largest Contentful Paint)：最大内容绘制，测量加载性能。为了提供良好的用户体验， LCP 应在页面首次开始加载后的 2.5 秒内发生。<br><br>FID(First Input Delay)：首次输入延迟，测量交互性。为了提供良好的用户体验，页面的 FID 应为 100 毫秒或更短。<br><br>CLS(Cumulative Layout Shift)：累计布局偏移，测量视觉稳定性。为了提供更好的用户体验，页面的 CLS 应保持在 0.1 秒 或更少。<br></p>
+<h2 id="03-移动端-H5-调试"><a href="#03-移动端-H5-调试" class="headerlink" title="03.移动端 H5 调试"></a>03.移动端 H5 调试</h2><h3 id="真机调试"><a href="#真机调试" class="headerlink" title="真机调试"></a>真机调试</h3><h4 id="ios"><a href="#ios" class="headerlink" title="ios"></a>ios</h4><p>1.使用 Lightning 数据线将 iPhone 与 Mac 相连<br>2.iPhone 开启 Web 检查器 (设置 -&gt; Safari -&gt;高级-&gt;开启 Web 检查器)<br>3.iPhone 使用 Safari 浏览器打开要调试的页面<br>4.Mac 打开 Safari 浏览器调试 (菜单栏一&gt;开发&gt;iPhone 设备名 -&gt;选择调试页面)<br>5.在弹出的 Safari Developer Tools 中调试</p>
+<h4 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h4><p>使用 USB 数据线将手机与电脑相连<br>2.手机进入开发者模式，勾选 USB 调试，并允许调试<br>3.电脑打开 Chrome 浏览器，在地址栏输入: chrome:&#x2F;&#x2F;inspect&#x2F;#devices 并勾选 Discover USB devices 选项<br> 4.手机允许远程调试，并访问调试页面<br> 5.电脑点击 inspect 按钮<br> 6.进入调试界面<br></p>
+<h3 id="VConsole"><a href="#VConsole" class="headerlink" title="VConsole"></a>VConsole</h3><ul>
+<li>日志(Logs):console.loglinfolerror.</li>
+<li>网络(Network): XMLHttpRequest,Fetch, sendBeacon</li>
+<li>节点(Element): HTML 节点树</li>
+<li>存储(Storage): Cookies,LocalStorage, SessionStorage</li>
+<li>手动执行 JS 命令行</li>
+<li>自定义插件</li>
+</ul>
+<h3 id="使用代理工具调试"><a href="#使用代理工具调试" class="headerlink" title="使用代理工具调试"></a>使用代理工具调试</h3><p>原理:</p>
+<ul>
+<li>电脑作为代理服务器</li>
+<li>手机通过 HTTP 代理连接到电脑</li>
+<li>手机上的请求都经过代理服务器</li>
+</ul>
+<p><strong>以 Charles 为例:</strong> 1.安装 Charles 2.查看电脑 IP 和端口 3.将 IP、端口号填入手机 HTTP 代理<br>4.Charles 允许授权 5.使用 SwitchHosts! 软件给 Mac 电脑配 Hosts 6.手机访问开发环境页面</p>
+<h3 id="常见代理工具"><a href="#常见代理工具" class="headerlink" title="常见代理工具"></a>常见代理工具</h3><p>Charles：适合查看，控制网络请求，分析数据<br>Fiddler：与 Charles 类似，适合 windows 平台<br>spy-debugger：远程调试手机页面，抓包<br>Whistle：基于 Node 实现的跨平台 Web 调试代理工具</p>
+<h2 id="04-Nodejs-调试"><a href="#04-Nodejs-调试" class="headerlink" title="04. Nodejs 调试"></a>04. Nodejs 调试</h2><h3 id="Inspector-Protocol-Chrome-Devtool"><a href="#Inspector-Protocol-Chrome-Devtool" class="headerlink" title="Inspector Protocol + Chrome Devtool"></a>Inspector Protocol + Chrome Devtool</h3><p>1.执行命令 node –inspect&#x3D;&#x3D;8888 index.js<br><br>2.chrome 浏览器访问服务<br> 3.点击绿色 node 图标打开 node 调试面板 (在 chrome:&#x2F;&#x2F;inspect&#x2F;#devices 中配置 network target)<br> 4.在 node 调试面板中使用断点调试<br></p>
+<h3 id="Inspector-Protocol-VS-Code"><a href="#Inspector-Protocol-VS-Code" class="headerlink" title="Inspector Protocol + VS Code"></a>Inspector Protocol + VS Code</h3><p>1.VS Code 点击运行<br> 2.添加配置<br> 3.点动调试<br> 4.添加断点<br> 5.查看变量，堆栈<br></p>
+<h2 id="05-常用开发调试技巧"><a href="#05-常用开发调试技巧" class="headerlink" title="05.常用开发调试技巧"></a>05.常用开发调试技巧</h2><h3 id="线上及时修改-Overrides"><a href="#线上及时修改-Overrides" class="headerlink" title="线上及时修改 Overrides"></a>线上及时修改 Overrides</h3><p>1.打开 Sources 面板下的 Overrides<br> 2.点击 Select folders for Overrides。选择一个本地的空文件夹目录。<br> 3.允许授权。<br> 4.在 page 中修改代码，修改完成后 command + s 保存。<br> 5.打开 devTools ，点击右上角的三个小点 -&gt;More tools -&gt;Changes ,就能看到所有修改了。<br></p>
+<h3 id="利用代理解决开发阶段的跨域问题"><a href="#利用代理解决开发阶段的跨域问题" class="headerlink" title="利用代理解决开发阶段的跨域问题"></a>利用代理解决开发阶段的跨域问题</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2d63032f4a1548b0a3cacc2193bed40c~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="启用本地-source-map"><a href="#启用本地-source-map" class="headerlink" title="启用本地 source map"></a>启用本地 source map</h3><p>线上不存在 Source Map 时可以使用 Map Local 网络映射功能来访问本地的 Source<br>Map 文件。</p>
+<h3 id="使用代理工具-Mock-数据"><a href="#使用代理工具-Mock-数据" class="headerlink" title="使用代理工具 Mock 数据"></a>使用代理工具 Mock 数据</h3><p>1.右键选中要 mock 数据的接口，选择 save response，保存文件到本地。<br> 2.本地打开保存的文件，编辑想 mock 的数据并保存。<br> 3.右键选中第一步的接口，选择 Map Local，Local Path 选择第二步的文件。<br></p>
+<h3 id="小黄鸭调试大法"><a href="#小黄鸭调试大法" class="headerlink" title="小黄鸭调试大法"></a>小黄鸭调试大法</h3><p>传说中程序大师随身携带一只小黄鸭，在调试代码的时候会在桌上放上这只小黄鸭，然后详细地向鸭子解释每行代码，然后很快就将问题定位修复了。<br>(程序员修炼之道)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/14/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsf000bh8ju9ihg3t56" data-title="前端必须知道的开发调试知识 | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-跨端技术概述-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/14/%E8%B7%A8%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A6%82%E8%BF%B0-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-06-14T02:47:23.000Z" itemprop="datePublished">2023-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/06/14/%E8%B7%A8%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A6%82%E8%BF%B0-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">跨端技术概述 | 青训营笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="跨端技术概述-青训营笔记"><a href="#跨端技术概述-青训营笔记" class="headerlink" title="跨端技术概述 | 青训营笔记"></a>跨端技术概述 | 青训营笔记</h1><h2 id="跨端背景"><a href="#跨端背景" class="headerlink" title="跨端背景"></a>跨端背景</h2><p>随着业务的发展，产生了越来越多的业务场景，同时随着技术的发展，产生了越来越多的端，PC 端( Windows、Mac )，移动端( 安卓、ioS )、web 端 IoT 设备( 车载设备、手表 )等</p>
+<h3 id="常见痛点"><a href="#常见痛点" class="headerlink" title="常见痛点"></a>常见痛点</h3><p>1.各端功能几乎一致，各端需要单独配置研发人员<br> 2.开发、维护成本高<br> 3.安卓、iOS 发版周期长<br><br>…</p>
+<h3 id="跨端技术方案目标"><a href="#跨端技术方案目标" class="headerlink" title="跨端技术方案目标"></a>跨端技术方案目标</h3><p><strong>01.研发效率高</strong><br></p>
+<ul>
+<li>学习成本低</li>
+<li>多端一致性高<br></li>
+</ul>
+<p><strong>02.用户体验好</strong><br></p>
+<ul>
+<li>稳定性好<br></li>
+<li>性能体验好<br></li>
+</ul>
+<p><strong>03.动态化</strong><br></p>
+<ul>
+<li>支持动态化下发，满足日益增长的业务需求<br></li>
+</ul>
+<h2 id="跨端技术方案介绍"><a href="#跨端技术方案介绍" class="headerlink" title="跨端技术方案介绍"></a>跨端技术方案介绍</h2><h3 id="hybrid-方案"><a href="#hybrid-方案" class="headerlink" title="hybrid 方案"></a>hybrid 方案</h3><p>基于 WebView 渲染，通过 JS Bridge 把一部分系统能力开放给 JS 调用</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b33909f5884b45ea9737bf064597c9d2~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/91d9a320487e462798270733a4ed40b9~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="原生渲染方案"><a href="#原生渲染方案" class="headerlink" title="原生渲染方案"></a>原生渲染方案</h3><p>使用 JS 开发，通过中间层桥接后使用原生组件来渲染 UI 界面<br><br><br>在 Android 开发中是使用 Kotlin 或 ava 来编写视图; 在 0S 开发中是使用 Swift 或 0bjective-C 来编写视图。在 Reat Native 中,则使用 React 组件通过 JavaScript 来调用这些视图。在运行时，React Native 为这些组件创建相应的 Android 和 0S 视图。由于 React Native 组件就是对原生视图的封装，因此使用 React Native 编写的应用外观、感觉和性能与其他任何原生应用一样。我们将这些平台支持的组件称为原生组件。</p>
+<h4 id="原生渲染方案-–-React-Native"><a href="#原生渲染方案-–-React-Native" class="headerlink" title="原生渲染方案 – React Native"></a>原生渲染方案 – React Native</h4><p>早期业内比较成熟的方案<br><br>React Native 是一个由 Facebook 于 2015 年 9 月发布的一款开源的 JavaScript 框<br>架，它可以让开发者使用 JavaScript 和 React 来开发跨平台的移动应用。<br><br>React Natve 的思路是最大化地复用前的生态和 Native 的生态，和 Webview 器的最大区别在于 View 的染体系 React Native 抛弃了低效的汶览内核渲染，转而使用自己的 DSL 生成中间格式，然后映射到对应的平台，染成平台的组件。相对 Webview 容器，体验会有一定的提升。不过，渲染时需要 JavaScript 和原生之间通信，在有些场景可能会导致卡顿。另外就是，染还是在 Native 层，要求开发人员对 Native 有一定的熟悉度。<br><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b58ad7711bbf435480a225a0062d74cf~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="自渲染方案"><a href="#自渲染方案" class="headerlink" title="自渲染方案"></a>自渲染方案</h3><p>利用 Skia 重新实现渲染管线，不依赖原生组件<br><br>Flutter 是 Google 在 2018 年世界移动大会公布的开源应用开发框架，仅通过套代码库，就能构建精美的、原生平台编译的多平台应用。</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c613128e013f43b0aa7c16cb56318545~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>Fluter 框架相对较小，因为一些开发者可能会使用到的更高层级的功能已被拆分到不同的软件包中，使用 Dat 和 Fluter 的核心库实现，其中包括平台<br>播件，camera 和 webview; 与平台无关的功能，characters、 htp 和 animations，还有一些软件包来自于更为宽泛的生态系统中，例应用内<br>支付 Apple 认证和 Lottie 动画。<br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e4a561d471b045f686029e02213e0590~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="小程序方案"><a href="#小程序方案" class="headerlink" title="小程序方案"></a>小程序方案</h3><p>使用小程序 DSL + JS 开发，通过中间层桥接后调用原生能力，使用 webview 来渲染 UI 界面。</p>
+<h4 id="小程序方案-–-字节小程序"><a href="#小程序方案-–-字节小程序" class="headerlink" title="小程序方案 – 字节小程序"></a>小程序方案 – 字节小程序</h4><p>字节小程序是一种全新的连接用户与服务的方式，它可以在宿主(抖音、头条等 App)内被便捷地获取和传播，同时具有出色的使用体验。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd90cee290414894851f5d7b36405dfa~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="小程序方案-–-运行环境"><a href="#小程序方案-–-运行环境" class="headerlink" title="小程序方案 – 运行环境"></a>小程序方案 – 运行环境</h4><p>首先，我们来简单了解下小程序的运行环境。小程序的运行环境分成渲染层和逻辑层，其中 ttml 模板和 ttss 样式工作在渲染层，js 脚本工作在逻辑层。小程序的渲染层和逻辑层分别由 2 个线程管理:渲染层的界面使用了 Webiew 进行渲染，逻层采用 JSC 线程运行 JS 脚本。一小程序存在多个界面，所以渲染层存在多个 WebView 线程，这两个线程的通信会经由客户端(下文中也会采用 Native 来指客户端)做中转，逻辑层发送网络请求也经由 Native 转发，小程序的通信模型如图所示<br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb93234098aa4c219398e51c4ae53b58~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="跨端技术方案对比"><a href="#跨端技术方案对比" class="headerlink" title="跨端技术方案对比"></a>跨端技术方案对比</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6f86a48b1a3d4f7cb1fb0267c1e98e89~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h2 id="基于小程序跨端实践"><a href="#基于小程序跨端实践" class="headerlink" title="基于小程序跨端实践"></a>基于小程序跨端实践</h2><h3 id="快速开发一个小程序"><a href="#快速开发一个小程序" class="headerlink" title="快速开发一个小程序"></a>快速开发一个小程序</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b89a5c55672f408188d5d398545b928b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="快速开发一个小程序-–-下载小程序开发者工具"><a href="#快速开发一个小程序-–-下载小程序开发者工具" class="headerlink" title="快速开发一个小程序 – 下载小程序开发者工具"></a>快速开发一个小程序 – 下载小程序开发者工具</h4><h4 id="快速开发一个小程序-–-小程序开发，调试"><a href="#快速开发一个小程序-–-小程序开发，调试" class="headerlink" title="快速开发一个小程序 – 小程序开发，调试"></a>快速开发一个小程序 – 小程序开发，调试</h4><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d1daa079ab9b42728863b93459be6819~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="小程序性能优化"><a href="#小程序性能优化" class="headerlink" title="小程序性能优化"></a>小程序性能优化</h3><h4 id="小程序性能优化-–-优化意义"><a href="#小程序性能优化-–-优化意义" class="headerlink" title="小程序性能优化 – 优化意义"></a>小程序性能优化 – 优化意义</h4><p>01.留住用户<br> 02.提升转化率<br> 03.体用用户体验<br></p>
+<h4 id="小程序性能优化-–-小程序性能指标"><a href="#小程序性能优化-–-小程序性能指标" class="headerlink" title="小程序性能优化 – 小程序性能指标"></a>小程序性能优化 – 小程序性能指标</h4><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c67d3949bd441a28be6b127c7405b04~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="小程序性能优化-–-小程序优化手段"><a href="#小程序性能优化-–-小程序优化手段" class="headerlink" title="小程序性能优化 – 小程序优化手段"></a>小程序性能优化 – 小程序优化手段</h4><p><strong>合理使用分包</strong>：<br>使用分包加载是优化小程序启动耗时效果最明显的手段。建议开发者按照功能划分，将小程序的功能按使用频率和场景拆分成分包，实现代码包的按需加<br>载。同时需要注意控制分包数量，避免过多拆包。<br><br><strong>移除无用文件</strong>：<br>目前小程序打包是会将工程下所有文件都打入代码包内，在开发送代过程中，如果不及时清理无用的资源，会使得包体积越来越大，开发过程中要养成良好的习惯 – 及时清理没有使用到的资源，防止资源冗余。<br><br><strong>控制包内静态资源</strong>：<br>避免在代码包中包含或在 tss 中内联过多、过大的代码包内的图片，应尽量采用网络图片。代码包内的图片一般应只包含一些体积较小的图标。声音、视<br>频等其他类型的资源应尽量避免放到代码包中。<br><br>……</p>
+<h4 id="小程序性能优化-–-性能评分工具"><a href="#小程序性能优化-–-性能评分工具" class="headerlink" title="小程序性能优化 – 性能评分工具"></a>小程序性能优化 – 性能评分工具</h4><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b66e1ff447df45b28990876a23ac382f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h2 id="总结与展望"><a href="#总结与展望" class="headerlink" title="总结与展望"></a>总结与展望</h2><h3 id="课程总结"><a href="#课程总结" class="headerlink" title="课程总结"></a>课程总结</h3><p>1.主流跨端技术方案<br>2.小程序开发与实践</p>
+<h3 id="技术展望"><a href="#技术展望" class="headerlink" title="技术展望"></a>技术展望</h3><p>随着端越来越多，跨端的需求会越来越强烈，跨端技术方案也会不断迭代，核心目标仍然是[write once,run anywhere] ，未来自渲染可能会出现更多机会。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/14/%E8%B7%A8%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A6%82%E8%BF%B0-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsn000lh8ju1scp29de" data-title="跨端技术概述 | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-响应式系统与-React-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/14/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8E-React-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-06-14T02:45:59.000Z" itemprop="datePublished">2023-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/06/14/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8E-React-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">响应式系统与 React | 青训营笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="响应式系统与-React-青训营笔记"><a href="#响应式系统与-React-青训营笔记" class="headerlink" title="响应式系统与 React | 青训营笔记"></a>响应式系统与 React | 青训营笔记</h1><h2 id="React-的历史与应用"><a href="#React-的历史与应用" class="headerlink" title="React 的历史与应用"></a>React 的历史与应用</h2><h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a><strong>应用</strong></h3><ul>
+<li>前端应用开发，如 Facebook，Instagram，Netflix 网页版。</li>
+<li>移动原生应用开发，如 Instagram，Discord，Oculus。</li>
+<li>结合 Electron，进行桌面应用开发。</li>
+</ul>
+<h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a><strong>历史</strong></h3><p>2010 年 Facebook 在其 php 生态中，引入了 xhp 框架，首次引入了组合式组件的思想，启发了后来的 React 的设计。<br><br>2011 年 Jordan Walke 创造了 FaxJS，也就是后来的 React 原型:<br></p>
+<ul>
+<li>既可以在客户端渲染也可以在服务端渲染</li>
+<li>响应式，当状态变更时，UI 会自动更新。</li>
+<li>性能好，快速渲染</li>
+<li>高度封装组件，函数式声明<br></li>
+</ul>
+<p>2013 年 React 正式开源，在 2013 JSConf 上 Jordan Walke 介绍了这款全新的框架：React<br><br>2014 年 - 今天 生态大爆发，各种围绕 React 的新工具&#x2F;新框架开始涌现<br></p>
+<h2 id="React-的设计思路-–-UI-编程痛点"><a href="#React-的设计思路-–-UI-编程痛点" class="headerlink" title="React 的设计思路 – UI 编程痛点"></a>React 的设计思路 – UI 编程痛点</h2><p>01.状态更新，UI 不会自动更新，需要手动地调用 DOM 进行更新。<br> 02.欠缺基本的代码层面的封装和隔离，代码层面没有组件<br><br>03.UI 之间的数据依赖关系，需要手动维护，如果依赖链路长，则会遇到 Callback Hell。<br></p>
+<h2 id="React-的设计思路-–-响应式与转换式"><a href="#React-的设计思路-–-响应式与转换式" class="headerlink" title="React 的设计思路 – 响应式与转换式"></a>React 的设计思路 – 响应式与转换式</h2><h3 id="转换式系统-≠-响应式系统"><a href="#转换式系统-≠-响应式系统" class="headerlink" title="转换式系统 ≠ 响应式系统"></a><strong>转换式系统 ≠ 响应式系统</strong></h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e074afe0544f4bb5b2fc677635e4beb7~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="什么是响应式系统？"><a href="#什么是响应式系统？" class="headerlink" title="什么是响应式系统？"></a>什么是响应式系统？</h3><p><strong>响应式系统的目标是灵敏度高,系统稳健一直有回复,松耦合和可扩展。</strong><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a3075618bfe049419dfc95b01a6f99e9~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>前端 UI</strong><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/967615ba09a643589e5d26a59a7bd567~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>React 框架的设计思路<br></strong> 01.状态更新，UI 自动更新。<br> 02.前端代码组件化，可复用，可封装。<br> 03.状态之间的互相依赖关系，只需声明即可。<br></p>
+<h2 id="React-的设计与实现-–-组件化"><a href="#React-的设计与实现-–-组件化" class="headerlink" title="React 的设计与实现 – 组件化"></a>React 的设计与实现 – 组件化</h2><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/707cd0ff508b439fb7fd71e5ede03948~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>总结</strong><br> 1.组件是 组件的组合&#x2F;原子组件<br> 2.组件内拥有状态，外部不可见<br> 3.父组件可将状态传入组件内部<br></p>
+<h2 id="React-的设计思路-–-状态归属问题"><a href="#React-的设计思路-–-状态归属问题" class="headerlink" title="React 的设计思路 – 状态归属问题"></a>React 的设计思路 – 状态归属问题</h2><h3 id="状态归属问题"><a href="#状态归属问题" class="headerlink" title="状态归属问题"></a>状态归属问题</h3><p><strong>当前价格</strong>  属于 Root 结点！因为要向下传递，这其实不合理，在下面的状态管理库里会讲到这个的解决方法。<br><br>状态应该归属于两个节点（或多个）向上寻找到的最近共同祖先。<br></p>
+<h2 id="React-的设计与实现-–-组件设计"><a href="#React-的设计与实现-–-组件设计" class="headerlink" title="React 的设计与实现 – 组件设计"></a>React 的设计与实现 – 组件设计</h2><ul>
+<li>组件声明了状态和 UI 的映射</li>
+<li>组件有 Props（外部）&#x2F;State（内部）两种属性</li>
+<li><ul>
+<li>Props 接受父组件传入的状态</li>
+</ul>
+</li>
+<li><ul>
+<li>State 是内部的属性。</li>
+</ul>
+</li>
+<li>可被其他组件组成<br></li>
+<li>学过小程序的同学应该知道，小程序中的属性的双向绑定实际上应该也有用到了这个思想。</li>
+</ul>
+<h3 id="思考？"><a href="#思考？" class="headerlink" title="思考？"></a>思考？</h3><p><strong>React 是单向数据流，还是双向数据流?<br></strong><br>React 是单向数据流，不是双向的；单向数据流指的是数据在某个节点被改动后，只会影响一个方向上的其他节点，而双向绑定指的是数据模型与视图之间绑定，会影响不同方向上的其他节点，React 中的表现就是数据主要通过 props 从父节点传递到子节点，因此是单向数据流的。<br><br><strong>如何解决状态不合理上升的问题?<br></strong><br>通过状态管理库，接下来也会讲到。<br><br><strong>组件的状态改变后，如何更新 DOM?<br></strong><br>每次调用 render() 时， <br><br>react 都会创建一个新的虚拟 DOM，其中根节点是调用其渲染函数的组件。当组件或其任何子组件的状态或道具发生变化时，将调用 render() 函数。render() 函数从根开始销毁所有旧的虚拟 DOM 节点，并创建一个全新的虚拟 DOM。</p>
+<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>挂载 -&gt; 状态更新 -&gt; 卸载</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c6702a00deec41919fcef4f7351149dc~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h2 id="React（hooks）的写法"><a href="#React（hooks）的写法" class="headerlink" title="React（hooks）的写法"></a>React（hooks）的写法</h2><p>关于 React Hook 可以参看官方文档，以下内容大部分摘自<a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/hooks-intro.html">Hook 简介 – React (reactjs.org)：</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。</span><br></pre></td></tr></table></figure>
+
+<h3 id="State-Hook"><a href="#State-Hook" class="headerlink" title="State Hook"></a>State Hook</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123;useState&#125; from &#x27;react&#x27;;</span><br><span class="line">function Example() &#123;</span><br><span class="line">	// 声明一个叫 “count” 的 state 变量。</span><br><span class="line">	const [count, setCount] = useState(0);</span><br><span class="line">    return (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">       		&lt;p&gt;You clicked &#123;count&#125; times&lt;/p&gt;</span><br><span class="line">			&lt;button onClick=&#123;() =&gt; setCount(count + 1)&#125;&gt;</span><br><span class="line">        		Click me</span><br><span class="line">            &lt;/button&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>上面这段函数用来显示一个计数器，当点击按钮时，计数器的值就会自动增加。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hook 是一些可以让你在函数组件里 “钩入” React state 及生命周期等特性的函数。</span><br></pre></td></tr></table></figure>
+
+<p>可以在一个组件中多次使用 State Hook:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function ExampleWithManyStates() &#123;</span><br><span class="line">  // 声明多个 state 变量！</span><br><span class="line">  const [age, setAge] = useState(42);</span><br><span class="line">  const [fruit, setFruit] = useState(&#x27;banana&#x27;);</span><br><span class="line">  const [todos, setTodos] = useState([&#123; text: &#x27;Learn Hooks&#x27; &#125;]);</span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Effect-Hook"><a href="#Effect-Hook" class="headerlink" title="Effect Hook"></a>Effect Hook</h3><p>函数副作用是指当调用函数时，除了返回值之外，还会对主调用函数产生其他附加的影响。例如修改全局变量（函数外的变量）或修改参数。纯函数就是指没有函数副作用的函数。<br><br>例如，下面这个组件在 React 更新 DOM 后会设置一个页面标题：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; useState, useEffect &#125; from &#x27;react&#x27;;</span><br><span class="line"></span><br><span class="line">function Example() &#123;</span><br><span class="line">  const [count, setCount] = useState(0);</span><br><span class="line"></span><br><span class="line">  // 相当于 componentDidMount 和 componentDidUpdate:</span><br><span class="line">  useEffect(() =&gt; &#123;</span><br><span class="line">    // 使用浏览器的 API 更新页面标题</span><br><span class="line">    document.title = `You clicked $&#123;count&#125; times`;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;p&gt;You clicked &#123;count&#125; times&lt;/p&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; setCount(count + 1)&#125;&gt;</span><br><span class="line">        Click me</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当你调用 `useEffect` 时，就是在告诉 React 在 **完成对 DOM 的更改后运行你的“副作用”函数** 。由于副作用函数是在组件内声明的，所以它们可以访问到组件的 props 和 state。</span><br></pre></td></tr></table></figure>
+
+<h3 id="Hook-的使用法则"><a href="#Hook-的使用法则" class="headerlink" title="Hook 的使用法则"></a>Hook 的使用法则</h3><p>Hook 就是 JavaScript 函数，但是使用它们会有两个额外的规则：</p>
+<ul>
+<li>只能在函数最外层调用 Hook。不要在循环、条件判断或者子函数中调用。</li>
+<li>只能在 React 的函数组件中调用 Hook。不要在其他 JavaScript 函数中调用。（还有一个地方可以调用 Hook —— 就是自定义的 Hook 中）</li>
+</ul>
+<h2 id="React-的实现"><a href="#React-的实现" class="headerlink" title="React 的实现"></a>React 的实现</h2><h3 id="React-的实现-–-Problems"><a href="#React-的实现-–-Problems" class="headerlink" title="React 的实现 – Problems"></a>React 的实现 – Problems</h3><h4 id="Problems-–-1"><a href="#Problems-–-1" class="headerlink" title="Problems – 1"></a>Problems – 1</h4><p><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/introducing-jsx.html#gatsby-focus-wrapper">JSX</a> <strong>是不符合 JS 标准的语法</strong> <br></p>
+<p><strong>解决办法：</strong> 将 JSX 转换为符合 JS 语法的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const element = (</span><br><span class="line">  &lt;h1 className=&quot;greeting&quot;&gt;</span><br><span class="line">    Hello, world!</span><br><span class="line">  &lt;/h1&gt;</span><br><span class="line">);</span><br><span class="line">// 等价于</span><br><span class="line">const element = React.createElement(</span><br><span class="line">  &#x27;h1&#x27;,</span><br><span class="line">  &#123;className: &#x27;greeting&#x27;&#125;,</span><br><span class="line">  &#x27;Hello, world!&#x27;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Problems-–-2"><a href="#Problems-–-2" class="headerlink" title="Problems – 2"></a>Problems – 2</h4><p><strong>返回的 JSX 改变时，如何更新 DOM?</strong><br><br>返回的 JSX 本身是类似 DOM 的一种东西，但不是 DOM，DOM 操作本身是十分耗费性能的。所以需要将返回的 JSX 与原来的 DOM 结构计算一个 diff（差别）？但是这个 diff 算法本身不能太耗时，尽可能小，尽可能短。<br><br><strong>Virtual DOM (虚拟 DOM)<br></strong><br>Virtual DOM 是一种用于和真实 DOM 同步，而在 JS 内存中维护的一个<strong>对象</strong>，它具有和 DOM 类似的树状结构，并和 DOM 可以建立一一对应的关系</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">它赋予了 React 声明式的 API:</span><br><span class="line">您告诉 React 希望让 UI 是什么状态，React 就确保 DOM 匹配该状态。</span><br><span class="line">这使您可以从属性操作、事件处理和手动 DOM 更新这些在构建应用程序时必要的操作中解放出来</span><br><span class="line">。</span><br></pre></td></tr></table></figure>
+
+<p>状态更新 -&gt; diff 比对 Virtual DOM 和真实 DOM - &gt; Re-render Virtual DOM 改变我们的真实 DOM</p>
+<h3 id="React-的实现-–-How-to-Diff"><a href="#React-的实现-–-How-to-Diff" class="headerlink" title="React 的实现 – How to Diff?"></a>React 的实现 – How to Diff?</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/60bd0d22596b409bb6a436acaa66726a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>完美的最小 Diff 算法，需要 O(n^3) 的复杂度</p>
+<p>而牺牲理论最小 Diff，换取时间，得到了 O(n) 复杂度的算法，他是局部最优的。Heuristic O(n) Algorithm （启发式算法）</p>
+<ul>
+<li>不同类型的元素 -&gt; 替换</li>
+<li>同类型的 DOM 元素 -&gt; 更新</li>
+<li>同类型的组件元素 -&gt; 递归</li>
+</ul>
+<p>这个算法只遍历了一遍，就可以算出 diff。<br>而这也是 React 一个弊病，一个组件发生改变时，其子组件全部会重新渲染。要解决这个问题，就要看接下来的 React 的状态管理库。</p>
+<h2 id="React-的状态管理库"><a href="#React-的状态管理库" class="headerlink" title="React 的状态管理库"></a>React 的状态管理库</h2><h3 id="React-的状态管理库-–-核心思想"><a href="#React-的状态管理库-–-核心思想" class="headerlink" title="React 的状态管理库 – 核心思想"></a>React 的状态管理库 – 核心思想</h3><p>将状态抽离到 UI 外部进行统一管理，但是这是会降低组件的复用性，所以这一般出现在业务代码中。以下几种框架，用哪个都行</p>
+<ul>
+<li>Redux 中文文档<br></li>
+<li>XState - JavaScript State Machines and Statecharts<br></li>
+<li>MobX 介绍 · MobX 中文文档<br></li>
+<li>Recoil 中文文档 | Recoil 中文网 (recoiljs.cn)<br></li>
+</ul>
+<h3 id="React-的状态管理库-–-状态机"><a href="#React-的状态管理库-–-状态机" class="headerlink" title="React 的状态管理库 – 状态机"></a>React 的状态管理库 – 状态机</h3><p>收到外部事件后根据当前状态，迁移到下一个状态。</p>
+<p>哪些状态适合放到状态管理库？</p>
+<ul>
+<li>可能会被很多层级的组件用到的状态</li>
+</ul>
+<h2 id="应用级框架科普"><a href="#应用级框架科普" class="headerlink" title="应用级框架科普"></a>应用级框架科普</h2><p>React 本身是没有提供足够多的工程能力，如路由、页面配置等等。</p>
+<p><strong>Next.js - React 应用开发框架</strong> 硅谷明星创业公司 Vercel 的 React 开发框架,稳定,开发体验好，支持 Unbundled Dev,sWC 等,其同样有 Serverless 一键部署平台帮助开发者快速完成部署。口号是”Let’s Make Web Faster”<br><br><strong>Modern.js</strong> - 现代 Web 工程体系 (modernjs.dev) 字节跳动 Web Infra 团队研发的全栈开发框架,内瓷了很多开箱即用的能力与最佳实践，可以减少很多调研选择工具的时间。<br><br><strong>Get Started with Blitz (blitzjs.com)</strong> 无 API 思想的全栈开发框架,开发过程中无需写 API 调用与 CRUD 逻辑,适合前后端紧密小团队项目。<br></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/14/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8E-React-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsf000dh8jugo60c06w" data-title="响应式系统与 React | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Node-js-与前端开发实战-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/14/Node-js-%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-06-14T02:44:49.000Z" itemprop="datePublished">2023-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/06/14/Node-js-%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">Node.js 与前端开发实战 | 青训营笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Node-js-与前端开发实战（一）-青训营笔记"><a href="#Node-js-与前端开发实战（一）-青训营笔记" class="headerlink" title="Node.js 与前端开发实战（一） | 青训营笔记"></a>Node.js 与前端开发实战（一） | 青训营笔记</h1><h2 id="Node-js-的应用场景-Why"><a href="#Node-js-的应用场景-Why" class="headerlink" title="Node.js 的应用场景(Why)"></a>Node.js 的应用场景(Why)</h2><h3 id="1-前端工程化"><a href="#1-前端工程化" class="headerlink" title="1.前端工程化"></a>1.前端工程化</h3><p>早期 ajax，jquery 比较流行的时候，我们直接在页面中引入相应的 lib 即可。后面随着模块化，transpile 逐渐成熟，需求逐渐增多，对后端能力的需求也逐渐强烈。也就是说，Node.js 赋予了 js 开发者在浏览器外运行代码的能力，加速催生了这些项目的出现。<br><br><strong>Bundle</strong>：webpack,vite,esbuild,parcel<br><br><strong>Uglify</strong>:uglifyjs<br><br><strong>Transpile</strong>: bablejs, typescript<br><br><strong>其他语言加入竞争</strong>: esbuild,parcel,prisma<br><br><strong>现状</strong>：难以替代</p>
+<h3 id="2-Web-服务端应用"><a href="#2-Web-服务端应用" class="headerlink" title="2.Web 服务端应用"></a>2.Web 服务端应用</h3><p>学习曲线平缓，开发效率较高<br><br>运行效率接近常见的编译语言<br><br>社区生态丰富及工具链成熟(npm,V8 inspector)<br><br>与前端结合的场景会有优势(SSR)<br><br>现状: 竞争激烈，<strong>Node.js</strong> 有自己独特的优势<br></p>
+<h3 id="3-Electron-跨端桌面应用"><a href="#3-Electron-跨端桌面应用" class="headerlink" title="3.Electron 跨端桌面应用"></a>3.Electron 跨端桌面应用</h3><p>商业应用: vscode,slack,discord,zoom<br><br>大型公司内的效率工具<br><br>现状:大部分场景在选型时，都值得考虑<br></p>
+<p><strong>Node.js 在字节</strong><br><br>BFF 应用、SSR 应用，举例: Modern.js<br><br>BFF：谁需要接口谁去开发，后端的核心业务逻辑还是由后端开发，这接口的拼接，按照端的需要构建 api 就由端自己构建，在 Web 端 Node.js 会是一个使用非常广泛的场景。<br><br>服务端应用，举例:头条搜索,西瓜视频,懂车帝<br><br>Electron 应用: 飞连，飞书<br><br>每年新增 1000+ Node.js 应用<br><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a181eca311974a7dab5743fbbad48ef0~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h2 id="Node-js-运行时结构-How"><a href="#Node-js-运行时结构-How" class="headerlink" title="Node.js 运行时结构(How)"></a>Node.js 运行时结构(How)</h2><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5b799a7a1e674f27af2def3029de2658~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>V8: JavaScript Runtime, 诊断调试工具(inspector)<br><br>libuv: eventloop (事件循环),syscall (系统调用)<br><br>举例:用 node-fetch 发起请求时…<br><br><br>通过<code>npm</code>安装<code>node-fetch</code>模块，用户代码里调用<code>node-fetch</code>模块，那这些代码都是 JavaScript，那会到<code>V8</code>里面去执行，执行的话<code>node-fetch</code>底层调用的是<strong>HTTP 模块</strong>，会调用<code>node.js Core（JavaScript）</code>里的<strong>HTTP 模块</strong>，更底层会调用<strong>C++的 API</strong>，可能需要调用<code>llhttp</code>来帮我做这个<strong>HTTP 协议的序列化和反序列化</strong>，通过获得的数据，通过<code>libuv</code>，创建一个<strong>TCP 链接</strong>，再把数据发送到远端，反过来也是一样，远端传给我数据以后，我在<strong>事件循环</strong>里得到这个消息，在拿到这个数据，再给<code>llhttp</code>解析出来，再把数据传给<code>nodejs core</code> 代码，再到<code>用户代码</code>，在整个过程中，虽然都是 JavaScript 代码，但底层更多的是 C++代码。</p>
+<h3 id="Node-js-运行时结构–特点"><a href="#Node-js-运行时结构–特点" class="headerlink" title="Node.js 运行时结构–特点"></a>Node.js 运行时结构–特点</h3><h4 id="异步-I-x2F-O"><a href="#异步-I-x2F-O" class="headerlink" title="异步 I&#x2F;O"></a>异步 I&#x2F;O</h4><p>当 Node.jis 执行 IO 操作时，会在响应返回后恢复操作，而不是阻塞线程并占用额外内存等待<br><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/06ae106d82cc48cfb38cf16d8d7f627f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="单线程"><a href="#单线程" class="headerlink" title="单线程"></a>单线程</h4><p>JS 单线程<br><br>实际: JS 线程 + uv 线程池 + V8 任务线程池 +V8 Inspector 线程<br><br>优点:不用考虑多线程状态同步问题，也就不需要锁;同时还能比较高效地利用系统资源<br><br>缺点:阻塞会产生更多负面影响解决办法:多进程或多线程<br></p>
+<h4 id="跨平台"><a href="#跨平台" class="headerlink" title="跨平台"></a>跨平台</h4><p>跨平台(大部分功能、api)<br><br>Node.js 跨平台 +JS 无需编译环境 (+ Web 跨平台 + 诊断工具跨平台)<br><br>开发成本低(大部分场景无需担心跨平台问题)，整体学习成本低</p>
+<h2 id="编写-Http-Server-How"><a href="#编写-Http-Server-How" class="headerlink" title="编写 Http Server(How)"></a>编写 Http Server(How)</h2><p>0.安装 Node.js<br> 1.编写 Http Server + Client, 收发 GETPOST 请求<br> 2.编写静态文件服务器<br> 3.编写 React SSR 服务<br> 4.适用 inspector 进行调试、诊断<br> 5.部署简介<br></p>
+<h3 id="编写-Http-Server–安装-Node-js"><a href="#编写-Http-Server–安装-Node-js" class="headerlink" title="编写 Http Server–安装 Node.js"></a>编写 Http Server–安装 Node.js</h3><p>Mac, Linux 推荐使用 nvm。多版本管理<br><br>Windows 推荐 nvm4w 或是官方安装包<br><br>安装慢，安装失败的情况，设置安装源<br><br><code>NVM NODEJS ORG MIRROR=https://npmmirror.com/mirrors/node nvm install 16</code><br><br><strong>Hello World</strong><br>const http &#x3D; require(‘http’)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const server =http.createServer((req,res) =&gt; &#123;</span><br><span class="line">    res.end(&#x27;hello&#x27;)</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">const port = 3000</span><br><span class="line"></span><br><span class="line">server.listen(port,() =&gt; &#123;</span><br><span class="line">    console.log(&#x27;listen on:&#x27;,port)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8f0f81a36cf44c6eb1701b98894dde1a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84edd17439434867af7499942344143c~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>JSON</strong></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/38bc0c1745a14694a37f3f5a0aef389b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>Client</strong></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fa7d46526f6f41349cbc693c1d7307cd~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="编写-Http-Server–-Promisify"><a href="#编写-Http-Server–-Promisify" class="headerlink" title="编写 Http Server– Promisify"></a>编写 Http Server– Promisify</h3><p>用 <strong>Promise + async await</strong> 重写这两个例子(why)<br><br>技巧: 将 callback 转换成 promise<br></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f881c21f153b42da9cd1a45c6c6fa319~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="编写-Http-Server-–-静态文件"><a href="#编写-Http-Server-–-静态文件" class="headerlink" title="编写 Http Server – 静态文件"></a>编写 Http Server – 静态文件</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f1e848162b7d456ea035f9f704c5f192~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>与高性能、可靠的服务相比，还差什么?<br><br>1.CDN: 缓存+加速<br>2.分布式储存，容灾<br><br>外部服务: cloudflare，七牛云，阿里云，火山云…<br></p>
+<h3 id="编写-Http-Server-–React-SSR"><a href="#编写-Http-Server-–React-SSR" class="headerlink" title="编写 Http Server –React SSR"></a>编写 Http Server –React SSR</h3><p>SSR (server side rendering) 有什么特点?<br><br>相比传统 HTML 模版引擎: 避免重复编写代码<br><br>相比 SPA (single page application) :首屏染更快，SEO 友好<br><br>缺点:通常 qps 较低，前端代码编写时需要考虑服务端染情况<br></p>
+<p><strong>SSR 难点：</strong><br> 1.需要处理打包代码<br> 2.需要思考前端代码在服务端运行时的逻辑<br> 3.移除对服务器端无意义的副作用，或重置环境<br></p>
+<h3 id="编写-Http-Server-–Debug"><a href="#编写-Http-Server-–Debug" class="headerlink" title="编写 Http Server –Debug"></a>编写 Http Server –Debug</h3><p>V8 Inspector: 开箱即用、特性丰富强大、与前端开发一致、跨平台<br><br>node –inspect<br><br>open <a target="_blank" rel="noopener" href="http://localhost:9229/ison">http://localhost:9229/ison</a><br><br><strong>场景:</strong><br><br>查看 console.log 内容<br><br>breakpoint<br><br>高 CPU、死循环: cpuprofile<br><br>高内存占用: heapsnapshot 性能分析<br></p>
+<h3 id="编写-Http-Server-–部署"><a href="#编写-Http-Server-–部署" class="headerlink" title="编写 Http Server –部署"></a>编写 Http Server –部署</h3><p><strong>部署要解决的问题<br></strong><br>守护进程:当进程退出时，重新拉起<br>多进程: cluster 便捷地利用多进程<br>记录进程状态，用于诊断<br><br><strong>容器环境<br></strong><br>通常有健康检查的手段，只需考虑多核 cpu 利用率即可<br></p>
+<h2 id="延伸话题"><a href="#延伸话题" class="headerlink" title="延伸话题"></a>延伸话题</h2><h3 id="快速了解-Node-js-代码"><a href="#快速了解-Node-js-代码" class="headerlink" title="快速了解 Node.js 代码"></a>快速了解 Node.js 代码</h3><p><a target="_blank" rel="noopener" href="https://github.com/joyeecheung/talks/blob/master/code_and_learn_2019_beijing/contributing-to-node-core.pdf">Node.js 贡献入门</a><br><br><strong>好处:</strong><br><br>从使用者的角色逐步理解底层细节，可以解决更复杂的问题<br><br>自我证明，有助于职业发展;<br><br>解决社区问题，促进社区发展<br><strong>难点</strong>:<br><br>花时间</p>
+<h3 id="为什么要学习编译-Node-js"><a href="#为什么要学习编译-Node-js" class="headerlink" title="为什么要学习编译 Node.js"></a><strong>为什么要学习编译 Node.js</strong></h3><p><strong>认知：</strong> 黑盒到白盒，发生问题时能有迹可循<br><br>贡献代码的第一步<br><br><strong>如何编译</strong><br><br>参考<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/main/doc/guides/maintaining-the-build-files.md">Maintaining the build </a><br><br>.&#x2F;configure &amp;&amp;make install<br><br>演示: 给 net 模块添加自定义属性<br></p>
+<h3 id="延伸话题-–诊断-x2F-追踪"><a href="#延伸话题-–诊断-x2F-追踪" class="headerlink" title="延伸话题 –诊断 &#x2F; 追踪"></a>延伸话题 –诊断 &#x2F; 追踪</h3><p>诊断是一个低频、重要同时也相当有挑战的方向。是企业衡量自己能否依赖一门语言的重要参考<br><br>技术咨询行业中的热门角色<br><br><strong>难点:</strong><br><br>需要了解 Node.js 底层，需要了解操作系统以及各种工具<br><br>需要经验<br></p>
+<h3 id="延伸话题-–-WASM，NAPI"><a href="#延伸话题-–-WASM，NAPI" class="headerlink" title="延伸话题 – WASM，NAPI"></a>延伸话题 – WASM，NAPI</h3><p>Node.js (因为 V8) 是执行 WASM 代码的天然容器和浏览器 WASM 是同一运行时，同时 Node.js 支持 WASI<br><br>NAPI 执行 C 接口的代码(C&#x2F;C++&#x2F;Rust…)，同时能保留原生代码的性能。<br><br>不同编程语言间通信的一种方案<br></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/14/Node-js-%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsc0005h8ju4ehrep0c" data-title="Node.js 与前端开发实战 | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-初识-HTTP-协议-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/14/%E5%88%9D%E8%AF%86-HTTP-%E5%8D%8F%E8%AE%AE-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-06-14T02:44:01.000Z" itemprop="datePublished">2023-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/06/14/%E5%88%9D%E8%AF%86-HTTP-%E5%8D%8F%E8%AE%AE-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">初识 HTTP 协议 | 青训营笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="初识-HTTP-协议-青训营笔记"><a href="#初识-HTTP-协议-青训营笔记" class="headerlink" title="# 初识 HTTP 协议 | 青训营笔记"></a># 初识 HTTP 协议 | 青训营笔记</h1><h2 id="01-初识-HTTP"><a href="#01-初识-HTTP" class="headerlink" title="01.初识 HTTP"></a>01.初识 HTTP</h2><h3 id="什么是-HTTP"><a href="#什么是-HTTP" class="headerlink" title="什么是 HTTP"></a>什么是 HTTP</h3><p>Hyper Text Transfer Protocol 超文本传输协议<br>应用层协议，基于 TCP 协议<br>请求 响应<br>简单可扩展<br>无状态<br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c6cc3419dd9c460db9ab2d79eb049b95~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h2 id="02-协议分析"><a href="#02-协议分析" class="headerlink" title="02.协议分析"></a>02.协议分析</h2><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/07cefe196af444df935ec0cd89729d0b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="协议分析-报文"><a href="#协议分析-报文" class="headerlink" title="协议分析-报文"></a>协议分析-报文<br></h3><p><strong>method:</strong></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/53d0de05bb4b4e4f9dad292442544651~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>Safe(安全的):不会修改服务器的数据的方法<br><br>GET HEAD OPTIONS<br><br>ldempotent (幂等):同样的请求被执行一次与连续执行多次的效果是<strong>一样</strong>的，服务器的状态也是<strong>一样</strong>的<br><br>所有 safe 的方法都是 ldempotent 的<br><br>GET HEAD OPTIONS PUT DELETE<br></p>
+<h3 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h3><p>200 OK-客户端请求成功<br><br>301-资源 (网页等) 被永久转移到其它 URL<br><br>302-临时跳转<br><br>401 Unauthorized- 请求未经授权<br><br>404-请求资源不存在，可能是输入了错误的 URL<br><br>500-服务器内部发生了不可预期的错误<br><br>504 Gateway Timeout-网关或者代理的服务器无法在规定的时间内获得想要的响应<br></p>
+<h3 id="RESTful-API"><a href="#RESTful-API" class="headerlink" title="RESTful API"></a>RESTful API<br></h3><p>RESTful API：一种 API 设计风格；REST-Representational State Transfer<br><br>（1）.每一个 URL 代表一种资源；<br><br>（2）.客户端和服务器之间，传递这种资源的某种表现层<br><br>（3）.客户端通过 HTTP method，对服务器端资源进行操作，实现”表现层状态转化”。<br><br><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e45143534e3d4350a7b5cb375282f6a2~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="常用请求头："><a href="#常用请求头：" class="headerlink" title="常用请求头："></a>常用请求头：<br></h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2e9f42d152f44ad7903865c112b8c6e8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d236d164e3a42458da70dc8a96880a3~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="缓存："><a href="#缓存：" class="headerlink" title="缓存："></a>缓存：</h3><p>强缓存，协商缓存<br><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7b1868db6ad64926b1d89bb83c12831f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>cookie：</strong><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d978e268f45457ea6c88fb4f72f2918~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="协议分析-发展："><a href="#协议分析-发展：" class="headerlink" title="协议分析-发展："></a>协议分析-发展：</h3><p><strong>HTTP&#x2F;2 概述：</strong> 更快，更稳定，更简单<br><br><strong>帧(frame)</strong>:HTTP&#x2F;2 通信的最小单位，每个帧都包含帧头，至少也会标识出当前帧所属的数据流。<br><br><strong>二进制</strong>。<br><br><strong>消息</strong>：与逻辑请求或响应信息对应的完整的一系列帧。<br><br><strong>数据流</strong>：已建立的连接内的双向字节流，可以承载一条或多条信息。<br><br>交错发送，接收方重组织。<br><br>HTTP&#x2F;2 连接都是永久的，而且仅需要每个来源一个连接<br><br><strong>流控制:</strong> 阻止发送方向接收方发送大量数据的机制<br><br>服务器推送<br></p>
+<h3 id="HTTPS-概述"><a href="#HTTPS-概述" class="headerlink" title="HTTPS 概述"></a>HTTPS 概述</h3><p><strong>HTTPS</strong>：Hypertext Transfer Protocol Secure<br><br>经过 TSL&#x2F;SSL 加密<br><br><strong>对称加密:</strong> 加密和解密都是使用同一个密钥<br><br><strong>非对称加密</strong>，加密和解密需要使用两个不同的密钥:公钥(public key)和私钥 (private key)<br></p>
+<h2 id="03-场景分析"><a href="#03-场景分析" class="headerlink" title="03.场景分析"></a>03.场景分析</h2><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/847f9d6d34ca4e78912602b8ebdcf7ac~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="静态资源"><a href="#静态资源" class="headerlink" title="静态资源"></a>静态资源</h3><p>看状态码 200 一定发起了请求吗？<br><br>缓存策略<br>：<br>强缓存<br><br>Cache-control：一年<br><br>还有什么信息吗？<br><br>允许所有域名访问<br><br>资源类型：css<br><br>静态资源方案： 缓存 + CDN +文件名 hash<br><br>CDN: Content DeliveryNetwork<br><br>通过用户就近性和服务器负载的判断，CDN 确保内容以一种极为高效的方式为用户的请求提供服务<br></p>
+<h3 id="登录场景"><a href="#登录场景" class="headerlink" title="登录场景"></a>登录场景</h3><p>业务场景：表单登录，扫码登录<br><br>技术方式：SSO<br><br>账号密码登陆<br><br>打开控制台-network -勾选 preservelog-过滤 quick_login<br><br>观察请求<br><br>跨域： cross-origin<br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/29af732d4ee741ecb82bde4e417c6614~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>跨域解决方案：<br>CORS<br>代理服务器：同源策略是浏览器的安全策略，不是 HTTP 的<br>Iframe：诸多不便<br><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd41d10a765749a6b82f5695cf3c3615~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h2 id="04-实战"><a href="#04-实战" class="headerlink" title="04.实战"></a>04.实战</h2><p>AJAX 之 Fetch<br><br>XMLHttpRequet 的升级版<br><br>使用 Promise<br><br>模块化设计，ResponseRequest，Header 对象<br><br>通过数据流处理对象，支持分块读取<br><br><strong>标准库：HTTP&#x2F;HTTPS</strong><br><br>默认模块，无需安装其他依赖<br><br>功能有限&#x2F;不是十分友好<br><br><strong>常用的请求库</strong> axios<br><br>支持浏览器，nodejs 环境<br><br>丰富的拦截器<br></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd4310765d154786b9cfa60ac2360f08~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p>稳定性：</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/57a5fafd58da41d9bce0c1ff60f61f2f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h2 id="05-了解更多"><a href="#05-了解更多" class="headerlink" title="05.了解更多"></a>05.了解更多</h2><p>通信方式 websocket<br><br>浏览器与服务器进行全双工通讯的网络技术<br><br>典型场景： 实时性要求高，例如聊天室<br><br>URL 使用 ws：&#x2F;&#x2F;或 wss：&#x2F;&#x2F;等开头<br></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a321f44edd1e40d5b0f5e7a4760282da~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="扩展："><a href="#扩展：" class="headerlink" title="扩展："></a>扩展：</h3><p><strong>QUIC:</strong> Quick UDPInternet Connection<br><br>0-RTT 建联(首次建联除外)<br><br>类似 TCP 的可靠传输。类似 TLS 的加密传输，支持完美前向安全<br><br>用户空间的拥塞控制，最新的 BBR 算法<br><br>但没有 TCP 的支持 h2 的基于流的多路复用，HOL 问题<br><br>前向纠错 FEC<br><br>类似 MPTCP 的 Connection migration。<br></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/000b2cee61cd482398ad9a740f6db777~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/25ed31118ee64122a2e90adad03edfd7~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/14/%E5%88%9D%E8%AF%86-HTTP-%E5%8D%8F%E8%AE%AE-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmse0009h8juf3zvelmc" data-title="初识 HTTP 协议 | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-TypeScript的发展与基本语法-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/14/TypeScript%E7%9A%84%E5%8F%91%E5%B1%95%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-06-14T02:43:33.000Z" itemprop="datePublished">2023-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/06/14/TypeScript%E7%9A%84%E5%8F%91%E5%B1%95%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">TypeScript的发展与基本语法 | 青训营笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="TypeScript-的发展与基本语法-青训营笔记"><a href="#TypeScript-的发展与基本语法-青训营笔记" class="headerlink" title="TypeScript 的发展与基本语法 | 青训营笔记"></a>TypeScript 的发展与基本语法 | 青训营笔记</h1><p>2023-1-19</p>
+<h2 id="TypeScript-的发展历史"><a href="#TypeScript-的发展历史" class="headerlink" title="TypeScript 的发展历史"></a><strong>TypeScript 的发展历史<br></strong></h2><p>2012-10: 微软发布了 TypeScript 第一个版本 (0.8)<br><br>2014-10: Angular 发布了基于 TypeScript 的 2.0 版本<br><br>2015-04: 微软发布了 Visual Studio Code<br><br>2016-05: @types&#x2F;react 发布，TypeScript 可开发 React<br><br>2020-09: Vue 发布了 3.0 版本，官方支持 TypeScript<br><br>2021-11: v4.5 版本发布<br></p>
+<h2 id="什么是-TypeScript？"><a href="#什么是-TypeScript？" class="headerlink" title="什么是 TypeScript？"></a>什么是 TypeScript？</h2><h3 id="JS：动态类型，弱类型语言"><a href="#JS：动态类型，弱类型语言" class="headerlink" title="JS：动态类型，弱类型语言"></a>JS：动态类型，弱类型语言<br></h3><p><strong>动态类型</strong>：在执行阶段才去确定一个类型的匹配。<br></p>
+<h3 id="TS：静态类型，弱类型语言"><a href="#TS：静态类型，弱类型语言" class="headerlink" title="TS：静态类型，弱类型语言"></a>TS：静态类型，弱类型语言<br></h3><p><strong>静态类型</strong>：会在执行阶段时提前确个类型的匹配。<br><br>**可读性增强: **基于语法解析 TSDoc，ide 增强。<br><br><strong>可维护性增强:</strong> 在编译阶段暴露大部分错误&#x3D;&gt;多人合作的大型项目中，获得更好的稳定性和开发效率。<br><br><strong>JS 的超集：</strong>。包含于兼容所有 JS 特性，支持共存<br><br>支持渐进式引入与升级</p>
+<h2 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h2><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型:"></a>数据类型:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/* 字符串 */</span><br><span class="line">const a: string = &#x27;string&#x27;;</span><br><span class="line">/* 数字 */</span><br><span class="line">const a: number = 1;</span><br><span class="line">/* 布尔值 */</span><br><span class="line">const a: boolean = true;</span><br><span class="line">/* null */</span><br><span class="line">const a: null = null;</span><br><span class="line">/* nudefined */</span><br><span class="line">const a: nudefined = nudefined;</span><br></pre></td></tr></table></figure>
+
+<h3 id="对象类型"><a href="#对象类型" class="headerlink" title="对象类型:"></a>对象类型:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">const bytedancer: IBytedancer = &#123;</span><br><span class="line">    jobId：9303254,</span><br><span class="line">    name: &#x27;thr&#x27;,</span><br><span class="line">    sex: &#x27;man&#x27;,</span><br><span class="line">    age: 20,</span><br><span class="line">    hobby: &#x27;TS&#x27;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface IBytedancer &#123;</span><br><span class="line">    /*只读属性：不能修改对象初始化的值*/</span><br><span class="line">    readonly jobId: number;</span><br><span class="line">    name: string;</span><br><span class="line">    sex: &#x27;man&#x27; | &#x27;woman&#x27; | &#x27;other&#x27;;</span><br><span class="line">    age: number;</span><br><span class="line">    /* 可选属性：定义该属性可以不存在*/</span><br><span class="line">    boddy?: string;</span><br><span class="line">    /*任意属性：所有对象属性都必须是该属性的子类型*/</span><br><span class="line">    [key: string]: any;</span><br><span class="line">&#125;</span><br><span class="line">/*报错：无法分配到jobId，它是只读属性*/</span><br><span class="line">bytedancer.jobId= 12345;</span><br><span class="line">/*成功：任意属性标注下可以添加任意属性*/</span><br><span class="line">bytedancer.plateform= &#x27;data&#x27;;</span><br><span class="line">/*报错：缺少属性&#x27;name&#x27;，hobby可以缺省*/</span><br><span class="line">const bytedancer2: IBytedancer = &#123;</span><br><span class="line">    jobId:56478,</span><br><span class="line">    sex: &#x27;woman&#x27;,</span><br><span class="line">    age: 18,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="函数类型"><a href="#函数类型" class="headerlink" title="函数类型:"></a>函数类型:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">interface IMult &#123;</span><br><span class="line">    (x: number, y: number): number;</span><br><span class="line">&#125;</span><br><span class="line">const mult: IMult = (x, y) =&gt; x * y;</span><br><span class="line">--------------------------------------</span><br><span class="line">function add(x: number, y: number): number &#123;</span><br><span class="line">    return x + y;</span><br><span class="line">&#125;</span><br><span class="line">const mult: (x: number, y: number) =&gt; number = (x, y) =&gt; x * y;</span><br></pre></td></tr></table></figure>
+
+<p><strong>函数重载:</strong><br><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dbbce9de988c445a8922d36b073911d7~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="数组类型"><a href="#数组类型" class="headerlink" title="数组类型:"></a>数组类型:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/*[类型 + 方括号] 表示*/</span><br><span class="line">type IArr1 = number[];</span><br><span class="line">/*泛型表示*/</span><br><span class="line">type IArr2 = Array&lt;string | number | Record&lt;string, number&gt;&gt;;</span><br><span class="line">/*元祖表示*/</span><br><span class="line">type IArr3 = [number, number, string, string];</span><br><span class="line">/*接口表示*/</span><br><span class="line">interface IArr4 = &#123;</span><br><span class="line">    [key: number]: any;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const arr1: IArr1 = [1,2,3,4];</span><br><span class="line">const arr2: IArr2 = [1,2,&#x27;3&#x27;,&#123; a: 1 &#125;];</span><br><span class="line">const arr3: IArr3 = [1,2,&#x27;3&#x27;,&#x27;4&#x27;];</span><br><span class="line">const arr4: IArr4 = [&#x27;string&#x27;,() =&gt; null,&#123;&#125;,[]];</span><br></pre></td></tr></table></figure>
+
+<h3 id="TypeScript-补充类型："><a href="#TypeScript-补充类型：" class="headerlink" title="TypeScript 补充类型："></a>TypeScript 补充类型：<br></h3><p><strong>空类型：</strong><br><br><code>type IEmptyFunction = () =&gt; void;</code><br><br><strong>任意类型：</strong><br><br><code>type IAnyType = any;</code><br><br><strong>枚举类型：</strong><br><br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/183d920a837c4f4282866741621cfc1e~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>泛型：</strong><br><br><code>type INumArr = Array&lt;number&gt;;</code><br></p>
+<h3 id="TypeScript-泛型"><a href="#TypeScript-泛型" class="headerlink" title="TypeScript 泛型:"></a>TypeScript 泛型:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function getRepeatArr(target) &#123;</span><br><span class="line">    return new Array(100).fill(target);</span><br><span class="line">&#125;</span><br><span class="line">/*不预先指定具体的类型，而在使用的时候再指定类型的一种特性*/</span><br><span class="line">type IGetRepeatArrR = &lt;T&gt;(target: T) =&gt; T[];</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/*泛型接口&amp;多泛型*/</span><br><span class="line">interface IX&lt;T, U&gt; &#123;</span><br><span class="line">    key: T;</span><br><span class="line">    val: U;</span><br><span class="line">&#125;</span><br><span class="line">/*泛型类*/</span><br><span class="line">class IMan&lt;T&gt; &#123;</span><br><span class="line">    instance: T;</span><br><span class="line">&#125;</span><br><span class="line">/*泛型别名*/</span><br><span class="line">type ITypeArr&lt;T&gt; =Array&lt;T&gt;;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d8a9018f9f0d441eb804e0a03e6599c2~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="类型别名-amp-类型断言："><a href="#类型别名-amp-类型断言：" class="headerlink" title="类型别名&amp;类型断言："></a>类型别名&amp;类型断言：</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/af3140f06ac2434984391601dd08b4f5~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="字符串-x2F-数字-字面量："><a href="#字符串-x2F-数字-字面量：" class="headerlink" title="字符串&#x2F;数字 字面量："></a>字符串&#x2F;数字 字面量：</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8e9cd21e66764f5288c0050cf7a7c6af~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/14/TypeScript%E7%9A%84%E5%8F%91%E5%B1%95%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsb0004h8ju8xbieno5" data-title="TypeScript的发展与基本语法 | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-深入CSS(一)-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%B8%80)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-06-14T02:42:57.000Z" itemprop="datePublished">2023-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%B8%80)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">深入CSS(一) | 青训营笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="深入-CSS-青训营笔记"><a href="#深入-CSS-青训营笔记" class="headerlink" title="深入 CSS | 青训营笔记"></a>深入 CSS | 青训营笔记<br></h1><p>2023-1-18<br></p>
+<h2 id="CSS-选择器的特异度"><a href="#CSS-选择器的特异度" class="headerlink" title="CSS 选择器的特异度"></a>CSS 选择器的特异度</h2><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac658631249e4288804f9303694e69c4~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h2 id="CSS-选择器有哪些？哪些属性可以继承？"><a href="#CSS-选择器有哪些？哪些属性可以继承？" class="headerlink" title="CSS 选择器有哪些？哪些属性可以继承？"></a><strong>CSS 选择器有哪些？哪些属性可以继承？<br></strong></h2><h3 id="CSS-选择符："><a href="#CSS-选择符：" class="headerlink" title="CSS 选择符："></a><strong>CSS 选择符：</strong><br></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">/*id选择器*/</span><br><span class="line">    #myid</span><br><span class="line">/*类选择器*/</span><br><span class="line">    .myclassname</span><br><span class="line">/*标签选择器*/</span><br><span class="line">    div,h1,p</span><br><span class="line">/*相邻选择器*/</span><br><span class="line">    h1+p</span><br><span class="line">/*子选择器*/</span><br><span class="line">    ul&gt;li</span><br><span class="line">/*后代选择器*/</span><br><span class="line">    li a</span><br><span class="line">/*通配符选择器*/</span><br><span class="line">    *</span><br><span class="line">/*属性选择器*/</span><br><span class="line">    a[rel=&quot;external&quot;]</span><br><span class="line">/*伪类选择器*/</span><br><span class="line">    a:hover, li:nth-child</span><br></pre></td></tr></table></figure>
+
+<p><strong>继承</strong>：某些属性会自动继承其父元素的计算值，除非<strong>显式</strong>(<strong>inherit</strong>)制定一个值。<br><br><strong>可继承的属性</strong>：font-size, font-family, color<br><br><strong>不可继承的样式</strong>：border, padding, margin, width, height<br><br><strong>优先级（就近原则）</strong>：!important &gt; [id&gt;class&gt;tag]<br><br><strong>!important</strong> 比内联优先级高<br></p>
+<h3 id="初始值："><a href="#初始值：" class="headerlink" title="初始值："></a><strong>初始值：</strong><br></h3><p><strong>·CSS 中，每个属性都有一个初始值</strong><br><br>·background-color 的初始值位 transparent<br><br>·margin-left 的初始值为 0<br><br><strong>·可以使用 initial 关键字显式重置为初始值</strong><br><br>·background-color：initial<br></p>
+<h3 id="CSS-求值过程："><a href="#CSS-求值过程：" class="headerlink" title="CSS 求值过程："></a><strong>CSS 求值过程：</strong></h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4abdab1c5dfd4cc78b85ef6ed04b0320~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/78fa7997194b4c50841c4ae2e80d30fc~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><br></p>
+<h2 id="布局-Layout-是什么？"><a href="#布局-Layout-是什么？" class="headerlink" title="布局(Layout)是什么？"></a><strong>布局(Layout)是什么？</strong><br></h2><p>·确定内容的大小和位置的算法<br><br>·依据元素，容器，兄弟节点和内容等信息来计算</p>
+<h3 id="布局相关技术"><a href="#布局相关技术" class="headerlink" title="布局相关技术"></a>布局相关技术</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3457f506b0d64a87b556c381a53c7151~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e02ca30dd964908ad713baac7b4acd8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="width："><a href="#width：" class="headerlink" title="width："></a>width：</h4><p>指定 content box 宽度<br><br>取值为<strong>长度，百分数，auto</strong><br><br>auto 由浏览器根据其它属性确定<br><br>百分数相对于容器的 content box 宽度<br><br><strong>容器有指定的高度时，百分数才生效</strong><br></p>
+<h4 id="padding：（上左下右）"><a href="#padding：（上左下右）" class="headerlink" title="padding：（上左下右）"></a>padding：（上左下右）</h4><p>指定元素四个方向的内边距<br><br><strong>百分数相对于容器宽度</strong><br></p>
+<h4 id="border："><a href="#border：" class="headerlink" title="border："></a>border：</h4><p>指定容器边框样式，粗细和颜色<br><br><code>border：1px solid #ccc</code><br><br><code>border-top-width:1px;</code><br><br><code>border-width:1px 2px 3px 4px;</code><br><br><code>border-style:solid;</code><br><br><code>border-color:blue;</code><br><br><strong><code>box-sizing：border-box</code></strong><br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2c89f442adcb4d3da2ac682878d2bf1a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="margin"><a href="#margin" class="headerlink" title="margin:"></a>margin:</h4><p>指定元素四个方向的外边距<br><br>取值为<strong>长度，百分数，auto</strong><br><br>百分数相对于容器宽度<br><br>使用<code>mairgin：auto；</code>水平居中<br><br><strong>margin collapse</strong><br><br>margin 在垂直方向上取最大值<br></p>
+<h4 id="overflow："><a href="#overflow：" class="headerlink" title="overflow："></a>overflow：</h4><p>scroll 滚动条<br><br>hidden 隐藏<br><br>visible 默认值<br></p>
+<h3 id="块级"><a href="#块级" class="headerlink" title="块级"></a>块级<br></h3><p>Block Level Box<br><br>不和其他盒子并列摆放，适用所有的盒模型属性<br><br><strong>块级元素</strong>：生成块级盒子<br></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">body、article、div、main、section、h1-6、p、ul、li等</span><br><span class="line">display: block</span><br></pre></td></tr></table></figure>
+
+<h3 id="行级"><a href="#行级" class="headerlink" title="行级"></a>行级</h3><p>Inline Level Box<br><br>和其它行级盒子一起放在一行或拆开成多行<br><br>盒模型中的 width、height 不适用<br><br><strong>行级元素</strong>：生成行级盒子，内容分散在多个行盒中<br></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">span、em、strong、cite、code 等</span><br><span class="line">display: inline</span><br></pre></td></tr></table></figure>
+
+<h3 id="diaplay-属性"><a href="#diaplay-属性" class="headerlink" title="diaplay 属性"></a>diaplay 属性<br></h3><p>block： 块级盒子<br><br>inline：行级盒子<br><br>inline-block： 本身是行级，可以放在行盒中；可以设置宽高；作为一个整体不会被拆散成多行<br><br>none： 排版时完全被忽略<br></p>
+<h3 id="常规流-Normal-Flow"><a href="#常规流-Normal-Flow" class="headerlink" title="常规流 Normal Flow"></a>常规流 Normal Flow</h3><p>根元素、浮动和绝对定位的元素会脱离常规流<br><br>其它元素都在常规流之内 (in-flow)<br><br>常规流中的盒子，在某种<strong>排版上下文中</strong>参与布局<br></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6ff7e55072fe4c56984766055e2c62e3~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="行级排版上下文"><a href="#行级排版上下文" class="headerlink" title="行级排版上下文"></a>行级排版上下文</h3><p>·Inline Formatting Context (IFC)<br><br>·<strong>只包含行级盒子</strong>的容器会创建一个 IFC<br><br>·IFC 内的排版规则<br><br>·盒子在一行内水平摆放<br><br>一行放不下时，换行显示<br><br>text-align 决定一行内盒子的水平<br><br>对齐 vertical-align 决定一个盒子在行内的垂直对齐<br><br>避开浮动(float)元素<br></p>
+<h3 id="块级排版上下文"><a href="#块级排版上下文" class="headerlink" title="块级排版上下文"></a>块级排版上下文</h3><p>·Block Formatting Context (BFC)<br><br>·某些容器会创建一个 BFC<br><br>根元素<br><br>浮动、绝对定位、inline-block<br><br>Flex 子项和 Grid 子项<br><br>overflow 值不是 visible 的块盒<br><br>display: flow-root;<br></p>
+<h3 id="BFC-内的排版规则"><a href="#BFC-内的排版规则" class="headerlink" title="BFC 内的排版规则"></a>BFC 内的排版规则</h3><p>盒子从上到下摆放<br><br>垂直 margin 合并<br><br>BFC 内盒子的 margin 不会与外面的合并。<br><br>BFC 不会和浮动元素重叠<br></p>
+<h3 id="Flex-Box-是什么"><a href="#Flex-Box-是什么" class="headerlink" title="Flex Box 是什么?"></a>Flex Box 是什么?</h3><p>一种新的排版上下文<br><br>它可以控制子级盒子的: 摆放的流向(右左上下)，摆放顺序，盒子宽度和高度，水平和垂直方向的对齐，是否允许折行。<br><br><strong>flex-direction：</strong><br><br><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c5c261ee189a4b48aca68e0f12842f53~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>主轴与侧轴：</strong><br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31c096f0e8894795b45f4a9deeea3d76~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>justify-content：</strong><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/768c7d2a452e43ac8659572e346c5905~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>align—items：</strong><br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/59f0965bb6484852ac40a7ffd502a858~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>align-self：</strong><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f7c8358348ad44939c8654d4bdc4f8b8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Flexibility"><a href="#Flexibility" class="headerlink" title="Flexibility"></a>Flexibility</h3><p>可以设置子项的弹性:当容器有剩余空间时，会伸展;容器空间不够时，会收缩。<br><br>flex-grow 有剩余空间时的伸展能力<br><br>flex-shrink 容器空间不足时收缩的能力<br><br>flex-basis 没有伸展或收缩时的基础长度<br></p>
+<h3 id="Grid-布局"><a href="#Grid-布局" class="headerlink" title="Grid 布局"></a>Grid 布局</h3><p><code>display：grid</code><br><br>display: grid 使元素生成一个块级的 Grid 容器<br><br>使用 grid-template 相关属性将容器划分为网格<br><br>设置每一个子项占哪些行&#x2F;列<br><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/edcfe2f3bc8a4d1580e226780ccd0d4f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="float-浮动"><a href="#float-浮动" class="headerlink" title="float 浮动"></a>float 浮动</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0bb7e30c5a2e49aeaaa06a261d8f8220~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="position-属性"><a href="#position-属性" class="headerlink" title="position 属性"></a>position 属性</h3><p>static ：默认值，非定位元素<br><br>relative ：相对自身原本位置偏移，不脱离文档流<br><br>absolute ：绝对定位，相对非 static 祖先元素定位<br><br>fixed ：相对于视口绝对定位<br><br><strong>position：relative</strong><br><br>在常规流里面布局<br><br>相对于自己本应该在的位置进行偏移<br><br>使用 top、left、bottom、right 设置偏移长度<br><br>流内其它元素当它没有偏移一样布局<br><br><strong>position：absolute</strong><br><br>脱离常规流<br><br>相对于最近的非 static 祖先定位<br><br>不会对流内元素布局造成影响<br></p>
+<h2 id="学习-CSS-的几点建议"><a href="#学习-CSS-的几点建议" class="headerlink" title="学习 CSS 的几点建议"></a>学习 CSS 的几点建议</h2><p>充分利用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/">MDN </a>和 <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/css/index.asp">W3C CSS 规范</a><br><br>保持好奇心，善用浏览器的开发者工具<br><br>持续学习，CSS 新特性还在不断出现<br></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%B8%80)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsm000hh8ju7jdx68ir" data-title="深入CSS(一) | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-JavaScript(一)-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/14/JavaScript(%E4%B8%80)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-06-14T02:42:27.000Z" itemprop="datePublished">2023-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/06/14/JavaScript(%E4%B8%80)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">JavaScript(一) | 青训营笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="JavaScript-青训营笔记"><a href="#JavaScript-青训营笔记" class="headerlink" title="JavaScript | 青训营笔记"></a>JavaScript | 青训营笔记</h1><p>2023-1-17<br><br><br>如何写 <strong>好</strong> JavaScript?<br><br>什么才是好的 JavaScript 代码？<br></p>
+<h1 id="写好-JS-的一些原则（一）"><a href="#写好-JS-的一些原则（一）" class="headerlink" title="写好 JS 的一些原则（一）"></a><strong>写好 JS 的一些原则（一）<br></strong></h1><p><strong>各司其职</strong>：让 HTML,CSS，JS 职能分离<br><br><strong>组件封装</strong>：好的 UI 组件具备正确性，扩展性，复用性<br><br><strong>过程抽象</strong>：应用函数式编程思想<br></p>
+<h2 id="各司其职："><a href="#各司其职：" class="headerlink" title="各司其职："></a><strong>各司其职：</strong></h2><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1b94dcf943964ae9b25e7c89607437b7~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="版本一："><a href="#版本一：" class="headerlink" title="版本一："></a><strong>版本一：</strong></h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/33e856425430400a84b925ffde4006f8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>直接用 JavaScript 操作了 CSS，那么提交代码，后期 PM 修改了需求，程序员修改会很困难，也会对后续交付给其他维护代码的程序员造成困扰。<br>让你来优化来怎么做？<br></p>
+<h3 id="版本二："><a href="#版本二：" class="headerlink" title="版本二："></a><strong>版本二：</strong></h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8ffd73c8dd234e5d84e67a6d8b3b730b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>这个版本性对于上个版本，我们操作了 classname，我们用 class 来定义了 HTML 元素的状态，直接操作了 CSS。有一个原则，各司其职，在网页中我们可以说 HTML 是结构，CSS 是表现，JavaScript 是行为。结构表现分离使我们前端工程师基本的原则。那么还有其他改进空间吗？<br></p>
+<h3 id="版本三："><a href="#版本三：" class="headerlink" title="版本三："></a><strong>版本三：</strong></h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7aa171ba784f41a2a7c7b5b4e0e38905~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>控制样式的代码可以用 CSS 来实现，版本三是纯 css 的样式结构，没有 JavaScript 的代码片段。里面用伪类选择器+兄弟选择器，用 checkbox 的状态来改变 content 的样式。<br><br><code>&lt;input id=&quot;modeCheckBox&quot; type=&quot;checkbox&quot;&gt;</code><br><br><code>&lt;label id=&quot;modeBtn&quot; for=&quot;modeCheckBox&quot;&gt;&lt;/label&gt;</code><br></p>
+<h3 id="结论："><a href="#结论：" class="headerlink" title="结论："></a><strong>结论：</strong><br></h3><p>·HTML&#x2F;CSS&#x2F;JS 各司其职<br><br>·应当避免不必要的由 JS 直接操作样式<br><br>·可以用 class 来表示状态<br><br>·纯展示类交互寻求零 JS 方案<br></p>
+<h2 id="组件封装："><a href="#组件封装：" class="headerlink" title="组件封装："></a>组件封装：</h2><h3 id="组件是什么？"><a href="#组件是什么？" class="headerlink" title="组件是什么？"></a><strong>组件是什么</strong>？</h3><p>组件是指 Web 页面上抽出来一个个包含<strong>模版</strong> (HTML)、<strong>功能</strong>(JS) 和<strong>样式</strong>(CSS) 的单元。好的组件具备<strong>封装性、正确性、扩展性、复用性</strong>。<br></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/42478655b792441390756c3b54dce140~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="结构：HTML"><a href="#结构：HTML" class="headerlink" title="结构：HTML"></a><strong>结构：HTML</strong><br></h3><p>轮播图是一个典型的列表结构，我们可以用无序列表 ul 来实现。</p>
+<h3 id="表现：CSS"><a href="#表现：CSS" class="headerlink" title="表现：CSS"></a>表现：CSS<br></h3><p>·使用 CSS 绝对定位将图片重叠在同一位置<br><br>·轮播图切换的状态使用修饰符(modifier)<br><br>·轮播图切换的动画使用 CSS 中的 transition<br></p>
+<h3 id="行为：JavaScript"><a href="#行为：JavaScript" class="headerlink" title="行为：JavaScript"></a>行为：JavaScript<br></h3><p>API：<br></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Slider</span><br><span class="line">+getSelectedItem()</span><br><span class="line">+getSelectedItemIndex()</span><br><span class="line">+slideTo()</span><br><span class="line">+slideNext()</span><br><span class="line">+slidePrevious()</span><br></pre></td></tr></table></figure>
+
+<h3 id="思考：进一步改进怎么做？"><a href="#思考：进一步改进怎么做？" class="headerlink" title="思考：进一步改进怎么做？"></a>思考：进一步改进怎么做？</h3><h4 id="重构：插件化"><a href="#重构：插件化" class="headerlink" title="重构：插件化"></a><strong>重构：插件化</strong><br></h4><p><strong>解耦</strong>：<br><br>·将控制元素抽取成插件<br><br>·插件与组件之间通过<strong>依赖注入</strong>方式建立联系<br></p>
+<h4 id="重构：模板化"><a href="#重构：模板化" class="headerlink" title="重构：模板化"></a><strong>重构：模板化</strong><br></h4><p><strong>解耦：</strong><br><br>·将 HTML 模板化，更易于扩展<br></p>
+<h4 id="重构：组件框架"><a href="#重构：组件框架" class="headerlink" title="重构：组件框架"></a><strong>重构：组件框架</strong><br></h4><p><strong>抽象：<br></strong><br>将通用的组件模型抽象出来<br></p>
+<h3 id="总结：基本方法"><a href="#总结：基本方法" class="headerlink" title="总结：基本方法"></a><strong>总结：基本方法<br></strong></h3><p><strong>·结构设计</strong><br><br><strong>·展示效果</strong><br><br><strong>·行为设计</strong>：API（功能），Event（控制流）<br><br><strong>·组件设计的原则</strong>:封装性、正确性、扩展性、复用性实现<br><br><strong>·组件的步骤</strong>:结构设计展现效果、行为设计<br><br><strong>·三次重构</strong>：插件化，模板化，抽象化<br></p>
+<h2 id="过程抽象："><a href="#过程抽象：" class="headerlink" title="过程抽象："></a><strong>过程抽象：</strong></h2><p>·用来处理局部细节控制的一些方法<br><br>·函数式编程思想的基础应用<br><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f0bb8691a0484aa7b24b4333db0f8f8a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="操作次数限制："><a href="#操作次数限制：" class="headerlink" title="操作次数限制："></a><strong>操作次数限制：</strong><br></h3><p>·一些异步交互<br><br>·一次性的 HTTP 请求<br></p>
+<h3 id="高阶函数："><a href="#高阶函数：" class="headerlink" title="高阶函数："></a><strong>高阶函数：</strong><br></h3><p><strong>Once:</strong><br><br>为了能够让”只执行一次”的需求覆盖不同的事件处理，我们可以将这个需求剥离出来，这个过程我们成为过程抽象。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2a1d0845ab7b4a50a4ab7d82e89f71df~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="HOF"><a href="#HOF" class="headerlink" title="HOF:"></a><strong>HOF:</strong><br></h3><p>·以函数作为参数<br><br>·以函数作为返回值<br><br>·常用于作为函数装饰器<br></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/873fa0bda0134c99a6f5fd0b64c0668a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="常用的高阶函数："><a href="#常用的高阶函数：" class="headerlink" title="常用的高阶函数："></a>常用的高阶函数：<br></h3><p><strong>·Once</strong><br><br><strong>·Throttle</strong><br><br><strong>·Debounce</strong><br><br><strong>·Consumer&#x2F;2</strong><br><br><strong>·Iterative</strong><br></p>
+<h3 id="编程范式："><a href="#编程范式：" class="headerlink" title="编程范式："></a>编程范式：<br></h3><p><strong>命令式与声明式</strong><br><br>命令式：面向过程，面向对象<br><br>声明式：逻辑算法，函数式<br><br>JavaScript 既有命令式也有声明式的编程语言。<br><br><strong>命令式则是趋向于怎么做，声明式则是趋向于做什么。</strong><br></p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>过程抽象 &#x2F; HOF &#x2F; 装饰器<br><br>命令式 &#x2F; 声明式<br></p>
+<h2 id="写好-JS-的一些原则（二）"><a href="#写好-JS-的一些原则（二）" class="headerlink" title="写好 JS 的一些原则（二）"></a>写好 JS 的一些原则（二）</h2><p><strong>这一段真实的代码</strong><br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c95ef2893ac24af6a01aeeb2d12483b5~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>写代码的时候不能只看代码的格式，来判断代码的质量，也要看其使用场景。</p>
+<h3 id="写代码最应关注什么"><a href="#写代码最应关注什么" class="headerlink" title="写代码最应关注什么?"></a>写代码最应关注什么?<br></h3><p>风格 效率 约定 使用场景 设计<br></p>
+<h3 id="Left-pad"><a href="#Left-pad" class="headerlink" title="Left-pad"></a><strong>Left-pad<br></strong></h3><p>几年前，Node 发展很快，出现很多 node 的包和模块，其中就有 Left-pad，字符串补零，使字符串对齐。<br><br>事件本身的槽点：<br><br>·NPM 模块粒度<br><br>·代码风格<br><br>·代码质量&#x2F;效率<br></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/892a8fe0739a44eb9d5229dc6a4bce7b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p>重构一下：<br><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d2f31241708417c98937d76a3e789f8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>·代码更简洁<br><br>·效率更高<br></p>
+<h2 id="JavaScript-代码质量优化之路"><a href="#JavaScript-代码质量优化之路" class="headerlink" title="JavaScript 代码质量优化之路"></a>JavaScript 代码质量优化之路</h2><h3 id="1-交通灯：状态切换"><a href="#1-交通灯：状态切换" class="headerlink" title="1.交通灯：状态切换"></a>1.交通灯：状态切换<br></h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aff8e5a1cd3b4931976dbbf1ccd3f9f0~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="2-判断是否是四的幂"><a href="#2-判断是否是四的幂" class="headerlink" title="2.判断是否是四的幂"></a>2.判断是否是四的幂</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f45e8d70068042ec8498cf4c5db8d5bd~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="3-洗牌"><a href="#3-洗牌" class="headerlink" title="3.洗牌"></a>3.洗牌</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ebb031c597ca436e8be7ea57043b8699~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9c249842b7a345adafbad2d0bae3da74~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="4-分红包"><a href="#4-分红包" class="headerlink" title="4.分红包"></a>4.分红包</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4cebbf9706b640aa8b6c753e919ee0d4~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/14/JavaScript(%E4%B8%80)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hms50000h8ju5rqq0z5v" data-title="JavaScript(一) | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/06/14/React-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">React | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/JavaScript(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">JavaScript(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">深入CSS(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%89%8D%E7%AB%AF%E8%AF%AD%E8%A8%80%E4%B8%B2%E8%AE%B2-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">前端语言串讲 | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">客户端容器 | 青训营笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Thresh<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

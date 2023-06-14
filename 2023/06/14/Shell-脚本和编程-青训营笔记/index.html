@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Shell 脚本和编程 | 青训营笔记 | Thresh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Shell 脚本和编程 | 青训营笔记学习 Shell 的价值： Linux 服务器的基本操作和管理 前端 Node.js 服务的进程管理、问题排查、资源监控等运维操作 使用 shell 编写 TCE、SCM、Docker 脚本，完成服务编译和部署  01.Shell 基础概念Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Shell 脚本和编程 | 青训营笔记">
+<meta property="og:url" content="http://example.com/2023/06/14/Shell-%E8%84%9A%E6%9C%AC%E5%92%8C%E7%BC%96%E7%A8%8B-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Thresh">
+<meta property="og:description" content="Shell 脚本和编程 | 青训营笔记学习 Shell 的价值： Linux 服务器的基本操作和管理 前端 Node.js 服务的进程管理、问题排查、资源监控等运维操作 使用 shell 编写 TCE、SCM、Docker 脚本，完成服务编译和部署  01.Shell 基础概念Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8e29260a894a432a830fc8827788e72d~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/63cfb366cf8e49c68ad74c87cdb3d7e9~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d32cb2fa04a24cf6bb63dce42f7d4968~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad0fd3e79fae4d51b86a974fbd9aa723~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/818654384e654fdda49a49ca3dce9d60~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1a3fd852fc5143c79cf876c0f39d3d47~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8be8b16225bd4a99b846ba48366c60db~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a13cf166674e496b88e47c99e3464195~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f8c1c51e5a3a4e1a896d337a05886e08~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f1b062c396014e4cbe88965b4e8832a6~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cc928987cb054c45b379100be1e18a37~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/121cae9bfde041c8b0ec68d36d922b0b~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b1c2197b86c249fdaa2e44c81506851e~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f7f6c60f0a9e48fa96cfb1681b2b67f9~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e3f6e5b727f64599b2f1ff9cfcef06da~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/402891e948fc4b1a9cef1f600c96690b~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f0dafb03a72644aeb1842a136811a95d~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d5549d452cc4453681dcde8ceb59424a~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/24e15985920c482880cc01f7113059c8~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2cbd720a4d314572a55612d1aa35d8c5~tplv-k3u1fbpfcp-watermark.image">
+<meta property="article:published_time" content="2023-06-14T02:53:31.000Z">
+<meta property="article:modified_time" content="2023-06-14T02:53:47.231Z">
+<meta property="article:author" content="Thresh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8e29260a894a432a830fc8827788e72d~tplv-k3u1fbpfcp-watermark.image">
+  
+    <link rel="alternate" href="/atom.xml" title="Thresh" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Thresh</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Shell-脚本和编程-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/14/Shell-%E8%84%9A%E6%9C%AC%E5%92%8C%E7%BC%96%E7%A8%8B-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-06-14T02:53:31.000Z" itemprop="datePublished">2023-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Shell 脚本和编程 | 青训营笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Shell-脚本和编程-青训营笔记"><a href="#Shell-脚本和编程-青训营笔记" class="headerlink" title="Shell 脚本和编程 | 青训营笔记"></a>Shell 脚本和编程 | 青训营笔记</h1><h2 id="学习-Shell-的价值："><a href="#学习-Shell-的价值：" class="headerlink" title="学习 Shell 的价值："></a>学习 Shell 的价值：</h2><ul>
+<li>Linux 服务器的基本操作和管理</li>
+<li>前端 Node.js 服务的进程管理、问题排查、资源监控等运维操作</li>
+<li>使用 shell 编写 TCE、SCM、Docker 脚本，完成服务编译和部署</li>
+</ul>
+<h2 id="01-Shell-基础概念"><a href="#01-Shell-基础概念" class="headerlink" title="01.Shell 基础概念"></a>01.Shell 基础概念</h2><p>Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。</p>
+<p>Shell 是指一种应用程序，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核的服务。</p>
+<p>Ken Thompson 的 sh 是第一种 Unix Shell，Windows Explorer 是一个典型的图形界面 Shell。</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8e29260a894a432a830fc8827788e72d~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="发展"><a href="#发展" class="headerlink" title="发展"></a>发展</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/63cfb366cf8e49c68ad74c87cdb3d7e9~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>除了替代 v6 shell，sh 还有几个优点，把控制流程，循环，变量引入了脚本，提供了一种更具功能性的语言<br><br>主流 Linux 系统使用的 shell，许多都以它为锚点。<br><br>bash 是 sh 的超集，可以直接执行大部分 sh 脚本。<br><br>Bash 在兼容 Boumne shel 脚本编程的同时，集成了 Kom shel C shel 的能，包括命今历史，命今行，目录堆钱 pushd 和 popd) ，一些实用环境安量，命今自动补全等.<br></p>
+<h3 id="构成"><a href="#构成" class="headerlink" title="构成"></a>构成</h3><p>shell 不仅提供了与内核和设备交与的方法，还成了一些今天软件开发中通用的设计模式比管道和过)，具备控制流程，循环，变量，命令查找的机制 <br><br>既是命令解释器，也是一门编程语言，作为命今解释器，它提供给用户接口,使用丰富的 GNU 工具集，第三方的或者内置的，比 cd、pwd,exec, tet， netstat 等等<br><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d32cb2fa04a24cf6bb63dce42f7d4968~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h2 id="02-语法和命令"><a href="#02-语法和命令" class="headerlink" title="02.语法和命令"></a>02.语法和命令</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad0fd3e79fae4d51b86a974fbd9aa723~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>父子 Shell</strong></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/818654384e654fdda49a49ca3dce9d60~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="自定义变量"><a href="#自定义变量" class="headerlink" title="自定义变量"></a>自定义变量</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1a3fd852fc5143c79cf876c0f39d3d47~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="系统环境变量"><a href="#系统环境变量" class="headerlink" title="系统环境变量"></a>系统环境变量</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8be8b16225bd4a99b846ba48366c60db~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="配置文件加载"><a href="#配置文件加载" class="headerlink" title="配置文件加载"></a>配置文件加载</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a13cf166674e496b88e47c99e3464195~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<ul>
+<li>通过系统用户登录默认运行的 Shell</li>
+<li>非登录交互式运行 Shell</li>
+<li>执行脚本运行非交互 Shell</li>
+</ul>
+<p>如果取得 bash 需要完整的登录流程，我们称之为 login shell ，比如 ssh 远程登录一台主机，不需要登录 bash 我们称之为 non-login bash，比如在原来的 bash 中执行 bash 开启子进程，执行一些外部命令，如果修改了配置文件，不会立即生效，需要我们重启终端或者执行 source 命令。</p>
+<h3 id="运算符和引用"><a href="#运算符和引用" class="headerlink" title="运算符和引用"></a>运算符和引用</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f8c1c51e5a3a4e1a896d337a05886e08~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h4><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>加法</td>
+<td><code>expr 1 + 2</code> 结果为 3</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减法</td>
+<td><code>expr 3 - 1</code> 结果为 2</td>
+</tr>
+<tr>
+<td>*</td>
+<td>乘法</td>
+<td><code>expr 2 * 3</code> 结果为 6</td>
+</tr>
+<tr>
+<td>&#x2F;</td>
+<td>除法</td>
+<td><code>expr 10 / 2</code> 结果为 5</td>
+</tr>
+<tr>
+<td>%</td>
+<td>取余数</td>
+<td><code>expr 11 % 2</code> 结果为 1</td>
+</tr>
+<tr>
+<td>&#x3D;</td>
+<td>赋值</td>
+<td><code>a=10</code> 将 10 赋值给变量 a</td>
+</tr>
+<tr>
+<td>&#x3D;&#x3D;</td>
+<td>判断相等</td>
+<td><code>if [ $a == 10 ]</code> 判断变量 a 是否等于 10，等于返回 true，不等于返回 false</td>
+</tr>
+</tbody></table>
+<h4 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h4><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-eq</td>
+<td>相等</td>
+<td><code>if [ $a -eq $b ]</code> 判断变量 a 是否等于变量 b，等于返回 true，不等于返回 false</td>
+</tr>
+<tr>
+<td>-ne</td>
+<td>不相等</td>
+<td><code>if [ $a -ne $b ]</code> 判断变量 a 是否不等于变量 b，是返回 true，否则返回 false</td>
+</tr>
+<tr>
+<td>-gt</td>
+<td>大于</td>
+<td><code>if [ $a -gt $b ]</code> 判断变量 a 是否大于变量 b，是返回 true，否则返回 false</td>
+</tr>
+<tr>
+<td>-lt</td>
+<td>小于</td>
+<td><code>if [ $a -lt $b ]</code> 判断变量 a 是否小于变量 b，是返回 true，否则返回 false</td>
+</tr>
+<tr>
+<td>-ge</td>
+<td>大于等于</td>
+<td><code>if [ $a -ge $b ]</code> 判断变量 a 是否大于等于变量 b，是返回 true，否则返回 false</td>
+</tr>
+<tr>
+<td>-le</td>
+<td>小于等于</td>
+<td><code>if [ $a -le $b ]</code> 判断变量 a 是否小于等于变量 b，是返回 true，否则返回 false</td>
+</tr>
+</tbody></table>
+<h4 id="布尔运算符"><a href="#布尔运算符" class="headerlink" title="布尔运算符"></a>布尔运算符</h4><p>| 运算符 | 描述         | 示例                                                                                                         |<br>| —— | ———— | ———————————————————————————————————— | ———- | —————– | — | ————————————————————————————— |<br>| !      | 非运算       | <code>if ! [ $a == $b ]</code> 判断变量 a 是否不等于变量 b，是返回 true，否则返回 false                                 |<br>| -o     | 或运算       | <code>if [ $a -lt 10 -o $b -gt 20 ]</code> 判断变量 a 是否小于 10 或变量 b 是否大于 20，是返回 true，否则返回 false     |<br>| -a     | 与运算       | <code>if [ $a -lt 10 -a $b -gt 20 ]</code> 判断变量 a 是否小于 10 且变量 b 是否大于 20，是返回 true，否则返回 false     |<br>| &amp;&amp;     | 逻辑与运算   | <code>if [ $a -lt 10 ] &amp;&amp; [ $b -gt 20 ]</code> 判断变量 a 是否小于 10 且变量 b 是否大于 20，是返回 true，否则返回 false |<br>|        |              |                                                                                                              | 逻辑或运算 | <code>if [ $a -lt 10 ] |     | [ $b -gt 20 ]</code> 判断变量 a 是否小于 10 或变量 b 是否大于 20，是返回 true，否则返回 false |<br>| -z     | 字符串为空   | <code>if [ -z $a ]</code> 判断字符串变量 a 是否为空，是返回 true，否则返回 false                                        |<br>| -n     | 字符串不为空 | <code>if [ -n $a ]</code> 判断字符串变量 a 是否不为空，是返回 true，否则返回 false                                      |</p>
+<h3 id="引用命令"><a href="#引用命令" class="headerlink" title="引用命令"></a>引用命令</h3><h4 id="反引号引用"><a href="#反引号引用" class="headerlink" title="反引号引用"></a>反引号引用</h4><p>反引号引用可以将一个命令的执行结果赋值给一个变量。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 获取当前日期并赋值给变量 date</span><br><span class="line">date=`date +%Y-%m-%d`</span><br><span class="line">echo $date</span><br></pre></td></tr></table></figure>
+
+<h4 id="引用"><a href="#引用" class="headerlink" title="$() 引用"></a>$() 引用</h4><p>$() 引用也可以将一个命令的执行结果赋值给一个变量。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 获取当前日期并赋值给变量 date</span><br><span class="line">date=$(date +%Y-%m-%d)</span><br><span class="line">echo $date</span><br></pre></td></tr></table></figure>
+
+<h4 id="单引号引用"><a href="#单引号引用" class="headerlink" title="单引号引用"></a>单引号引用</h4><p>单引号引用可以防止引号内的特殊字符被解析。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">echo &#x27;Hello $USER!&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Hello $USER!</span><br></pre></td></tr></table></figure>
+
+<h4 id="双引号引用"><a href="#双引号引用" class="headerlink" title="双引号引用"></a>双引号引用</h4><p>双引号引用可以保留引号内的变量和转义字符。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">echo &quot;Hello $USER!&quot;</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Hello root!</span><br></pre></td></tr></table></figure>
+
+<h3 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h3><p>管道与管道符| ，作用是将前一个命令的结果传递给后面的命令<br><br><strong>语法</strong>： cmd1 | cmd2<br><br><strong>要求</strong>：管道右侧的命令必须能接受标准输入才行，比如 grep 命令，ls、mv 等不能直接使用，可以使用 xargs 预处理<br><br><strong>注意</strong>：管道命令仅仅处理 stdout ，对于 stderr 会予以忽略，可以使用 set-o pipefail 设置 shell 遇到管道错误退出<br></p>
+<h3 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f1b062c396014e4cbe88965b4e8832a6~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="输出重定向"><a href="#输出重定向" class="headerlink" title="输出重定向"></a>输出重定向</h4><h5 id="gt-命令"><a href="#gt-命令" class="headerlink" title="&gt;命令"></a><code>&gt;</code>命令</h5><p>使用<code>&gt;</code>命令可以将命令的输出重定向到一个文件中，如果文件不存在则创建该文件，如果文件已存在则覆盖该文件。语法如下：</p>
+<pre><code>command &gt; file
+</code></pre>
+<p>其中<code>command</code>表示一个命令，<code>file</code>表示输出重定向的目标文件。</p>
+<p>示例：</p>
+<pre><code>echo &quot;hello world&quot; &gt; output.txt
+</code></pre>
+<h5 id="gt-gt-命令"><a href="#gt-gt-命令" class="headerlink" title="&gt;&gt;命令"></a><code>&gt;&gt;</code>命令</h5><p>使用<code>&gt;&gt;</code>命令可以将命令的输出追加到一个文件中，如果文件不存在则创建该文件，如果文件已存在则在文件末尾追加内容。语法如下：</p>
+<pre><code>command &gt;&gt; file
+</code></pre>
+<p>其中<code>command</code>表示一个命令，<code>file</code>表示输出重定向的目标文件。</p>
+<p>示例：</p>
+<pre><code>echo &quot;hello&quot; &gt;&gt; output.txt
+echo &quot;world&quot; &gt;&gt; output.txt
+</code></pre>
+<h4 id="输入重定向"><a href="#输入重定向" class="headerlink" title="输入重定向"></a>输入重定向</h4><h5 id="lt-命令"><a href="#lt-命令" class="headerlink" title="&lt;命令"></a><code>&lt;</code>命令</h5><p>使用<code>&lt;</code>命令可以将文件中的内容作为命令的输入。语法如下：</p>
+<pre><code>command &lt; file
+</code></pre>
+<p>其中<code>command</code>表示一个命令，<code>file</code>表示输入重定向的源文件。</p>
+<p>示例：</p>
+<pre><code>bashCopy code
+sort &lt; input.txt
+</code></pre>
+<h5 id="lt-lt-命令"><a href="#lt-lt-命令" class="headerlink" title="&lt;&lt;命令"></a><code>&lt;&lt;</code>命令</h5><p>使用<code>&lt;&lt;</code>命令可以将多行文本作为命令的输入。语法如下：</p>
+<pre><code>command &lt;&lt; delimiter
+text
+delimiter
+</code></pre>
+<p>其中<code>command</code>表示一个命令，<code>delimiter</code>表示一个定界符，<code>text</code>表示多行文本。</p>
+<p>示例：</p>
+<pre><code>cat &lt;&lt; EOF
+This is the first line.
+This is the second line.
+EOF
+</code></pre>
+<h3 id="判断命令"><a href="#判断命令" class="headerlink" title="判断命令"></a>判断命令</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cc928987cb054c45b379100be1e18a37~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h4><p><code>if</code>语句可以根据某个条件来执行不同的命令。语法如下：</p>
+<pre><code>if [ condition ]
+then
+    command1
+else
+    command2
+fi
+</code></pre>
+<p>其中<code>condition</code>表示一个条件表达式，如果满足条件则执行<code>command1</code>，否则执行<code>command2</code>。</p>
+<p>示例：</p>
+<pre><code>if [ $1 -gt 10 ]
+then
+    echo &quot;$1 is greater than 10&quot;
+else
+    echo &quot;$1 is less than or equal to 10&quot;
+fi
+</code></pre>
+<h4 id="test-命令"><a href="#test-命令" class="headerlink" title="test 命令"></a>test 命令</h4><p><code>test</code>命令可以用来测试某个条件是否成立。语法如下：</p>
+<pre><code>bashCopy code
+test condition
+</code></pre>
+<p>其中<code>condition</code>表示一个条件表达式，如果条件成立则返回 0，否则返回非 0 值。</p>
+<p>示例：</p>
+<pre><code>if test -f &quot;/etc/passwd&quot;
+then
+    echo &quot;The file /etc/passwd exists.&quot;
+else
+    echo &quot;The file /etc/passwd does not exist.&quot;
+fi
+</code></pre>
+<h4 id="文件测试命令"><a href="#文件测试命令" class="headerlink" title="文件测试命令"></a>文件测试命令</h4><p>以下命令用于测试文件的属性：</p>
+<ul>
+<li><code>-e</code>：测试文件是否存在</li>
+<li><code>-f</code>：测试文件是否为普通文件</li>
+<li><code>-d</code>：测试文件是否为目录</li>
+<li><code>-r</code>：测试文件是否可读</li>
+<li><code>-w</code>：测试文件是否可写</li>
+<li><code>-x</code>：测试文件是否可执行</li>
+</ul>
+<p>示例：</p>
+<pre><code>if [ -d &quot;/usr/bin&quot; ]
+then
+    echo &quot;/usr/bin is a directory&quot;
+else
+    echo &quot;/usr/bin is not a directory&quot;
+fi
+</code></pre>
+<h4 id="字符串测试命令"><a href="#字符串测试命令" class="headerlink" title="字符串测试命令"></a>字符串测试命令</h4><p>以下命令用于测试字符串的属性：</p>
+<ul>
+<li><code>-z</code>：测试字符串是否为空</li>
+<li><code>-n</code>：测试字符串是否非空</li>
+<li><code>=</code>：测试字符串是否相等</li>
+<li><code>!=</code>：测试字符串是否不相等</li>
+</ul>
+<p>示例：</p>
+<pre><code>str1=&quot;hello&quot;
+str2=&quot;world&quot;
+if [ &quot;$str1&quot; = &quot;$str2&quot; ]
+then
+    echo &quot;The two strings are equal&quot;
+else
+    echo &quot;The two strings are not equal&quot;
+fi
+</code></pre>
+<h3 id="分支语句"><a href="#分支语句" class="headerlink" title="分支语句"></a>分支语句</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/121cae9bfde041c8b0ec68d36d922b0b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b1c2197b86c249fdaa2e44c81506851e~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f7f6c60f0a9e48fa96cfb1681b2b67f9~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e3f6e5b727f64599b2f1ff9cfcef06da~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>在 Shell 中，函数必须在使用之前先定义。Shell 脚本会自上而下依次执行，这意味着函数定义应该放在调用函数之前。函数可以通过以下方式获取参数：</p>
+<ul>
+<li><code>$1</code>，表示第一个参数</li>
+<li><code>$2</code>，表示第二个参数</li>
+<li>…</li>
+</ul>
+<p>函数执行完毕后，可以使用<code>return</code>语句表示函数执行状态，但并不代表函数执行结果。如果需要返回函数结果，一般使用<code>echo</code>或<code>printf</code>命令来输出结果。</p>
+<p>在函数外部，可以通过<code>$0</code>来获取函数名称，而通过<code>$?</code>可以获取函数执行状态。如果函数没有使用<code>return</code>语句返回结果，则函数状态等同于上一条命令的执行状态，可以通过<code>$?</code>来获取。</p>
+<h3 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/402891e948fc4b1a9cef1f600c96690b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p>Shell 模块化可以将一个大型的 Shell 脚本拆分为多个模块，每个模块可以独立开发、测试和维护。模块化的好处包括：</p>
+<ul>
+<li>代码复用性：多个脚本可以共用同一个模块，避免代码重复。</li>
+<li>可维护性：模块之间的关系清晰，容易维护和修改。</li>
+<li>可测试性：每个模块可以独立测试，避免对整个脚本的测试和调试。</li>
+</ul>
+<h4 id="模块定义"><a href="#模块定义" class="headerlink" title="模块定义"></a>模块定义</h4><p>一个 Shell 模块可以是一个单独的文件，也可以是一组相关的函数。为了方便管理，我们通常将所有的模块都放在一个独立的目录中，并使用一个文件来定义每个模块。</p>
+<p>下面是一个示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line"># 定义模块名和依赖模块</span><br><span class="line">MODULE_NAME=&quot;example&quot;</span><br><span class="line">MODULE_DEPENDENCIES=(&quot;common&quot; &quot;logger&quot;)</span><br><span class="line"></span><br><span class="line"># 导入依赖模块</span><br><span class="line">for module in $&#123;MODULE_DEPENDENCIES[@]&#125;; do</span><br><span class="line">    source &quot;$&#123;module&#125;.sh&quot;</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"># 定义模块函数</span><br><span class="line">function hello() &#123;</span><br><span class="line">    echo &quot;Hello, world!&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上面的示例中，我们首先定义了模块的名称 <code>example</code>，以及依赖模块 <code>common</code> 和 <code>logger</code>。然后，我们使用一个循环导入所有的依赖模块。</p>
+<p>最后，我们定义了一个名为 <code>hello</code> 的函数。</p>
+<h4 id="模块导入"><a href="#模块导入" class="headerlink" title="模块导入"></a>模块导入</h4><p>要在另一个脚本中使用一个模块，我们可以使用 <code>source</code> 命令来导入该模块。例如，假设我们要在一个名为 <code>main.sh</code> 的脚本中使用 <code>example</code> 模块：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line"># 导入 example 模块</span><br><span class="line">source &quot;example.sh&quot;</span><br><span class="line"></span><br><span class="line"># 调用 example 模块的 hello 函数</span><br><span class="line">hello</span><br></pre></td></tr></table></figure>
+
+<p>在上面的示例中，我们使用 <code>source</code> 命令导入了 <code>example.sh</code> 模块，并调用了 <code>hello</code> 函数。</p>
+<h4 id="模块化目录结构"><a href="#模块化目录结构" class="headerlink" title="模块化目录结构"></a>模块化目录结构</h4><p>通常情况下，我们将所有的模块都放在一个独立的目录中，如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">myproject/</span><br><span class="line">├── modules/</span><br><span class="line">│   ├── common.sh</span><br><span class="line">│   ├── example.sh</span><br><span class="line">│   └── logger.sh</span><br><span class="line">└── main.sh</span><br></pre></td></tr></table></figure>
+
+<p>在上面的目录结构中，<code>modules</code> 目录包含了所有的模块文件，而 <code>main.sh</code> 则是主脚本。</p>
+<p>使用模块化的目录结构可以方便地管理多个模块，使代码更加清晰和易于维护。</p>
+<h2 id="03-执行过程和原理"><a href="#03-执行过程和原理" class="headerlink" title="03.执行过程和原理"></a>03.执行过程和原理</h2><ol>
+<li>解析命令行参数：Shell 解析命令行参数，并根据参数的不同执行不同的命令。</li>
+<li>读取配置文件：Shell 会读取用户的配置文件，例如 <code>~/.bashrc</code> 和 <code>~/.bash_profile</code>，并执行其中的命令。</li>
+<li>执行命令：Shell 会根据用户输入的命令执行相应的操作，包括内置命令和外部命令。</li>
+<li>处理输入输出：Shell 会处理命令的输入和输出，包括输入重定向、输出重定向和管道。</li>
+<li>执行子 Shell：Shell 可以执行子 Shell，子 Shell 会继承父 Shell 的环境变量和文件描述符。</li>
+<li>退出 Shell：当用户输入 <code>exit</code> 命令或者脚本执行完毕时，Shell 会退出。<br>在上面的执行过程中，Shell 解析命令行参数、读取配置文件和执行命令等步骤是 Shell 的核心功能。这些功能是通过 Shell 的语法解析器实现的，语法解析器会将用户输入的命令解析成 Shell 内部数据结构，然后将其交给 Shell 的执行引擎执行。</li>
+</ol>
+<h3 id="Shell-的-6-种展开方式"><a href="#Shell-的-6-种展开方式" class="headerlink" title="Shell 的 6 种展开方式"></a>Shell 的 6 种展开方式</h3><p>Shell 支持 6 种展开方式，它们分别是：</p>
+<ol>
+<li>参数展开：使用 <code>$</code> 符号引用变量时，Shell 会将 <code>$</code> 后面的字符展开为变量的值。例如：<code>$var</code> 会被展开为变量 <code>var</code> 的值。</li>
+<li>命令替换：使用反引号 <code>`</code> 或 <code>$()</code> 包围一个命令，Shell 会将命令的输出替换为这个命令的执行结果。例如：<code>`date`</code> 会被替换为当前日期和时间。</li>
+<li>算术展开：使用 <code>$((expression))</code> 或 <code>$[expression]</code> 来进行算术展开。例如：<code>echo $((2+3))</code> 会输出 <code>5</code>。</li>
+<li>文件名展开：使用通配符 <code>*</code>、<code>?</code>、<code>[]</code> 来匹配文件名进行展开。例如：<code>ls *.txt</code> 会列出当前目录下所有以 <code>.txt</code> 结尾的文件。</li>
+<li>大括号展开：使用 <code>&#123;&#125;</code> 将一组字符串括起来，Shell 会展开成这组字符串的所有组合。例如：<code>echo &#123;a,b,c&#125;&#123;1,2&#125;</code> 会输出 <code>a1 a2 b1 b2 c1 c2</code>。</li>
+<li>波浪线展开：使用 <code>~</code> 表示当前用户的主目录，或者使用 <code>~username</code> 表示指定用户的主目录。例如：<code>cd ~</code> 会切换到当前用户的主目录。</li>
+</ol>
+<h2 id="04-调试和前端集成"><a href="#04-调试和前端集成" class="headerlink" title="04.调试和前端集成"></a>04.调试和前端集成</h2><h3 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f0dafb03a72644aeb1842a136811a95d~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="VSCode-配置"><a href="#VSCode-配置" class="headerlink" title="VSCode 配置"></a>VSCode 配置</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d5549d452cc4453681dcde8ceb59424a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="前端集成"><a href="#前端集成" class="headerlink" title="前端集成"></a>前端集成</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/24e15985920c482880cc01f7113059c8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="课程总结"><a href="#课程总结" class="headerlink" title="课程总结"></a>课程总结</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2cbd720a4d314572a55612d1aa35d8c5~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Shell-总结"><a href="#Shell-总结" class="headerlink" title="Shell 总结"></a>Shell 总结</h3><p>Shell 是一种基于文本的命令行解释器，它的思想和语法和传统的编程语言不太一样。Shell 的语法非常简单，它强调一条语句只干一件事情，所以 Shell 中的万物皆命令，几乎每一个操作都可以用一个命令来完成。在 Shell 中，每一条命令都是独立的，它们可以逐行、逐个连接符、逐个空格地解析出最小化的命令进行执行，然后再解析下一句命令。</p>
+<p>要写出高效的 Shell 脚本，需要熟悉 Shell 的配置加载、执行方式、执行过程、命令解析过程、必要的语法和常用命令。了解了这些内容之后，就可以方便地写出自己的自动化脚本，从而提高工作效率和编程能力。</p>
+<p>综上所述，Shell 是一种非常灵活、简单、高效的命令行解释器，它具有广泛的应用领域，包括系统管理、软件开发、数据处理等等。掌握 Shell 的思想和语法对于日常工作和编程开发都非常重要。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/14/Shell-%E8%84%9A%E6%9C%AC%E5%92%8C%E7%BC%96%E7%A8%8B-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsc0006h8ju4ojb3ny3" data-title="Shell 脚本和编程 | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/06/14/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          客户端容器 | 青训营笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/06/14/Linux-%E5%9F%BA%E7%A1%80-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">Linux 基础 | 青训营笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/06/14/React-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">React | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/JavaScript(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">JavaScript(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">深入CSS(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%89%8D%E7%AB%AF%E8%AF%AD%E8%A8%80%E4%B8%B2%E8%AE%B2-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">前端语言串讲 | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">客户端容器 | 青训营笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Thresh<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

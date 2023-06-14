@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Node.js 与前端开发实战 | 青训营笔记 | Thresh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Node.js 与前端开发实战（一） | 青训营笔记Node.js 的应用场景(Why)1.前端工程化早期 ajax，jquery 比较流行的时候，我们直接在页面中引入相应的 lib 即可。后面随着模块化，transpile 逐渐成熟，需求逐渐增多，对后端能力的需求也逐渐强烈。也就是说，Node.js 赋予了 js 开发者在浏览器外运行代码的能力，加速催生了这些项目的出现。Bundle：webpa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js 与前端开发实战 | 青训营笔记">
+<meta property="og:url" content="http://example.com/2023/06/14/Node-js-%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Thresh">
+<meta property="og:description" content="Node.js 与前端开发实战（一） | 青训营笔记Node.js 的应用场景(Why)1.前端工程化早期 ajax，jquery 比较流行的时候，我们直接在页面中引入相应的 lib 即可。后面随着模块化，transpile 逐渐成熟，需求逐渐增多，对后端能力的需求也逐渐强烈。也就是说，Node.js 赋予了 js 开发者在浏览器外运行代码的能力，加速催生了这些项目的出现。Bundle：webpa">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a181eca311974a7dab5743fbbad48ef0~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5b799a7a1e674f27af2def3029de2658~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/06ae106d82cc48cfb38cf16d8d7f627f~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8f0f81a36cf44c6eb1701b98894dde1a~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84edd17439434867af7499942344143c~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/38bc0c1745a14694a37f3f5a0aef389b~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fa7d46526f6f41349cbc693c1d7307cd~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f881c21f153b42da9cd1a45c6c6fa319~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f1e848162b7d456ea035f9f704c5f192~tplv-k3u1fbpfcp-watermark.image">
+<meta property="article:published_time" content="2023-06-14T02:44:49.000Z">
+<meta property="article:modified_time" content="2023-06-14T02:45:31.280Z">
+<meta property="article:author" content="Thresh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a181eca311974a7dab5743fbbad48ef0~tplv-k3u1fbpfcp-watermark.image">
+  
+    <link rel="alternate" href="/atom.xml" title="Thresh" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Thresh</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Node-js-与前端开发实战-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/14/Node-js-%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-06-14T02:44:49.000Z" itemprop="datePublished">2023-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Node.js 与前端开发实战 | 青训营笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Node-js-与前端开发实战（一）-青训营笔记"><a href="#Node-js-与前端开发实战（一）-青训营笔记" class="headerlink" title="Node.js 与前端开发实战（一） | 青训营笔记"></a>Node.js 与前端开发实战（一） | 青训营笔记</h1><h2 id="Node-js-的应用场景-Why"><a href="#Node-js-的应用场景-Why" class="headerlink" title="Node.js 的应用场景(Why)"></a>Node.js 的应用场景(Why)</h2><h3 id="1-前端工程化"><a href="#1-前端工程化" class="headerlink" title="1.前端工程化"></a>1.前端工程化</h3><p>早期 ajax，jquery 比较流行的时候，我们直接在页面中引入相应的 lib 即可。后面随着模块化，transpile 逐渐成熟，需求逐渐增多，对后端能力的需求也逐渐强烈。也就是说，Node.js 赋予了 js 开发者在浏览器外运行代码的能力，加速催生了这些项目的出现。<br><br><strong>Bundle</strong>：webpack,vite,esbuild,parcel<br><br><strong>Uglify</strong>:uglifyjs<br><br><strong>Transpile</strong>: bablejs, typescript<br><br><strong>其他语言加入竞争</strong>: esbuild,parcel,prisma<br><br><strong>现状</strong>：难以替代</p>
+<h3 id="2-Web-服务端应用"><a href="#2-Web-服务端应用" class="headerlink" title="2.Web 服务端应用"></a>2.Web 服务端应用</h3><p>学习曲线平缓，开发效率较高<br><br>运行效率接近常见的编译语言<br><br>社区生态丰富及工具链成熟(npm,V8 inspector)<br><br>与前端结合的场景会有优势(SSR)<br><br>现状: 竞争激烈，<strong>Node.js</strong> 有自己独特的优势<br></p>
+<h3 id="3-Electron-跨端桌面应用"><a href="#3-Electron-跨端桌面应用" class="headerlink" title="3.Electron 跨端桌面应用"></a>3.Electron 跨端桌面应用</h3><p>商业应用: vscode,slack,discord,zoom<br><br>大型公司内的效率工具<br><br>现状:大部分场景在选型时，都值得考虑<br></p>
+<p><strong>Node.js 在字节</strong><br><br>BFF 应用、SSR 应用，举例: Modern.js<br><br>BFF：谁需要接口谁去开发，后端的核心业务逻辑还是由后端开发，这接口的拼接，按照端的需要构建 api 就由端自己构建，在 Web 端 Node.js 会是一个使用非常广泛的场景。<br><br>服务端应用，举例:头条搜索,西瓜视频,懂车帝<br><br>Electron 应用: 飞连，飞书<br><br>每年新增 1000+ Node.js 应用<br><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a181eca311974a7dab5743fbbad48ef0~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h2 id="Node-js-运行时结构-How"><a href="#Node-js-运行时结构-How" class="headerlink" title="Node.js 运行时结构(How)"></a>Node.js 运行时结构(How)</h2><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5b799a7a1e674f27af2def3029de2658~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>V8: JavaScript Runtime, 诊断调试工具(inspector)<br><br>libuv: eventloop (事件循环),syscall (系统调用)<br><br>举例:用 node-fetch 发起请求时…<br><br><br>通过<code>npm</code>安装<code>node-fetch</code>模块，用户代码里调用<code>node-fetch</code>模块，那这些代码都是 JavaScript，那会到<code>V8</code>里面去执行，执行的话<code>node-fetch</code>底层调用的是<strong>HTTP 模块</strong>，会调用<code>node.js Core（JavaScript）</code>里的<strong>HTTP 模块</strong>，更底层会调用<strong>C++的 API</strong>，可能需要调用<code>llhttp</code>来帮我做这个<strong>HTTP 协议的序列化和反序列化</strong>，通过获得的数据，通过<code>libuv</code>，创建一个<strong>TCP 链接</strong>，再把数据发送到远端，反过来也是一样，远端传给我数据以后，我在<strong>事件循环</strong>里得到这个消息，在拿到这个数据，再给<code>llhttp</code>解析出来，再把数据传给<code>nodejs core</code> 代码，再到<code>用户代码</code>，在整个过程中，虽然都是 JavaScript 代码，但底层更多的是 C++代码。</p>
+<h3 id="Node-js-运行时结构–特点"><a href="#Node-js-运行时结构–特点" class="headerlink" title="Node.js 运行时结构–特点"></a>Node.js 运行时结构–特点</h3><h4 id="异步-I-x2F-O"><a href="#异步-I-x2F-O" class="headerlink" title="异步 I&#x2F;O"></a>异步 I&#x2F;O</h4><p>当 Node.jis 执行 IO 操作时，会在响应返回后恢复操作，而不是阻塞线程并占用额外内存等待<br><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/06ae106d82cc48cfb38cf16d8d7f627f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="单线程"><a href="#单线程" class="headerlink" title="单线程"></a>单线程</h4><p>JS 单线程<br><br>实际: JS 线程 + uv 线程池 + V8 任务线程池 +V8 Inspector 线程<br><br>优点:不用考虑多线程状态同步问题，也就不需要锁;同时还能比较高效地利用系统资源<br><br>缺点:阻塞会产生更多负面影响解决办法:多进程或多线程<br></p>
+<h4 id="跨平台"><a href="#跨平台" class="headerlink" title="跨平台"></a>跨平台</h4><p>跨平台(大部分功能、api)<br><br>Node.js 跨平台 +JS 无需编译环境 (+ Web 跨平台 + 诊断工具跨平台)<br><br>开发成本低(大部分场景无需担心跨平台问题)，整体学习成本低</p>
+<h2 id="编写-Http-Server-How"><a href="#编写-Http-Server-How" class="headerlink" title="编写 Http Server(How)"></a>编写 Http Server(How)</h2><p>0.安装 Node.js<br> 1.编写 Http Server + Client, 收发 GETPOST 请求<br> 2.编写静态文件服务器<br> 3.编写 React SSR 服务<br> 4.适用 inspector 进行调试、诊断<br> 5.部署简介<br></p>
+<h3 id="编写-Http-Server–安装-Node-js"><a href="#编写-Http-Server–安装-Node-js" class="headerlink" title="编写 Http Server–安装 Node.js"></a>编写 Http Server–安装 Node.js</h3><p>Mac, Linux 推荐使用 nvm。多版本管理<br><br>Windows 推荐 nvm4w 或是官方安装包<br><br>安装慢，安装失败的情况，设置安装源<br><br><code>NVM NODEJS ORG MIRROR=https://npmmirror.com/mirrors/node nvm install 16</code><br><br><strong>Hello World</strong><br>const http &#x3D; require(‘http’)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const server =http.createServer((req,res) =&gt; &#123;</span><br><span class="line">    res.end(&#x27;hello&#x27;)</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">const port = 3000</span><br><span class="line"></span><br><span class="line">server.listen(port,() =&gt; &#123;</span><br><span class="line">    console.log(&#x27;listen on:&#x27;,port)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8f0f81a36cf44c6eb1701b98894dde1a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84edd17439434867af7499942344143c~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>JSON</strong></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/38bc0c1745a14694a37f3f5a0aef389b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>Client</strong></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fa7d46526f6f41349cbc693c1d7307cd~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="编写-Http-Server–-Promisify"><a href="#编写-Http-Server–-Promisify" class="headerlink" title="编写 Http Server– Promisify"></a>编写 Http Server– Promisify</h3><p>用 <strong>Promise + async await</strong> 重写这两个例子(why)<br><br>技巧: 将 callback 转换成 promise<br></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f881c21f153b42da9cd1a45c6c6fa319~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="编写-Http-Server-–-静态文件"><a href="#编写-Http-Server-–-静态文件" class="headerlink" title="编写 Http Server – 静态文件"></a>编写 Http Server – 静态文件</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f1e848162b7d456ea035f9f704c5f192~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>与高性能、可靠的服务相比，还差什么?<br><br>1.CDN: 缓存+加速<br>2.分布式储存，容灾<br><br>外部服务: cloudflare，七牛云，阿里云，火山云…<br></p>
+<h3 id="编写-Http-Server-–React-SSR"><a href="#编写-Http-Server-–React-SSR" class="headerlink" title="编写 Http Server –React SSR"></a>编写 Http Server –React SSR</h3><p>SSR (server side rendering) 有什么特点?<br><br>相比传统 HTML 模版引擎: 避免重复编写代码<br><br>相比 SPA (single page application) :首屏染更快，SEO 友好<br><br>缺点:通常 qps 较低，前端代码编写时需要考虑服务端染情况<br></p>
+<p><strong>SSR 难点：</strong><br> 1.需要处理打包代码<br> 2.需要思考前端代码在服务端运行时的逻辑<br> 3.移除对服务器端无意义的副作用，或重置环境<br></p>
+<h3 id="编写-Http-Server-–Debug"><a href="#编写-Http-Server-–Debug" class="headerlink" title="编写 Http Server –Debug"></a>编写 Http Server –Debug</h3><p>V8 Inspector: 开箱即用、特性丰富强大、与前端开发一致、跨平台<br><br>node –inspect<br><br>open <a target="_blank" rel="noopener" href="http://localhost:9229/ison">http://localhost:9229/ison</a><br><br><strong>场景:</strong><br><br>查看 console.log 内容<br><br>breakpoint<br><br>高 CPU、死循环: cpuprofile<br><br>高内存占用: heapsnapshot 性能分析<br></p>
+<h3 id="编写-Http-Server-–部署"><a href="#编写-Http-Server-–部署" class="headerlink" title="编写 Http Server –部署"></a>编写 Http Server –部署</h3><p><strong>部署要解决的问题<br></strong><br>守护进程:当进程退出时，重新拉起<br>多进程: cluster 便捷地利用多进程<br>记录进程状态，用于诊断<br><br><strong>容器环境<br></strong><br>通常有健康检查的手段，只需考虑多核 cpu 利用率即可<br></p>
+<h2 id="延伸话题"><a href="#延伸话题" class="headerlink" title="延伸话题"></a>延伸话题</h2><h3 id="快速了解-Node-js-代码"><a href="#快速了解-Node-js-代码" class="headerlink" title="快速了解 Node.js 代码"></a>快速了解 Node.js 代码</h3><p><a target="_blank" rel="noopener" href="https://github.com/joyeecheung/talks/blob/master/code_and_learn_2019_beijing/contributing-to-node-core.pdf">Node.js 贡献入门</a><br><br><strong>好处:</strong><br><br>从使用者的角色逐步理解底层细节，可以解决更复杂的问题<br><br>自我证明，有助于职业发展;<br><br>解决社区问题，促进社区发展<br><strong>难点</strong>:<br><br>花时间</p>
+<h3 id="为什么要学习编译-Node-js"><a href="#为什么要学习编译-Node-js" class="headerlink" title="为什么要学习编译 Node.js"></a><strong>为什么要学习编译 Node.js</strong></h3><p><strong>认知：</strong> 黑盒到白盒，发生问题时能有迹可循<br><br>贡献代码的第一步<br><br><strong>如何编译</strong><br><br>参考<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/main/doc/guides/maintaining-the-build-files.md">Maintaining the build </a><br><br>.&#x2F;configure &amp;&amp;make install<br><br>演示: 给 net 模块添加自定义属性<br></p>
+<h3 id="延伸话题-–诊断-x2F-追踪"><a href="#延伸话题-–诊断-x2F-追踪" class="headerlink" title="延伸话题 –诊断 &#x2F; 追踪"></a>延伸话题 –诊断 &#x2F; 追踪</h3><p>诊断是一个低频、重要同时也相当有挑战的方向。是企业衡量自己能否依赖一门语言的重要参考<br><br>技术咨询行业中的热门角色<br><br><strong>难点:</strong><br><br>需要了解 Node.js 底层，需要了解操作系统以及各种工具<br><br>需要经验<br></p>
+<h3 id="延伸话题-–-WASM，NAPI"><a href="#延伸话题-–-WASM，NAPI" class="headerlink" title="延伸话题 – WASM，NAPI"></a>延伸话题 – WASM，NAPI</h3><p>Node.js (因为 V8) 是执行 WASM 代码的天然容器和浏览器 WASM 是同一运行时，同时 Node.js 支持 WASI<br><br>NAPI 执行 C 接口的代码(C&#x2F;C++&#x2F;Rust…)，同时能保留原生代码的性能。<br><br>不同编程语言间通信的一种方案<br></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/14/Node-js-%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsc0005h8ju4ehrep0c" data-title="Node.js 与前端开发实战 | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/06/14/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8E-React-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          响应式系统与 React | 青训营笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/06/14/%E5%88%9D%E8%AF%86-HTTP-%E5%8D%8F%E8%AE%AE-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">初识 HTTP 协议 | 青训营笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/06/14/React-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">React | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/JavaScript(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">JavaScript(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">深入CSS(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%89%8D%E7%AB%AF%E8%AF%AD%E8%A8%80%E4%B8%B2%E8%AE%B2-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">前端语言串讲 | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">客户端容器 | 青训营笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Thresh<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

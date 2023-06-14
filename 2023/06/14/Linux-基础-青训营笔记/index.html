@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Linux 基础 | 青训营笔记 | Thresh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Linux 基础学习 Linux 的价值 Linux 是现代化应用程序交付的首选平台，无论是部署在裸机，虚拟化还是容器化环境 公司内部服务(TCE , FaaS , SCM)统一使用 Debian Linux 系统 熟悉 Linux 基础指令,熟练运维前端常用服务(Nginx , Node.js) 加深对操作系统概念和实现的理解，夯实基础知识  01.计算机硬件 控制器 运算器 存储器单元 输入单">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 基础 | 青训营笔记">
+<meta property="og:url" content="http://example.com/2023/06/14/Linux-%E5%9F%BA%E7%A1%80-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Thresh">
+<meta property="og:description" content="Linux 基础学习 Linux 的价值 Linux 是现代化应用程序交付的首选平台，无论是部署在裸机，虚拟化还是容器化环境 公司内部服务(TCE , FaaS , SCM)统一使用 Debian Linux 系统 熟悉 Linux 基础指令,熟练运维前端常用服务(Nginx , Node.js) 加深对操作系统概念和实现的理解，夯实基础知识  01.计算机硬件 控制器 运算器 存储器单元 输入单">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1142ea74fa554e63a55647a2e3189c2e~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa522faa3c0b465bbbc84c511fda0e9c~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a1083a36438f478b8c25f5ffbf8cdf47~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d27e2f1bbc0648108f8c63340a6b54b0~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b2a6ee9e90574920bbb99b4c33ba426c~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/392c9b422c4f415f882b7d89c08a71a8~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/900029ff0c41451185e29e9a0550f8b4~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8f767b5cd2b544a397052d47f24d165b~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4329068742364315b8353ffc055c2cac~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/97c05f883f0143f584e684dcbb006240~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2434e0b51dbc41c59ac9662c20b197a3~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4f504f6ef41540ee92036472ddf951d2~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b192a3f49c2144388bb3e7ae7d1e9ceb~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/16cdf081d3f94d1690b1ee3524bdf034~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7f2817ed0196439880dc65184795faf0~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d4c940ee9e944236ab4d4c931a61ff5d~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c677f71f6f624ea9ad6488721a77c3d7~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9c1d9be8ded14ece917ff96c6d2cc4f7~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/323ccffc5dd6461db4bf95f64ec82320~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7be49266e3ac47ed8db218b246f0288d~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f4fb590e5e4845e7acc0d58573962415~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43ca6c5564be4e77b905f37a3993cafd~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac3cb4c1e0744e03bd0b02284250115f~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e8ccca70bb114877ac3b6abb8f28eb9c~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8c598e09e89f4ad2984d714ca66edbfe~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2ded6388d3ac442282ed268ac0bf017d~tplv-k3u1fbpfcp-watermark.image">
+<meta property="article:published_time" content="2023-06-14T02:53:03.000Z">
+<meta property="article:modified_time" content="2023-06-14T02:53:15.801Z">
+<meta property="article:author" content="Thresh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1142ea74fa554e63a55647a2e3189c2e~tplv-k3u1fbpfcp-watermark.image">
+  
+    <link rel="alternate" href="/atom.xml" title="Thresh" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Thresh</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Linux-基础-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/14/Linux-%E5%9F%BA%E7%A1%80-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-06-14T02:53:03.000Z" itemprop="datePublished">2023-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Linux 基础 | 青训营笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Linux-基础"><a href="#Linux-基础" class="headerlink" title="Linux 基础"></a>Linux 基础</h1><h2 id="学习-Linux-的价值"><a href="#学习-Linux-的价值" class="headerlink" title="学习 Linux 的价值"></a>学习 Linux 的价值</h2><ul>
+<li>Linux 是现代化应用程序交付的首选平台，无论是部署在裸机，虚拟化还是容器化环境</li>
+<li>公司内部服务(TCE , FaaS , SCM)统一使用 Debian Linux 系统</li>
+<li>熟悉 Linux 基础指令,熟练运维前端常用服务(Nginx , Node.js)</li>
+<li>加深对操作系统概念和实现的理解，夯实基础知识</li>
+</ul>
+<h2 id="01-计算机硬件"><a href="#01-计算机硬件" class="headerlink" title="01.计算机硬件"></a>01.计算机硬件</h2><ul>
+<li>控制器</li>
+<li>运算器</li>
+<li>存储器单元</li>
+<li>输入单元</li>
+<li>输出单元</li>
+</ul>
+<h2 id="02-计算机操作系统"><a href="#02-计算机操作系统" class="headerlink" title="02.计算机操作系统"></a>02.计算机操作系统</h2><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1142ea74fa554e63a55647a2e3189c2e~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="问题思考：程序启动必须有操作系统来执行，那操作系统本身也是一个程序，那是如何在开机时被执行的呢"><a href="#问题思考：程序启动必须有操作系统来执行，那操作系统本身也是一个程序，那是如何在开机时被执行的呢" class="headerlink" title="问题思考：程序启动必须有操作系统来执行，那操作系统本身也是一个程序，那是如何在开机时被执行的呢?"></a>问题思考：程序启动必须有操作系统来执行，那操作系统本身也是一个程序，那是如何在开机时被执行的呢?</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa522faa3c0b465bbbc84c511fda0e9c~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>操作系统的启动流程分为传统模式，也就是基于 BIOS 的启动流程，另一种是当前的主流模式，就是基于 UEFI 的启动流程。</p>
+<h2 id="操作系统的启动流程分为传统模式，也就是基于-bios-的启动流程，另一种是当前的主流模式，就是基于-UEFI-的启动流程"><a href="#操作系统的启动流程分为传统模式，也就是基于-bios-的启动流程，另一种是当前的主流模式，就是基于-UEFI-的启动流程" class="headerlink" title="操作系统的启动流程分为传统模式，也就是基于 bios 的启动流程，另一种是当前的主流模式，就是基于 UEFI 的启动流程."></a>操作系统的启动流程分为传统模式，也就是基于 bios 的启动流程，另一种是当前的主流模式，就是基于 UEFI 的启动流程.</h2><h2 id="Linux-系统概览"><a href="#Linux-系统概览" class="headerlink" title="Linux 系统概览"></a>Linux 系统概览</h2><h3 id="Linux-发展简史"><a href="#Linux-发展简史" class="headerlink" title="Linux 发展简史"></a>Linux 发展简史</h3><p>1.1969 年，Unix 诞生于贝尔实验室<br><br>2.1984 年，贝尔实验室将 Unix 商业化<br><br>3.1984 年，Tanenbaum 开发 Minix 操作系统用于教学并开放源码<br><br>4.1984 年，Richard M.Stallman 发起自由软件(FSF) 与 GNU 项目，起草 GPL (通用公共许可)协议<br><br>5.1991 年，Linus Torvalds 受 Minix 影响实现初版的 Linux 内核<br><br>6.1992 年，Linux 内核以 GPL 协议发行 V1.0<br></p>
+<h3 id="Linux-版本"><a href="#Linux-版本" class="headerlink" title="Linux 版本"></a>Linux 版本</h3><ul>
+<li>内核版本</li>
+<li>发行版本</li>
+</ul>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a1083a36438f478b8c25f5ffbf8cdf47~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d27e2f1bbc0648108f8c63340a6b54b0~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="查看-Linux-系统内核版本"><a href="#查看-Linux-系统内核版本" class="headerlink" title="查看 Linux 系统内核版本"></a>查看 Linux 系统内核版本</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b2a6ee9e90574920bbb99b4c33ba426c~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/392c9b422c4f415f882b7d89c08a71a8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Linux-系统应用领域"><a href="#Linux-系统应用领域" class="headerlink" title="Linux 系统应用领域"></a>Linux 系统应用领域</h3><ul>
+<li>IT 服务器 (操作系统、虚拟化和云计算)</li>
+<li>嵌入式和智能设备</li>
+<li>个人办公桌面</li>
+<li>学术研究与软件研发</li>
+</ul>
+<h2 id="Linux-系统结构"><a href="#Linux-系统结构" class="headerlink" title="Linux 系统结构"></a>Linux 系统结构</h2><h3 id="Linux-基本组成"><a href="#Linux-基本组成" class="headerlink" title="Linux 基本组成"></a>Linux 基本组成</h3><p>Linux 系统一般有 4 个主要部分</p>
+<ul>
+<li>内核</li>
+<li>shell</li>
+<li>文件系统</li>
+<li>应用程序</li>
+</ul>
+<h3 id="Linux-体系结构"><a href="#Linux-体系结构" class="headerlink" title="Linux 体系结构"></a>Linux 体系结构</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/900029ff0c41451185e29e9a0550f8b4~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<ul>
+<li>内核是硬件与软件之间的中间层</li>
+<li>内核是一个资源管理程序</li>
+<li>内核提供一组面向系统的命令</li>
+</ul>
+<h3 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h3><ul>
+<li>进程是正在执行的一个程序或命令</li>
+<li>进程有自己的地址空间，占用一定的系统资源</li>
+<li>一个 CPU 核同一时间只能运行一个进程</li>
+<li>进程由它的进程 ID (PID) 和它父进程的进程 ID (PPID) 唯一识别</li>
+</ul>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8f767b5cd2b544a397052d47f24d165b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="查看进程信息"><a href="#查看进程信息" class="headerlink" title="查看进程信息"></a>查看进程信息</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4329068742364315b8353ffc055c2cac~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="问题思考：系统中运行的程序远远大于-CPU-的核数，那-Linux-系统是如何实现同时运行这么程序的"><a href="#问题思考：系统中运行的程序远远大于-CPU-的核数，那-Linux-系统是如何实现同时运行这么程序的" class="headerlink" title="问题思考：系统中运行的程序远远大于 CPU 的核数，那 Linux 系统是如何实现同时运行这么程序的?"></a>问题思考：系统中运行的程序远远大于 CPU 的核数，那 Linux 系统是如何实现同时运行这么程序的?</h3><p>Linux 系统通过使用进程、线程和调度器等技术来实现同时运行多个程序的功能。</p>
+<p>首先，Linux 系统将每个程序看作一个进程，每个进程都有自己的代码和数据空间。每个进程都是独立的，互相之间不会干扰。通过使用调度器来协调每个进程的运行，使它们看起来是同时运行的。</p>
+<p>其次，每个进程可以创建多个线程，每个线程执行不同的任务，但它们共享进程的代码和数据空间，这样可以减少系统资源的浪费。每个线程都可以执行不同的任务，并且可以同时运行在多个 CPU 核心上，提高了系统的并发处理能力。</p>
+<p>最后，调度器会根据进程的优先级、线程的优先级、CPU 的负载等因素来决定哪个进程或线程可以运行，以保证系统资源的最大利用率。</p>
+<p>总的来说，Linux 系统通过使用进程、线程和调度器等技术来实现同时运行多个程序的功能，并提高了系统的并发处理能力。</p>
+<h3 id="进程调度"><a href="#进程调度" class="headerlink" title="进程调度"></a>进程调度</h3><p>进程调度是指操作系统按某种策略或规则选择进程占用 CPU 进行运行的过程。</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/97c05f883f0143f584e684dcbb006240~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2434e0b51dbc41c59ac9662c20b197a3~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="进程调度原则"><a href="#进程调度原则" class="headerlink" title="进程调度原则"></a>进程调度原则</h3><ul>
+<li>一个 CPU 核同一时间只能运行一个进程</li>
+<li>每个进程有近乎相等的执行时间</li>
+<li>对于逻辑 CPU 而言进程调度使用轮询的方式执行，当轮询完成则回到第一个进程反复</li>
+<li>进程执行消耗时间和进程量成正比</li>
+</ul>
+<h3 id="进程的系统调用"><a href="#进程的系统调用" class="headerlink" title="进程的系统调用"></a>进程的系统调用</h3><ul>
+<li>内核空间： 系统内核运行的空间</li>
+<li>用户空间：应用程序运行的空间</li>
+</ul>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4f504f6ef41540ee92036472ddf951d2~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h3><p>文件系统负责管理持久化数据的子系统，负责把用户的文件存到磁盘硬件中。</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b192a3f49c2144388bb3e7ae7d1e9ceb~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/16cdf081d3f94d1690b1ee3524bdf034~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="问题思考：Linux-有这么多不同的文件系统，如何实现对用户提供统一调用接口的"><a href="#问题思考：Linux-有这么多不同的文件系统，如何实现对用户提供统一调用接口的" class="headerlink" title="问题思考：Linux 有这么多不同的文件系统，如何实现对用户提供统一调用接口的?"></a>问题思考：Linux 有这么多不同的文件系统，如何实现对用户提供统一调用接口的?</h3><p>Linux 操作系统提供了 VFS（Virtual File System，虚拟文件系统）层，它是位于 Linux 内核和具体文件系统之间的抽象层。它提供了一组通用的文件系统操作接口，使得应用程序可以无需关心具体文件系统的实现细节，通过 VFS 层调用统一的文件系统操作接口，实现对所有支持的文件系统的访问和管理。</p>
+<p>VFS 层为每个文件系统定义了一组操作接口，包括打开文件、关闭文件、读文件、写文件、创建文件、删除文件等。当应用程序调用这些接口时，VFS 层将会根据具体的文件系统类型调用对应的实现接口，将请求传递给相应的文件系统实现模块。这种模块化的设计极大地提高了文件系统的可扩展性和可维护性。</p>
+<p>在 Linux 中，支持的文件系统种类非常多，包括常用的 ext4、NTFS、FAT 等，也包括特殊用途的文件系统，比如 procfs、sysfs 等。每种文件系统的实现方式都有所不同，但通过 VFS 层提供的统一接口，它们可以无缝地与应用程序交互，从而实现了对用户提供统一调用接口的目标。</p>
+<h3 id="虚拟文件系统-VFS"><a href="#虚拟文件系统-VFS" class="headerlink" title="虚拟文件系统(VFS)"></a>虚拟文件系统(VFS)</h3><ul>
+<li>对应用层提供一个标砖的文件操作接口</li>
+<li>对文件系统提供一个标准的文件接入接口</li>
+</ul>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7f2817ed0196439880dc65184795faf0~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="查看文件系统类型"><a href="#查看文件系统类型" class="headerlink" title="查看文件系统类型"></a>查看文件系统类型</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d4c940ee9e944236ab4d4c931a61ff5d~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="文件基本操作"><a href="#文件基本操作" class="headerlink" title="文件基本操作"></a>文件基本操作</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c677f71f6f624ea9ad6488721a77c3d7~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="文件读取流程"><a href="#文件读取流程" class="headerlink" title="文件读取流程"></a>文件读取流程</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9c1d9be8ded14ece917ff96c6d2cc4f7~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="用户权限"><a href="#用户权限" class="headerlink" title="用户权限"></a>用户权限</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/323ccffc5dd6461db4bf95f64ec82320~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7be49266e3ac47ed8db218b246f0288d~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="用户权限操作"><a href="#用户权限操作" class="headerlink" title="用户权限操作"></a>用户权限操作</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f4fb590e5e4845e7acc0d58573962415~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h2 id="05-Linux-软件包管理"><a href="#05-Linux-软件包管理" class="headerlink" title="05.Linux 软件包管理"></a>05.Linux 软件包管理</h2><h3 id="软件包"><a href="#软件包" class="headerlink" title="软件包"></a>软件包</h3><ul>
+<li>软件包</li>
+</ul>
+<p>通常指的是一个应用程序，它可以是一个 GUI 应用程序、命令行工具或(其他软件程序需要的) 软件库</p>
+<ul>
+<li><p>软件包管理</p>
+<p>底层工具: 主要用来处理安装和删除软件包文件等任务，DPKG，RPM<br><br>上层工具: 主要用于数据的搜索任务和依赖解析任务，APT，YUM，DNF</p>
+</li>
+</ul>
+<h3 id="软件包管理工具"><a href="#软件包管理工具" class="headerlink" title="软件包管理工具"></a>软件包管理工具</h3><ul>
+<li>RPM (Red Hat Package Manager) ，为 Red hat 操作系统的包管理系统</li>
+<li>DPKG (Debian package) ，为 Debian 操作系统的包管理系统</li>
+</ul>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43ca6c5564be4e77b905f37a3993cafd~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Debian-APT-常用命令"><a href="#Debian-APT-常用命令" class="headerlink" title="Debian APT 常用命令"></a>Debian APT 常用命令</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac3cb4c1e0744e03bd0b02284250115f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Debian-配置软件源"><a href="#Debian-配置软件源" class="headerlink" title="Debian 配置软件源"></a>Debian 配置软件源</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e8ccca70bb114877ac3b6abb8f28eb9c~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Nginx-安装"><a href="#Nginx-安装" class="headerlink" title="Nginx 安装"></a>Nginx 安装</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8c598e09e89f4ad2984d714ca66edbfe~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Nginx-配置修改"><a href="#Nginx-配置修改" class="headerlink" title="Nginx 配置修改"></a>Nginx 配置修改</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2ded6388d3ac442282ed268ac0bf017d~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/14/Linux-%E5%9F%BA%E7%A1%80-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hms80001h8ju1a7s2wai" data-title="Linux 基础 | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/06/14/Shell-%E8%84%9A%E6%9C%AC%E5%92%8C%E7%BC%96%E7%A8%8B-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          Shell 脚本和编程 | 青训营笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%AE%BA-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">计算机网络概论 | 青训营笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/06/14/React-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">React | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/JavaScript(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">JavaScript(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">深入CSS(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%89%8D%E7%AB%AF%E8%AF%AD%E8%A8%80%E4%B8%B2%E8%AE%B2-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">前端语言串讲 | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">客户端容器 | 青训营笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Thresh<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

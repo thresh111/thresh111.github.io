@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>前端必须知道的开发调试知识 | 青训营笔记 | Thresh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="01.Bug 与 DebugBug 的产生 前端 Debug 的特点01.多平台浏览器，Hybrid，NodeJs，小程序，桌面应用等。 02.多环境本地开发环境，线上环境 03.多工具Chrome devTools，Charles，Spy-Debugger，Whistle，vConsole… 04.多技巧Console，BreakPoint，sourceMap，代理等… 02.Chrome De">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端必须知道的开发调试知识 | 青训营笔记">
+<meta property="og:url" content="http://example.com/2023/06/14/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Thresh">
+<meta property="og:description" content="01.Bug 与 DebugBug 的产生 前端 Debug 的特点01.多平台浏览器，Hybrid，NodeJs，小程序，桌面应用等。 02.多环境本地开发环境，线上环境 03.多工具Chrome devTools，Charles，Spy-Debugger，Whistle，vConsole… 04.多技巧Console，BreakPoint，sourceMap，代理等… 02.Chrome De">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5430d2d9ff92458aaf3162651f16b0a7~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89cd77acab124cf499e82f5cdf345cc0~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/25698a78e7194d98af75269a8b33cbb0~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0f7abf58a7e244b9ba3ef927decded53~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31004e8763bf443bb5a1476d57cf0232~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/59eec3460c91441aaffee6bcec73c65b~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2d63032f4a1548b0a3cacc2193bed40c~tplv-k3u1fbpfcp-watermark.image">
+<meta property="article:published_time" content="2023-06-14T02:47:56.000Z">
+<meta property="article:modified_time" content="2023-06-14T02:48:15.801Z">
+<meta property="article:author" content="Thresh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5430d2d9ff92458aaf3162651f16b0a7~tplv-k3u1fbpfcp-watermark.image">
+  
+    <link rel="alternate" href="/atom.xml" title="Thresh" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Thresh</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-前端必须知道的开发调试知识-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/14/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-06-14T02:47:56.000Z" itemprop="datePublished">2023-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      前端必须知道的开发调试知识 | 青训营笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="01-Bug-与-Debug"><a href="#01-Bug-与-Debug" class="headerlink" title="01.Bug 与 Debug"></a>01.Bug 与 Debug</h2><h3 id="Bug-的产生"><a href="#Bug-的产生" class="headerlink" title="Bug 的产生"></a>Bug 的产生</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5430d2d9ff92458aaf3162651f16b0a7~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="前端-Debug-的特点"><a href="#前端-Debug-的特点" class="headerlink" title="前端 Debug 的特点"></a>前端 Debug 的特点</h3><h4 id="01-多平台"><a href="#01-多平台" class="headerlink" title="01.多平台"></a>01.多平台</h4><p>浏览器，Hybrid，NodeJs，小程序，桌面应用等。</p>
+<h4 id="02-多环境"><a href="#02-多环境" class="headerlink" title="02.多环境"></a>02.多环境</h4><p>本地开发环境，线上环境</p>
+<h4 id="03-多工具"><a href="#03-多工具" class="headerlink" title="03.多工具"></a>03.多工具</h4><p>Chrome devTools，Charles，Spy-Debugger，Whistle，vConsole…</p>
+<h4 id="04-多技巧"><a href="#04-多技巧" class="headerlink" title="04.多技巧"></a>04.多技巧</h4><p>Console，BreakPoint，sourceMap，代理等…</p>
+<h2 id="02-Chrome-DevTools"><a href="#02-Chrome-DevTools" class="headerlink" title="02.Chrome DevTools"></a>02.Chrome DevTools</h2><h3 id="动态修改元素和样式"><a href="#动态修改元素和样式" class="headerlink" title="动态修改元素和样式"></a>动态修改元素和样式</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89cd77acab124cf499e82f5cdf345cc0~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Console"><a href="#Console" class="headerlink" title="Console"></a>Console</h3><ul>
+<li>console.log</li>
+<li>console.warn</li>
+<li>console.error</li>
+<li>console.debug</li>
+<li>console.info</li>
+<li>console.table 具象化的展示 JSON 和 数组数据</li>
+<li>console.dir 通过类似文件树的方式展示对象属性</li>
+<li>占位符 给日志添加样式，可以突出重要的信息</li>
+<li><strong>%s</strong>：字符串占位符；**%o<strong>：对象占位符；</strong>%c<strong>：样式占位符；</strong>%d**：数字占位符</li>
+</ul>
+<h3 id="Sorce-Tab"><a href="#Sorce-Tab" class="headerlink" title="Sorce Tab"></a>Sorce Tab</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/25698a78e7194d98af75269a8b33cbb0~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Break-Point-与-Watch"><a href="#Break-Point-与-Watch" class="headerlink" title="Break Point 与 Watch"></a>Break Point 与 Watch</h3><ul>
+<li>使用关键字 <strong>debugger</strong> 或代码预览区域的行号可以设置断点</li>
+<li>执行到断点处时代码暂停执行</li>
+<li>展开 <strong>BreakPoint</strong> 列表可以查看断点列表，勾选&#x2F;取消可以激活&#x2F;禁用对应断点</li>
+<li>暂停状态下，鼠标 <strong>hover</strong> 变量可以查看变量的值</li>
+<li>在调试器 Watch 右侧点击 + 可以添加对变量的监控，查看该变量的值</li>
+</ul>
+<h3 id="Scope-与-Call-Stack"><a href="#Scope-与-Call-Stack" class="headerlink" title="Scope 与 Call Stack"></a>Scope 与 Call Stack</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0f7abf58a7e244b9ba3ef927decded53~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="压缩后的代码如何调试？"><a href="#压缩后的代码如何调试？" class="headerlink" title="压缩后的代码如何调试？"></a>压缩后的代码如何调试？</h3><p>前端代码天生具有“开源”属性，出于安全考虑，上线之前 JavaScript 代码通常会被压缩，压缩后的代码只有一行，变量使用 a’、”b’ 等替换，整体变得不可阅读。那么压缩后的代码如何调试呢?</p>
+<h4 id="Source-Map"><a href="#Source-Map" class="headerlink" title="Source Map"></a>Source Map</h4><p>mappings 字段存储了源文件和 Source Map 的映射</p>
+<ul>
+<li>英文，表示源码及压缩代码的位置关联。</li>
+<li>逗号，分隔一行代码中的内容。</li>
+<li>分号，代表换行。</li>
+</ul>
+<h3 id="NetWork"><a href="#NetWork" class="headerlink" title="NetWork"></a>NetWork</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31004e8763bf443bb5a1476d57cf0232~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h3><p>Application 面板展示与本地存储相关的信息</p>
+<ul>
+<li>Local Storage</li>
+<li>Session Storage</li>
+<li>IndexedDB</li>
+<li>Web SQL</li>
+<li>Cookie</li>
+</ul>
+<h3 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/59eec3460c91441aaffee6bcec73c65b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="Performance-运用-实例"><a href="#Performance-运用-实例" class="headerlink" title="Performance 运用 实例"></a>Performance 运用 实例</h4><p>1.页面卡顿<br> 2.查看 FPS 指标<br> 3.寻找性能瓶颈<br> 4.优化代码</p>
+<h3 id="Lighthouse"><a href="#Lighthouse" class="headerlink" title="Lighthouse"></a>Lighthouse</h3><p>核心 Web 指标<br>LCP(Largest Contentful Paint)：最大内容绘制，测量加载性能。为了提供良好的用户体验， LCP 应在页面首次开始加载后的 2.5 秒内发生。<br><br>FID(First Input Delay)：首次输入延迟，测量交互性。为了提供良好的用户体验，页面的 FID 应为 100 毫秒或更短。<br><br>CLS(Cumulative Layout Shift)：累计布局偏移，测量视觉稳定性。为了提供更好的用户体验，页面的 CLS 应保持在 0.1 秒 或更少。<br></p>
+<h2 id="03-移动端-H5-调试"><a href="#03-移动端-H5-调试" class="headerlink" title="03.移动端 H5 调试"></a>03.移动端 H5 调试</h2><h3 id="真机调试"><a href="#真机调试" class="headerlink" title="真机调试"></a>真机调试</h3><h4 id="ios"><a href="#ios" class="headerlink" title="ios"></a>ios</h4><p>1.使用 Lightning 数据线将 iPhone 与 Mac 相连<br>2.iPhone 开启 Web 检查器 (设置 -&gt; Safari -&gt;高级-&gt;开启 Web 检查器)<br>3.iPhone 使用 Safari 浏览器打开要调试的页面<br>4.Mac 打开 Safari 浏览器调试 (菜单栏一&gt;开发&gt;iPhone 设备名 -&gt;选择调试页面)<br>5.在弹出的 Safari Developer Tools 中调试</p>
+<h4 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h4><p>使用 USB 数据线将手机与电脑相连<br>2.手机进入开发者模式，勾选 USB 调试，并允许调试<br>3.电脑打开 Chrome 浏览器，在地址栏输入: chrome:&#x2F;&#x2F;inspect&#x2F;#devices 并勾选 Discover USB devices 选项<br> 4.手机允许远程调试，并访问调试页面<br> 5.电脑点击 inspect 按钮<br> 6.进入调试界面<br></p>
+<h3 id="VConsole"><a href="#VConsole" class="headerlink" title="VConsole"></a>VConsole</h3><ul>
+<li>日志(Logs):console.loglinfolerror.</li>
+<li>网络(Network): XMLHttpRequest,Fetch, sendBeacon</li>
+<li>节点(Element): HTML 节点树</li>
+<li>存储(Storage): Cookies,LocalStorage, SessionStorage</li>
+<li>手动执行 JS 命令行</li>
+<li>自定义插件</li>
+</ul>
+<h3 id="使用代理工具调试"><a href="#使用代理工具调试" class="headerlink" title="使用代理工具调试"></a>使用代理工具调试</h3><p>原理:</p>
+<ul>
+<li>电脑作为代理服务器</li>
+<li>手机通过 HTTP 代理连接到电脑</li>
+<li>手机上的请求都经过代理服务器</li>
+</ul>
+<p><strong>以 Charles 为例:</strong> 1.安装 Charles 2.查看电脑 IP 和端口 3.将 IP、端口号填入手机 HTTP 代理<br>4.Charles 允许授权 5.使用 SwitchHosts! 软件给 Mac 电脑配 Hosts 6.手机访问开发环境页面</p>
+<h3 id="常见代理工具"><a href="#常见代理工具" class="headerlink" title="常见代理工具"></a>常见代理工具</h3><p>Charles：适合查看，控制网络请求，分析数据<br>Fiddler：与 Charles 类似，适合 windows 平台<br>spy-debugger：远程调试手机页面，抓包<br>Whistle：基于 Node 实现的跨平台 Web 调试代理工具</p>
+<h2 id="04-Nodejs-调试"><a href="#04-Nodejs-调试" class="headerlink" title="04. Nodejs 调试"></a>04. Nodejs 调试</h2><h3 id="Inspector-Protocol-Chrome-Devtool"><a href="#Inspector-Protocol-Chrome-Devtool" class="headerlink" title="Inspector Protocol + Chrome Devtool"></a>Inspector Protocol + Chrome Devtool</h3><p>1.执行命令 node –inspect&#x3D;&#x3D;8888 index.js<br><br>2.chrome 浏览器访问服务<br> 3.点击绿色 node 图标打开 node 调试面板 (在 chrome:&#x2F;&#x2F;inspect&#x2F;#devices 中配置 network target)<br> 4.在 node 调试面板中使用断点调试<br></p>
+<h3 id="Inspector-Protocol-VS-Code"><a href="#Inspector-Protocol-VS-Code" class="headerlink" title="Inspector Protocol + VS Code"></a>Inspector Protocol + VS Code</h3><p>1.VS Code 点击运行<br> 2.添加配置<br> 3.点动调试<br> 4.添加断点<br> 5.查看变量，堆栈<br></p>
+<h2 id="05-常用开发调试技巧"><a href="#05-常用开发调试技巧" class="headerlink" title="05.常用开发调试技巧"></a>05.常用开发调试技巧</h2><h3 id="线上及时修改-Overrides"><a href="#线上及时修改-Overrides" class="headerlink" title="线上及时修改 Overrides"></a>线上及时修改 Overrides</h3><p>1.打开 Sources 面板下的 Overrides<br> 2.点击 Select folders for Overrides。选择一个本地的空文件夹目录。<br> 3.允许授权。<br> 4.在 page 中修改代码，修改完成后 command + s 保存。<br> 5.打开 devTools ，点击右上角的三个小点 -&gt;More tools -&gt;Changes ,就能看到所有修改了。<br></p>
+<h3 id="利用代理解决开发阶段的跨域问题"><a href="#利用代理解决开发阶段的跨域问题" class="headerlink" title="利用代理解决开发阶段的跨域问题"></a>利用代理解决开发阶段的跨域问题</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2d63032f4a1548b0a3cacc2193bed40c~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="启用本地-source-map"><a href="#启用本地-source-map" class="headerlink" title="启用本地 source map"></a>启用本地 source map</h3><p>线上不存在 Source Map 时可以使用 Map Local 网络映射功能来访问本地的 Source<br>Map 文件。</p>
+<h3 id="使用代理工具-Mock-数据"><a href="#使用代理工具-Mock-数据" class="headerlink" title="使用代理工具 Mock 数据"></a>使用代理工具 Mock 数据</h3><p>1.右键选中要 mock 数据的接口，选择 save response，保存文件到本地。<br> 2.本地打开保存的文件，编辑想 mock 的数据并保存。<br> 3.右键选中第一步的接口，选择 Map Local，Local Path 选择第二步的文件。<br></p>
+<h3 id="小黄鸭调试大法"><a href="#小黄鸭调试大法" class="headerlink" title="小黄鸭调试大法"></a>小黄鸭调试大法</h3><p>传说中程序大师随身携带一只小黄鸭，在调试代码的时候会在桌上放上这只小黄鸭，然后详细地向鸭子解释每行代码，然后很快就将问题定位修复了。<br>(程序员修炼之道)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/14/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsf000bh8ju9ihg3t56" data-title="前端必须知道的开发调试知识 | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/06/14/WEB%E5%BC%80%E5%8F%91%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          WEB开发的安全之旅 | 青训营笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/06/14/%E8%B7%A8%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A6%82%E8%BF%B0-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">跨端技术概述 | 青训营笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/06/14/React-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">React | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/JavaScript(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">JavaScript(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">深入CSS(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%89%8D%E7%AB%AF%E8%AF%AD%E8%A8%80%E4%B8%B2%E8%AE%B2-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">前端语言串讲 | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">客户端容器 | 青训营笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Thresh<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

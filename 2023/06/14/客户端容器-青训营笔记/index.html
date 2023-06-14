@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>客户端容器 | 青训营笔记 | Thresh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="客户端容器（Web 浏览器以及跨端解决方案）01.浏览器架构浏览器架构演进 单进程架构 多进程架构 面向服务架构  浏览器架构对比 浏览器架构 — 任务管理器 浏览器架构 — 多进程分工 02.渲染进程常见浏览器内核 渲染进程 — 多进程架构 内部是多线程实现，主要负责页面渲染，脚本执行，事件处理，网络请求等。。。。   JS 引擎 vs 渲染引擎 1.解析执行 JS 2.XML 解析生成渲染树，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="客户端容器 | 青训营笔记">
+<meta property="og:url" content="http://example.com/2023/06/14/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Thresh">
+<meta property="og:description" content="客户端容器（Web 浏览器以及跨端解决方案）01.浏览器架构浏览器架构演进 单进程架构 多进程架构 面向服务架构  浏览器架构对比 浏览器架构 — 任务管理器 浏览器架构 — 多进程分工 02.渲染进程常见浏览器内核 渲染进程 — 多进程架构 内部是多线程实现，主要负责页面渲染，脚本执行，事件处理，网络请求等。。。。   JS 引擎 vs 渲染引擎 1.解析执行 JS 2.XML 解析生成渲染树，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f2570f92063745a68834783a844ed9b0~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aff1a6199d21435982750fdf1c7f2a95~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84659139ef2e481282b02d280eea30b4~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ea60d753c35544108b8dca9c536adf3c~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/da10649adcc44b72ab2f0e4d5cca2a44~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/08ed9c519e7a4d078f69b2b6c7ffd494~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43a25e3b5e3d4fbfa3344b23c359e578~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ed3335a94e9a4847af43021150348585~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4a6650e4aac240b690a4dfe306381842~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3964563bfcbc46b0bda54874b9dcaa19~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8dcceaf6c3a4419589544fce5e6428e4~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c39a73ff24d5439fb32e586d49a2e38b~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ef7dd8cd898944e69e6377fee96eb598~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf0826f6ec9749088d876365c780e64f~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b974e484ed1245f3b3c0c44a02bd00bc~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/669e9e8ef15a43e790eca1d422ce0771~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/80946c84cdae4c26961a52330c01d15b~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/36d39a6a73c24c28973449f35d035f26~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ddbc6e26ae264e89a4c40b5adad4bc05~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/50d6ea0689354e32a69d3ea9ae176155~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/adf7376aa6294b60a25ff4bbc2733e09~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c46b136d201f472aaadb11649d54394a~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d282db8d9ee451680a8a3cc42abe53e~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/38c33b7a4e0a4f16aa717da365c12afb~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c042ec5bab4a49c6b71d716eb8c36e45~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c49860648aa44220b0f0faf5ce2375d4~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/34bfaeac23ec45378b5a4784b7071bb4~tplv-k3u1fbpfcp-watermark.image">
+<meta property="article:published_time" content="2023-06-14T02:54:01.000Z">
+<meta property="article:modified_time" content="2023-06-14T02:54:10.094Z">
+<meta property="article:author" content="Thresh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f2570f92063745a68834783a844ed9b0~tplv-k3u1fbpfcp-watermark.image">
+  
+    <link rel="alternate" href="/atom.xml" title="Thresh" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Thresh</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-客户端容器-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/14/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-06-14T02:54:01.000Z" itemprop="datePublished">2023-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      客户端容器 | 青训营笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="客户端容器（Web-浏览器以及跨端解决方案）"><a href="#客户端容器（Web-浏览器以及跨端解决方案）" class="headerlink" title="客户端容器（Web 浏览器以及跨端解决方案）"></a>客户端容器（Web 浏览器以及跨端解决方案）</h1><h2 id="01-浏览器架构"><a href="#01-浏览器架构" class="headerlink" title="01.浏览器架构"></a>01.浏览器架构</h2><h3 id="浏览器架构演进"><a href="#浏览器架构演进" class="headerlink" title="浏览器架构演进"></a>浏览器架构演进</h3><ul>
+<li><strong>单进程架构</strong></li>
+<li><strong>多进程架构</strong></li>
+<li><strong>面向服务架构</strong></li>
+</ul>
+<h3 id="浏览器架构对比"><a href="#浏览器架构对比" class="headerlink" title="浏览器架构对比"></a>浏览器架构对比</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f2570f92063745a68834783a844ed9b0~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="浏览器架构-—-任务管理器"><a href="#浏览器架构-—-任务管理器" class="headerlink" title="浏览器架构 — 任务管理器"></a>浏览器架构 — 任务管理器</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aff1a6199d21435982750fdf1c7f2a95~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="浏览器架构-—-多进程分工"><a href="#浏览器架构-—-多进程分工" class="headerlink" title="浏览器架构 — 多进程分工"></a>浏览器架构 — 多进程分工</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84659139ef2e481282b02d280eea30b4~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h2 id="02-渲染进程"><a href="#02-渲染进程" class="headerlink" title="02.渲染进程"></a>02.渲染进程</h2><h3 id="常见浏览器内核"><a href="#常见浏览器内核" class="headerlink" title="常见浏览器内核"></a>常见浏览器内核</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ea60d753c35544108b8dca9c536adf3c~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="渲染进程-—-多进程架构"><a href="#渲染进程-—-多进程架构" class="headerlink" title="渲染进程 — 多进程架构"></a>渲染进程 — 多进程架构</h3><ul>
+<li>内部是多线程实现，主要负责页面渲染，脚本执行，事件处理，网络请求等。。。。</li>
+</ul>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/da10649adcc44b72ab2f0e4d5cca2a44~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="JS-引擎-vs-渲染引擎"><a href="#JS-引擎-vs-渲染引擎" class="headerlink" title="JS 引擎 vs 渲染引擎"></a>JS 引擎 vs 渲染引擎</h3><ul>
+<li>1.解析执行 JS</li>
+<li>2.XML 解析生成渲染树，显示在屏幕</li>
+<li>3.桥接方式通信</li>
+</ul>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/08ed9c519e7a4d078f69b2b6c7ffd494~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="渲染进程-—-多线程工作流程"><a href="#渲染进程-—-多线程工作流程" class="headerlink" title="渲染进程 — 多线程工作流程"></a>渲染进程 — 多线程工作流程</h3><ul>
+<li>1.网络线程负责加载网页资源</li>
+<li>2.JS 引擎解析 JS 脚本并且执行</li>
+<li>3.JS 解析引擎空闲时，渲染线程立即工作</li>
+<li>4.用户交互、定时器操作等产生回调函数放入任务队列中</li>
+<li>5.事件线程进行事件循环，将队列里的任务取出交给 JS 引擎执行</li>
+</ul>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43a25e3b5e3d4fbfa3344b23c359e578~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h2 id="03-Chrome-运行原理"><a href="#03-Chrome-运行原理" class="headerlink" title="03.Chrome 运行原理"></a>03.Chrome 运行原理</h2><h3 id="Chrome-运行原理-—-如何展示网页"><a href="#Chrome-运行原理-—-如何展示网页" class="headerlink" title="Chrome 运行原理 — 如何展示网页"></a>Chrome 运行原理 — 如何展示网页</h3><ul>
+<li>浏览器地址输入 URL 后发生了什么？</li>
+</ul>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ed3335a94e9a4847af43021150348585~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Chrome-运行原理-—-输入处理"><a href="#Chrome-运行原理-—-输入处理" class="headerlink" title="Chrome 运行原理 — 输入处理"></a>Chrome 运行原理 — 输入处理</h3><ul>
+<li>1.用户 Url 框输入内容的后，UI 线程会判断输入的是一个 URL 地址呢，还是一个 query 查询条件</li>
+<li>2.如果是 URL，直接请求站点资源</li>
+<li>3.如果是 query，将输入发送给搜索引擎</li>
+</ul>
+<h3 id="Chrome-运行原理-—-开始导航"><a href="#Chrome-运行原理-—-开始导航" class="headerlink" title="Chrome 运行原理 — 开始导航"></a>Chrome 运行原理 — 开始导航</h3><ul>
+<li>1.当用户按下回车，UI 线程通知网络线程发起一个网络请求，来获取站点内容</li>
+<li>2.请求过程中，tab 处于 loading 状态</li>
+</ul>
+<h3 id="Chrome-运行原理-—-读取响应"><a href="#Chrome-运行原理-—-读取响应" class="headerlink" title="Chrome 运行原理 — 读取响应"></a>Chrome 运行原理 — 读取响应</h3><ul>
+<li>1.网络线程接收到 HTTP 响应后，先检查响应头的媒体类型(MIME Type</li>
+<li>2.如果响应主体是一个 HTML 文件，浏览器将内容交给渲染进程处理</li>
+<li>3.如果拿到的是其他类型文件，比如 Zip、exe 等，则交给下载管理器处理</li>
+</ul>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4a6650e4aac240b690a4dfe306381842~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="Chrome-运行原理-—-寻找渲染进程"><a href="#Chrome-运行原理-—-寻找渲染进程" class="headerlink" title="Chrome 运行原理 — 寻找渲染进程"></a>Chrome 运行原理 — 寻找渲染进程</h3><ul>
+<li>1.网络线程做完所有检查后，会告知主进程数据已准备完毕，主进程确认后为这个站点寻找一个渲染进程</li>
+<li>2.主进程通过 IPC 消息告知渲染进程去处理本次导航</li>
+<li>3.渲染进程开始接收数据并告知主进程自己已开始处理，导航结束，进入文档加载阶段</li>
+</ul>
+<h3 id="渲染进程-—-资源加载"><a href="#渲染进程-—-资源加载" class="headerlink" title="渲染进程 — 资源加载"></a>渲染进程 — 资源加载</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3964563bfcbc46b0bda54874b9dcaa19~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<ul>
+<li>1.收到主进程的消息后，开始加载 HTML 文档</li>
+<li>2.除此之外，还需要加载子资源，比如一 2.些图片，CSS 样式文件以及 JavaScript 脚本</li>
+</ul>
+<h3 id="渲染进程-—-构建渲染树"><a href="#渲染进程-—-构建渲染树" class="headerlink" title="渲染进程 — 构建渲染树"></a>渲染进程 — 构建渲染树</h3><ul>
+<li>1.构建 DOM 树，将 HTML 文本转化成浏览器能够理解的结构</li>
+<li>2.构建 CSSOM 树，浏览器同样不认识 CSS，需要将 CSS 代码转化为可理解的 CSSOM</li>
+<li>3.构建渲染树，渲染树是 DOM 树和 CSSOM 树的结合</li>
+</ul>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8dcceaf6c3a4419589544fce5e6428e4~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="渲染进程-—-页面布局"><a href="#渲染进程-—-页面布局" class="headerlink" title="渲染进程 — 页面布局"></a>渲染进程 — 页面布局</h3><ul>
+<li>1.根据渲染树计算每个节点的位置和大小</li>
+<li>2.在浏览器页面区域绘制元素边框</li>
+<li>3.遍历渲染树，将元素以盒模型的形式写入文档流</li>
+</ul>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c39a73ff24d5439fb32e586d49a2e38b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="渲染进程-—-页面绘制"><a href="#渲染进程-—-页面绘制" class="headerlink" title="渲染进程 — 页面绘制"></a>渲染进程 — 页面绘制</h3><ul>
+<li>1.构建图层: 为特定的节点生成专用图层</li>
+<li>2.绘制图层:一个图层分成很多绘制指令，然后将这些指令按顺序组成一个绘制列表，交给合成线程</li>
+<li>3.合成线程接收指令生成图块</li>
+<li>4.栅格线程将图块进行栅格化</li>
+<li>5.展示在屏幕上</li>
+</ul>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ef7dd8cd898944e69e6377fee96eb598~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="前端性能-performance"><a href="#前端性能-performance" class="headerlink" title="前端性能 performance"></a>前端性能 performance</h3><h3 id="首屏优化"><a href="#首屏优化" class="headerlink" title="首屏优化"></a>首屏优化</h3><ul>
+<li><ol>
+<li>压缩、分包、删除无用代码</li>
+</ol>
+</li>
+<li>2.静态资源分离</li>
+<li>3.JS 脚本非阻塞加载</li>
+<li>4.缓存策略</li>
+<li>5.SSR</li>
+<li>6.预置 loading、骨架屏</li>
+</ul>
+<h3 id="渲染优化"><a href="#渲染优化" class="headerlink" title="渲染优化"></a>渲染优化</h3><ul>
+<li>1.GPU 加速</li>
+<li>2.减少回流，重绘</li>
+<li>3.离屏渲染</li>
+<li>4.懒加载</li>
+</ul>
+<h3 id="JS-优化"><a href="#JS-优化" class="headerlink" title="JS 优化"></a>JS 优化</h3><ul>
+<li>1.防止内存泄漏</li>
+<li>2.循环尽早 break</li>
+<li>3.合理使用闭包</li>
+<li>4.减少 Dom 访问</li>
+<li>5.防抖、节流</li>
+<li>6.Web Workers</li>
+</ul>
+<h2 id="04-跨端容器"><a href="#04-跨端容器" class="headerlink" title="04.跨端容器"></a>04.跨端容器</h2><h3 id="为什么需要跨端"><a href="#为什么需要跨端" class="headerlink" title="为什么需要跨端"></a>为什么需要跨端</h3><ul>
+<li>1.开发成本、效率</li>
+<li>2.一致性体验</li>
+<li>3.前端开发生态</li>
+</ul>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf0826f6ec9749088d876365c780e64f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="跨端方案"><a href="#跨端方案" class="headerlink" title="跨端方案"></a>跨端方案</h3><ul>
+<li>webview</li>
+<li>小程序</li>
+<li>RN 、 Weex</li>
+<li>Lynx</li>
+<li>Flutter</li>
+</ul>
+<h3 id="跨端容器-—-WebView"><a href="#跨端容器-—-WebView" class="headerlink" title="跨端容器 — WebView"></a>跨端容器 — WebView</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b974e484ed1245f3b3c0c44a02bd00bc~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="跨端容器-—-常用-WebView-分类"><a href="#跨端容器-—-常用-WebView-分类" class="headerlink" title="跨端容器 — 常用 WebView 分类"></a>跨端容器 — 常用 WebView 分类</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/669e9e8ef15a43e790eca1d422ce0771~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="跨端容器-—-使用-WebView-优势"><a href="#跨端容器-—-使用-WebView-优势" class="headerlink" title="跨端容器 — 使用 WebView 优势"></a>跨端容器 — 使用 WebView 优势</h3><ul>
+<li>1.一次开发，处处使用，学习成本低</li>
+<li>2.随时发布，即时更新，不用下载安装包</li>
+<li>3.移动设备性能不断提升，性能有保障</li>
+<li>4.通过 JSBridge 和原生系统交互，实现复杂功能</li>
+</ul>
+<h3 id="跨端容器-—-WebView-使用原生能力"><a href="#跨端容器-—-WebView-使用原生能力" class="headerlink" title="跨端容器 — WebView 使用原生能力"></a>跨端容器 — WebView 使用原生能力</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/80946c84cdae4c26961a52330c01d15b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/36d39a6a73c24c28973449f35d035f26~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="跨端容器-—-WebView-lt-gt-Native-通信"><a href="#跨端容器-—-WebView-lt-gt-Native-通信" class="headerlink" title="跨端容器 — WebView &lt; - &gt; Native 通信"></a>跨端容器 — WebView &lt; - &gt; Native 通信</h3><ul>
+<li>1.JS 环境中提供通信的 JSBridge</li>
+<li><ol start="2">
+<li>Native 端提供 SDK 响应 JSBridge 发出的调用</li>
+</ol>
+</li>
+<li>3.前端和客户端分别实现对应功能模块</li>
+</ul>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ddbc6e26ae264e89a4c40b5adad4bc05~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="跨端容器-—-实现一个简易-JSBridge"><a href="#跨端容器-—-实现一个简易-JSBridge" class="headerlink" title="跨端容器 — 实现一个简易 JSBridge"></a>跨端容器 — 实现一个简易 JSBridge</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/50d6ea0689354e32a69d3ea9ae176155~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="跨端容器-—-小程序"><a href="#跨端容器-—-小程序" class="headerlink" title="跨端容器 — 小程序"></a>跨端容器 — 小程序</h3><ul>
+<li>1.微信、支付宝、百度小程序、小米直达号</li>
+<li>2.渲染层-webview</li>
+<li>3.双线程，多 webview 架构</li>
+<li>4.数据通信，Native 转发</li>
+</ul>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/adf7376aa6294b60a25ff4bbc2733e09~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="跨端容器-—-React-Native-x2F-WeeX"><a href="#跨端容器-—-React-Native-x2F-WeeX" class="headerlink" title="跨端容器 — React Native&#x2F;WeeX"></a>跨端容器 — React Native&#x2F;WeeX</h3><ul>
+<li>1.原生组件渲染</li>
+<li><ol start="2">
+<li>React&#x2F;Vue 框架</li>
+</ol>
+</li>
+<li>3.virtual dom</li>
+<li>4.JSBridge</li>
+</ul>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c46b136d201f472aaadb11649d54394a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="跨端容器-—-Lynx"><a href="#跨端容器-—-Lynx" class="headerlink" title="跨端容器 — Lynx"></a>跨端容器 — Lynx</h3><ul>
+<li><ol>
+<li>Vue</li>
+</ol>
+</li>
+<li>2.JS Core &#x2F; V8</li>
+<li>3.JSBinding</li>
+<li>4.Native UI &#x2F; Skia</li>
+</ul>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d282db8d9ee451680a8a3cc42abe53e~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="跨端容器-—-Flutter"><a href="#跨端容器-—-Flutter" class="headerlink" title="跨端容器 — Flutter"></a>跨端容器 — Flutter</h3><ul>
+<li><ol>
+<li>wideget</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>dart vm</li>
+</ol>
+</li>
+<li>3.skia 图形库</li>
+</ul>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/38c33b7a4e0a4f16aa717da365c12afb~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="跨端容器-—-通用原理"><a href="#跨端容器-—-通用原理" class="headerlink" title="跨端容器 — 通用原理"></a>跨端容器 — 通用原理</h3><ul>
+<li><ol>
+<li>UI 组件</li>
+</ol>
+</li>
+<li>2.染引擎</li>
+<li>3.逻辑控制引擎</li>
+<li>4.通信桥梁</li>
+<li>5.底层 API 抹平表现差异</li>
+</ul>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c042ec5bab4a49c6b71d716eb8c36e45~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="跨端方案对比"><a href="#跨端方案对比" class="headerlink" title="跨端方案对比"></a>跨端方案对比</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c49860648aa44220b0f0faf5ce2375d4~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="课程总结"><a href="#课程总结" class="headerlink" title="课程总结"></a>课程总结</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/34bfaeac23ec45378b5a4784b7071bb4~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/14/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmsj000eh8jub10q87o9" data-title="客户端容器 | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/06/14/%E5%89%8D%E7%AB%AF%E8%AF%AD%E8%A8%80%E4%B8%B2%E8%AE%B2-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          前端语言串讲 | 青训营笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/06/14/Shell-%E8%84%9A%E6%9C%AC%E5%92%8C%E7%BC%96%E7%A8%8B-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">Shell 脚本和编程 | 青训营笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/06/14/React-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">React | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/JavaScript(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">JavaScript(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">深入CSS(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%89%8D%E7%AB%AF%E8%AF%AD%E8%A8%80%E4%B8%B2%E8%AE%B2-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">前端语言串讲 | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">客户端容器 | 青训营笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Thresh<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

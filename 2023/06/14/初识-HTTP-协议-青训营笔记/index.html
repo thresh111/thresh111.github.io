@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>初识 HTTP 协议 | 青训营笔记 | Thresh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="# 初识 HTTP 协议 | 青训营笔记01.初识 HTTP什么是 HTTPHyper Text Transfer Protocol 超文本传输协议应用层协议，基于 TCP 协议请求 响应简单可扩展无状态 02.协议分析 协议分析-报文method: Safe(安全的):不会修改服务器的数据的方法GET HEAD OPTIONSldempotent (幂等):同样的请求被执行一次与连续执行多次的效">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识 HTTP 协议 | 青训营笔记">
+<meta property="og:url" content="http://example.com/2023/06/14/%E5%88%9D%E8%AF%86-HTTP-%E5%8D%8F%E8%AE%AE-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Thresh">
+<meta property="og:description" content="# 初识 HTTP 协议 | 青训营笔记01.初识 HTTP什么是 HTTPHyper Text Transfer Protocol 超文本传输协议应用层协议，基于 TCP 协议请求 响应简单可扩展无状态 02.协议分析 协议分析-报文method: Safe(安全的):不会修改服务器的数据的方法GET HEAD OPTIONSldempotent (幂等):同样的请求被执行一次与连续执行多次的效">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c6cc3419dd9c460db9ab2d79eb049b95~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/07cefe196af444df935ec0cd89729d0b~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/53d0de05bb4b4e4f9dad292442544651~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e45143534e3d4350a7b5cb375282f6a2~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2e9f42d152f44ad7903865c112b8c6e8~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d236d164e3a42458da70dc8a96880a3~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7b1868db6ad64926b1d89bb83c12831f~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d978e268f45457ea6c88fb4f72f2918~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/847f9d6d34ca4e78912602b8ebdcf7ac~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/29af732d4ee741ecb82bde4e417c6614~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd41d10a765749a6b82f5695cf3c3615~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd4310765d154786b9cfa60ac2360f08~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/57a5fafd58da41d9bce0c1ff60f61f2f~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a321f44edd1e40d5b0f5e7a4760282da~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/000b2cee61cd482398ad9a740f6db777~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/25ed31118ee64122a2e90adad03edfd7~tplv-k3u1fbpfcp-watermark.image">
+<meta property="article:published_time" content="2023-06-14T02:44:01.000Z">
+<meta property="article:modified_time" content="2023-06-14T02:50:02.215Z">
+<meta property="article:author" content="Thresh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c6cc3419dd9c460db9ab2d79eb049b95~tplv-k3u1fbpfcp-watermark.image">
+  
+    <link rel="alternate" href="/atom.xml" title="Thresh" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Thresh</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-初识-HTTP-协议-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/14/%E5%88%9D%E8%AF%86-HTTP-%E5%8D%8F%E8%AE%AE-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-06-14T02:44:01.000Z" itemprop="datePublished">2023-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      初识 HTTP 协议 | 青训营笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="初识-HTTP-协议-青训营笔记"><a href="#初识-HTTP-协议-青训营笔记" class="headerlink" title="# 初识 HTTP 协议 | 青训营笔记"></a># 初识 HTTP 协议 | 青训营笔记</h1><h2 id="01-初识-HTTP"><a href="#01-初识-HTTP" class="headerlink" title="01.初识 HTTP"></a>01.初识 HTTP</h2><h3 id="什么是-HTTP"><a href="#什么是-HTTP" class="headerlink" title="什么是 HTTP"></a>什么是 HTTP</h3><p>Hyper Text Transfer Protocol 超文本传输协议<br>应用层协议，基于 TCP 协议<br>请求 响应<br>简单可扩展<br>无状态<br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c6cc3419dd9c460db9ab2d79eb049b95~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h2 id="02-协议分析"><a href="#02-协议分析" class="headerlink" title="02.协议分析"></a>02.协议分析</h2><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/07cefe196af444df935ec0cd89729d0b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="协议分析-报文"><a href="#协议分析-报文" class="headerlink" title="协议分析-报文"></a>协议分析-报文<br></h3><p><strong>method:</strong></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/53d0de05bb4b4e4f9dad292442544651~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>Safe(安全的):不会修改服务器的数据的方法<br><br>GET HEAD OPTIONS<br><br>ldempotent (幂等):同样的请求被执行一次与连续执行多次的效果是<strong>一样</strong>的，服务器的状态也是<strong>一样</strong>的<br><br>所有 safe 的方法都是 ldempotent 的<br><br>GET HEAD OPTIONS PUT DELETE<br></p>
+<h3 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h3><p>200 OK-客户端请求成功<br><br>301-资源 (网页等) 被永久转移到其它 URL<br><br>302-临时跳转<br><br>401 Unauthorized- 请求未经授权<br><br>404-请求资源不存在，可能是输入了错误的 URL<br><br>500-服务器内部发生了不可预期的错误<br><br>504 Gateway Timeout-网关或者代理的服务器无法在规定的时间内获得想要的响应<br></p>
+<h3 id="RESTful-API"><a href="#RESTful-API" class="headerlink" title="RESTful API"></a>RESTful API<br></h3><p>RESTful API：一种 API 设计风格；REST-Representational State Transfer<br><br>（1）.每一个 URL 代表一种资源；<br><br>（2）.客户端和服务器之间，传递这种资源的某种表现层<br><br>（3）.客户端通过 HTTP method，对服务器端资源进行操作，实现”表现层状态转化”。<br><br><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e45143534e3d4350a7b5cb375282f6a2~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="常用请求头："><a href="#常用请求头：" class="headerlink" title="常用请求头："></a>常用请求头：<br></h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2e9f42d152f44ad7903865c112b8c6e8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d236d164e3a42458da70dc8a96880a3~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="缓存："><a href="#缓存：" class="headerlink" title="缓存："></a>缓存：</h3><p>强缓存，协商缓存<br><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7b1868db6ad64926b1d89bb83c12831f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br><strong>cookie：</strong><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d978e268f45457ea6c88fb4f72f2918~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="协议分析-发展："><a href="#协议分析-发展：" class="headerlink" title="协议分析-发展："></a>协议分析-发展：</h3><p><strong>HTTP&#x2F;2 概述：</strong> 更快，更稳定，更简单<br><br><strong>帧(frame)</strong>:HTTP&#x2F;2 通信的最小单位，每个帧都包含帧头，至少也会标识出当前帧所属的数据流。<br><br><strong>二进制</strong>。<br><br><strong>消息</strong>：与逻辑请求或响应信息对应的完整的一系列帧。<br><br><strong>数据流</strong>：已建立的连接内的双向字节流，可以承载一条或多条信息。<br><br>交错发送，接收方重组织。<br><br>HTTP&#x2F;2 连接都是永久的，而且仅需要每个来源一个连接<br><br><strong>流控制:</strong> 阻止发送方向接收方发送大量数据的机制<br><br>服务器推送<br></p>
+<h3 id="HTTPS-概述"><a href="#HTTPS-概述" class="headerlink" title="HTTPS 概述"></a>HTTPS 概述</h3><p><strong>HTTPS</strong>：Hypertext Transfer Protocol Secure<br><br>经过 TSL&#x2F;SSL 加密<br><br><strong>对称加密:</strong> 加密和解密都是使用同一个密钥<br><br><strong>非对称加密</strong>，加密和解密需要使用两个不同的密钥:公钥(public key)和私钥 (private key)<br></p>
+<h2 id="03-场景分析"><a href="#03-场景分析" class="headerlink" title="03.场景分析"></a>03.场景分析</h2><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/847f9d6d34ca4e78912602b8ebdcf7ac~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="静态资源"><a href="#静态资源" class="headerlink" title="静态资源"></a>静态资源</h3><p>看状态码 200 一定发起了请求吗？<br><br>缓存策略<br>：<br>强缓存<br><br>Cache-control：一年<br><br>还有什么信息吗？<br><br>允许所有域名访问<br><br>资源类型：css<br><br>静态资源方案： 缓存 + CDN +文件名 hash<br><br>CDN: Content DeliveryNetwork<br><br>通过用户就近性和服务器负载的判断，CDN 确保内容以一种极为高效的方式为用户的请求提供服务<br></p>
+<h3 id="登录场景"><a href="#登录场景" class="headerlink" title="登录场景"></a>登录场景</h3><p>业务场景：表单登录，扫码登录<br><br>技术方式：SSO<br><br>账号密码登陆<br><br>打开控制台-network -勾选 preservelog-过滤 quick_login<br><br>观察请求<br><br>跨域： cross-origin<br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/29af732d4ee741ecb82bde4e417c6614~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>跨域解决方案：<br>CORS<br>代理服务器：同源策略是浏览器的安全策略，不是 HTTP 的<br>Iframe：诸多不便<br><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd41d10a765749a6b82f5695cf3c3615~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h2 id="04-实战"><a href="#04-实战" class="headerlink" title="04.实战"></a>04.实战</h2><p>AJAX 之 Fetch<br><br>XMLHttpRequet 的升级版<br><br>使用 Promise<br><br>模块化设计，ResponseRequest，Header 对象<br><br>通过数据流处理对象，支持分块读取<br><br><strong>标准库：HTTP&#x2F;HTTPS</strong><br><br>默认模块，无需安装其他依赖<br><br>功能有限&#x2F;不是十分友好<br><br><strong>常用的请求库</strong> axios<br><br>支持浏览器，nodejs 环境<br><br>丰富的拦截器<br></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd4310765d154786b9cfa60ac2360f08~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p>稳定性：</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/57a5fafd58da41d9bce0c1ff60f61f2f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h2 id="05-了解更多"><a href="#05-了解更多" class="headerlink" title="05.了解更多"></a>05.了解更多</h2><p>通信方式 websocket<br><br>浏览器与服务器进行全双工通讯的网络技术<br><br>典型场景： 实时性要求高，例如聊天室<br><br>URL 使用 ws：&#x2F;&#x2F;或 wss：&#x2F;&#x2F;等开头<br></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a321f44edd1e40d5b0f5e7a4760282da~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="扩展："><a href="#扩展：" class="headerlink" title="扩展："></a>扩展：</h3><p><strong>QUIC:</strong> Quick UDPInternet Connection<br><br>0-RTT 建联(首次建联除外)<br><br>类似 TCP 的可靠传输。类似 TLS 的加密传输，支持完美前向安全<br><br>用户空间的拥塞控制，最新的 BBR 算法<br><br>但没有 TCP 的支持 h2 的基于流的多路复用，HOL 问题<br><br>前向纠错 FEC<br><br>类似 MPTCP 的 Connection migration。<br></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/000b2cee61cd482398ad9a740f6db777~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/25ed31118ee64122a2e90adad03edfd7~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/14/%E5%88%9D%E8%AF%86-HTTP-%E5%8D%8F%E8%AE%AE-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hmse0009h8juf3zvelmc" data-title="初识 HTTP 协议 | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/06/14/Node-js-%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          Node.js 与前端开发实战 | 青训营笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/06/14/TypeScript%E7%9A%84%E5%8F%91%E5%B1%95%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">TypeScript的发展与基本语法 | 青训营笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/06/14/React-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">React | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/JavaScript(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">JavaScript(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">深入CSS(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%89%8D%E7%AB%AF%E8%AF%AD%E8%A8%80%E4%B8%B2%E8%AE%B2-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">前端语言串讲 | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">客户端容器 | 青训营笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Thresh<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

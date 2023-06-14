@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>JavaScript(一) | 青训营笔记 | Thresh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="JavaScript | 青训营笔记2023-1-17如何写 好 JavaScript?什么才是好的 JavaScript 代码？ 写好 JS 的一些原则（一）各司其职：让 HTML,CSS，JS 职能分离组件封装：好的 UI 组件具备正确性，扩展性，复用性过程抽象：应用函数式编程思想 各司其职： 版本一：直接用 JavaScript 操作了 CSS，那么提交代码，后期 PM 修改了需求，程序员修">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript(一) | 青训营笔记">
+<meta property="og:url" content="http://example.com/2023/06/14/JavaScript(%E4%B8%80)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Thresh">
+<meta property="og:description" content="JavaScript | 青训营笔记2023-1-17如何写 好 JavaScript?什么才是好的 JavaScript 代码？ 写好 JS 的一些原则（一）各司其职：让 HTML,CSS，JS 职能分离组件封装：好的 UI 组件具备正确性，扩展性，复用性过程抽象：应用函数式编程思想 各司其职： 版本一：直接用 JavaScript 操作了 CSS，那么提交代码，后期 PM 修改了需求，程序员修">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1b94dcf943964ae9b25e7c89607437b7~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/33e856425430400a84b925ffde4006f8~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8ffd73c8dd234e5d84e67a6d8b3b730b~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7aa171ba784f41a2a7c7b5b4e0e38905~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/42478655b792441390756c3b54dce140~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f0bb8691a0484aa7b24b4333db0f8f8a~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2a1d0845ab7b4a50a4ab7d82e89f71df~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/873fa0bda0134c99a6f5fd0b64c0668a~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c95ef2893ac24af6a01aeeb2d12483b5~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/892a8fe0739a44eb9d5229dc6a4bce7b~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d2f31241708417c98937d76a3e789f8~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aff8e5a1cd3b4931976dbbf1ccd3f9f0~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f45e8d70068042ec8498cf4c5db8d5bd~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ebb031c597ca436e8be7ea57043b8699~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9c249842b7a345adafbad2d0bae3da74~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4cebbf9706b640aa8b6c753e919ee0d4~tplv-k3u1fbpfcp-watermark.image">
+<meta property="article:published_time" content="2023-06-14T02:42:27.000Z">
+<meta property="article:modified_time" content="2023-06-14T02:56:46.370Z">
+<meta property="article:author" content="Thresh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1b94dcf943964ae9b25e7c89607437b7~tplv-k3u1fbpfcp-watermark.image">
+  
+    <link rel="alternate" href="/atom.xml" title="Thresh" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Thresh</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-JavaScript(一)-青训营笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/14/JavaScript(%E4%B8%80)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-06-14T02:42:27.000Z" itemprop="datePublished">2023-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      JavaScript(一) | 青训营笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="JavaScript-青训营笔记"><a href="#JavaScript-青训营笔记" class="headerlink" title="JavaScript | 青训营笔记"></a>JavaScript | 青训营笔记</h1><p>2023-1-17<br><br><br>如何写 <strong>好</strong> JavaScript?<br><br>什么才是好的 JavaScript 代码？<br></p>
+<h1 id="写好-JS-的一些原则（一）"><a href="#写好-JS-的一些原则（一）" class="headerlink" title="写好 JS 的一些原则（一）"></a><strong>写好 JS 的一些原则（一）<br></strong></h1><p><strong>各司其职</strong>：让 HTML,CSS，JS 职能分离<br><br><strong>组件封装</strong>：好的 UI 组件具备正确性，扩展性，复用性<br><br><strong>过程抽象</strong>：应用函数式编程思想<br></p>
+<h2 id="各司其职："><a href="#各司其职：" class="headerlink" title="各司其职："></a><strong>各司其职：</strong></h2><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1b94dcf943964ae9b25e7c89607437b7~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="版本一："><a href="#版本一：" class="headerlink" title="版本一："></a><strong>版本一：</strong></h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/33e856425430400a84b925ffde4006f8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>直接用 JavaScript 操作了 CSS，那么提交代码，后期 PM 修改了需求，程序员修改会很困难，也会对后续交付给其他维护代码的程序员造成困扰。<br>让你来优化来怎么做？<br></p>
+<h3 id="版本二："><a href="#版本二：" class="headerlink" title="版本二："></a><strong>版本二：</strong></h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8ffd73c8dd234e5d84e67a6d8b3b730b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>这个版本性对于上个版本，我们操作了 classname，我们用 class 来定义了 HTML 元素的状态，直接操作了 CSS。有一个原则，各司其职，在网页中我们可以说 HTML 是结构，CSS 是表现，JavaScript 是行为。结构表现分离使我们前端工程师基本的原则。那么还有其他改进空间吗？<br></p>
+<h3 id="版本三："><a href="#版本三：" class="headerlink" title="版本三："></a><strong>版本三：</strong></h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7aa171ba784f41a2a7c7b5b4e0e38905~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>控制样式的代码可以用 CSS 来实现，版本三是纯 css 的样式结构，没有 JavaScript 的代码片段。里面用伪类选择器+兄弟选择器，用 checkbox 的状态来改变 content 的样式。<br><br><code>&lt;input id=&quot;modeCheckBox&quot; type=&quot;checkbox&quot;&gt;</code><br><br><code>&lt;label id=&quot;modeBtn&quot; for=&quot;modeCheckBox&quot;&gt;&lt;/label&gt;</code><br></p>
+<h3 id="结论："><a href="#结论：" class="headerlink" title="结论："></a><strong>结论：</strong><br></h3><p>·HTML&#x2F;CSS&#x2F;JS 各司其职<br><br>·应当避免不必要的由 JS 直接操作样式<br><br>·可以用 class 来表示状态<br><br>·纯展示类交互寻求零 JS 方案<br></p>
+<h2 id="组件封装："><a href="#组件封装：" class="headerlink" title="组件封装："></a>组件封装：</h2><h3 id="组件是什么？"><a href="#组件是什么？" class="headerlink" title="组件是什么？"></a><strong>组件是什么</strong>？</h3><p>组件是指 Web 页面上抽出来一个个包含<strong>模版</strong> (HTML)、<strong>功能</strong>(JS) 和<strong>样式</strong>(CSS) 的单元。好的组件具备<strong>封装性、正确性、扩展性、复用性</strong>。<br></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/42478655b792441390756c3b54dce140~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="结构：HTML"><a href="#结构：HTML" class="headerlink" title="结构：HTML"></a><strong>结构：HTML</strong><br></h3><p>轮播图是一个典型的列表结构，我们可以用无序列表 ul 来实现。</p>
+<h3 id="表现：CSS"><a href="#表现：CSS" class="headerlink" title="表现：CSS"></a>表现：CSS<br></h3><p>·使用 CSS 绝对定位将图片重叠在同一位置<br><br>·轮播图切换的状态使用修饰符(modifier)<br><br>·轮播图切换的动画使用 CSS 中的 transition<br></p>
+<h3 id="行为：JavaScript"><a href="#行为：JavaScript" class="headerlink" title="行为：JavaScript"></a>行为：JavaScript<br></h3><p>API：<br></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Slider</span><br><span class="line">+getSelectedItem()</span><br><span class="line">+getSelectedItemIndex()</span><br><span class="line">+slideTo()</span><br><span class="line">+slideNext()</span><br><span class="line">+slidePrevious()</span><br></pre></td></tr></table></figure>
+
+<h3 id="思考：进一步改进怎么做？"><a href="#思考：进一步改进怎么做？" class="headerlink" title="思考：进一步改进怎么做？"></a>思考：进一步改进怎么做？</h3><h4 id="重构：插件化"><a href="#重构：插件化" class="headerlink" title="重构：插件化"></a><strong>重构：插件化</strong><br></h4><p><strong>解耦</strong>：<br><br>·将控制元素抽取成插件<br><br>·插件与组件之间通过<strong>依赖注入</strong>方式建立联系<br></p>
+<h4 id="重构：模板化"><a href="#重构：模板化" class="headerlink" title="重构：模板化"></a><strong>重构：模板化</strong><br></h4><p><strong>解耦：</strong><br><br>·将 HTML 模板化，更易于扩展<br></p>
+<h4 id="重构：组件框架"><a href="#重构：组件框架" class="headerlink" title="重构：组件框架"></a><strong>重构：组件框架</strong><br></h4><p><strong>抽象：<br></strong><br>将通用的组件模型抽象出来<br></p>
+<h3 id="总结：基本方法"><a href="#总结：基本方法" class="headerlink" title="总结：基本方法"></a><strong>总结：基本方法<br></strong></h3><p><strong>·结构设计</strong><br><br><strong>·展示效果</strong><br><br><strong>·行为设计</strong>：API（功能），Event（控制流）<br><br><strong>·组件设计的原则</strong>:封装性、正确性、扩展性、复用性实现<br><br><strong>·组件的步骤</strong>:结构设计展现效果、行为设计<br><br><strong>·三次重构</strong>：插件化，模板化，抽象化<br></p>
+<h2 id="过程抽象："><a href="#过程抽象：" class="headerlink" title="过程抽象："></a><strong>过程抽象：</strong></h2><p>·用来处理局部细节控制的一些方法<br><br>·函数式编程思想的基础应用<br><br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f0bb8691a0484aa7b24b4333db0f8f8a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="操作次数限制："><a href="#操作次数限制：" class="headerlink" title="操作次数限制："></a><strong>操作次数限制：</strong><br></h3><p>·一些异步交互<br><br>·一次性的 HTTP 请求<br></p>
+<h3 id="高阶函数："><a href="#高阶函数：" class="headerlink" title="高阶函数："></a><strong>高阶函数：</strong><br></h3><p><strong>Once:</strong><br><br>为了能够让”只执行一次”的需求覆盖不同的事件处理，我们可以将这个需求剥离出来，这个过程我们成为过程抽象。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2a1d0845ab7b4a50a4ab7d82e89f71df~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="HOF"><a href="#HOF" class="headerlink" title="HOF:"></a><strong>HOF:</strong><br></h3><p>·以函数作为参数<br><br>·以函数作为返回值<br><br>·常用于作为函数装饰器<br></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/873fa0bda0134c99a6f5fd0b64c0668a~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="常用的高阶函数："><a href="#常用的高阶函数：" class="headerlink" title="常用的高阶函数："></a>常用的高阶函数：<br></h3><p><strong>·Once</strong><br><br><strong>·Throttle</strong><br><br><strong>·Debounce</strong><br><br><strong>·Consumer&#x2F;2</strong><br><br><strong>·Iterative</strong><br></p>
+<h3 id="编程范式："><a href="#编程范式：" class="headerlink" title="编程范式："></a>编程范式：<br></h3><p><strong>命令式与声明式</strong><br><br>命令式：面向过程，面向对象<br><br>声明式：逻辑算法，函数式<br><br>JavaScript 既有命令式也有声明式的编程语言。<br><br><strong>命令式则是趋向于怎么做，声明式则是趋向于做什么。</strong><br></p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>过程抽象 &#x2F; HOF &#x2F; 装饰器<br><br>命令式 &#x2F; 声明式<br></p>
+<h2 id="写好-JS-的一些原则（二）"><a href="#写好-JS-的一些原则（二）" class="headerlink" title="写好 JS 的一些原则（二）"></a>写好 JS 的一些原则（二）</h2><p><strong>这一段真实的代码</strong><br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c95ef2893ac24af6a01aeeb2d12483b5~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>写代码的时候不能只看代码的格式，来判断代码的质量，也要看其使用场景。</p>
+<h3 id="写代码最应关注什么"><a href="#写代码最应关注什么" class="headerlink" title="写代码最应关注什么?"></a>写代码最应关注什么?<br></h3><p>风格 效率 约定 使用场景 设计<br></p>
+<h3 id="Left-pad"><a href="#Left-pad" class="headerlink" title="Left-pad"></a><strong>Left-pad<br></strong></h3><p>几年前，Node 发展很快，出现很多 node 的包和模块，其中就有 Left-pad，字符串补零，使字符串对齐。<br><br>事件本身的槽点：<br><br>·NPM 模块粒度<br><br>·代码风格<br><br>·代码质量&#x2F;效率<br></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/892a8fe0739a44eb9d5229dc6a4bce7b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p>重构一下：<br><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d2f31241708417c98937d76a3e789f8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>·代码更简洁<br><br>·效率更高<br></p>
+<h2 id="JavaScript-代码质量优化之路"><a href="#JavaScript-代码质量优化之路" class="headerlink" title="JavaScript 代码质量优化之路"></a>JavaScript 代码质量优化之路</h2><h3 id="1-交通灯：状态切换"><a href="#1-交通灯：状态切换" class="headerlink" title="1.交通灯：状态切换"></a>1.交通灯：状态切换<br></h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aff8e5a1cd3b4931976dbbf1ccd3f9f0~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="2-判断是否是四的幂"><a href="#2-判断是否是四的幂" class="headerlink" title="2.判断是否是四的幂"></a>2.判断是否是四的幂</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f45e8d70068042ec8498cf4c5db8d5bd~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="3-洗牌"><a href="#3-洗牌" class="headerlink" title="3.洗牌"></a>3.洗牌</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ebb031c597ca436e8be7ea57043b8699~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9c249842b7a345adafbad2d0bae3da74~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="4-分红包"><a href="#4-分红包" class="headerlink" title="4.分红包"></a>4.分红包</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4cebbf9706b640aa8b6c753e919ee0d4~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/14/JavaScript(%E4%B8%80)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" data-id="cliv4hms50000h8ju5rqq0z5v" data-title="JavaScript(一) | 青训营笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%B8%80)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          深入CSS(一) | 青训营笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/06/14/%E8%B5%B0%E8%BF%9B%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88-CSS-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">走进前端技术栈-CSS | 青训营笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/06/14/React-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">React | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/JavaScript(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">JavaScript(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E6%B7%B1%E5%85%A5CSS(%E4%BA%8C)-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">深入CSS(二) | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%89%8D%E7%AB%AF%E8%AF%AD%E8%A8%80%E4%B8%B2%E8%AE%B2-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">前端语言串讲 | 青训营笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/14/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%B9%E5%99%A8-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B0/">客户端容器 | 青训营笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Thresh<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
